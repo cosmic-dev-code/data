@@ -1,0 +1,70 @@
+<section x-data="getData()">
+	<div>
+
+		<!-- (prevent), previene el comportamiento por defecto. -->
+		<input type="button" value="Click" x-on:click.prevent="console.log('Prevenido')">
+
+		<!-- (stop), detiene la propagacion. -->
+		<input type="button" value="Click" x-on:click.stop="console.log('Detenido')">
+
+		<!-- (once), se asegura de que el controlador solo se llame UNA VEZ. -->
+		<button x-on:click.once="metodo()">Click</button>
+
+		<!-- (passive), debe aplicarse solo para los eventos tactiles, esto mejora el rendimiento 
+		cuando el usuario se desplaza por una pantalla tactil. -->
+		<div x-on:touchstart.passive="metodo()">
+			<!-- ... -->
+		</div>
+
+		<!-- --------------------------------------------- -->
+		<!-- ------ (Fuera) y (dentro) del elemento ------ -->
+		<!-- --------------------------------------------- -->
+
+		<!-- (away), se ejecutara cuando se de click a otro lugar que no sea a este elemento. -->
+		<input type="button" value="Click" x-on:click.away="metodo()">
+
+		<!-- (outside), conveniente para escuchar un clic fuera del elemento al que está adjunto. -->
+		<div class="message-overlay" x-on:click.outside="mostrar = false">
+			<!-- ... -->
+		</div>
+
+		<!-- (self), se dispara solo si el evento se produjo en este elemento y no en uno secundario. -->
+		<input type="button" x-on:click.self="metodo()">
+
+		<!-- ------------------------------ -->
+		<!-- ------ Objetos globales ------ -->
+		<!-- ------------------------------ -->
+
+		<!-- (window), aplica el evento al objeto global (window) y no al elemento en si. -->
+		<div x-on:keyup.escape.window="metodo()"></div>
+
+		<!-- (document), aplica el evento al objeto global (document) y no al elemento en si. -->
+		<div x-on:keyup.escape.document="metodo()"></div>
+
+		<!-- ----------------------------- -->
+		<!-- ------ Demora y tiempo ------ -->
+		<!-- ----------------------------- -->
+
+		<!-- (debounce), el evento ocurre al instante, (esto viene por defecto). -->
+		<input type="text" x-on:input.debounce="metodoAsincrono()">
+
+		<!-- (debounce.{x}ms), el evento se ejecuta despues de {x} numero de milisegundos. -->
+		<input type="text" x-on:input.debounce.500ms="metodoAsincrono()">
+
+		<!-- (throttle), similar a (debounce) dispara el evento despus de (250 milisegundos), 
+		funcional para eventos que se disparan repetidamente. -->
+		<input type="text" x-on:input.throttle="metodoAsincrono()">
+
+		<!-- (throttle.{x}ms) tambien puede ser personalizado recibiendo {x} numero de milisegundos. -->
+		<input type="text" x-on:input.throttle.500ms="metodoAsincrono()">
+
+		<!-- ----------------------------------- -->
+		<!-- ------ Mezclar modificadores ------ -->
+		<!-- ----------------------------------- -->
+
+		<section>
+			<!-- Podemos mezclar mas de un evento. -->
+			<textarea x-on:touchend.passive.window.once.debounce.50ms="all(); end();"></textarea>
+		</section>
+	</div>
+</section>

@@ -1,0 +1,63 @@
+<!-- ##########=======================########## -->
+<!-- ######===--- Sincronizar datos ---===###### -->
+<!-- ##########=======================########## -->
+
+<section x-data="{numero: 0, numero1: 0}">
+	
+	<div>
+		<!-- La propiedad (x-model) sincroniza un (input) con una variable, de esa manera la 
+		variable adquiere el valor del input en tiempo real. -->
+		<input type="text" placeholder="Numero 0" x-model="numero">
+		<input type="text" placeholder="Numero 1" x-model="numero1">
+	</div>
+
+	<input type="button" value="Sumar" x-on:click="'La suma es: '+(parseInt(numero) + parseInt(numero1))">
+
+</section>
+
+<!-- ##########======================########## -->
+<!-- ######===--- Mini calculadora ---===###### -->
+<!-- ##########======================########## -->
+
+<section x-data="{numero0: 0, numero1: 0, type: null}">
+
+	<div>
+		<label>
+			<!-- Hacemos la sincronizacion. -->
+			<input type="text" width="100" x-model="numero0">
+		</label>
+	</div>
+	<div>
+		<label>
+			<!-- Hacemos la sincronizacion. -->
+			<input type="text" width="100" x-model="numero1">
+		</label>
+	</div>
+	<div>
+		<!-- Damos el valor de la operacion. -->
+		<input type="button" value="Sumar" x-on:click="type = '+'">
+		<input type="button" value="Resta" x-on:click="type = '-'">
+		<input type="button" value="Multiplicar" x-on:click="type = '*'">
+		<input type="button" value="Dividir" x-on:click="type = '/'">
+	</div>
+
+	<article>
+		<!-- De acuerdo al tipo hacemos la operacion. -->
+		<template x-if="type == '+'">
+			<span x-text="('La suma es: '+(parseInt(numero0) + parseInt(numero1)))"></span>
+		</template>
+		<template x-if="type == '-'">
+			<span x-text="('La resta es: '+(parseInt(numero0) - parseInt(numero1)))"></span>
+		</template>
+		<template x-if="type == '*'">
+			<span x-text="('La multiplicacion es: '+(parseInt(numero0) * parseInt(numero1)))"></span>
+		</template>
+		<template x-if="type == '/'">
+			<span x-text="('La division es: '+(parseInt(numero0) / parseInt(numero1)))"></span>
+		</template>
+		<template x-if="type == null">
+			<span x-text="'Ninguna opcion seleccionada.'"></span>
+		</template>
+	</article>
+	
+</section>

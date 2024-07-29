@@ -1,0 +1,33 @@
+/* ##########================########## */
+/* ######===--- Sin tipado ---===###### */
+/* ##########================########## */
+
+/**
+ * Variables sin tipado.
+ * 
+ * Las variables aqui no tienen tipado definido, por lo que pueden cambiar su valor dinamicamente.
+ */
+
+$variable: 50; // int
+
+$variable: true; // bool.
+
+$variable: 5.555; // float.
+
+$variable: "Cadena de texto"; // Usuario
+
+/* ##########===========########## */
+/* ######===--- Scope ---===###### */
+/* ##########===========########## */
+
+// -------------------- //
+// ------ Global ------ //
+// -------------------- //
+
+// Esta es una variable (global).
+$variable-global: 10px solid !important;
+
+.elemento{
+	// Esta variable ha sido declarada de manera (local), solo existente en este bloque.
+	$font: 100rem;
+}

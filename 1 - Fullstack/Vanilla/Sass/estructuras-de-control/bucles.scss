@@ -1,0 +1,72 @@
+/* ##########=================########## */
+/* ######===--- Bucle (for) ---===###### */
+/* ##########=================########## */
+
+/* Aqui el (for) indica: 
+	--- (from), el valor inicial de la variable ($i).
+	--- (through) / (to), hasta donde tiene que llegar.
+
+NOTA: La variable ($i) se incrementa en (1) en cada iteracion, por lo que no hay que especificado. */
+
+@for $i from 1 through 10{
+	// ...
+}
+
+// (to) es igual que (through).
+@for $i from 1 to length($lista){
+	// ...
+}
+
+/**
+ * A diferencia de otros lenguajes, aqui los bucles no pueden detenerse.
+ */
+@for $i from 1 to 10{
+	// El valor de ($i) cambia, pero el bucle no se detiene sino hasta que llega a (10).
+	$i: 10;
+}
+
+/* ##########==================########## */
+/* ######===--- Bucle (each) ---===###### */
+/* ##########==================########## */
+
+/**
+ * Itera una lista normal.
+ */
+
+$lista: ("Brandon", "Anthony", "Cosmic");
+
+@each $nombre in $lista{
+	.elemento-#{$nombre}{
+		// ...
+	}
+}
+
+/**
+ * Itera una lista asosiativa.
+ */
+
+$assoc: (
+	"Brandon": 22, 
+	"Anthony": 20, 
+	"Cosmic": 19
+);
+
+@each $nombre, $edad in $lista{
+	.nombre-#{$nombre}{
+		edad: #{$edad};
+	}
+}
+
+/* ##########===================########## */
+/* ######===--- Bucle (while) ---===###### */
+/* ##########===================########## */
+
+// El bucle (while) funciona como el de siempre.
+
+$i: 0;
+
+@while $i > 10{
+	@debug $i;
+
+	$i: ($i + 1);
+}

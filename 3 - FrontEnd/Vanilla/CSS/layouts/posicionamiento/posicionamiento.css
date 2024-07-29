@@ -1,0 +1,134 @@
+/* ##########==============================########## */
+/* ######===--- Posicionamiento (static) ---===###### */
+/* ##########==============================########## */
+
+/**
+ * Elementos posicionados.
+ * 
+ * Se le considera a un elemento como posicionado siempre que su valor sea diferente al (static).
+ */
+
+div{
+/* Los elementos puede tener estas posiciones:
+	--- (static), el elemento permanece estatico, por lo que no se puede mover.
+	--- (relative), el elemento puede moverse pero conserva su lugar.
+	--- (absolute), el objeto pierde su lugar y se sub expone al contenido, toma de referencia al elemento 
+		posicionado mas cercano.
+	--- (fixed), queda fijo a la pantalla del navegador y la toma por referencia, sub exponiendose a la onformacion.
+	--- (sticky), queda fijo a la pantalla del navegador, tomando como referencia el ancho de su propio contenedor padre. */
+	position: static;
+}
+
+/* ##########================================########## */
+/* ######===--- Posicionamiento (relative) ---===###### */
+/* ##########================================########## */
+
+div{
+	/* Posicionamos el elemento. */
+	position: relative;
+
+	/* Al mover el elemento de su lugar, este conserva todavia su espacio en el (layout).
+	Por lo que no es muy optimo moverlo.
+
+	El posicionamiento (relativo) se utiliza mayormente para tomar a dicho elemento como (referencia). */
+
+	/* ------------------------- */
+	/* ------ Direcciones ------ */
+	/* ------------------------- */
+
+	/* Para mover el elemento por encima del contenedor posicionado, podemos hacer uso de las propiedades: 
+		--- (top), parte [superior] del elemento hacia su elemento padre.
+		--- (right), parte [derecha] del elemento hacia su elemento padre.
+		--- (bottom), parte [inferior] del elemento hacia su elemento padre.
+		--- (left), parte [izquierda] del elemento hacia su elemento padre. */
+	top: 10px; right: 10px; bottom: 10px; left: 0;
+
+	/* Proporciona una profundidas solo a los elementos posicionados para que se coloquen unos por: 
+		--- Encima o detras de otros.
+		--- Entre mayor sea el numero, se sub expondra por encima de los de menor cantidad. */
+	z-index: 3;
+
+	/* ----------------------- */
+	/* ------ Shorthand ------ */
+	/* ----------------------- */
+
+	/* Esto es equivalente a... */
+	top: 10px; right: 10px; bottom: 10px; left: 10px;
+
+	/* Esto. */
+	inset: 10px;
+}
+
+/* ##########================================########## */
+/* ######===--- Posicionamiento (absoluto) ---===###### */
+/* ##########================================########## */
+
+section{
+	/* Para que el (article) tome como referencia su contenedor padre, debemos posicionar al elemento padre. */
+	position: relative;
+}
+
+	section article{
+		/* El elemento se sub expondra al contenido de su elemento padre, flotando sobre el y perdiendo su lugar. */
+		position: absolute;
+
+		/* Puede moverse por dentro de toda su referencia. */
+		top: 10%; left: 3rem;
+	}
+
+	/* --------------------- */
+	/* ------ z-index ------ */
+	/* --------------------- */
+
+	/* El elemento queda (2) de profundidad (encima). */
+	section > div:first-child{
+		position: absolute; z-index: 2;
+	}
+
+	/* Este elemento queda (1) de profundidad, por lo que queda (debajo) del (2). */
+	section > div:first-child{
+		position: absolute; z-index: 1;
+	}
+
+/* ##########=============================########## */
+/* ######===--- Posicionamiento (fixed) ---===###### */
+/* ##########=============================########## */
+
+main section article > div{
+	/* Toma como referencia la ventana del navegador, sub exponiendose a todo el (layout) y flotando sobre el mismo. 
+		--- No importa si hay otro elemento posicionado cerca o si su elemento padre esta posicionado. */
+	position: fixed;
+
+	/* Aplican las mismas reglas que el (relative) y el (absolute). */
+	top: 0; right: 0;
+	z-index: 100;
+}
+
+/* ##########==============================########## */
+/* ######===--- Posicionamiento (sticky) ---===###### */
+/* ##########==============================########## */
+
+/**
+ * (sticky) se posiciona en referencia a su contenedor.
+ */
+
+.container{
+	/* Para que funcione es necesario darle un alto al (contenedor). */
+	height: 600px;
+}
+
+	.container > div{
+		/* Este posicionamiento es una mezcla entre (fixed) y (static). Pero toma de referencia 
+		solo a su contenedor. Considera: 
+			--- Es (static) pero cuando su (top) es 0 en el layout se vuelve (absolute).
+			--- Solo se dezplaza en el alto de su contenedor.
+			--- Solo llega al limite del alto de su contenedor y se vuelve (static). */
+		position: sticky;
+
+		/* Indica cuanto debe considerar de su (top) antes de llegar al limite del alto de la 
+		pantalla del navegador. */
+		top: 30px;
+
+		/* Indica la profundidad. */
+		z-index: 10;
+	}

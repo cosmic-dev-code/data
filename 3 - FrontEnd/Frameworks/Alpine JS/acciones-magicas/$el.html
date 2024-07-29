@@ -1,0 +1,25 @@
+<!-- ##########========================########## -->
+<!-- ######===--- La propiedad ($el) ---===###### -->
+<!-- ##########========================########## -->
+
+<section x-data>
+
+	<!-- La propiedad ($el) nos devuelve todo el componente como tal, 
+	la etiqueta padre con el atributo (x-data). -->
+	<button x-on:click="window.alert($el)">Click</button>
+
+</section>
+
+<!-- ##########===============================########## -->
+<!-- ######===--- ($el) y las (referencias) ---===###### -->
+<!-- ##########===============================########## -->
+
+<section x-data>
+	
+	<!-- Dentro del (div) de referencia metemos nuestro componente (section). -->
+	<button x-on:click="$refs.miDiv.innerHTML = $el"></button>
+
+	<!-- Referencia del (div). -->
+	<div x-ref="miDiv"></div>
+
+</section>

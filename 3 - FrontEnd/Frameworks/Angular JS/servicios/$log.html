@@ -1,0 +1,12 @@
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", function($scope, $log){
+		
+		/* El servicio (log) es el mismo que console */
+		$log.log("Hola ", "mundo");
+
+	});
+</script>
+
+<section ng-app="myApp" ntroller="ctrl"></section>

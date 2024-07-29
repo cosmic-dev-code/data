@@ -1,0 +1,96 @@
+
+<!-- ------------------------------------------ -->
+<!-- ------ Opciones, elementos simples  ------ -->
+<!-- ------------------------------------------ -->
+
+<section ng-app="app" ng-controller="ctrl">
+
+	<!-- (ng-options), se utiliza para darle valores a la etiqueta (select), 
+	recibe por valor la iteración de un arreglo. -->
+	<select ng-options="x for x in nombres" ng-model="selectedName">
+		<!-- ... -->
+	</select>
+
+	<div>
+		<!-- Imprimimos el elemento seleccionado. -->
+		<span>Nombre: {{ selectedName }}</span>
+	</div>
+</section>
+
+<script type="text/javascript">
+	const app = angular.module("app", []).controller("ctrl", function($scope){
+		$scope.nombres = [
+			'Brandon', 'Anthony', 
+			'Olivares', 'Amador'
+		];
+	});
+</script>
+
+<!-- ------------------------------------------- -->
+<!-- ------ Opciones, objetos, (ng-value) ------ -->
+<!-- ------------------------------------------- -->
+
+<section ng-app="app" ng-controller="ctrl">
+	<!-- Enlazamos datos. -->
+
+	<select ng-model="mUsuario">
+
+		<!-- (ng-value) permite dar por valor un objeto Javascript. -->
+		<option ng-repeat="usuario in usuarios" ng-value="{{ usuario }}">
+			<!-- Imprimimos el contenido de la etiqueta. -->
+			<span>{{ usuario.nombre }}</span>
+		</option>
+
+		<!-- Aqui la etiqueta (option) se repite tantas veces segun la dimension de (usuarios). -->
+
+	</select>
+
+	<!-- De tener valor, imprimimos el valor. -->
+	<div ng-if="mUsuario">
+		<p>
+			<strong>{{ mUsuario }}</strong>
+		</p>
+	</div>
+</section>
+
+<script type="text/javascript">
+	const app = angular.module("app", []).controller("ctrl", function($scope){
+		$scope.usuarios = [
+			{nombre: "Brandon", edad: 22}, 
+			{nombre: "Anthony", edad: 20}, 
+			{nombre: "Cosmic", edad: 19}
+		];
+	});
+</script>
+
+<!-- --------------------------- -->
+<!-- ------ Clave y valor ------ -->
+<!-- --------------------------- -->
+
+<section ng-app="app" ng-controller="ctrl">
+	<!-- Iteramos las opciones, (llave, valor): 
+		--- (x), Se coloca por contenido de la opción la llave.
+		--- (y), Se coloca por valor de la opción el valor. -->
+	<select 
+		ng-options="x for (x, y) in autos" 
+		ng-model="auto" 
+	></select>
+
+	<div ng-if="auto">
+		<p>
+			<strong>{{ auto }}</strong>
+		</p>
+	</div>
+</section>
+
+<script type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+		$scope.autos = {
+			auto0: 'Ford', 
+			auto1: 'Toyota', 
+			auto2: 'Nissan'
+		};
+	});
+</script>

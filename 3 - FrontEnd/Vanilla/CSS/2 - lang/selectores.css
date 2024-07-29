@@ -1,0 +1,95 @@
+
+/* ##########=========================########## */
+/* ######===--- Tipos de selectores ---===###### */
+/* ##########=========================########## */
+
+*{
+	/* (Selector universal)
+	todos los estilos que vayan aqui se aplican a todos los elementos. */
+}
+
+h2{
+	/* (Selector de etiqueta), se aplica a todas las etiquetas del mismo tipo. */
+}
+
+div p{
+	/* (Selector por desendencia), se aplica a todas las etiquetas dentro de la primera. */
+}
+
+div > p{
+	/* (Selector por hijo directo), se aplica solo a las etiquetas que sean hijos de la primera 
+	etiqueta, sin importar si hay otras etiquetas iguales dentro de otras. */
+}
+
+div + section{
+	/* (Selector hermano adyacente o directo) indica que toda las etiquetas al lado del elemento 
+	tendran los estilos aplicados. Los elementos deben estar dentro de la misma raiz. */
+}
+
+b ~ span{
+	/* (Selector hermano general), los estilos se aplican a aquel elemento que se encuentre 
+	en la misma raiz despues del elemento.
+		--- <b></b>
+		---	<span></span>
+	*/
+}
+
+.clase{
+	/* (Selector por clase), a todos los elementos que poseen la misma clase. */
+}
+
+#id{
+	/* (Selector por id), al elemento que tenga el id. */
+}
+
+/* ##########==========================########## */
+/* ######===--- Selectores por valor ---===###### */
+/* ##########==========================########## */
+
+a[href="https:\\MisterGael.com"]{
+	/* Todos los elementos que tengan dicho enlace podran tener las porpiedades. */
+}
+
+.mi-enlace[href*="proccom.com"]{
+	/* (*), que contenga de forma global el texto. */
+}
+
+form[action^="registrarse"]{
+	/* (^), que contenga al principio el texto. */
+}
+
+#idFormulario[action$=".php"]{
+	/* ($), que contenga al final el texto. */
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+	/* Que tenga la pripiedad. */
+}
+
+img[href="carpeta/sub-carpeta/imagen.png"]{
+	/* Todos los elementos con la direccion del archivo. */
+}
+
+div[width-complete="100"]{
+	/* Que contenga una (propiedad inventada). */
+}
+
+/* ##########============================================########## */
+/* ######===--- Selectores que contienen otro selector ---===###### */
+/* ##########============================================########## */
+
+div.clase,
+.clase-elemento.clase,
+#idElemento.clase,
+div[width="100"].clase{
+	/* Todos los elementos que tengan la clase. */
+}
+
+div#idIdentificador,
+.clase-elemento#idIdentificador,
+#idElemento#idIdentificador,
+input[type="text"]#idIdentificador{
+	/* Todos los elementos que tengan el 'id'. */
+}

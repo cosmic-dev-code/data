@@ -1,0 +1,35 @@
+/* ##########======================########## */
+/* ######===--- PSEUDO ELEMENTOS ---===###### */
+/* ##########======================########## */
+
+/* Es (Sass) el operador (&) es similar a (this), refiere al elemento al que se le estan dando estilos 
+de acuerdo a la raiz. */
+
+section > textarea{
+	// ...
+	&::before{
+		// ...
+	}
+
+	&::after{
+		// ...
+	}
+
+	&::placeholder{
+		// ...
+	}
+}
+
+/* ##########=======================########## */
+/* ######===--- Salida para (CSS) ---===###### */
+/* ##########=======================########## */
+
+section > textarea{
+	// ...
+}section > textarea::before{
+	// ...
+}section > textarea::after{
+	// ...
+}section > textarea::placeholder{
+	// ...
+}

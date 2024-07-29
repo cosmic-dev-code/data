@@ -1,0 +1,68 @@
+<!-- Tabla atributos:
+	--- (cellpadding), define el relleno de las celdas.
+	--- (cellspacing), define el espaciado de las celdas.
+	--- (bgcolor), define el color de fondo.
+	--- (align), define el alineado de la tabla, define el alineado del texto.
+	--- (border), define los bordes de la tabla y de las celdas.
+	--- (colspan), toma la cantidad de celdas especificadas.
+
+	La etiqueta (colgroup) altera columnas enteras con la etiqueta (col), 
+	los atributos de la etiqueta (col) pueden ser: 
+		--- (span), para especificar cuantas etiquetas van a ser.
+		--- (style), para darle estilos a una o mas columnas de acuerdo al atributo 'span'.
+-->
+<table cellpadding="10" cellspacing="10" bgcolor="#ccc" align="center" border="1">
+	
+	<caption>Aqui va el titulo de la tabla</caption>
+	
+	<!-- Especifica los estilos de las columnas. -->
+	<colgroup>
+		<col span="1" style="background-color: #ccc;">
+		<col span="1" style="background-color: #888;">
+		<col span="1" style="background-color: #ccc;">
+	</colgroup>
+
+	<!-- Encabezado de la tabla. -->
+	<thead>
+		<tr bgcolor="#000">
+			<th colspan="3">
+				<font color="#fff" face="arial, sans-serif">Lista de usuarios</font>
+			</th>
+		</tr>
+		<tr align="center" bgcolor="#888">
+			<th id="idNombre">
+				<font color="#fff" face="arial, sans-serif">Nombre</font>
+			</th>
+			<th id="idApellido">
+				<font color="#fff" face="arial, sans-serif">Apellido</font>
+			</th>
+			<th id="idEdad">
+				<font color="#fff" face="arial, sans-serif">Edad</font>
+			</th>
+		</tr>
+	</thead>
+
+	<!-- Cuerpo de la tabla. -->
+	<tbody align="center">
+		<tr bgcolor="#fff">
+			<td headers="idNombre">Brandon</td>
+			<td headers="idApellido">Olivares</td>
+			<td headers="idEdad">21</td>
+		</tr>
+		<tr bgcolor="#fff">
+			<td headers="idNombre">Anthony</td>
+			<td headers="idApellido">Amador</td>
+			<td headers="idEdad" align="center" valign="top">20</td>
+		</tr>
+	</tbody>
+
+	<!-- Pie de la tabla. -->
+	<tfoot>
+		<tr>
+			<td colspan="3">
+				<font size="4" color="#888">Estos son todos los datos</font>
+			</td>
+		</tr>
+	</tfoot>
+
+</table>

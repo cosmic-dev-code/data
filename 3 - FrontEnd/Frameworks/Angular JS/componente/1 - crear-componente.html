@@ -1,0 +1,35 @@
+<main>
+
+	<!-- La directiva (ng-app), permite crear distintas aplicaciones dentro del codigo HTML, 
+	cada aplicacion puede tener distintos controladores. -->
+
+	<section ng-app="primera-app">
+
+		<!-- Cada controlador tiene sus propias (propiedades y metodos). -->
+		<!-- Trata a toda la etiqueta HTML y sus hijos como si fuera un componente. -->
+
+		<div ng-controller="primer-controlador">
+			<div>
+				<!-- Dentro podemos utilizar las directivas de Angular. -->
+				<p>{{ 5 + 5 }}</p>
+			</div>
+		</div>
+
+		<div ng-controller="segundo-controlador">
+			<!-- ... -->
+		</div>
+
+		<div ng-controller="tercer-controlador">
+			<!-- ... -->
+		</div>
+	</section>
+
+	<!-- Podemos definir varias aplicaciones con sus controladores. -->
+
+	<section ng-app="segunda-app">
+		<div ng-controller="primer-ctrl"></div>
+		<div ng-controller="segundo-ctrl"></div>
+		<div ng-controller="tercer-ctrl"></div>
+	</section>
+
+</main>

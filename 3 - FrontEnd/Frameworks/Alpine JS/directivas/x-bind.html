@@ -1,0 +1,54 @@
+
+<section x-data="{agregar: false}">
+
+	<div>
+		<input type="button" width="100" height="auto" x-on:click="agregar = !agregar">
+	</div>
+
+	<!-- (x-bind), modifica las propiedades de acuerdo a un valor booleano que recibe. -->
+
+	<!-- ------------------------------ -->
+	<!-- ------ Modificar clases ------ -->
+	<!-- ------------------------------ -->
+
+	<div x-bind:class="agregar ? 'visible' : 'visible'">
+		<!-- Agrega un valor u otro de acuerdo al operador (ternario). -->
+	</div>
+
+	<div x-bind:class="{'visible': agregar}">
+		<!-- Agrega "visible" si (agregar) es (true). -->
+	</div>
+
+	<div x-bind:class="{'visible': agregar, 'invisible': !agregar}">
+		<!-- Agrega "visible" si (agregar) es (true). -->
+		<!-- Agrega "invisible" si (agregar) es (false). -->
+	</div>
+
+	<div x-bind:class="agregar || 'invisible'">
+		<!-- Agrega "invisible" si (agregar) es (false). -->
+	</div>
+
+	<div x-bind:class="agregar && 'visible'">
+		<!-- Agrega "visible" si (agregar) es (true). -->
+	</div>
+
+	<!-- (:class) es una manera de acortar, es igual que (x-bind:class). -->
+	<div :class="agregar && 'visible'">
+		<!-- Agrega "visible" si (agregar) es (true). -->
+	</div>
+
+	<!-- ----------------------------------- -->
+	<!-- ------ Modificar propiedades ------ -->
+	<!-- ----------------------------------- -->
+
+	<!-- Agrega o quita un propiedad de acuerdo a un valor booleano. -->
+	<button x-bind:disabled="agregar">
+		<!-- En este caso agrega (diabled) si (agregar) es (true). -->
+	</button>
+
+	<!-- Forma acortada. -->
+	<button :disabled="agregar">
+		<!-- ... -->
+	</button>
+
+</section>

@@ -1,0 +1,62 @@
+<!-- ##########========================########## -->
+<!-- ######===--- Valor tipo (lista) ---===###### -->
+<!-- ##########========================########## -->
+
+<!-- Este (select) nos permite hacer que el usuario pueda buscar sus opciones: 
+	--- También las puede buscar con scroll.
+	--- (id y list) deben tener el mismo nombre para comunicarse el uno con el otro, 
+	de esta manera el input se comunica con la lista. -->
+<input list="idCursos">
+
+<!-- Datos de la lista. -->
+<datalist id="idCursos">
+	<option value="cpp">C++</option>
+	<option value="c">C</option>
+	<option value="cll">C#</option>
+	<option value="php">PHP</option>
+	<option value="js">Java script</option>
+</datalist>
+
+<!-- ##########=======================########## -->
+<!-- ######===--- Valores distintos ---===###### -->
+<!-- ##########=======================########## -->
+
+<!-- ------------------------------- -->
+<!-- ------ Valor de (tiempo) ------ -->
+<!-- ------------------------------- -->
+
+<!-- Tambien puede realizarse con tiempo. -->
+<input type="time" id="idTimes">
+
+<!-- Colocalos las opciones con los valores de tiempo para asignar. -->
+<datalist id="idTimes">
+	<option value="12:00">12:00</option>
+	<option value="13:00">01:00</option>
+	<option value="14:00">02:00</option>
+</datalist>
+
+<!-- ------------------------------ -->
+<!-- ------ Valor de (texto) ------ -->
+<!-- ------------------------------ -->
+
+<input type="text" id="idNames">
+
+<!-- Opciones de texto. -->
+<datalist id="idNames">
+	<option value="brandon">Brandon</option>
+	<option value="anthony">Anthony</option>
+	<option value="cosmic">Cosmic</option>
+</datalist>
+
+<!-- --------------------------------- -->
+<!-- ------ Valor de (numerico) ------ -->
+<!-- --------------------------------- -->
+
+<input type="text" id="idNumbers">
+
+<!-- Opciones de texto. -->
+<datalist id="idNumbers">
+	<option value="10">Primero</option>
+	<option value="20">Segundo</option>
+	<option value="30">Tercero</option>
+</datalist>

@@ -1,0 +1,76 @@
+<!-- ##########=========================########## -->
+<!-- ######===--- Eventos del (mouse) ---===###### -->
+<!-- ##########=========================########## -->
+
+<section x-data>
+
+	<!-- Cuando el usuario da click en el elemento. -->
+	<input type="button" value="Click" x-on:click="window.alert('Hola');">
+
+	<!-- Tenemos otros eventos como: 
+		--- (click).
+		--- (dblclick).
+		--- (contentmenu).
+
+		--- (mouseover).
+		--- (mouseout).
+		--- (moseenter).
+		--- (mouseleave).
+		--- (mousemove).
+		--- (mousedown).
+		--- (mouseup). -->
+
+</section>
+
+<!-- ##########==============================########## -->
+<!-- ######===--- Eventos de la (pantalla) ---===###### -->
+<!-- ##########==============================########## -->
+
+<section x-data="{open: true}">
+	<!-- Cuando la pantalla cambie su dimension. -->
+	<div x-on:resize.window="open = window.outerWidth > 768 ? true : false">
+
+		<div x-show="open">
+			<p>Mensaje</p>
+		</div>
+
+	</div>
+</section>
+
+<!-- ##########===========================########## -->
+<!-- ######===--- Eventos del (teclado) ---===###### -->
+<!-- ##########===========================########## -->
+
+<section x-data="getData()">
+	<div>
+
+		<!-- Cuando se (preciona) una tecla se ejecuta el codigo (javascript). -->
+		<input type="text" x-model="text" x-on:keydown="metodo()">
+
+		<!-- Otros eventos son: 
+			--- (keyup).
+			--- (keypress).
+			--- (input). -->
+
+		<!-- -------------------------------------- -->
+		<!-- ------ Modificadores del evento ------ -->
+		<!-- -------------------------------------- -->
+
+		<!-- (arrow-up), ocurre cuando se preciona la flecha hacia arriba. -->
+		<input type="text" x-on:keydown.arrow-up="showData()">
+		<input type="text" x-on:keyup.arrow-up="showData()">
+
+		<!-- Tenemos mas modificadores: 
+			--- (arrow-up).
+			--- (arrow-right).
+			--- (arrow-down).
+			--- (arrow-left).
+			--- (enter).
+			--- (escape).
+			--- (shift).
+			--- (alt).
+			--- (ctrl).
+			--- (a), (b), (c), etc; cualquier tecla especificada.
+			--- (ctrl.a), (ctrl.c), (ctrl.c), etc; cualquier tecla especificada. -->
+	</div>
+</section>

@@ -1,0 +1,131 @@
+<script type="text/javascript">
+	"use strict";
+
+	/* ##########======================########## */
+	/* ######===--- Crear componente ---===###### */
+	/* ##########======================########## */
+
+	const componentCard = new CosmicComponent(`
+		<section class="cosmic-section">
+			<div>
+				<h2>Hola mundo</h2>
+			</div>
+		</section>
+	`, "card");
+	/* Instanciamos un objeto (CosmicComponent), recibe por parametros: 
+		--- El contenido del componente.
+		--- El nombre del componente. */
+
+	componentCard.applyIn("#idDiv");
+	componentCard.applyIn("#idDiv1");
+	componentCard.applyIn("#idDiv2");
+	// Aplicamos la plantilla dentro del los elementos.
+
+	/* ##########=======================########## */
+	/* ######===--- Definir variables ---===###### */
+	/* ##########=======================########## */
+
+	const componentCard = new CosmicComponent(`
+		<section class="cosmic-section">
+			<div class="center">
+				<h2><%title%></h2>
+			</div>
+			<div class="center">
+				<p><%parrafo%></p>
+			</div>
+		</section>
+	`, "card");
+	/* Instanciamos un objeto (CosmicComponent) y detro de la plantilla creamos dos 
+	nuevas propiedades: 
+		--- title
+		--- parrado
+	Las variables se definen dentro del (template) utilizando: 
+		--- <% %> */
+
+	componentCard.applyIn("#idDiv", {
+		title: "Este es el titulo", 
+		parrafo: "Nuevo parrafo."
+	});
+
+	componentCard.applyIn("#idDiv", {
+		title: "Segundo titulo", 
+		parrafo: "Segundo parrafo."
+	});
+	/* Aplicamos la plantilla a los elementos y pasamos por segundo parametro un objeto 
+	con los valores de las variables. */
+</script>
+
+<!-- ##########==============================########## -->
+<!-- ######===--- Plantillas con etiquetas ---===###### -->
+<!-- ##########==============================########## -->
+
+<!-- Podemos crear una etiqueta (cosmic_com) la cual puede contener: 
+	--- El atributo (name) lleva el nombre del componente.
+	--- Las variables declaradas en la plantilla, se representan en 
+	forma de etiquetas dentro de la etiqueta padre del componente. -->
+<cosmic_com name="card">
+	<title>Este es el primer titulo</title>
+	<parrafo>
+		<p class="paragraph">Este es el primer parrafo.</p>
+	</parrafo>
+</cosmic_com>
+
+<!-- Variables como atributos. -->
+<cosmic_com 
+	name="card" 
+	title="Este es el segundo titulo" 
+	parrafo="Este es el segundo parrafo.">
+</cosmic_com>
+
+<!-- NOTA: El componente siempre debe llevar el atributo (name) el cual define 
+el nombre del componente al que corresponde. -->
+
+<script type="text/javascript">
+	// Esta es otra forma de crear un componente.
+	const componentCard = new CosmicComponent("", "");
+
+	componentCard.name = "card";
+	componentCard.content = (`
+		<section class="cosmic-section">
+			<div class="center">
+				<h2><%title%></h2>
+			</div>
+			<div class="center">
+				<p><%parrafo%></p>
+			</div>
+		</section>
+	`);
+
+	// Colocamos dentro de cada componente el template.
+	componentCard.getTemplates();
+</script>
+
+<!-- ##########==========================########## -->
+<!-- ######===--- Componente por (url) ---===###### -->
+<!-- ##########==========================########## -->
+
+<!-- ######### --- --- --- Archivo (plantillas/componente.html) --- --- --- ######### -->
+
+<section class="cosmic">
+	<div class="section">
+		<h1 class="title-good"><%title%></h1>
+	</div>
+	<dl><%content%></dl>
+	<div>
+		<button class="cosmic-button"><%valueButton%></button>
+	</div>
+</section>
+
+<!-- ######### --- --- --- Archivo (index.html) --- --- --- ######### -->
+
+<script type="text/javascript">
+	
+	/* Mandamos por parametros: 
+		--- El subfijo (url:) con la "url" donde se encuentra el componente.
+		--- El nombre del componente.
+		--- Un (callback) donde se recibe el componente. */
+	new CosmicComponent("url:plantillas/componente.html", "card", myCard => {
+		myCard.getTemplates();
+	});
+
+</script>

@@ -1,0 +1,66 @@
+<!-- 
+	--- (action), especifica la 'url' del archivo que recibira los datos.
+	--- (method), el metodo que se va a utilizar para enviar los datos, pueden ser: 
+		--- (POST), manda los datos por 'url' de forma oculta.
+		--- (GET), manda los datos por 'url' de forma visible.
+		--- (autocomplete), recibe uno de los siguientes valores: 
+			--- (on), para que se autocompleten las cajas de texto.
+			--- (off), para que no se autocompleten las cajas de texto.
+-->
+<form action="datos.php" method="POST" autocomplete="on">
+	<h1>Formulario de registro</h1>
+
+	<!-- La etiqueta (fieldset) encierra el contenido en una seccion con bordes. -->
+	<fieldset>
+		<!-- (legend) es el titulo de la seccion apartada. -->
+		<legend>Datos personales</legend>
+
+	</fieldset>
+
+	<fieldset>
+		<legend>Datos de cuenta</legend>
+		<!-- ... -->
+	</fieldset>
+
+	<fieldset>
+		<legend>Direccion</legend>
+		<!-- ... -->
+	</fieldset>
+
+	<div>
+		<input type="submit"/>
+	</div>
+</form>
+
+<!-- ##########============================########## -->
+<!-- ######===--- Tipo de datos a enviar ---===###### -->
+<!-- ##########============================########## -->
+
+<!-- Indica como se deben codificar los datos para ser enviados al servidor. -->
+
+(enctype="application/x-www-form-urlencoded"): Indica que los datos deben codificarse en forma de (clave => valor)
+
+Ejemplo: campo1=valor1&campo2=valor2
+
+<form action="https:\\example.com" method="post" enctype="application/x-www-form-urlencoded">
+	<input type="text" name="campo1" value="valor1">
+	<input type="submit" value="Enviar">
+</form>
+
+(enctype="multipart/form-data"): Indica que los datos deben codificarse en partes separadas.
+
+Esto para enviar archivos, cuando contiene el formulario el campo: <input type="file">
+
+<form method="post" enctype="multipart/form-data">
+	<input type="file" name="archivo">
+	<input type="submit" value="Enviar">
+</form>
+
+(enctype="text/plain"): Texto plano, (puede ser útil para pruebas o casos específicos donde se requiere texto sin formato).
+
+Esto para enviar archivos, cuando contiene el formulario el campo: <input type="file">
+
+<form method="post" enctype="text/plain">
+	<input type="text" name="campo1" value="valor1">
+	<input type="submit" value="Enviar">
+</form>

@@ -1,0 +1,31 @@
+<!-- ----------------------------------- -->
+<!-- ------ Imprimir una (imagen) ------ -->
+<!-- ----------------------------------- -->
+
+<!-- Colocamos por parametros: 
+	--- La ruta de la imagen.
+	--- EL tipo de dato que queremos imprimir, en este caso 
+	una (imagen). -->
+<input type="button" value="Imprimir" onclick="printJS('../images/img.png', 'image')">
+
+<!-- ------------------------------------------------- -->
+<!-- ------ Opciones de impresion de (imagenes) ------ -->
+<!-- ------------------------------------------------- -->
+
+<script type="text/javascript">
+	const imagenes = {
+    	printable: [
+    		// Imagenes a imprimir.
+    		'../images/icono.png', 
+    		'../images/fondo.png', 
+    		'../images/left.png'
+    	],
+	    type: 'image', // Tipo de dato a imprimir.
+	    header: 'Estas son varias imagenes a imprimir', // Encabezado.
+	    // Estilos para cada imagen individual.
+	    imageStyle: 'width:100%;margin-bottom:20px;'
+	}
+</script>
+
+<!-- Imprimimos las imagenes. -->
+<input type="button" value="Imprimir" onclick="printJS(imagenes)">

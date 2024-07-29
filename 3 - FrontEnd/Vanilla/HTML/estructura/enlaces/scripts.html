@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- ##########==============================########## -->
+	<!-- ######===--- Scripts externos, (head) ---===###### -->
+	<!-- ##########==============================########## -->
+
+	<!-- Podemos enlazar un archivo aparte. -->
+	<script src="url.js" type="text/javascript"></script>
+	<script src="../codigos/inicio.js" type="text/javascript"></script>
+
+	<!-- El atributo (defer) coloca el archivo JavaScript al final de la pagina. -->
+	<script defer src="url.js" type="text/javascript"></script>
+</head>
+<body>
+
+	<!-- ##########======================########## -->
+	<!-- ######===--- Scripts internos ---===###### -->
+	<!-- ##########======================########## -->
+
+	<!-- Podemos colocar directamente una etiqueta para programar. -->
+	<script type="text/javascript">
+		// Codigo aqui.
+	</script>
+
+	<!-- ##########==============================########## -->
+	<!-- ######===--- Scripts externos, (body) ---===###### -->
+	<!-- ##########==============================########## -->
+
+	<!-- Se puede colocar el archivo JavaScript al final de la pagina.
+		--- (language), especifica el lenguaje del script, (es obsoleto). -->
+	<script 
+		src="url.js" 
+		language="Javascript" 
+		type="text/javascript"
+	></script>
+
+	<!-- En caso de no tener habilitado los 'scripts' esto se ejecutara. -->
+	<noscript>
+		<span>Lamentablemente su navegador no tiene scripts disponibles.</span>
+	</noscript>
+</body>
+</html>

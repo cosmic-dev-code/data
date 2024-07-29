@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", function($interval){
+
+		/* El servicio (interval) es el mismo que window.setInterval */
+		$interval(function(){
+			console.log("Hola");
+		}, 3000);
+
+	});
+</script>
+
+
+<div ng-app="myApp" ng-controller="ctrl"></div>

@@ -1,0 +1,78 @@
+/* ##########============================########## */
+/* ######===--- Metodologias de diseño ---===###### */
+/* ##########============================########## */
+/*
+	(Mobile first): Utiliza medios de ancho minimo, comienza por ajustar la pagina a pantallas chicas como los 
+	dispositivos mobiles y escala hasta las pantallas mas grandes como las de escritorio.
+
+	(Desktop first): Utiliza medios como maximo, comienza ajustando la pagina para pantallas mas grandes como las 
+	de escritorio, y disminuye a las pantallas mas chicas como las mobiles.
+*/
+
+/**
+ * Elemento de ejemplo.
+ */
+
+.div{
+	width: 100px;
+	height: 100px;
+	background-color: red;
+	border: 1px solid black;
+}
+
+/* ##########==================########## */
+/* ######===--- Mobile First ---===###### */
+/* ##########==================########## */
+
+/* Aqui este representa el valor minimo de la pantalla.
+	--- Cuando la pantalla sea mas chica que (300px) el (div) tendra (100px) de ancho. */
+div{
+	width: 100px;
+}
+
+/**
+ * Aqui los valores comienzan a aumentar y dar estilos.
+ */
+
+/* Si tenemos una pantalla y tiene un ancho minimo de (300px) el (div) tomara (200px) de ancho. */
+@media screen and (min-width: 300px){
+	div{
+		width: 200px;
+	}
+}
+
+/* Si tenemos una pantalla y tiene un ancho minimo de (600px) el (div) tomara (400px) de ancho. */
+@media screen and (min-width: 600px){
+	div{
+		width: 400px;
+	}
+}
+
+/* ##########===================########## */
+/* ######===--- Desktop First ---===###### */
+/* ##########===================########## */
+
+/* Aqui, representa el ancho maximo.
+	--- En una pantalla con un ancho mayor a (600px) hara que el (div) tome como ancho (400px). */
+
+div{
+	width: 400px;
+}
+
+/**
+ * Aqui los valores comienzan a disminuir y dar estilos.
+ */
+
+/* Si tenemos una pantalla y tiene un ancho maximo de (600px) entonces el (div) adquiere un ancho de (200px). */
+@media screen and (max-width: 600px){
+	div{
+		width: 200px;
+	}
+}
+
+/* Si tenemos una pantalla y tiene un ancho maximo de (300px) entonces el (div) adquiere un ancho de (100px). */
+@media screen and (max-width: 300px){
+	div{
+		width: 100px;
+	}
+}

@@ -1,0 +1,40 @@
+.elemento{
+	/* ##########===============########## */
+	/* ######===--- Redeondeo ---===###### */
+	/* ##########===============########## */
+
+	/* Bordes redondeados especificos: 
+		--- (top) => 10.
+		--- (right) => 20.
+		--- (bottom) => 30.
+		--- (left) => 40. */
+	border-radius: 10px 20px 30px 40px;
+
+	/* Bordes: 
+		--- (top) => 10.
+		--- (right), (left) => 15. 
+		--- (bottom) => 30. */
+	border-radius: 10px 15px 30px;
+
+	/* Redondea los bordes: 
+		--- (top), (bottom) => 10. 
+		--- (right), (left) => 20. */
+	border-radius: 10px 20px;
+
+	/* Redondea todos los bordes. */
+	border-radius: 10px;
+
+	/* ------------------------------- */
+	/* ------ Especificar borde ------ */
+	/* ------------------------------- */
+
+	/* Las esquinas superiores. */
+
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+
+	/* Las esquinas inferiores. */
+
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}

@@ -1,0 +1,28 @@
+/* ##########==============########## */
+/* ######===--- Imagenes ---===###### */
+/* ##########==============########## */
+
+.contenedor > img{
+	/* Recibe varios valores: 
+		--- (contain), viene por defecto ajusta la imagen pero no rellena los espacios.
+		--- (cover), se ajusta al contenedor y abarca todo sin deformar la imagen.
+		--- (none), tiene las dimensiones originales.
+		--- (scale-down), toma el valor mas bajo entre (none) y (contain). */
+	object-fit: scale-down;
+
+	/* Esta propiedad permite manipular la posicion de la imagen, puede tener 
+	los siguientes valores: 
+		--- (top), colaca la imagen hacia arriba.
+		--- (right), coloca la imagen a la derecha.
+		--- (bottom), coloca la imagen hacia abajo.
+		--- (left), coloca la imagen a la izquierda.
+		--- (medidas, rem, px, etc), positivas son a la izquierda. 
+		--- (medidas, rem, px, etc), negativas son a la derecha. */
+	object-position: top;
+
+	/* Representa la relacion en que se vera la imagen o video: 
+		--- Ancho / Alto.
+
+	Ejemplo: Relacion de (10:9), 10 de ancho por 9 de alto. */
+	aspect-ratio: 10 / 9;
+}

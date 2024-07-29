@@ -1,0 +1,14 @@
+.elemento{
+
+	/* El elemento se vuelve completamente transparente, (pero sigue ahi). */
+	opacity: 0;
+
+	/* El elemento no es tan transparente, (pero sigue ahi). */
+	opacity: 0.3;
+
+	/* La propiedad (visibility) manipula si un objeto es visible o no, 
+	recibe los siguientes valores: 
+		--- (hidden), el elemento es invisible, (no esta ahi).
+		--- (visible), el elemento es visible, (esta ahi). */
+	visibility: hidden;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CKEditor</title>
+</head>
+<body>
+
+	<div>
+		<!-- Elemento (textarea) a convertir. -->
+		<textarea id="idTextArea" name="textarea"></textarea>
+	</div>
+
+	<!-- CDN -->
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
+
+    <script type="text/javascript">
+
+    	// Colocamos dentro del metodo (create) el elemento (textarea) que queremos convertir.
+    	ClassicEditor.create(document.getElementById("idTextArea"))
+    	.then(editor => {
+    		// Aqui se recibe el editor creado.
+    		window.editorGlobal = editor;
+
+    		// Retorna el valor del (textarea) con el HTML.
+    		editorGlobal.getData();
+
+    		// Le da un valor al HTML del (textarea).
+    		editorGlobal.setData(`
+    			<p>Este es un texto para <b>CKEditor5</b></p>
+    		`);
+
+    	})
+    	.catch(error => {
+    		// En caso de algun error.
+    		console.error(error);
+    	});
+    </script>
+    
+</body>
+</html>

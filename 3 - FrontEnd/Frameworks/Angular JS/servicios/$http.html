@@ -1,0 +1,128 @@
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", function($scope, $http){
+		$scope.myData = null;
+		$scope.usuarios = new Array();
+		$scope.errorMessage = null;
+
+		// ----------------------------- //
+		// ------ Peticion simple ------ //
+		// ----------------------------- //
+
+		// Hacemos una petición para extraer los datos.
+		$http.get("welcome.html").then(function(response){
+			// Obtenemos los datos.
+			$scope.myData = response.data;
+		});
+
+		// ------------------------------------ //
+		// ------ Ajustes de la petición ------ //
+		// ------------------------------------ //
+
+		/* Creamos dos funciones: 
+			--- Una que m utilizaremos en caso de que todo salga correctamente.
+			--- Una que m utilizaremos en caso de que todo salga mal. */
+		function mySuccess(response){
+			// Recibimos la respuesta del servidor.
+			$scope.myData = response.data;
+			// Devuelve el objeto con los ajustes de la petición.
+			response.config;
+			// Devuelve la información del encabezado.
+			response.headers;
+			// Devuelve el estado de la petición HTTP en un número.
+			response.status;
+			// Devuelve el estado de la petición HTTP en una cadena.
+			response.statusText
+		}
+
+		function myError(response){
+			$scope.myData = response.statusText;
+		}
+
+		// Objeto con los ajustes de la petición.
+		let settings = {
+			method: "GET", 
+			url: "welcome.html"
+		};
+
+		/* Hacemos la petición. */
+		$http.get(settings).then(mySuccess, myError);
+
+		// -------------------------- //
+		// ------ Peticion GET ------ //
+		// -------------------------- //
+
+		// Por medio del metodo GET.
+		$http.get({
+			method: "GET", 
+			url: "usuarios.json"
+		}).then(function mySuccess(response){
+			$scope.usuarios = response.data.usuarios;
+		}, function myError(response){
+			$scope.errorMessage = `Error al hacer la petición. Estado: ${response.status}`;
+		});
+
+		// Forma acortada.
+		$http.get("usuarios.json");
+
+		// --------------------------- //
+		// ------ Peticion POST ------ //
+		// --------------------------- //
+
+		// Por medio del metodo (post) hacemos una peticion a una url pasando los datos.
+		$http.post("/api", {
+			name: "Brandon", 
+			mail: "brandon@gmail.com"
+		})
+		.then(response => {
+			// ...
+		})
+		.catch(error => {
+			// ...
+		})
+
+	});
+</script>
+
+<section ng-app="myApp">
+	<div ng-controller="ctrl">
+
+		<!-- ------------------------------------- -->
+		<!-- ------ Datos de las peticiones ------ -->
+		<!-- ------------------------------------- -->
+
+		<!-- Mostramos los datos. -->
+		<p>{{ myData }}</p>
+
+		<!-- ------------------------------------------ -->
+		<!-- ------ Recorriendo los datos (JSON) ------ -->
+		<!-- ------------------------------------------ -->
+
+		<div>
+			<!-- Recorremos el arreglo (usuarios). -->
+			<ul ng-repeat="usuario in usuarios | orderBy: 'edad'">
+				<li>
+					<div>
+						<b>Nombres: </b><span>{{ usuario.nombres }}</span>
+					</div>
+					<div>
+						<b>Apellidos: </b><span>{{ usuario.apellidos }}</span>
+					</div>
+					<div>
+						<b>Edad: </b><span>{{ usuario.edad }}</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+
+		<!-- ----------------------------- -->
+		<!-- ------ Mostrar errores ------ -->
+		<!-- ----------------------------- -->
+
+		<div ng-if="errorMessage">
+			<p>{{ errorMessage }}</p>
+		</div>
+
+	</div>
+</section>

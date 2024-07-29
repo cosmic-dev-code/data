@@ -1,0 +1,51 @@
+<!-- ##########==============########## -->
+<!-- ######===--- Etiqueta ---===###### -->
+<!-- ##########==============########## -->
+
+<!-- La etiqueta (dialog) permite mostrar un cuadro de dialogo interactivo. -->
+
+<!-- El contenido HTML se mantiene oculto. -->
+<dialog>
+	<!-- HTML ... -->
+</dialog>
+
+<!-- (open) muestra el contenido. -->
+<dialog open>
+	<!-- HTML ... -->
+</dialog>
+
+<!-- ##########=============########## -->
+<!-- ######===--- Dialogo ---===###### -->
+<!-- ##########=============########## -->
+
+<dialog id="idDialog">
+	<div>
+		<!-- HTML ... -->
+	</div>
+	<div>
+		<!-- Cerramos la ventana. -->
+		<input type="button" value="Cerrar" onclick="idDialog.open = false">
+	</div>
+</dialog>
+
+<!-- Abrimos la ventana. -->
+<input type="button" value="Abrir" onclick="idDialog.open = true">
+
+<!-- ##########===========########## -->
+<!-- ######===--- Modal ---===###### -->
+<!-- ##########===========########## -->
+
+<!-- Una ventana flotante en lugar de un cuadro de dialogo. -->
+
+<dialog id="idDialog">
+	<div>
+		<!-- HTML ... -->
+	</div>
+	<div>
+		<!-- Cerramos la modal. -->
+		<input type="button" value="Cerrar" onclick="idDialog.close()">
+	</div>
+</dialog>
+
+<!-- Abrimos la modal. -->
+<input type="button" value="Abrir" onclick="idDialog.showModal()">

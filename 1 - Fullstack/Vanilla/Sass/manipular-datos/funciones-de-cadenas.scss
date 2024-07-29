@@ -1,0 +1,69 @@
+/* ##########================================########## */
+/* ######===--- Buscar dentro de un string ---===###### */
+/* ##########================================########## */
+
+/**
+ * NOTA: Aqui los indices empiezan desde (1) y no de (0).
+ */
+
+// Busca un string y devuelve el indice desde donde encontro.
+$result: str-index("Hello world!", "H"); // 1
+
+// Retorna la longitud de una cadena.
+$result: str-length("Hello world!");
+
+/* ##########=======================########## */
+/* ######===--- Cortar una cadena ---===###### */
+/* ##########=======================########## */
+
+/* Corta una cadena y retorna una nueva: 
+	--- Desde que posicion cortara la cadena.
+	--- Hasta donde cortara la cadena, (toma el ultimo indice). */
+$result: str-slice("Hello world!", 2, 5); // "ello"
+
+/* ##########============================########## */
+/* ######===--- Transformar una cadena ---===###### */
+/* ##########============================########## */
+
+// Convierte los caracteres de una cadena en (minuscula).
+$result: to-lower-case("HOLA MUNDO");
+
+// Convierte los caracteres de una cade a (mayuscula).
+$result: to-upper-case("hola mundo");
+
+// Devuelve una cadena unica en la sesion actual de Sass.
+$token: unique-id(); // "tyghefnsv"
+
+// Agrega comillas a una cadena.
+$result: quote(Hello world); // "Hello world"
+
+// Elimina las comillas (si las hay).
+$result: unquote("Hello world"); // Hello world
+
+/* ##########========================########## */
+/* ######===--- Concatenar cadenas ---===###### */
+/* ##########========================########## */
+
+/* Inserta una cadena de texto desde un indice especificado: 
+	--- La cadena a modificar.
+	--- El texto a insertar.
+	--- El indice desde el cual se insertara el texto. */
+$result: str-insert("Hello world!", " wonderful", 6); // "Hello wonderful world!"
+
+// Las cadenas pueden concatenarse con (+).
+$result: "El tiempo es: " + 10s; // "El tiempo es: 10s"
+$result: "Cadena " + true + " con " + "Paso.";
+
+/* ##########============================########## */
+/* ######===--- Comparacion de cadenas ---===###### */
+/* ##########============================########## */
+
+// Metodo de comparacion normal.
+$result: ("Hola" === "Hola");
+
+/* ##########=======================================########## */
+/* ######===--- Extraer un caracter de una cadena ---===###### */
+/* ##########=======================================########## */
+
+// Al menos con el (str-slice).
+$result: str-slice("Hello world!", 2, 2); // "e"

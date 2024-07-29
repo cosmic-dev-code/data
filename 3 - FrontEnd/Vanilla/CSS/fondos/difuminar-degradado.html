@@ -1,0 +1,104 @@
+
+<style>
+	/* ##########================================########## */
+	/* ######===--- Difuminacion del degradado ---===###### */
+	/* ##########================================########## */
+
+	/**
+	 * Tenemos aqui tres ejemplos de degradado.
+	 *
+	 * NOTA: Esto sirve para ambos casos, (degradado lineal) y (degradado radial).
+	 */
+
+	body{
+		/* Nota que el fondo es totalmente blanco, (y el color del fondo del padre cuenta mucho para los degradados). */
+		background-color: #fff;
+	}
+
+	#id1{
+		background-image: linear-gradient(
+			/* Color azul solido, (1), apenas presente y se nota muy poco en la parte superior del degradado, (5%). */
+			rgba(52, 152, 219, 1) 5%, 
+			/* Color azul (50% solido), esta presente en medio del degradado y naturalmente se degrada un (60%) 
+			mas que el color totalmente solido de (5%). */
+			rgba(52, 152, 219, 0.50) 60%, 
+			/* El ultimo color es transparente y se extiende por todo el degradado, ganando mas terreno al final, 
+			(de esta manera el degradado se combina con el fondo haciendo parecer que se desvanece). */
+			transparent 100%
+		);
+	}
+
+	#id2{
+		background-image: linear-gradient(
+			rgba(52, 152, 219, 1) 5%, 
+			rgba(52, 152, 219, 0.50) 60%, 
+			/* Si utilizamos un azul con (30%) de solidez en el azul podremos percibir una linea en el degradado 
+			final, (y no se combinara con el fondo).
+			
+			Claro, (a menos que coloquemos un azul casi imperceptible, (1% - 10%) y aun asi se percibira una linea. */
+			rgba(52, 152, 219, 0.30) 100%
+		);
+	}
+
+	#id3{
+		background-image: linear-gradient(
+			/* Nota que el azul solido, (el de 5% ahora es de 30%), por lo que tomara mas fuerza y se notara mas 
+			una division en el degradado final. */
+			rgba(52, 152, 219, 1) 30%, 
+			rgba(52, 152, 219, 0.50) 60%, 
+			/* Pero si tenemos un (fondo blanco) podemos optar por utilizar el degradado final (blanco), asi se 
+			desvanecera el degradado, (como si utilizaramos [transparent]). */
+			rgba(255, 255, 255, 0.30) 150%
+		);
+	}
+</style>
+
+<!-- NOTA: Abre este archivo en tu navegador web para ver el resultado. -->
+
+<div id="id1">
+	<pre>
+		linear-gradient(
+			rgba(52, 152, 219, 1) 5%, 
+			rgba(52, 152, 219, 0.50) 60%, 
+			transparent 100%
+		);
+	</pre>
+</div>
+
+<div id="id2">
+	<pre>
+		linear-gradient(
+			rgba(52, 152, 219, 1) 5%, 
+			rgba(52, 152, 219, 0.50) 60%, 
+			rgba(52, 152, 219, 0.30) 100%
+		);
+	</pre>
+</div>
+
+<div id="id3">
+	<pre>
+		linear-gradient(
+			rgba(52, 152, 219, 1) 30%, 
+			rgba(52, 152, 219, 0.50) 60%, 
+			rgba(0, 0, 0, 0.30) 150%
+		);
+	</pre>
+</div>
+
+<style type="text/css">
+	pre{
+		font-size: 16pt;
+	}
+
+	div{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		justify-content: center;
+		align-items: center;
+
+		width: 100%;
+		height: 300px;
+		margin: 30px 0;
+	}
+</style>

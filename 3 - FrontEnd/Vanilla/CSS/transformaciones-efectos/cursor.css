@@ -1,0 +1,7 @@
+.cursor{
+	cursor: pointer; /* Manita para seleccionar. */
+	cursor: auto; /* Seleccionar texto. */
+	cursor: cell; /* Una cruz gruesa. */
+	cursor: context-menu; /* Mouse normal. */
+	cursor: col-resize; /* Agrandar elemento hacia la derecha e izquierda. */
+}

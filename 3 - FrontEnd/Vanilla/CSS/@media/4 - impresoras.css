@@ -1,0 +1,108 @@
+/* ##########===================================########## */
+/* ######===--- Aplicar estilos al (imprimir) ---===###### */
+/* ##########===================================########## */
+
+.container{
+	/* Estos son los estilos normales. */
+}
+
+@media print{
+	.container{
+		/* Aqui se aplican los estilos a la hora de imprimir. */
+	}
+}
+
+/* ---------------------------------- */
+/* ------ (Layout) al imprimir ------ */
+/* ---------------------------------- */
+
+/* Estilos antes de imprimir. */
+.container{
+	display: flex;
+	flex-direction: row;
+}
+
+@media print
+{
+	/* Podemos utilizar cualquier layout al imprimir. */
+	.container{
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+/* ##########==========================########## */
+/* ######===--- Ajustes al (imprimr) ---===###### */
+/* ##########==========================########## */
+
+/* ------------------------------- */
+/* ------ Ajustes generales ------ */
+/* ------------------------------- */
+
+@media print{
+	.container{
+		/* Activamos los estilos al imprimir. */
+		-webkit-print-color-adjust: exact;
+		color-adjust: exact;
+
+		/* Utilizamos los puntos en lugar de medidas web para asegurar el resultado de la salida del papel. */
+		font-size: 12pt;
+	}
+
+	/* Permite agregarle al texto del enlace el valor del atributo asignado. */
+	a:after{
+		content: "(" attr(href) ")";
+	}
+}
+
+/* ------------------------------ */
+/* ------ Saltos de pagina ------ */
+/* ------------------------------ */
+
+@media print{
+
+	.salto-de-pagina{
+		/* Indica un salto de pagina antes del elemento, recibe las 
+		siguientes propiedades: 
+			--- (always), siempre inserte un salto de página antes del elemento.
+			--- (auto), saltos de página automáticos.
+			--- (avoid), evite el salto de página antes del elemento (si es posible).
+			--- (left), Inserte un salto de página antes del elemento para que la página 
+			siguiente tenga el formato de página izquierda.
+			--- (right), Inserte un salto de página antes del elemento para que la página 
+			siguiente tenga el formato de página derecha.
+			--- (initial), le da su valor predeterminado. */
+		page-break-after: auto;
+
+		/* Indica un salto de linea despues del elemento, recibe las 
+		siguientes propiedades: 
+			--- (always), siempre inserte un salto de página despues del elemento.
+			--- (auto), saltos de página automáticos.
+			--- (avoid), evite el salto de página despues del elemento (si es posible).
+			--- (left), Inserte un salto de página despues del elemento para que la página 
+			siguiente tenga el formato de página izquierda.
+			--- (right), Inserte un salto de página despues del elemento para que la página 
+			siguiente tenga el formato de página derecha.
+			--- (initial), le da su valor predeterminado. */
+		page-break-before: auto;
+
+		/* Indica si el elemento debe tener o no un salto de linea, recibe las 
+		siguientes propiedades: 
+			--- (auto), saltos de página automáticos.
+			--- (avoid), evite el salto de página dentro del elemento (si es posible).
+			--- (initial), le da su valor predeterminado. */
+		page-break-inside: auto;
+	}
+}
+
+/* ------------------------------ */
+/* ------ Ajuste de pagina ------ */
+/* ------------------------------ */
+
+@page{
+	/* (padding) de la pagina. */
+	padding: 30%;
+
+	/* Dimension de fuente de la pagina. */
+	size: A4 landscape;
+}

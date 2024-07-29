@@ -1,0 +1,11 @@
+<!-- (x-modelable) le permite exponer cualquier propiedad de (Alpine) como el objetivo de la directiva (x-model). -->
+
+<!-- (x-model) se sincroniza con "count" y le da el valor a "number". -->
+<!-- (x-modelable) le da como objetivo "count" a (x-model). -->
+<div x-data="{ number: 5 }">
+	<div x-data="{ count: 0 }" x-modelable="count" x-model="number">
+		<button x-on:click="count++">Increment</button>
+	</div>
+
+	<span x-text="number"></span>
+</div>

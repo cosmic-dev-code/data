@@ -1,0 +1,23 @@
+<!-- ------------------------------------------------------------------------------------------------
+NOTA: Para poder utilizar cualquier propiedad de (alpine) es necesario colocar la directiva (x-data).
+
+La propiedad (x-data) trata a la etiqueta que la contiene y a sus elementos hijos como un componente, 
+la propiedad (x-data) define las variables de cada componente dentro de un (objeto).
+-->
+
+<section x-data>
+	<div>
+
+		<!-- Ahora podemos utilizar las directivas de Alphine. -->
+
+		<template x-if="'Hola' === 'Hola'">
+			<h1>Es igual</h1>
+		</template>
+
+		<div x-show="false">
+			<div>
+				<p x-text="'Este es un texto de prueba desde Alphine'"></p>
+			</div>
+		</div>
+	</div>
+</section>

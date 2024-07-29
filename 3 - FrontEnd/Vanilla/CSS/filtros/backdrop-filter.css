@@ -1,0 +1,37 @@
+/**
+ * Aplica un filtro al (fondo) del (elemento).
+ */
+.background{
+	/* Podemos utilizar las demas propiedades. */
+	background-color: red;
+	background: url("background.png");
+
+	/**
+	 * Filtros para el (fondo).
+	 */
+
+	/* Aplica una tonalidad de gris, (100%) es totalmente gris. */
+	backdrop-filter:  grayscale(50%);
+
+	/* Aplica un difuminado, "borroso", (entre mas pixeles mas "borroso"). */
+	backdrop-filter: blur(5px);
+
+	/* Indica la cantidad de brillo, (100%) es por defecto. */
+	backdrop-filter: brightness(100%);
+
+	/* Indica la cantidad de contraste, (100%) es por defecto. */
+	backdrop-filter: contrast(100%);
+
+	/* Aplica una rotacion de color en (grados), (0) es por defecto. */
+	backdrop-filter: hue-rotate(90deg);
+
+	/* Invierte los colores del fondo; (0) es por defecto. */
+	backdrop-filter: invert(1);
+
+	/* Parecido a la saturacion pero al reves, (0) es por defecto, (100%) es lo maximo. */
+	backdrop-filter: sepia(50%);
+	backdrop-filter: sepia(0.5);
+
+	/* Podemos mezclar valores. */
+	backdrop-filter: contrast(200%) brightness(150%);
+}

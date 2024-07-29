@@ -1,0 +1,6 @@
+.elemento{
+	/* La funcion (min) establece el valor minimo para la propiedad.
+	En este ejemplo: 
+		--- Se establece (100%) siempre y cuando no supero los 500px, de lo contrario se le asignan 500px. */
+	width: min(100%, 500px);
+}

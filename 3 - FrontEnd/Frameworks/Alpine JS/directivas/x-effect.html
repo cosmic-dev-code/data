@@ -1,0 +1,9 @@
+<!-- (x-effect), es un observador que observa todas las propiedades del componente. -->
+
+<!-- En este caso cuando carga el componente se imprime (label) en consola; 
+cuando cambia de valor (label) se vuelve a imprimir en consola. -->
+<div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
+    <div>
+        <button x-on:click="label += ' World!'">Change Message</button>
+    </div>
+</div>

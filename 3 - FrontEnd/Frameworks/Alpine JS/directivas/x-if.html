@@ -1,0 +1,13 @@
+<section x-data="{option: false}">
+
+	<div>
+		<input type="button" value="Click" width="100" height="auto" x-on:click="option = true">
+	</div>
+
+	<!-- El atributo (x-if) permite ejecutar una validacion atraves de un valor 
+	booleano, es decir, con una condicion, pero el atributo (x-if) debe estar 
+	dentro de etiquetas (template). -->
+	<template x-if="option">
+		<span x-text="El boton ha sido clickeado"></span>
+	</template>
+</section>

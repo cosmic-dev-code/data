@@ -1,0 +1,42 @@
+.elemento{
+	/* ##########==============########## */
+	/* ######===--- Margenes ---===###### */
+	/* ##########==============########## */
+
+	/* Especifica cada uno de los lados: 
+		--- (top) => 10.
+		--- (right) => 15.
+		--- (bottom) => 20.
+		--- (left) => 3 */
+	margin: 10px 15px 20px 3px;
+
+	/* Especifica: 
+		--- (top) => 10.
+		--- (right), (left) => 15.
+		--- (bottom) => 20. */
+	margin: 10px 15px 20px;
+
+	/* Especifica a: 
+		--- (top) y (bottom) => 10.
+		--- (right), (left) => auto. */
+	margin: 10px auto;
+
+	/* Representa el margen a todas direcciones. */
+	margin: 10px;
+
+	/* -------------------------------- */
+	/* ------ Especificar margen ------ */
+	/* -------------------------------- */
+
+	/* Margen hacia arriba. */
+	margin-top: 15px;
+
+	/* Margen hacia la derecha. */
+	margin-right: 15px;
+
+	/* Margen hacia abajo. */
+	margin-bottom: 15px;
+
+	/* Margen hacia la izquierda. */
+	margin-left: 15px;
+}

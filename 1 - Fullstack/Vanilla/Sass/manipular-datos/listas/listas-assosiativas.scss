@@ -1,0 +1,55 @@
+
+$assoc: (
+    "uno": "js", 
+    "dos": "php", 
+    "tres": "cpp"
+);
+
+// Obtenemos el primer valor.
+$result: map-get($assoc, "uno");
+
+// ------------------------- //
+// ------ Anidaciones ------ //
+// ------------------------- //
+
+$assoc: (
+    "nombres": ("Brandon", "Anthony", "Olivares", "Amador"), 
+    "usuarios": (
+        "Brandon": 22, 
+        "Anthony": 20, 
+        "Cosmic": 19
+    )
+);
+
+$result: nth(map-get($assoc, "nombres"), 1); // "Brandon"
+
+$result: map-get(map-get($assoc, "usuarios"), "Brandon"); // 22
+
+// -------------------------- //
+// ------ Iterar array ------ //
+// -------------------------- //
+
+$assoc: (
+    "nombres": ("Brandon", "Anthony", "Olivares", "Amador"), 
+    "usuarios": (
+        "Brandon": 22, 
+        "Anthony": 20, 
+        "Cosmic": 19
+    )
+);
+
+// Los (each) son especiales a la hora de iterar.
+
+@each $indice, $valor in $assoc{
+
+	@if $indice == "usuarios"{
+		@each $indice-dos, $valor-dos in $indice{
+			// ...
+		}
+	}@else{
+		@each $valor-2 in $indice{
+			// ...
+		}
+	}
+
+}

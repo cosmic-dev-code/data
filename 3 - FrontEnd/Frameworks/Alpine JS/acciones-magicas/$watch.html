@@ -1,0 +1,29 @@
+
+<div x-data="{num: '30'}">
+	<div>
+
+		<!-- ($watch), siempre esta a la escucha del valor de una propiedad especifica, cuando inicia el componente 
+		y cuando la propiedad cambia de valor ($watch) se ejecuta , recibe dos parametros: 
+			--- El nombre de la propiedad.
+			--- Una funcion que recibe los valores de la propiedad. -->
+
+		<!-- La funcion recibe el (nuevo valor) de la propiedad. -->
+		<div x-init="$watch('num', nuevoValor => console.log(nuevoValor))"></div>
+
+		<!-- La funcion recibe el (nuevo valor) y el (antiguo valor) de la propiedad. -->
+		<div x-init="$watch('num', (nuevoValor, antiguoValor) => console.log(nuevoValor, antiguoValor))"></div>
+
+		<!-- Podemos dar los valores a funciones externas. -->
+		<div x-init="$watch('num', (value, oldValue) => recibir(value, oldValue)"></div>
+		<script type="text/javascript">
+			function recibir(nuevoValor, antiguoValor) {
+				// ...
+			}
+		</script>
+
+		<div>
+			<label>Cambiar valor: </label>
+			<input type="text" x-model="num">
+		</div>
+	</div>
+</div>

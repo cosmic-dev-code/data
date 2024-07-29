@@ -1,0 +1,26 @@
+
+<!-- (x-data), es la primera directiva de Alphine que se ejecuta, esta se encarga de hidratar al 
+componente de (metodos) y (propiedades). -->
+<section x-data="{nombre: 'Brandon', edad: 22}">
+	<div>
+		<div x-init="metodo()">
+			<!-- (x-init), ejecuta el codigo cuando inicia (Alphine). -->
+		</div>
+		<div x-cloak>
+			<!-- (x-cloak), se ejecuta cuando inicia (Alphine). -->
+		</div>
+		<div x-effect="console.log(nombre)">
+			<!-- (x-effect), se ejecuta cuando inicia (Alphine) y cuando cambia de valor 
+			alguna de las propiedades del componente. -->
+		</div>
+	</div>
+</section>
+
+<style type="text/css">
+	/* Para que funcione (x-cloak) agrege:  */
+	[x-cloak]{
+		display: none !important;
+	}
+
+	/* NOTA: Ve al archivo (x-cloak.html) para mas informacion. */
+</style>

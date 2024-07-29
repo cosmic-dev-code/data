@@ -1,0 +1,92 @@
+
+.direcciones{
+	/* ---------------------------------------- */
+	/* ------ Direcciones de las sombras ------ */
+	/* ---------------------------------------- */
+
+	/* Sombra hacia: 
+		--- Derecha.
+		--- Abajo.
+		--- Difuminado de la sombra.
+		--- Color de la sombra */
+	box-shadow: 1px 1px 10px rgba(0,0,0,0.6);
+
+	/* Sombra hacia: 
+		--- Izquierda.
+		--- Arriba.
+		--- Difuminado de la sombra.
+		--- Color de la sombra */
+	box-shadow: -1px -1px 10px rgba(0,0,0,0.6);
+
+	/* Especifica sombra para todos lados donde: 
+		--- Direccion X (derecha) y -(izquierda).
+		--- Direccion Y (abajo) y -(arriba).
+		--- Representa (difuminado).
+		--- Representa (grosor/tamaño) de la sombra a todos lados. */
+	box-shadow: 0 0 10px 1px rgba(0, 0, 0, 30%);
+
+	/* ------------------------------------------------ */
+	/* ------ Colores especificos para cada lado ------ */
+	/* ------------------------------------------------ */
+
+	/* Especificamos una sombra para cada lado. */
+	box-shadow: 
+		1px 0 10px rgb(0 0 0 / 30%), 
+		0 1px 10px rgb(255 255 255 / 30%), 
+		-1px 0 10px rgb(0 0 0 / 30%), 
+		0 -1px 10px rgb(255 255 255 / 30%);
+	
+	/* Sombra para todos lados. */
+	box-shadow: 
+		1px 1px 10px rgb(0 0 0 / 30%), 
+		-1px -1px 10px rgb(0 0 0 / 30%);
+
+	/* ----------------------------- */
+	/* ------ Encimar sombras ------ */
+	/* ----------------------------- */
+
+	/* CSS nos da la posibilidad de encimar una sombra sobre otra y hacer combinaciones. */
+	box-shadow: 
+		0 0 10px 4px #00F, 
+		0 0 26px 6px #000, 
+		0 0 20px 4px red;
+
+	/* Una sombra tras otra, todas hacia abajo. */
+	box-shadow: 
+		0 10px 13px rgb(0 0 0 / 35%), 
+		0 10px 13px rgb(255 255 255 / 35%), 
+		0 10px 13px rgba(33, 130, 25, 0.35);
+
+	/* ------------------- */
+	/* ------ inset ------ */
+	/* ------------------- */
+
+	/* La (inset) permite colocar la sombra dentro de los bordes de la caja. */
+	box-shadow: inset 0 10px 13px #000;
+
+	/* Sombra a todos lados: 
+		--- Fuera de los bordes de la caja.
+		--- Dentro de los bordes de la caja. */
+	box-shadow: 
+		0 0 10px 1px rgba(0, 0, 0, 30%)
+		inset 0 0 10px 1px rgba(0, 0, 0, 30%);
+
+	/* Podemos hacer combinaciones. */
+	box-shadow: 
+		1px 0 10px rgb(0 0 0 / 30%), 
+		inset 0 1px 10px rgb(0 0 0 / 30%), 
+		-1px 0 10px rgb(0 0 0 / 30%), 
+		inset 0 -1px 10px rgb(0 0 0 / 30%);
+
+	/* ------------------------------- */
+	/* ------ Sombra por filtro ------ */
+	/* ------------------------------- */
+
+	/* Aplica un efecto de sombra con la propiedad (filter), donde: 
+		--- El primer valor representa -(left) y (right).
+		--- El segundo valor representa (bottom) y -(top).
+		--- El tercer valor representa (difuminado).
+		--- El cuarto valor representa (color de sombra). */
+	filter: drop-shadow(10px 10px 10px #ccc);
+
+}

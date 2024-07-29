@@ -1,0 +1,42 @@
+.elemento{
+	/* ##########=============########## */
+	/* ######===--- Relleno ---===###### */
+	/* ##########=============########## */
+
+	/* Especifica cada uno de los lados: 
+		--- (top) => 10.
+		--- (right) => 15.
+		--- (bottom) => 20.
+		--- (left) => 3 */
+	padding: 10px 15px 20px 3px;
+
+	/* Especifica: 
+		--- (top) => 10.
+		--- (right), (left) => 15.
+		--- (bottom) => 20. */
+	padding: 10px 15px 20px;
+
+	/* Especifica redondeo a: 
+		--- (top) y (bottom) => 10.
+		--- (right), (left) => auto. */
+	padding: 10px auto;
+
+	/* Representa el relleno a todas direcciones. */
+	padding: 10px;
+
+	/* --------------------------------- */
+	/* ------ Especificar relleno ------ */
+	/* --------------------------------- */
+
+	/* Relleno hacia arriba. */
+	padding-top: 15px;
+
+	/* Relleno hacia la derecha. */
+	padding-right: 15px;
+
+	/* Relleno hacia abajo. */
+	padding-bottom: 15px;
+
+	/* Relleno hacia la izquierda. */
+	padding-left: 15px;
+}

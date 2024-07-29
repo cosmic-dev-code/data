@@ -1,0 +1,24 @@
+<!-- ------------------------------- -->
+<!-- ------ Imprimir un (pdf) ------ -->
+<!-- ------------------------------- -->
+
+<!-- Imprimimos un (pdf) colocando la direccion del archivo. -->
+<input type="button" value="Imprimir" onclick="printJS('../docs/documento.pdf')">
+
+<!-- ----------------------------- -->
+<!-- ------ Manejar errores ------ -->
+<!-- ----------------------------- -->
+
+<script type="text/javascript">
+	const imprimirPDF = {
+		printable: '../docs/documento.pdf', // Direccion del documento a imprimir.
+		type: 'pdf', // Tipo de dato a imprimir.
+		onError: function(error){
+			// Metodo para menejar el error en caso de no poder imprimir.
+			window.alert('Error => '+error.message);
+		}
+	};
+</script>
+
+<!-- Imprimimos el documento (PDF). -->
+<input type="button" value="Imprimir" onclick="printJS(imprimirPDF)">

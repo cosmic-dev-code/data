@@ -1,0 +1,173 @@
+.elemento-padre{
+	/* Ahora el elemento sera flexible. */
+	display: flex;
+
+	/* ##########=====================================########## */
+	/* ######===--- Direccion de la (caja flexible) ---===###### */
+	/* ##########=====================================########## */
+
+	/* Establecemos la direccion de los elementos 'hijo' del 
+	elemento padre, podemos poner estas direcciones: 
+
+		--- (column), los elementos se ponen en columna de arriba hacia abajo.
+		--- (column-reverse), los elementos se ponen en columna de abajo hacia arriba. columna a la inversa.
+		--- (row), los elementos se ponen en fila de izquierda a derecha.
+		--- (row-reverse), los elementos se ponen en fila de derecha a 
+		izquierda.
+	*/
+	flex-direction: row;
+
+	/* Indica cuando los elementos deben bajar al no caber en la fila, se le puede dar las siguientes 
+	propiedades: 
+		--- (wrap), los elementos bajan a la siguiente fila conservando su ancho original.
+		--- (wrap-reverse), los elementos suben en lugar de bajar.
+		--- (nowrap), los elementos no bajan y disminullen su ancho para caber. */
+	flex-wrap: wrap;
+
+	/* Esta es una mezcla entre 'flex-direction' y 'flex-wrap', puede adquirir las siguientes 
+	propiedades: 
+		--- (flex-start), (flex-end), colocamos los elementos de derecha a izquierda y de izquierda a derecha. 
+		--- (flex-center), centramos los elementos. 
+		--- (space-around), coloca un espacio entre cada elemento y las paredes del elemento padre, los espacios de 
+			las paredes son irregulares en comparacion de los demas espacios entre los elementos.
+		--- (space-between), coloca un espacio entre los elementos y las paredes del elemento padre, 
+			los espacios son irregulares. 
+		--- (wrap), los elementos bajan a la siguiente fila al no caber.
+		--- (wrap-reverse), los elementos bajan a la siguiente fila a la inversa al no caber.
+		--- (nowrap), los elementos no bajan al no caber. */
+	flex-flow: row wrap;
+
+	/* Establece un espaciado entre los elementos hijo. */
+	gap: 20px;
+
+	/* ------------------------------------ */
+	/* ------ Alinear elementos hijo ------ */
+	/* ------------------------------------ */
+
+	/* Manipula el eje 'X' para ordenar los elementos hijo, desde luego pueden tener estas propiedades: 
+		--- (flex-start), los elementos comienzan desde la izquierda.
+		--- (center), los elementos se centran.
+		--- (flex-end), los elementos comienzan desde la derecha.
+
+		--- (space-arond), coloca la mayor cantidad de espacio entre las cajas y deja poco espacio entre las paredes.
+		--- (space-beetwen), coloca un espacio entre los elementos, pero no deja espacio a las paredes del elemento padre.
+		--- (space-evenly), los espacios son en mismo entre las cajas y las paredes del elemento padre. */
+	justify-content: flex-start;
+
+	/* Manipula el eje 'Y' para ordenar los elementos hijo, desde luego pueden tener estas propiedades: 
+		--- (center), los elementos se centran.
+		--- (flex-start), los elementos se colocan en la parte superior del elemento padre.
+		--- (flex-end), los elementos se colocan en la parte inferior del elemento padre.
+		--- (stretch), los elementos ocupan todo el espacio disponible.
+		--- (baseline), la base de la fuente perteneciente a los elementos se 
+			colocan de manera centrada. */
+	align-items: stretch;
+
+	/* Manipula varios elementos hijo, esto sirve para grandes grupos de elementos y pueden recibir estas 
+	propiedades: 
+		--- (center), los elementos se centran.
+		--- (flex-start), los elementos se posicionan en la parte superior del elemento padre.
+		--- (flex-end), los elementos se posicionan en la parte inferior del elemento padre.
+		--- (stretch), los elemetos abarcan todo el espacio que pueden.
+		--- (baseline), la base de la fuente perteneciente a los elementos se colocan de manera centrada. */
+	align-content: center;
+}
+
+/* ##########=========================================########## */
+/* ######===--- Propiedades de los elementos 'hijo' ---===###### */
+/* ##########=========================================########## */
+
+	.elemento-hijo-posiciones{
+		/* Se posiciona en la parte inferior del contenedor. */
+		margin-top: auto;
+		/* Se posiciona a la izquierda del contenedor. */
+		margin-right: auto;
+		/* Se posiciona en la parte superior del contenedor. */
+		margin-bottom: auto;
+		/* Se posiciona a la derecha del contenedor. */
+		margin-left: auto;
+		/* Se posiciona en el centro. */
+		margin: auto;
+		/* Modificamos los valores unicamente de un elemento hijo, podemos darle las siguientes propiedades: 
+			--- (flex-start), el elemento se posiciona en la parte superior del elemento padre.
+			--- (flex-end), el elemento se posiciona en la parte inferior del elemento padre.
+			--- (self-start), el elemento se posiciona en la parte superior del elemento padre.
+			--- (self-end), el elemento se posiciona en la parte inferior del elemento padre. 
+			--- (center), el elemento se centra. 
+			--- (strech), el elemento ocupa el espacio que puede. 
+			--- (baseline), la base de la fuente perteneciente a los elementos se colocan de manera centrada.*/
+		align-self: stretch;
+	}
+
+	.elemento-hijo-0{
+		/* Funciona igual que la propiedad (width), solo que esta tiene mas relevancia que la propiedad (width). */
+		flex-basis: 150px;
+
+		/* El elemento toma su ancho, (en este caso 150 pixeles), mas el espacio disponible 
+		que tenga el elemento padre, (por defecto es 1). */
+		flex-grow: 1;
+
+		/* El elemento se encogera en relacion al espacio disponible entre 
+		los demas elementos, (por defecto es 1). */
+		flex-shrink: 1;
+	}
+
+	.elemento-hijo-1{
+		/* (flex-basis) tiene mas relevancia que el (width), pero hace lo mismo. */
+		flex-basis: 150px;
+
+		/* El elemento toma (150 pixeles) mas el doble del espacio disponible, por lo que este elemento crecera 
+		dos veces mas. */		
+		flex-grow: 2;
+
+		/* El elemento se encogera dos veces mas que los demas elementos. */
+		flex-shrink: 2;
+	}
+
+	.elemento-hijo-shorthand{
+		/* Solo establece el (flex-grow). */
+		flex: 1;
+		/* Solo establece el (flex-grow) y (flex-shrink). */
+		flex: 1 2;
+		/* De esta manera estamos acortando las propiedades en una sola. 
+			El primer valor representa 'flex-grow'.
+			El segundo valor representa 'flex-shrink'. 
+			El tercer valor representa 'flex-basis'. */
+		flex: 1 2 auto;
+	}
+
+	/* ##########=================================########## */
+	/* ######===--- Orden de los elementos hijo ---===###### */
+	/* ##########=================================########## */
+
+.elemento-padre{
+	display: flex;
+	/* Dependiendo hacia donde apunte el (flex-direction): 
+		--- (row), izquierda a derecha.
+		--- (row-reverse), derecha a izquierda.
+		--- (column), arriba hacia abajo.
+		--- (column-reverse), abajo hacia arriba.
+	   Es hacia donde ira el elemento hijo con mayor cantidad en su propiedad (order). */
+	flex-flow: row nowrap;
+}
+
+	.elemento-hijo-0{
+		flex: 1 1 calc(100%/3);
+
+		/* Se posicionara en el primer lugar. */
+		order: 1;
+	}
+
+	#elemento-hijo-1{
+		flex: 2 1 calc(100%/3);
+
+		/* El elemento se posiciona en la posicion 6 hacia el lado donde apunte el (flex-direction). */
+		order: 6;
+	}
+
+	div[elemento*="hijo-2"]{
+		flex: 1 1 calc(100%/3);
+
+		/* El elemento se posiciona en la posicion 10 hacia donde apunte el (flex-direction). */
+		order: 10;
+	}

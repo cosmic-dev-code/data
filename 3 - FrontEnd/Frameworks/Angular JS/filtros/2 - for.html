@@ -1,0 +1,50 @@
+<!-- ##########==============########## -->
+<!-- ######===--- (filter) ---===###### -->
+<!-- ##########==============########## -->
+
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", ['$scope', function(data){
+		// Propiedad para buscar un valor.
+		data.buscar = "";
+		// Valores.
+		data.nombres = ["Brandon", "Anthony", "Olivares", "Amador"];
+	}]);
+</script>
+
+<section ng-app="myApp" ng-controller="ctrl">
+	<div>
+		
+		<!-- El filtro (filter) nos devuelve un array con los valores 
+		que contengan el valor de (filter = "an"). -->
+		<ul ng-repeat="nombre in nombres | filter:'an'">
+			<li>
+				<!-- Imprimimos cada valor. -->
+				<b>
+					<ul>{{ nombre }}</ul>
+				</b>
+			</li>
+		</ul>
+
+		<!-- -------------------------------- -->
+		<!-- ------ Manipular (filter) ------ -->
+		<!-- -------------------------------- -->
+
+		<div>
+			<input type="text" ng-model="buscar" placeholder="Buscar nombre">
+		</div>
+		<!-- El filtro (filter) nos devuelve un array con los valores 
+		que contengan el valor de (filter), en este caso el calor 
+		de la variable (buscar). -->
+		<ul ng-repeat="nombre in nombres | filter:buscar">
+			<li>
+				<!-- Imprimimos cada valor. -->
+				<b>
+					<ul>{{ nombre }}</ul>
+				</b>
+			</li>
+		</ul>
+
+	</div>
+</section>

@@ -1,0 +1,11 @@
+<!-- Por medio del evento (oninput) recibimos los valores de los dos primeros inputs: 
+	--- Hcemos una suma y se guarda en la etiqueta (output).  -->
+<form oninput="respuesta.value = (parseInt(a.value) + parseInt(b.value))">
+	<!-- Dos etiquetas input. -->
+	<input type="range" id="a" value="50"> 
+		+ 
+	<input type="number" id="b" value="50">
+	
+	<!-- La etiqueta (output) imprime un resultado. -->
+	= <output name="respuesta" for="a b"/>
+</form>

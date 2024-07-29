@@ -1,0 +1,25 @@
+.elemento-padre{
+	/* ##########=====================########## */
+	/* ######===--- Grilla dinamica ---===###### */
+	/* #########======================########## */
+
+	/* En caso de que la grilla se desmaquete, esta puede llenar los huecos que queden entre la grilla utilizando 
+	la propiedad (grid-auto-flow), recibe las siguientes propiedades: 
+		--- (dense), intenta rellenar los huecos antes en la cuadrícula.
+		--- (row), Los elementos se colocan llenando cada fila por turno, agregando nuevas filas según sea necesario.
+		--- (column), Los elementos se colocan llenando cada columna por turno, agregando nuevas columnas según sea necesario. */
+	grid-auto-flow: dense;
+
+	/* -------------------------------------- */
+	/* ------ (auto-fill) y (auto-fit) ------ */
+	/* -------------------------------------- */
+
+	/* Crea la contidad de columnas que sean necesarias para que los elementos hijo que hayan dentro conserven 
+	las medidas (minmax).
+		--- Si el espacio disminuye, entonces creara menos columnas y mas filas.
+		--- Si el espacio aumenta, entonces creara mas columnas y menos filas. */
+	grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+
+	/* Crea filas y columnas a como de lugar. */
+	grid-template-columns: repeat(auto-fill, minmax(300px, 230px));
+}

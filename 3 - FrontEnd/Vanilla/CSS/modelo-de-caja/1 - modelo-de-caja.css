@@ -1,0 +1,97 @@
+/*
+	=- Modelo de caja -=
+
+		   Margen
+	---------------------
+	|	   Padding	    |
+	|	   Content      |
+	|					|
+	--------------------- Bordes.
+*/
+.caja{
+	/* ##########==================########## */
+	/* ######===--- Ancho y alto ---===###### */
+	/* ##########==================########## */
+
+	/* Permite tomar o no en cuenta los bordes y el relleno de un elemento, recibe 
+	las siguientes propiedades: 
+		--- (border-box), toma en cuenta el (relleno) y el (borde) agregandoselo al (ancho) y al (alto).
+		--- (content-box), no toma en cuenta el (relleno) y el (borde), dejando solo asi el (ancho) y el (alto). */
+	box-sizing: border-box;
+
+	/* Representa el ancho del elemento. */
+	width: 50px;
+	/* El ancho minimo del elemento. */
+	min-width: 30px;
+	/* El ancho maximo del elemento. */
+	max-width: 60px;
+
+	/* Representa el alto del elemento. */
+	height: 100px;
+	/* Alto minimo del elemento. */
+	min-height: 50px;
+	/* Ancho maximo del elemento. */
+	max-height: 100px;
+}
+
+.medidas-relativas{
+	/*	NOTA: Las medidas relativas se ajustan a las necesidades del usuario cuando este 
+	hace mas grande o chica la tipografia.
+
+	/* (vw), representa la medida total de la pantalla en horizontal, el eje 'x'. */
+	width: 100vw;
+	/* (vh), representa la medida total de la pantalla en vertical, el eje 'y'. */
+	height: 100vh;
+
+	/* (px), es una medida absoluta, por lo que no cambia y permanece constante. */
+	width: 50px;
+	height: 50px;
+
+	/* (em), es la medida relativa de acuerdo a la medida de su elemento padre. */
+	width: 10em;
+	height: 10em;
+
+	/* (rem), es una medida relativa al elemento raiz el cual es el 'html', (1rem) representa 16 pixeles. */
+	width: 10rem;
+	height: 10rem;
+
+	/* (%), es la medida relativa al elemento padre, por ejemplo: 
+		--- (50%) equivale a (la mitad del tamaño del elemento padre).
+		--- (25%) equivale a (1/4 del tamaño del elemento padre). */
+	width: 10%;
+	height: 10%;
+}
+
+.valores-automaticos{
+	/* El tamaño del elemento debe ser determinado automáticamente por el navegador. */
+	width: auto;
+	height: auto;
+}
+
+.valores-maximos{
+	/* NOTA: Utilizar: 
+		--- (max), funciona para asegurarse de que un elemento no se vuelva demasiado grande.
+		--- (min), funciona para asegurarse de que un elemento no se vuelva demasiado pequeño. */
+
+	/* Si el ancho supera el ancho establecido, etonces el elemento se ajusta. */
+	width: max-width;
+	/* Si el alto supera el alto establecido, etonces el elemento se ajusta. */
+	height: max-height;
+
+	/* Si el ancho disminuye mas que el ancho establecido, etonces el elemento se ajusta. */
+	width: min-width;
+	/* Si el alto disminuye mas que el alto establecido, etonces el elemento se ajusta. */
+	height: min-height;
+}
+
+.valores-contenido{
+	/* Estable el tamaño máximo y mínimo del elemento en función de su contenido. */
+
+	/* Ajusta al tamaño maximo del contenido del elemento. */
+	width: max-content;
+	height: max-content;
+
+	/* Ajusta al tamaño minimo del contenido del elemento. */
+	width: min-content;
+	height: min-content;
+}

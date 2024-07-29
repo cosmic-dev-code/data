@@ -1,0 +1,59 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+
+		// Propiedades para utilizar.
+		$scope.names = "Brandon Anthony Olivares Amador";
+		$scope.price = 3000;
+		$scope.obj = {name: "Brandon", age: 22};
+		$scope.name = "Brandon";
+
+		/**
+		 * (aungular), es un objeto con algunos metodos predefinidos.
+		 */
+
+		// Concierte una cadena a minúsculas.
+		$scope.name = angular.lowecase($scope.name);
+		// Concierte una cadena a mayúsculas.
+		$scope.name = angular.uppercase($scope.name);
+		// Devuelve un booleano verificando si el valor es una cadena.
+		$scope.name = angular.isString($scope.name);
+		// Devuelve un booleano verificando si el valor es un número.
+		$scope.name = angular.isNumber($scope.name);
+	});
+</script>
+
+<!-- Los filtros modifican la forma de ver los datos al imprimirse en el DOM. -->
+
+<section ng-app="app" ng-controller="ctrl">
+	<div>
+		<!-- El filtro (uppercase) convierte el valor en mayúsculas. -->
+		<p>{{ names | uppercase }}</p>
+		
+		<!-- El filtro (lowercase) convierte el valor en minúsculas. -->
+		<p>{{ names | lowercase }}</p>
+		
+		<!-- El filtro (currency) convierte el valor en formato de dolar. -->
+		<p>{{ price | currency }}</p>
+		
+		<!-- El filtro (json) convierte el valor en una cadena de texto JSON. -->
+		<p>{{ obj | json }}</p>
+		
+		<!-- El filtro (limitTo) convierte el valor a un número específico de carácteres. -->
+		<p>{{ names | limitTo: 6 }}</p>
+		
+		<!-- El filtro (number) convierte el valor numérico a texto. -->
+		<p>{{ 556 | number }}</p>
+
+		<!-- Muestra una fecha de manera valida para el usuario. -->
+		<p>{{ new Date() | date }}</p>
+
+		<!-- Aqui se puede mostrar la fecha segun se desee. -->
+
+		<!-- Muestra la fecha en un formato especifico, ejemplo: 2022/10/24 -->
+		<p>{{ new Date() | date: "yyyy/dd/mm" }}</p>
+		<!-- Da: 10/24/2022 -->
+		<p>{{ new Date() | date: "mm/dd/yyyy" }}</p>
+	</div>
+</section>

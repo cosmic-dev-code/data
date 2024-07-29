@@ -1,0 +1,26 @@
+/* Modifica el (contenedor) del scroll. */
+textarea::-webkit-scrollbar{
+	/* Sombra interna. */
+	box-shadow: inset 0.6rem .6rem 1rem rgba(0,0,0,10%);
+	/* Color de fondo. */
+	background-color: blue;
+	/* Modo horizontal. */
+	width: 10px;
+	/* Borde. */
+	border: 1px solid black;
+}
+
+/* Modifica la (pastilla) del scroll */
+textarea::-webkit-scrollbar-thumb{
+	box-shadow: 
+		/* Sombra interna. */
+		inset 0.6rem .6rem 1rem rgba(0,0,0,10%), 
+		/* Sombra externa. */
+		0.6rem .6rem 1rem rgba(0,0,0,10%);
+	/* Color de fondo. */
+	background-color: red;
+	/* Borde. */
+	border: 1px solid black;
+	/* Redondez para la pastilla. */
+	border-radius: 3px;
+}

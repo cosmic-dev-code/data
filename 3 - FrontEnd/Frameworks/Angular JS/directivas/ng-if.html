@@ -1,0 +1,29 @@
+
+<div ng-app="app" ng-init="is = false;" ng-controller="ctrl">
+	<div>
+		<!-- Cambiamos la propiedad. -->
+		<input type="button" ng-click="cambiar()" value="Cambiar">
+	</div>
+
+	<!-- La directiva (ng-if) evalua una condicion y de ser verdadera muestra 
+	el elemento en el DOM o lo oculta de ser falsa. -->
+
+	<div ng-if="is">
+		<!-- Resto de codigo... -->
+	</div>
+
+	<div ng-if="'Brandon' === 'Brandon'">
+		<!-- Resto de codigo... -->
+	</div>
+</div>
+
+<script type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+		/* Creamos un método para cambiar el valor de la propiedad (is). */
+		$scope.cambiar = function(){
+			this.is = !this.is;
+		};
+	});
+</script>

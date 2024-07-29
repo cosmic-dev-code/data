@@ -1,0 +1,81 @@
+<!-- ----------------------------------------- -->
+<!-- ------ Imprimir un (elemento HTML) ------ -->
+<!-- ----------------------------------------- -->
+
+<section id="idElementPrint">
+	<div>
+		<h1>Hola</h1>
+	</div>
+	<div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+</section>
+<!-- La funcion (printJS) recibe dos parametros: 
+	--- El (id) del elemento que se desea imprimir.
+	--- El tipo de dato que queremos imprimir, en este caso 
+	un elemento del (html). -->
+<button type="button" onclick="printJS('idElementPrint', 'html')">Imprimir</button>
+
+<!-- --------------------------------------------------------- -->
+<!-- ------ Opciones de impresion de un elemento (HTML) ------ -->
+<!-- --------------------------------------------------------- -->
+
+<script type="text/javascript">
+	const obj = {
+	    printable: 'idElementPrint', // Elemento (HTML) a imprimir.
+	    type: 'html', // Tipo.
+	    targetStyles: '*', // Estilos adicionales.
+	    header: 'Este es un elemento (HTML)' // Cabecera.
+	};
+</script>
+
+<!-- Imprime el elemento (HTML). -->
+<input type="button" value="Imprimir" onclick="printJS(obj)">
+
+<!-- -------------------------------- -->
+<!-- ------ Imprimir un (JSON) ------ -->
+<!-- -------------------------------- -->
+
+<script type="text/javascript">
+	const obj = {
+		// Elementos a imprimir.
+	    printable: [
+	    	{name: 'Brandon', age: 19},
+	    	{name: 'Anthony', age: 20},
+	    	{name: 'Olivares', age: 21},
+	    	{name: 'Amador', age: 22}
+	    ],
+	    // Propiedades a imprimir de los elementos.
+        properties: ['name', 'age'],
+        // Tipo de dato que vamos a imprimir.
+	    type: 'json'
+	}
+</script>
+<!-- Crea una tabla la cual imprime. -->
+<input type="button" value="Imprimir" onclick="printJS(obj)">
+
+<!-- --------------------------------------------- -->
+<!-- ------ Opciones de impresion de (JSON) ------ -->
+<!-- --------------------------------------------- -->
+
+<script type="text/javascript">
+	const obj = {
+	    printable: [
+	    	{name: 'Brandon', age: 19},
+	    	{name: 'Anthony', age: 20},
+	    	{name: 'Olivares', age: 21},
+	    	{name: 'Amador', age: 22}
+	    ],
+        properties: ['name', 'age'],
+	    type: 'json',
+	    // Estilos para la tabla a (imprimir) los objetos (json).
+	    gridHeaderStyle: 'color: green;  border: 2px solid #3971A5;'
+	}
+</script>
+<!-- Crea una tabla la cual imprime. -->
+<input type="button" value="Imprimir" onclick="printJS(obj)">

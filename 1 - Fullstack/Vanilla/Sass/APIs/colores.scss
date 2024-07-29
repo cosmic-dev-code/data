@@ -1,0 +1,52 @@
+
+// Devuelve el valor (rgb) de los colores que se especifiquen: (Red, Green, Blue).
+$result: rgb(0, 0, 255);
+
+// Devuelve el color (rgb) con una opacidad especificada, (cuarto parametro).
+$result: rgba(0, 0, 255, 0.3);
+
+// Representa el color: Tono-Saturación-Luminosidad (HSL). El tono va de (0 - 360).
+$result: hsl(120, 100%, 50%); // green
+$result: hsl(120, 100%, 75%); // light green
+$result: hsl(120, 100%, 25%); // dark green
+$result: hsl(120, 60%, 70%); // pastel green
+// El cuarto parametro representa la opacidad del color.
+$result: hsl(120, 100%, 50%, 0.3); // green with opacity
+$result: hsl(120, 100%, 75%, 0.3); // light green with opacity
+
+// Establece un color gris con la misma luminosidad que el color.
+$result: grayscale(#7fffd4); // #c6c6c6
+
+// Invierte un color.
+$result: invert(white); // black
+// Puede especificarse la opacidad en el segundo parametro.
+$result: invert(white, 0.5); // black
+
+// Devuelve un valor entre (0 - 255).
+$result: red(#7fffd4); // 127
+$result: green(#7fffd4); // 255
+$result: blue(#7fffd4); // 212
+
+// Construimos un color.
+$result: rgba(
+	red(#7fffd4), 
+	green(#7fffd4), 
+	blue(#7fffd4), 
+	30%
+);
+
+// Devuelve una matriz de color entre (0 - 360deg).
+$result: hue(#7fffd4); // 160deg
+
+// Devuelve la saturación de color (HSL) como un número entre 0% y 100%.
+$result: saturation(#7fffd4); // 100%
+
+// Devuelve la ligereza de color (HSL) como un número entre 0% y 100%.
+$result: lightness(#7fffd4); // 74.9%
+
+// Devuelve la opacidad de un color, (0) o (1).
+$result: alpha(#7fffd4);
+
+// Devuelve el canal (alpha/opacidad) de u  color (RGBA).
+$color: rgba(127, 255, 212, 0.5);
+$result: opacity($color); // 0.5

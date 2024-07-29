@@ -1,0 +1,9 @@
+<!-- Un prólogo define la versión XML y la codificación de caracteres. -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Desde aqui comienza el documento (XML). -->
+<note>
+	<to>A donde</to>
+	<from>De donde</from>
+	<heading>Titulo</heading>
+	<body>Cuerpo</body>
+</note>

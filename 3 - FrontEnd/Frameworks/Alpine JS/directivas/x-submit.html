@@ -1,0 +1,18 @@
+<!-- ##########=====================########## -->
+<!-- ######===--- Evento (submit) ---===###### -->
+<!-- ##########=====================########## -->
+
+<section x-data="{message: null}">
+
+	<!-- El evento (submit) se ejecuta cuando hacemos un 'submit' en el 
+	formulario, se ejecuta el codigo (javascript). -->
+	<form action="" x-on:submit="window.alert(message)">
+		<!-- .... -->
+	</form>
+
+	<!-- El modificador (prevent) previene el comportamiento por defecto del formulario. -->
+	<form action="" method="POST" x-on:submit.prevent="window.alert('submit')">
+		<!-- ... -->
+	</form>
+
+</section>

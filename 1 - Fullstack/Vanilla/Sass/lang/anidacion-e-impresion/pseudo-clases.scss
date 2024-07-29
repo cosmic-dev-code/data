@@ -1,0 +1,43 @@
+/* ##########===================########## */
+/* ######===--- PSEUDO CLASES ---===###### */
+/* ##########===================########## */
+
+/* Es (Sass) el operador (&) es similar a (this), refiere al elemento al que se le estan dando estilos 
+de acuerdo a la raiz. */
+
+section{
+	// & == this
+	&:last-child{
+		// ...
+	}
+
+	> input{
+		&:hover{
+			// ...
+		}&:active{
+			// ...
+		}&:focus{
+			// ...
+		}&:not(.algo){
+			// ...
+		}
+	}
+}
+
+/* ##########=======================########## */
+/* ######===--- Salida para (CSS) ---===###### */
+/* ##########=======================########## */
+
+section{
+	// ...
+}section:last-child{
+	// ...
+}section > input:hover{
+	// ...
+}section > input:active{
+	// ...
+}section > input:focus{
+	// ...
+}section > input:not(.algo){
+	// ...
+}

@@ -1,0 +1,77 @@
+
+<!-- ##########=======================########## -->
+<!-- ######===--- Estructura (HTML) ---===###### -->
+<!-- ##########=======================########## -->
+
+<section>
+
+	<!-- Debemos colocar un elemento con: 
+		--- La clase (g-recaptcha).
+		--- Nuestra clave de sitio, en este caso (6LebGVEiAAAAAMP13WSMJHQjCD0ShwfaJ6Ex61cq). -->
+	<div 
+		class="g-recaptcha" 
+		data-sitekey="6LebGVEiAAAAAMP13WSMJHQjCD0ShwfaJ6Ex61cq"
+	></div>
+
+	<div>
+		<hgroup>
+			<h3>Realice el captcha</h3>
+		</hgroup>
+		<article>
+			<!-- Este div contendra el (captcha). -->
+			<div id="idCaptcha"></div>
+		</article>
+	</div>
+
+</section>
+
+<!-- ##########================########## -->
+<!-- ######===--- Javascript ---===###### -->
+<!-- ##########================########## -->
+
+<script type="text/javascript">
+
+	/* Una vez que se ha hecho la instalacion del reCAPTCHA, ahora podemos utilizarla dentro de la 
+	funcion necesaria (onloadCallback). */
+	var onloadCallback = function(){
+
+		// ---------------------------------- //
+		// ------ Utilizar (reCAPTCHA) ------ //
+		// ---------------------------------- //
+
+		/* El metodo (render) recibe dos parametros: 
+			--- El (id) o (elemento) del elemento donde se colocara el (captcha).
+			--- Un objeto con los ajustes: 
+				--- (sitekey), la clave del sitio.
+				--- (callback), una funcion que reciba la respuesta del captcha.
+				--- (theme), el tema, puede ser (oscuro = dark) o (ligero = light). */
+		grecaptcha.render("idCaptcha", {
+			"sitekey": "6LebGVEiAAAAAMP13WSMJHQjCD0ShwfaJ6Ex61cq", 
+			"callback": callVerify, 
+			"theme": "light"
+		});
+
+		function callVerify(response){
+			/* (response), recibe una cadena de texto con un (token), 
+			este puede venir vacio si el usuario no interactua 
+			con el captcha. */
+		}
+
+		// ----------------------------------- //
+		// ------ Otra forma de hacerlo ------ //
+		// ----------------------------------- //
+
+		const div = document.getElementById("idCaptcha");
+		const parammeters = {
+			"sitekey": "6LebGVEiAAAAAMP13WSMJHQjCD0ShwfaJ6Ex61cq", 
+			"callback": callVerify, 
+			"theme": "light"
+		};
+
+		/* Pasamos por parametros: 
+			--- (element), el elemento.
+			--- (objeto), el objeto con los ajustes del captcha. */
+		grecaptcha.render(div, parammeters);
+	};
+
+</script>

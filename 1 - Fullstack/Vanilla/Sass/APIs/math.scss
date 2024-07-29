@@ -1,0 +1,31 @@
+
+// Devuelve el valor absoluto de un numero.
+$result: abs(15);
+
+// Redondea un numero hacia arriba, (el entero mas cercano).
+$result: ceil(15.20); // 16
+
+// Redondea un numero hacia abajo, (el entero mas cercano).
+$result: floor(15.80); // 15
+
+// Resondea al numero entero mas cercano.
+$result: round(15.20); // 15
+$result: round(15.80); // 16
+
+// Devuelve el valor mas grande.
+$result: max(5, 7, 9, 0, -3, -7); // 9
+
+// Devuelve el valor mas chico.
+$result: min(5, 7, 9, 0, -3, -7); // -7
+
+// Convierte un decimal a porcentaje.
+$result: percentage(1.2); // 120
+
+// Devuelve un numero decimal al azar entre (0 - 1).
+$result: random(); // 0.45673
+
+// Retorna un numero aleatorio entre (0 - {numero}).
+$result: random(6) // 4
+
+// Retorna un numero aleatorio entre (0 - 100).
+$result: ceil(random()*100); // 56

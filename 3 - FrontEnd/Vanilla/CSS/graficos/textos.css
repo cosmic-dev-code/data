@@ -1,0 +1,100 @@
+p{
+	/* ##########=============########## */
+	/* ######===--- Colores ---===###### */
+	/* ##########=============########## */
+
+	/* Propiedad que define elcolor del texto. */
+	color: red;
+	
+	/* Podemos poner un color con una trasparencia, (opacidad). */
+	color: rgba(125, 130, 49, 0.7);
+	
+	/* Color totalmente transparente. */
+	color: transparent;
+
+	/* ##########============########## */
+	/* ######===--- Textos ---===###### */
+	/* ##########============########## */
+
+	/* (text-align):
+		--- (center), centro.
+		--- (justify), justificado,
+		--- (left), izquierda.
+		--- (right), derecha. */
+	text-align: center;
+
+	/* La decoracion del texto puede tener: 
+		--- (underline), subrayado.
+		--- (none), ninguna decoracion. */
+	text-decoration: none;
+
+	/* Transformar el texto a: 
+		--- (uppercase), mayusculas.
+		--- (lowercase), minusculas.
+		--- (capitalize), cada palabra empieza con su primera letra en mayuscula.
+		--- (none), ninguna transformacion. */
+	text-transform: capitalize;
+
+	/* Coloca una sangria en la primera linea del texto, (una tabulacion). */
+	text-indent: 10rem;
+	text-indent: 30px;
+	text-indent: 30%;
+
+	/* ##########======================########## */
+	/* ######===--- Fuente del texto ---===###### */
+	/* ##########======================########## */
+	
+	/* Consultamos la familia de fuentes, aqui ponemos una tipografia para las 
+	letras, como po ejemplo: 
+
+		("arial"), sans-serif, serif, cursive, "tahoma", etc.
+
+	Se les pone una coma ',' por si la primera tipografia no se encuentra disponible entonces 
+	tomara la siguiente, y si no, entonces sera la siguiente, pero si la siguiente no se 
+	encuentra disponible buscara la siguiente y asi. */
+	font-family: "arial", sans-serif, serif;
+
+	/* Especifica el tmano de la fuente del texto, por defecto tiene 16px. */
+	font-size: 16px;
+
+	/* El estilo de la fuente: 
+		--- (italic), texto en italica.
+		--- (oblique), texto en obliqua.
+		--- (normal), texto normal. */
+	font-style: italic;
+
+	/* el grosor del texto:
+		--- (bold), texto en negrita.
+		--- (normal), texto normal. */
+	font-weight: bold;
+
+	/* ##########=================================================########## */
+	/* ######===--- Espaciados de (letras), (pabras) y (lineas) ---===###### */
+	/* ##########=================================================########## */
+
+	/* (line-height): Especifica la cantidad de espacio entre las lineas de texto. */
+	line-height: 19px;
+
+	/* (letter-spacing): Especifica el espacio entre cada letra. */
+	letter-spacing: 1px;
+
+	/* (word-spacing): Representa el espacio entre las palabras. */
+	word-spacing: 3px;
+
+	/* La propiedad (word-break) monipula las palabras cuando hay un salto de linea: 
+		--- (break-all), Cuando una palabra no cabe en el espacio, la mueve hacia abajo cortandola.
+		--- (break-word), cuando una palabra no cabe en el espacio, la mueve hacia abajo. */
+	word-break: break-all;
+
+	/* La propiedad (writing-mode) manipula la orientacion del taxto, recibe 
+	los siguientes valores: 
+		--- (horizontal-tb), el texto se coloca horizontalmente de arriba hacia abajo.
+		--- (vertical-rl), el texto se coloca verticalmente de izquierda a derecha.
+		--- (vertical-lr), el texto se coloca verticalmente de derecha a izquierda. */
+	writing-mode: horizontal-tb;
+
+	/* Balancea cada linea de texto para que no quede una palabra sola, sino acompañada: 
+		--- (pretty), funciona mas para (parrafos <p></p>).
+		--- (balance), funciona mas para (titulos <h1></h1>). */
+	text-wrap: pretty;
+}

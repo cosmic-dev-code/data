@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ##########===================================================########## -->
+<!-- ######====== Conflicto entre etiquetas con el mismo nombre ======###### -->
+<!-- ##########===================================================########## -->
+
+<!-- A veces pueden salir conflictos al nombrar a unas etiquetas igual a otras, esto genera que la aplicacion 
+que va a utilizar (XML) no sepa que etiqueta debe utilizar, para esto tenemos el ejemplo. -->
+
+<tablas>
+	<!-- Aqui tenemos una tabla. -->
+	<table>
+		<tr>
+			<th>Titulo</th>
+		</tr>
+		<tr>
+			<td>Celda</td>
+		</tr>
+	</table>
+
+	<!-- Aqui tenemos una mesa. -->
+	<table>
+		<price>$5, 000.00</price>
+		<color>Brown</color>
+		<width>3m</width>
+		<height>0.4m</height>
+	</table>
+</tablas>
+
+<!-- Ambas etiquetas (table) definen cosas diferentes, sin embargo tiene la misma etiqueta llamada (table), 
+esto crea un problema, y para solucionarlo hacemos uso de los (namespace/prefijos). -->
+
+<!-- ##########====================================================########## -->
+<!-- ######====== (namespace/prefijos) para nombres de etiquetas ======###### -->
+<!-- ##########====================================================########## -->
+
+<!-- Ahora si los podemos diferenciar. -->
+
+<!-- Es importante definir una URL para cada (namespace), no importa si la URL es veridica o no. -->
+<!-- Esto se hace para que las aplicaciones interpreten de manera correcta el documento XML. -->
+<tablas xmlns:t="http://www.example.com/t" xmlns:m="http://www.example.com/m">
+
+	<!-- En el ejemplo no habrá conflicto porque los dos elementos <table> tienen nombres diferentes. -->
+
+	<!-- Tabla. -->
+    <t:table>
+        <t:tr>
+            <t:th>Titulo</t:th>
+        </t:tr>
+        <t:tr>
+            <t:td>Celda</t:td>
+        </t:tr>
+    </t:table>
+    <!-- Mesa. -->
+    <m:table>
+        <m:price>$5,000.00</m:price>
+        <m:color>Brown</m:color>
+        <m:width>3m</m:width>
+        <m:height>0.4m</m:height>
+    </m:table>
+</tablas>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~ Prefijos mas grandes ~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- Tambien podria darsele un nombre mas grande. -->
+
+<!-- Aqui por ejemplo el subfijo es (cocina) y ni solo una letra como tal. -->
+<libros xmlns:cocina="http://www.example.com/cocina">
+	<cocina:libro>
+		<cocina:nombre>Valiente</cocina:nombre>
+		<cocina:precio>59.99</cocina:precio>
+		<cocina:autor>Leonardo AI</cocina:autor>
+	</cocina:libro>
+</libros>
+
+<!-- ##########===========================########## -->
+<!-- ######====== (namespaces/prefijos) ======###### -->
+<!-- ##########===========================########## -->
+
+<!-- Estas son las tipos de declaraciones para los (namespaces/prefijos).
+	=== (xs)
+		http://www.w3.org/2001/XMLSchema === Espacio de nombres de esquema XML
+	
+	=== (xsi)
+		http://www.w3.org/2001/XMLSchema-instance === Espacio de nombres de instancia de esquema XML
+	
+	=== (fn)
+		http://www.w3.org/2005/xpath-functions === Espacio de nombres de función predeterminado
+	
+	=== (xdt)
+		http://www.w3.org/2005/xpath-datatypes === Espacio de nombres de tipos XPath
+	
+	=== (db2-fn)
+		http://www.ibm.com/xmlns/prod/db2/functions === Espacio de nombres de función DB2-->
+
+<!-- ##########====================================================########## -->
+<!-- ######====== (namespace/prefijos) para nombres de atributos ======###### -->
+<!-- ##########====================================================########## -->
+
+<!-- Tambien con los atributos funcionan los prefijos, de esta manera los podemos diferenciar. -->
+
+<h:table xmlns:h="http://www.w3.org/2001/XMLSchema">
+	<h:tr>
+		<h:th>Titulo</h:th>
+	</h:tr>
+	<h:tr>
+		<h:td>Celda</h:td>
+	</h:tr>
+</h:table>
+
+<f:table xmlns:f="http://www.w3.org/2001/XMLSchema">
+	<f:price>$5, 000.00</f:price>
+	<f:color>Brown</f:color>
+	<f:width>3m</f:width>
+	<f:height>0.4m</f:height>
+</f:table>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~ Prefijos desde la raiz (XML) ~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- Los espacios de nombres también se pueden declarar en el elemento raíz, (XML) ya sabre a que 
+elemento pertenece dado que ya tiene los prefijos definidos. -->
+<tables xmlns:h="http://www.w3.org/2001/XMLSchema" xmlns:f="http://www.w3.org/2001/XMLSchema">
+	<h:table>
+		<h:tr>
+			<h:th>Titulo</h:th>
+		</h:tr>
+		<h:tr>
+			<h:td>Celda</h:td>
+		</h:tr>
+	</h:table>
+
+	<f:table>
+		<f:price>$5, 000.00</f:price>
+		<f:color>Brown</f:color>
+		<f:width>3m</f:width>
+		<f:height>0.4m</f:height>
+	</f:table>
+</tables>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~ (namespace/prefijos) por medio de las 'urls' ~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- Para esto podemos definir las diferencias entre las etiquetas de 
+la siguiente manera: 
+	=== xmlns="namespaceURI" -->
+
+<!-- (Este XML lleva información de la tabla HTML). -->
+<table xmlns="http://www.w3.org/TR/html4/">
+	<tr>
+		<td>Apples</td>
+		<td>Bananas</td>
+	</tr>
+</table>
+
+<!-- Este XML contiene información sobre un mueble. -->
+<table xmlns="https://www.w3schools.com/furniture">
+	<name>African Coffee Table</name>
+		<width>80</width>
+	<length>120</length>
+</table>
+
+<!-- ##########===========================================########## -->
+<!-- ######====== Uso real de los (namespaces/prefijos) ======###### -->
+<!-- ##########===========================================########## -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- XSLT es un lenguaje que se puede utilizar para transformar documentos XML en 
+otros formatos. El espacio de nombres "http://www.w3.org/1999/XSL/Transform" 
+identifica los elementos XSLT dentro de un documento HTML. -->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+	<!-- El siguiente documento XML es un documento que se utiliza para transformar 
+	XML en HTML. -->
+
+	<xsl:template match="/">
+		<html>
+			<body>
+				<h2>My CD Collection</h2>
+				<table border="1">
+					<tr>
+						<th style="text-align:left">Title</th>
+						<th style="text-align:left">Artist</th>
+					</tr>
+					<xsl:for-each select="catalog/cd">
+					<tr>
+						<td><xsl:value-of select="title"/></td>
+						<td><xsl:value-of select="artist"/></td>
+					</tr>
+					</xsl:for-each>
+				</table>
+			</body>
+		</html>
+	</xsl:template>
+
+</xsl:stylesheet>

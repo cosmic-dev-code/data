@@ -1,0 +1,23 @@
+<!-- ##########==============================########## -->
+<!-- ######===--- La propiedad ($dispatch) ---===###### -->
+<!-- ##########==============================########## -->
+
+<section x-data="{text: ''}">
+
+	<div>
+		<!-- La propiedad ($dispatch) permite disparar un evento al navegador con informacion. -->
+		<input type="text" x-on:input="$dispatch('miEvento-event', text)" x-model="text">
+	</div>
+
+</section>
+
+<!-- Recibimos el evento que creamos por medio del atributo (x-on:miEvento-event) y su modificador (window), 
+accedemos al evento por medio de la propiedad ($event) y su propiedad (detail) para adquirir la 
+informacion que enviamos del otro componente.
+
+La informacion que adquirimos del otro componente la gruardamos en la variable (msj). -->
+<section x-data="{msj: ''}" x-on:miEvento-event.window="msj = $event.detail">
+	
+	<input type="text" x-model="msj">
+
+</section>

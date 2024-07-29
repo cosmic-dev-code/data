@@ -1,0 +1,108 @@
+/* ##########============================########## */
+/* ######===--- Crear columnas y filas ---===###### */
+/* ##########============================########## */
+
+.elemento-padre{
+	/* El elemento ahora es una grilla. */
+	display: grid;
+
+	/* ------------------------------- */
+	/* ------ Manejo de valores ------ */
+	/* ------------------------------- */
+
+	/* En este caso creamos 3 columnas de 200 pixeles cada una. */
+	grid-template-columns: 200px 200px 200px;
+
+	/* Creamos la primera fila de 100 pixeles, la segunda fila de 200 pixeles y 
+	la tercera fila de 100 pixeles. */
+	grid-template-rows: 100px 200px 100px;
+
+	/* Podemos mezclar los valores, en este caso la unidad de medida (fr) representa una fraccion de espacio, 
+	(como los porcentajes). Aqui tenemos una columna de una fraccion, la segunda de una fraccion y 
+	la tercera de 300 pixeles. */
+	grid-template-columns: 1fr 1fr 300px;
+
+	/* Aqui tenemos tres filas con dimensiones distintas cada una, la primera de 1 fraccion, (suele sermucho espacio), 
+	la segunda de 300 pixeles y la tercera del 25 porciento. */
+	grid-template-rows: 1fr, 300px 25%;
+
+	/* ------------------------------------------- */
+	/* ------ (min-content) y (max-content) ------ */
+	/* ------------------------------------------- */
+
+	/* Contenido minimo y maximo.
+		--- (min-content) permite que la columna se reduzca hasta donde el texto pueda cortarse.
+		--- (max-content) permite que la columna solo pueda tener el tamaño del texto completo. */
+	grid-template-columns: min-content max-content;
+
+	/* ---------------------- */
+	/* ------ (minmax) ------ */
+	/* ---------------------- */
+
+	/* La funcion (minmax) permite crear una columna o fila con un valor de tamaño minimo y con un valor de tamaño 
+	maximo, recibe por parametro: 
+		--- El valor minimo del tamaño de la fila o columna.
+		--- El valor maximo del tamaño de la fila o columna. */
+	grid-template-columns: minmax(300px, 1fr);
+
+	/* Podemos hacer combinaciones: 
+		--- El ancho minimo para cada columna segun el texto.
+		--- Hasta el ancho maximo de cada columna segun el texto. */
+	grid-template-columns: minmax(min-content, max-content);
+
+	/* Las filas automaticas pueden utilizar la funcion (minmax) pero no la funcion (repeat). */
+	grid-auto-rows: minmax(300px, 1fr);
+
+	/* Las filas automaticas pueden utilizar la funcion (minmax) pero no la funcion (repeat). */
+	grid-auto-columns: minmax(1fr, 1fr);
+
+	/* Aqui: 
+		--- La primera columna de (100 pixeles como minimo) y (1 fraccion como maximo).
+		--- La segunda columna de 1 fraccion.
+		--- La tercera columna de (30 pixeles como minimo) y (50 porciento como maximo). */
+	grid-template-rows: minmax(100px, 1fr) 1fr minmax(30px, 50%);
+
+	/* ---------------------- */
+	/* ------ (repeat) ------ */
+	/* ---------------------- */
+
+	/* Con esta funcion podemos repetir la creacion de varias filas o columnas, recibe por parametro: 
+		--- La cantidad de filas o columnas que se quieran crear.
+		--- Los demas parametros representan los valores de esas filas o columnas. */
+	grid-template-columns: repeat(6, 1fr 300px 1fr);
+
+	/* Podemos utilizar las dos funciones al mismo tiempo. */
+	grid-template-columns: repeat(3, minmax(300px, 1fr));
+
+	/* Aqui tenemos: 
+		--- La primera columna de 1 fraccion.
+		--- La segunda columna de (1 fraccion como minimo) y (el tamaño maximo del taxto).
+		--- La tercera columna de (1 fraccion como minimo) y (el tamaño maximo del taxto). */
+	grid-template-columns: 1fr repeat(2, minmax(1fr, max-content));
+}
+
+/* ##########==================================########## */
+/* ######===--- Filas y columnas automaticas ---===###### */
+/* ##########==================================########## */
+
+.elemento-padre{
+	display: grid;
+
+	/* Las columnas que puedan venir agregadas de imprevisto, dichas columnas seran de 1 fraccion. 
+
+	NOTA: No podemos darle mas medidas dado que (grid-auto-columns) solo permite darle una misma unidad de 
+	medida a todas las columnas que se agreguen de imprevisto. */
+	grid-auto-columns: 1fr;
+
+	/* Le podemos dar otras unidades de medida. */
+	grid-auto-columns: min-content;
+
+	/* Las filas que puedan venir agregadas de imprevisto, dichas filas seran de 1 fraccion.
+
+	NOTA: No podemos darle mas medidas dado que (grid-auto-rows) solo permite darle una misma unidad de medida 
+	a todas las filas que se agreguen de imprevisto. */
+	grid-auto-rows: 1fr;
+
+	/* Le podemos dar otras unidades de medida. */
+	grid-auto-rows: 300px;
+}

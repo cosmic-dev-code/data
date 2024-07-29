@@ -1,0 +1,39 @@
+/* ##########====================########## */
+/* ######===--- Tipos de datos ---===###### */
+/* ##########====================########## */
+
+// Numericos.
+$numerico: 55;
+$float: 55.555;
+
+// Cadenas de texto.
+$text: "Hola mundo";
+$text: 'Hola mundo';
+
+// Booleanos.
+$bool: true;
+$bool: false;
+
+// Dato vacio, (nulo)/
+$sin-valor: null;
+
+// Datos CSS.
+$color: yellow !default;
+$border: 3px solid rgb(0 0 0 / 83%);
+$box-shadow: 0 0.5rem 1rem rgba($color, 0.15) !default;
+
+// Listas.
+$lista: (true, false, 55, "Hola");
+$lista: (null, 55, 10rem, 8px, 9deg);
+$lista: (0.666, "Hola mundo", 178.999, (hidden, auto, null));
+$lista: (
+	"nombre": "Brandon", 
+	"edad": 22, 
+	"Uno", 
+	"lista": "Uno", "Dos", "Tres"
+);
+
+// Podemos utilizar las (variables).
+div{
+	border: $border;
+}

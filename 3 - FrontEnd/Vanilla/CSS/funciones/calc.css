@@ -1,0 +1,12 @@
+/* Se utiliza para realizar cálculos matemáticos en propiedades que aceptan valores numéricos. */
+
+.elemento{
+	width: calc(100% / 2); /* 50% */
+}
+
+/* Pueden hacerse otro tipo de calculos. */
+
+.elemento {
+	width: calc(100% / 3);
+	height: calc(50vh - 20px);
+}

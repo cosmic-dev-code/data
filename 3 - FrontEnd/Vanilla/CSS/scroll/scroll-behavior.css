@@ -1,0 +1,21 @@
+/* ##########===================================########## */
+/* ######===--- Transicion suave del 'scroll' ---===###### */
+/* ##########===================================########## */
+
+/* La (scroll-behavior) indica la suavidad que habra cuando el 'scroll' se desplaze de manera: 
+	--- (Automatica).
+	--- Por (#enlace).
+	--- Por (programacion). */
+
+html{
+	/* Recibe uno de los siguientes valores: 
+		--- (smooth), deslizamiento suave.
+		--- (auto), el que viene por defecto. */
+	scroll-behavior: smooth;
+}
+
+/* Tambien podemos aplicarlo a elementos. */
+
+.div, textarea{
+	scroll-behavior: smooth;
+}

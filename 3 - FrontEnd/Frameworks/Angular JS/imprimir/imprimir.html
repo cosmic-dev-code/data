@@ -1,0 +1,34 @@
+<script type="text/javascript">
+    const myApp = angular.module("miApplicacion", []);
+
+    // Definir un
+    myApp.controller("ctrl", function($scope){
+        // Valores para utilizar dentro del componente.
+
+        $scope.numero = 5;
+
+        $scope.input = {
+            type: 'type="submit"', 
+            value: 'value="Enviar"', 
+            attributes: 'type="submit" value="Enviar"'
+        };
+    });
+</script>
+
+<section ng-app="miApplicacion" ng-controller="ctrl">
+    <!-- La (ng-controller) trata a toda su etiqueta como un (componente) y tambien la (preprocesa). -->
+
+    <!-- Puede imprimir directamente propiedades. -->
+    <p>{{ numero }}</p>
+
+    <!-- Pueden hacerse operaciones complejas al imprimir. -->
+    <p>{{ "Resultado: " + (numero + 10) }}</p>
+
+    <!-- Pueden imprimirse valores dentro de los valores de atributos. -->
+    <input type="{{ 'number' }}" value="{{ numero }}">
+
+    <!-- Podemos imprimir propiedades. -->
+    <input {{ input.type }} {{ input.value }}>
+    <input {{ input.attributes }}>
+
+</section>

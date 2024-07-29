@@ -1,0 +1,84 @@
+<!-- ##########=================########## -->
+<!-- ######===--- Modularidad ---===###### -->
+<!-- ##########=================########## -->
+
+<!-- Mandamos a llamar a la funcion (getData). -->
+<section x-data="getData()">
+	<div>
+		<input type="button" value="Click" width="100" height="auto" @click="toInvert()">
+	</div>
+	<div x-show="open" @click.away="toFalse()">
+		<ol>
+			<li>Item #0</li>
+			<li>Item #1</li>
+			<li>Item #2</li>
+		</ol>
+	</div>
+	<div :class="visibleOrInvisible()">
+		<div class="bloque"></div>
+	</div>
+</section>
+
+<script type="text/javascript">
+	// Aqui tenemos la funcion (getData) la cual retorna un objeto con los datos para hidratar el componente.
+	function getData(){
+		return {
+			open: false,
+			toInvert: function(){
+				this.open = (!this.open)
+			},
+			toFalse: function(){
+				this.open = false;
+			},
+			toTrue: function(){
+				this.open = true;
+			},
+			visibleOrInvisible(){
+				return {'invisible': !this.open}
+			}
+		};
+	}
+</script>
+
+<!-- ##########==============================########## -->
+<!-- ######===--- Modularidad con ($store) ---===###### -->
+<!-- ##########==============================########## -->
+
+<!-- Mandamos a llamar al objeto (getNumbers) del objeto ($store). -->
+<section x-data="$store.getNumbers">
+	<div>
+		<label for="idNum">Numero 0</label>
+		<input type="text" width="100" placeholder="Numero 0" id="idNum" x-model="numero">
+	</div>
+	<div>
+		<label for="idNum1">Numero 1</label>
+		<input type="text" width="100" placeholder="Numero 1" id="idNum1" x-model="numero1">
+	</div>
+	<div>
+		<input type="button" value="Sumar" @click="sumar()">
+	</div>
+	<div>
+		<span x-text="getResult()"></span>
+	</div>
+</section>
+
+<script type="text/javascript">
+	document.addEventListener('alpine:init', () => {
+		// El objeto (getNumbers) tiene los datos para hidratar el componente.
+		Alpine.store('getNumbers', {
+			numero: 10,
+			numero1: 10,
+			result: "",
+			sumar(){
+				this.result = ("\nLa suma es: \n" + (this.numero + this.numero1));
+			},
+			getResult(){
+				return this.result;
+			}
+		});
+
+		// Puedes modificar las propiedades de otro componente directamente.
+		Alpine.store("getNumbers").numero = 20;
+		Alpine.store("getNumbers").result = "Nuevo resultado";
+	});
+</script>

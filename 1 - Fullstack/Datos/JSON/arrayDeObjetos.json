@@ -1,0 +1,53 @@
+{
+	// Objeto que almacena un array de objetos.
+	"empleados": [
+		{
+			// Cada objeto tiene un array de objetos.
+			"empleado_0": [
+				{"nombres": "Brandon Anthony"}, 
+				{"apellidos": "Olivares Amador"}
+			],
+			"empleado_1": [
+				{"nombres": "Ernesto"}, 
+				{"apellidos": "Aguilar"}
+			],
+			"empleado_2": [
+				{"nombres": "Cosmic cosmico"}, 
+				{"apellidos": "Cosmico"}
+			]
+		},
+		// Otro objeto que almacena objetos.
+		{
+			// (Propiedad -> valor).
+			"trabajo_0": {
+				"programador": "web",
+				"designer": "web",
+				"empleador": "web"
+			},
+			// Objeto con (arrays) como valores.
+			"trabajo_1": {
+				"programador": ["web", "desktop", "console", null],
+				"designer": ["web", "desktop"],
+				/* Propiedad con el valor de un objeto que a su vez tiene mas 
+				propiedades y (arrays). */
+				"empleador": {
+					"autoridad": "mayor",
+					"activo": true,
+					"encargadoDe": ["web", "desktop", "console"]
+				}
+			}
+		}
+	]
+}
+
+/*
+	Accederiamos a las propiedades de esta manera: 
+
+		--- empleados[0].empleado_0[0].nombres
+		--- empleados[0].empleado_0[1].apellidos
+
+		--- empleados[1].trabajo_0.programador
+		--- empleados[1].trabajo_1.programador[0]
+		--- empleados[1].trabajo_1.empleador.encargadoDe[3]
+
+*/

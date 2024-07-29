@@ -1,0 +1,100 @@
+<!-- ##########=====================================########## -->
+<!-- ######===--- (ng-repeat) y sus (propiedades) ---===###### -->
+<!-- ##########=====================================########## -->
+
+<!-- Declaramos una propiedad de arreglo llamada (names). -->
+<section ng-app="myApp" ng-init="names=['Brandon','Anthony','Olivares','Amador']">
+
+	<div ng-controller="myCtrl">
+
+		<!-- ------------------------------ -->
+		<!-- ------ Iteración normal ------ -->
+		<!-- ------------------------------ -->
+
+		<!-- El atributo (ng-repeat) permite iterar arreglos. -->
+		<ul ng-repeat="user in users">
+			<li>
+				<b>{{ user.name }}</b> <span>{{ user.age }}</span>
+			</li>
+		</ul>
+
+		<!-- ----------------------------------- -->
+		<!-- ------ Propiedades al iterar ------ -->
+		<!-- ----------------------------------- -->
+
+		<!-- Recorremos el arreglo de 'strings' (names). -->
+		<article ng-repeat="name in names">
+			<div>
+				<!-- El elemento actual del arreglo. -->
+				<span>{{ name }}</span>
+
+				<!-- ($index) devuelve el índice del elemento actual. -->
+				<b>{{ $index }}: </b>
+				
+				<!-- Representa con un valor (booleano) si nuestro índice es par. -->
+				<p>¿El índice es par? {{ $even }}</p>
+
+				<!-- Representa con un valor (booleano) si nuestro índice es impar. -->
+				<p>¿El índice es impar? {{ $odd }}</p>
+			</div>
+		</article>
+
+	</div>
+
+</section>
+
+<script type="text/javascript">
+	// Hidratamos el componente con la propiedad.
+	const myApp = angular.module("myApp", []).controller("myCtrl", function($scope){
+		$scope.users = [
+			{name: "Brandon", age: 22}, 
+			{name: "Anthony", age: 20}
+		];
+	});
+</script>
+
+<!-- ##########=============================########## -->
+<!-- ######===--- (ng-repeat) con (table) ---===###### -->
+<!-- ##########=============================########## -->
+
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []).controller("myCtrl", function($scope){
+		// Creamos un arreglo de objetos simulando los registros.
+		$scope.users = [
+			{name: "Brandon", age: 22}, 
+			{name: "Anthony", age: 20}, 
+			{name: "Cosmic", age: 19}
+		];
+	});
+</script>
+
+<section ng-app="myApp" ng-controller="myCtrl" ng-init="console.log('A iterar')">
+	<div>
+
+		<!-- Creamos la tabla. -->
+		<table border="2" cellpadding="3" cellspacing="2">
+			<thead>
+				<tr>
+					<th>Usuario</th>
+					<th>Nombre</th>
+					<th>Edad</th>
+					<th>Es par</th>
+					<th>Es impar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Iteramos el arreglo (users) en orden a su propiedad 'age'.
+				La etiqueta (tr) se iterara segun la dimension 
+				del arrglo (users). -->
+				<tr ng-repeat="user in users | orderBy: 'age'">
+					<td>{{ ($index + 1) }}</td>
+					<td>{{ user.name }}</td>
+					<td>{{ user.age }}</td>
+					<td>{{ $even }}</td>
+					<td>{{ $odd }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</section>

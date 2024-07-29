@@ -1,0 +1,115 @@
+/* ##########=======================########## */
+/* ######===--- De lista a string ---===###### */
+/* ##########=======================########## */
+
+/**
+ * NOTA: Es importante mencionar que las listas inician por el indice (1) y no del (0).
+ */
+
+// Separa por (espacios) todos los indices y agrega al final
+// Da: "Uno" "Dos" "Tres" "-".
+$result: join($lista, "-");
+
+// Puede combinar dos listas separandolas por espacios.
+$result: join($lista, $lista-2);
+
+// Separa por (comas) todos los indices.
+// Da: "Uno", "Dos", "Tres".
+$result: zip($lista);
+
+// Puede combinar mas de una lista.
+$result: zip($lista, $lista-2);
+
+// Devuelve todos los indices de una lista asosiativa separadas por (commas).
+$result: map-keys($assoc);
+
+// Devuelve todos los valores de una lista asosiativa separados por (commas).
+$result: map-values($assoc);
+
+/* ##########==================================########## */
+/* ######===--- Eliminar o agregar elementos ---===###### */
+/* ##########==================================########## */
+
+// -------------------------------- //
+// ------ Eliminar elementos ------ //
+// -------------------------------- //
+
+// Reemplaza el valor de un indice por otro.
+$result: set-nth($listas, 2, "Dos");
+
+// Remueve el indice de una lista (asosiativa).
+$result: map-remove($assoc, "Dos");
+
+// ------------------------------- //
+// ------ Agregar elementos ------ //
+// ------------------------------- //
+
+// Agrega un elemento a la lista indexada.
+$result: append($lista, "d");
+
+// Agrega un elemento a la lista (asosiativa).
+$result: append($assoc, ("bob": 56));
+
+/* ##########======================########## */
+/* ######===--- Buscar en listas ---===###### */
+/* ##########======================########## */
+
+// Comprueba si existe un indice en una lista asosiativo.
+$result: map-has-key($assoc, "Uno"); // bool.
+
+// Devuelve si la lista fue creada siendo separada por (commas/comma) o (espacios/space)
+$result: list-separator($bob); // bool.
+
+// Devuelve si la lista fue creada con o sin corchetes.
+$result: is-bracketed($lista); // bool.
+
+// Devuelve la longitud de una lista.
+$result: length($lista);
+
+/* Devuelve el valor del indice de una lista (indexada). Lanza un (error) si el indice es mayor que la lista. */
+$result: nth($lista-0, 1);
+
+// Devuelve el valor del indice de una lista (asosiativa).
+$result: map-get($assoc, "dos");
+
+/* ##########=======================########## */
+/* ######===--- Concatenar listas ---===###### */
+/* ##########=======================########## */
+
+// Combina dos listas en una sola.
+$result: map-merge($lista, $lista-2);
+
+/* ##########=====================########## */
+/* ######===--- Recorrer listas ---===###### */
+/* ##########=====================########## */
+
+// Una lista indexada.
+$lista: "Uno" "Dos" "Tres" null true "hola" $medida;
+
+// Una lista assosiativa.
+$assoc: (
+	"uno": 1, 
+	"dos": 2, 
+	"pi": 3.1416
+);
+
+// Podemos recorrer una lista con for normal.
+@for $i from 1 through length($lista){
+	.div-#{$i}{
+		content: nth($lista, $i);
+	}
+}
+
+// --------------------------- //
+// ------ metodo (each) ------ //
+// --------------------------- //
+
+// El (each) recorre una lista adquiriendo el indice y valor temporal.
+
+@each $valor in $lista{
+	// ...
+}
+
+@each $key, $value in $assoc{
+	// ...
+}

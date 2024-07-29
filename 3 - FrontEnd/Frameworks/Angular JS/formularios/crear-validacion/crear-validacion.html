@@ -1,0 +1,67 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	// Creamos una directiva (my-direct).
+	app.directive("mi-validacion", function(){
+		return {
+			// Requerimos del atributo (ng-model).
+			require: 'ngModel',
+
+			/* (link) será la propiedad que tendrá la lógica de la validación.
+
+			Recibimos un callback que recibe por parámetros las variables necesarias para validar. */
+			link: function(scope, element, attr, mCtrl){
+				/* Valida el valor (value) que entra al input. */
+				function myValidation(value){
+					/* Hacemos una validación simple, validamos que la cadena contenga el carácter 'e'.
+					El método ($setValidity) agrega una validación. */
+					if(value.indexOf("e") > -1){
+						mCtrl.$setValidity('charE', true);
+					}else{
+						mCtrl.$setValidity('charE', false);
+					}
+
+					// Retornamos el valor inicial luego de validarlo.
+					return value;
+				}
+				/* Agregamos nuestra función que valida a la lista de valifaciones de angular. */
+				mCtrl.$parsers.push(myValidation);
+			}
+		};
+	});
+
+	app.controller("ctrl", function($scope){
+		$scope.master = {
+			first: "Brandon", 
+			last: "Anthony", 
+			email: "brandon@gmail.com"
+		};
+
+		$scope.reset = function(){
+			this.user = angular.copy(this.master);
+		};
+	});
+</script>
+
+<section ng-app="app">
+	<div ng-controller="ctrl" ng-init="reset()">
+		<form action="#" method="POST" name="myForm" novalidate autocomplete="on">
+
+			<!-- En la validacion colocamos que requria (ngModel), asi que los campos utilisan esa directiva. -->
+			<!-- Colocamos en cada campo la validacion que queremos (ng-validacion). -->
+			
+			<input type="text" mi-validacion ng-model="user.first" name="primer">
+			<input type="text" mi-validacion ng-model="user.last" name="ultimo">
+			<input type="text" mi-validacion ng-model="user.email" name="correo">
+
+			<article>
+
+				<!-- Imprimimos los errores de los campos. -->
+
+				<p>{{ myForm.primer.$valid }}</p>
+				<p>{{ myForm.last.$valid }}</p>
+				<p>{{ myForm.correo.$valid }}</p>
+			</article>
+		</form>
+	</div>
+</section>

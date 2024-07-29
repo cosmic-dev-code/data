@@ -1,0 +1,79 @@
+<script defer type="text/javascript">
+
+	const app = angular.module("app", []);
+
+	/* El método (directive) nos permite crear nuestras propias directivas con su propia logica.
+	Recibe dos parámetros: 
+		--- El nombre de la directiva: 
+		--- una función que retorna un objeto con la logica de la directiva. */
+	app.directive("w3TestDirective", function(){
+		return {
+			/* (restrict), establece el tipo de restriccion: 
+				--- E, directiva por nombre de etiqueta.
+				--- A, directiva por atributo.
+				--- C, directiva por clase.
+				--- M, directiva por comentario.
+				--- EA, se pueden hacer combinaciones. */
+			restrict: 'A', 
+			// Colocamos el contenido de la directiva.
+			template: (`
+				<h1>Hola mundo</h1>
+			`)
+		};
+	});
+
+</script>
+
+<section ng-app="app">
+
+	<!-- De acuerdo a la tipo de restriccion que colocamos, es la manera en la que se 
+	invoca la directiva creada. -->
+
+	<!-- Por etiqueta: (w3TestDirective). -->
+	<w3-test-directive></w3-test-directive>
+
+	<!-- Por directiva: (w3TestDirective). -->
+	<div w3-test-directive></div>
+
+	<!-- Por clase: (w3TestDirective). -->
+	<div class="w3-test-directive"></div>
+
+	<!-- Por comentario: (w3TestDirective). -->
+	<!-- directive: w3-test-directive -->
+
+</section>
+
+<!-- ##########================########## -->
+<!-- ######===--- Parametros ---===###### -->
+<!-- ##########================########## -->
+
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.directive("nombreDirective", function(){
+		return {
+			/**
+			 * (scope), es el objeto que contendra las propiedades que recibira la directiva.
+			 */
+			scope: {
+				contenido: "@"
+			}
+			// Directiva en etiqueta.
+			restrict: "E", 
+			// Se pueden utilizar las propiedades.
+			template: (`
+				<div>
+					<p>{{ contenido }}</p>
+				</div>
+			`)
+		}
+	});
+
+</script>
+
+<section ng-app="app">
+
+	<!-- Los parametros se reciben como propiedades. -->
+	<nombre-directiva contenido="Hola mundo"></nombre-directiva>
+
+</section>

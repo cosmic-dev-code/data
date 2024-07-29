@@ -1,0 +1,33 @@
+/**
+ * Cindicion normal.
+ */
+
+$variable: true;
+
+@if $variable {
+	// ...
+}
+
+@if $variable == true {
+	// ...
+}@else{
+	// ...
+}
+
+/**
+ * Condicion (else if).
+ */
+
+// Los condicionales no se limitan solo a booleanos.
+
+$direction: top;
+
+@if $direction == top{
+	// ...
+}@else if $direction == right{
+	// ...
+}@else if $direction == left{
+	// ...
+}@else{
+	// ...
+}

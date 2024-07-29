@@ -1,0 +1,38 @@
+.scroll{
+	/* Define a cuanto padding puede descansar el 'scroll' en un punto intermedio de sus elementos: 
+		--- (0), indica que no podra descasar en el punto intermedio, entonces se ajustara a su elemento 
+			mas cercano sin dejar ver el punto intermedio.
+		--- (unidad de medida), indica que no podra descasar en el punto intermedio, entonces se ajustara a su elemento 
+			mas cercano dejando ver el punto intermedio entre ese elemento y proximo.
+
+	La (inidad de medida) establece cuanto dejara ver del siguiente elemento.  */
+
+	/* Define el (padding) de los elementos del contenedor del 'scroll' hacia la parte (superior). */
+	scroll-padding-top: 20px;
+
+	/* Define el (padding) de los elementos del contenedor del 'scroll' hacia la parte (derecha). */
+	scroll-padding-right: 20px;
+
+	/* Define el (padding) de los elementos del contenedor del 'scroll' hacia la parte (inferior). */
+	scroll-padding-bottom: 20px;
+
+	/* Define el (padding) de los elementos del contenedor del 'scroll' hacia la parte (izquierda). */
+	scroll-padding-left: 20px;
+
+	/* Define el (padding) de los elementos del contendor del 'scroll' hacia (todas sus direcciones). */
+	scroll-padding: 20px;
+}
+
+/* La (scroll-padding) requiere un contenedor ancho con elementos. */
+
+.container{
+	display: flex;
+	width: 300px;
+	overflow-x: scroll;
+
+	scroll-padding: 20px;
+}
+
+	.container > .item{
+		width: 100px;
+	}

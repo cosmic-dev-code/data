@@ -1,0 +1,40 @@
+
+<!-- ------------------------------- -->
+<!-- ------ Sincronizar datos ------ -->
+<!-- ------------------------------- -->
+
+<section ng-app="">
+	<div>
+		<!-- El atributo (ng-model) permite sincronizar el valor de un un elemento de entrada con 
+		una propiedad del componente. Si la propiedad no existe entonces la crea. -->
+		<input type="text" ng-model="names"/>
+	</div>
+	<div>
+		<p>{{ names }}</p>
+	</div>
+</section>
+
+<!-- ---------------------------------------------- -->
+<!-- ------ Sincronizar diferentes elementos ------ -->
+<!-- ---------------------------------------------- -->
+
+<section ng-app="myApp">
+	<div>
+		<!-- La propiedad (myValor) ahora puede valer: 
+			--- (auto) o (casa) o (colegio). -->
+		<input type="radio" ng-model="myValor" value="auto">
+		<input type="radio" ng-model="myValor" value="casa">
+		<input type="radio" ng-model="myValor" value="colegio">
+
+		<!-- Mismo caso. -->
+		<select ng-model="myValor">
+			<option value="auto">Auto</option>
+			<option value="casa">Casa</option>
+			<option value="colegio">Colegio</option>
+		</select>
+	</div>
+
+	<article>
+		<p>{{ $myValor }}</p>
+	</article>
+</section>

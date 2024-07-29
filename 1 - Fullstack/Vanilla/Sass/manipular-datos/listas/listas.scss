@@ -1,0 +1,72 @@
+/* ##########==================================########## */
+/* ######===--- Declaracion e inicializacion ---===###### */
+/* ##########==================================########## */
+
+// ------------------------- //
+// ------ Declaracion ------ //
+// ------------------------- //
+
+ // Esta es una lista vacia.
+$lista: ();
+
+// ---------------------------- //
+// ------ Inicializacion ------ //
+// ---------------------------- //
+
+// Las listas pueden inicializarse de tres formas distintas.
+
+// Elemetos separadps por espacios.
+$lista: "Uno" "Dos" "Tres";
+// Elementos separados por comas.
+$lista-1: "Uno", "Dos", "Tres";
+// Elementos dentro de parentesis.
+$lista-2: ("Uno", "Dos", "Tres");
+
+// Elementos de tipos diferentes.
+$lista-diferentes: ("Uno", true, 55, 26rem, null, ("Sub uno", "Sub dos"));
+
+/**
+ * NOTA: Es importante mencionar que las listas inician por el indice (1) y no del (0).
+ */
+
+/* ##########=====================########## */
+/* ######===--- Bidimensionales ---===###### */
+/* ##########=====================########## */
+
+$bidimensional: (
+	("Uno", true), 
+	("Dos", false)
+);
+
+// Con un (for) podemos iterar.
+@for $i from 1 through length($bidimensional){
+	$lista: nth($bidimensional, $i);
+
+	.div-#{nth($lista, 1)}{
+		content: nth($lista, 2);
+	}
+}
+
+/* ##########======================########## */
+/* ######===--- Tridimensionales ---===###### */
+/* ##########======================########## */
+
+$tridimensional: (
+	(
+		("Uno", "Dos", "Tres")
+	), 
+	(
+		("Dos", true, 55px)
+	), 
+	(
+		("Uno", "Dos", "Tres")
+	)
+);
+
+@each $bidimensional in $tridimensional{
+	@each $lista in $bidimensional{
+		@each $valor in $lista{
+			@debug $valor;
+		}
+	}
+}

@@ -1,0 +1,114 @@
+<!-- ##########=============########## -->
+<!-- ######===--- Botones ---===###### -->
+<!-- ##########=============########## -->
+
+<!-- Un boton normal. -->
+<input type="button" value="Mi boton">
+
+<!-- Boton para enviar los datos de un formularios, tiene por defecto el texto (Enviar). -->
+<input type="submit" value="Mi boton">
+
+<!-- Establece una imagen como boton, (raramente utilizado). -->
+<input type="image" src="images/image.png">
+
+<!-- Boton para reiniciar todos los campos del formulario a sus valores iniciales. -->
+<input type="reset" value="Restablecer">
+
+<!-- ##########=============########## -->
+<!-- ######===--- Usuario ---===###### -->
+<!-- ##########=============########## -->
+
+<!-- Una caja de texto. -->
+<input type="text" value="valor">
+
+<!-- Una caja para ingresar solo un correo. -->
+<input type="email" value="name@example.com">
+
+<!-- Una caja para buscar algo, (temas de SEO). -->
+<input type="search" value="Brandon">
+
+<!-- Una caja que oculta lo que el usuario escribe. -->
+<input type="password" value="pass">
+
+<!-- Una caja para ingresar solo numeros. -->
+<input type="number" value="123">
+
+<!-- Ingresar solo un numero telefonico, ejemplo: 0-000-000-000 -->
+<input type="tel" value="123">
+
+<!-- (Filas) y (columnas) del texto. -->
+<textarea cols="30" rows="10">Valor</textarea>
+<!-- (wrap), recibe: 
+	--- (soft), envuelve el texto dentro.
+	--- (hard), requiere saltos de línea explícitos.
+	--- (off), ningún salto de línea automático. -->
+<textarea wrap="soft">Valor</textarea>
+
+<!-- ##########====================########## -->
+<!-- ######===--- Subir archivos ---===###### -->
+<!-- ##########====================########## -->
+
+<!--- El atributo (accept) permite aceptar ciertos archivos como: 
+	--- (image/*) Acepta todas las imagenes.
+	--- (application/pdf) Acepta solo archivos 'pdf'. --->
+<input type="file" accept="image/*">
+
+<!-- Acepta imagenes de cualquier tipo.
+	--- En dispositivos (moviles), (capture="user") se utiliza para tomar una fotografia directamente de la camara del usuario. -->
+<input type="image" accept="image/*" capture="user">
+
+<!-- Acepta videos de cualquier tipo.
+	--- En dispositivos (moviles), (capture="evironment") se utiliza para tomar un video por medio de la camara trasera o el entorno del dispositivo.
+	--- Esto es útil cuando se desea grabar videos del entorno que rodea al usuario. -->
+<input type="image" accept="video/*" capture="evironment">
+
+<!-- ##########==================########## -->
+<!-- ######===--- Fecha y hora ---===###### -->
+<!-- ##########==================########## -->
+
+<!-- (Inputs) encargados de pedir la fecha y hora. -->
+<input type="time" name="time" placeholder="Hora">
+<input type="date" name="dia" placeholder="Dia"><!-- Fecha. -->
+<input type="week" name="semana" placeholder="Semana">
+<input type="month" name="mes" placeholder="Mes">
+<!-- Muestra una pequeña interfaz grafica para que el usuario (seleccione una fecha y hora). -->
+<input type="datetime-local" name="fecha_completa" placeholder="Fecha especificada">
+
+<!-- ##########===========########## -->
+<!-- ######===--- Otros ---===###### -->
+<!-- ##########===========########## -->
+
+<!-- Un boton de radio. -->
+<input type="radio" checked> Hombre
+
+<!-- Una casilla para marcar o desmarcar. -->
+<input type="checkbox" value="valor" checked> He leido los terminos de servicio
+
+<!-- Una paleta de color -->
+<input type="color" value="#fff">
+
+<!-- Una barra que el usuario puede manipular -->
+<input type="range" max="100" min="0" value="56">
+
+<!-- ##########========================########## -->
+<!-- ######===--- Atributos globales ---===###### -->
+<!-- ##########========================########## -->
+
+<!-- El label se relaciona con el input por medio de su (for). -->
+<label for="idCampo">Campo</label>
+
+<!-- Relacionado al (id). -->
+<input type="text" id="idCampo">
+
+<!-- Texto de fondo. -->
+<textarea placeholder="Texto de fondo">Valor</textarea>
+
+<!-- Texto alternativo. -->
+<input type="image" src="images/image.png" alt="Texto alternativo">
+
+<!-- ##########==================########## -->
+<!-- ######===--- Validaciones ---===###### -->
+<!-- ##########==================########## -->
+
+<!-- Delimitadores. -->
+<textarea maxlength="100" minlength="30">Valor</textarea>

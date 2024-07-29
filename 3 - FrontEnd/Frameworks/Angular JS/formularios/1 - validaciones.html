@@ -1,0 +1,95 @@
+<!-- ##########=================================########## -->
+<!-- ######===--- Propiedades de validaciones ---===###### -->
+<!-- ##########=================================########## -->
+
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+		$scope.master = {
+			names: "Brandon", 
+			age: 22, 
+			email: "brandon@gmail.com"
+		};
+
+		$scope.reset = function(){
+			this.user = angular.copy(this.master);
+		};
+	});
+</script>
+
+<section ng-app="app" ng-controller="ctrl" ng-init="reset()">
+	<div>
+
+		<!-- El campo (name) es importante para referirnos al formulario y sus campos de entrada. -->
+
+		<form action="#" method="POST" name="myForm" autocomplete="on">
+
+			<!-- Las validaciones (valid) o (invalid) se validan de acuerdo al tipo de input: 
+				--- (text), (number), (email), etc. -->
+
+			<div>
+				<input type="text" ng-model="user.names" name="nombres">
+			</div>
+			<div>
+				<input type="number" ng-model="user.age" name="edad">
+			</div>
+			<div>
+				<input type="email" ng-model="user.email" name="correo">
+			</div>
+			<div>
+				<input type="button" ng-click="reset()" value="Reiniciar valores">
+			</div>
+
+			<dl>
+				<dd>
+					<!-- Muestra con un valor booleano si los campos son validos. -->
+
+					<p>Nombres: {{ myForm.nombres.$valid }}</p>
+					<p>Edad: {{ myForm.edad.$valid }}</p>
+					<p>Correo: {{ myForm.correo.$valid }}</p>
+
+					<div ng-show="myForm.nombres.$error">
+						<!-- Mostramos un error si lo tenemos en cierto campo. -->
+					</div>
+				</dd>
+
+				<!-- --------------------------------------- -->
+				<!-- ------ Propiedades de un (campo) ------ -->
+				<!-- --------------------------------------- -->
+
+				<dd ng-show="false">
+					<!-- Define si el campo no ha sido tocado. -->
+					<p>{{ myForm.nombres.$untouched }}</p>
+					<!-- Define si el campo ha sido tocado. -->
+					<p>{{ myForm.nombres.$touched }}</p>
+					<!-- Define si el campo no ha sido modificado. -->
+					<p>{{ myForm.nombres.$pristine }}</p>
+					<!-- Define si el campo ha sido modificado. -->
+					<p>{{ myForm.nombres.$dirty }}</p>
+					<!-- El contenido del campo es inválido. -->
+					<p>{{ myForm.nombres.$invalid }}</p>
+					<!-- El contenido del campo es válido. -->
+					<p>{{ myForm.nombres.$valid }}</p>
+				</dd>
+
+				<!-- ------------------------------------------ -->
+				<!-- ------ Propiedades del (formulario) ------ -->
+				<!-- ------------------------------------------ -->
+
+				<dd>
+					<!-- El formulario se enviará. -->
+					<p>{{ myForm.$submitted }}</p>
+					<!-- Ningún campo ha sido modificado. -->
+					<p>{{ myForm.$pristine }}</p>
+					<!-- Uno o más campos han sido modificados. -->
+					<p>{{ myForm.$dirty }}</p>
+					<!-- Los campos del formulario son válidos. -->
+					<p>{{ myForm.$valid }}</p>
+					<!-- Los campos del formulario son inválidos. -->
+					<p>{{ myForm.$invalid }}</p>
+				</dd>
+			</dl>
+		</form>
+	</div>
+</section>

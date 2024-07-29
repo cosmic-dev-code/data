@@ -1,0 +1,51 @@
+<!-- ##########=====================================########## -->
+<!-- ######===--- Agregar referencias a elementos ---===###### -->
+<!-- ##########=====================================########## -->
+
+<section x-data>
+
+	<div>
+		<!-- La propiedad (x-ref) permite darle a un elemento un nombre al 
+		cual se le va a ser referencia. -->
+		<div x-ref="div" class="cuadrado"></div>
+	</div>
+
+	<div>
+		<!-- Al hacer 'click' mandamos a llamar al objeto ($refs) el cual contiene todas 
+		las referencias, en este caso modificamos al elemento 'div' por su nombre de 
+		referencia el cual es (div) agregandole una clase. -->
+		<button x-on:click="$refs.div.classList.add('invisible')">Click</button>
+	</div>
+
+</section>
+
+<!-- ##########=============================########## -->
+<!-- ######===--- Agregar y quitar clases ---===###### -->
+<!-- ##########=============================########## -->
+
+<section x-data>
+	
+	<!-- Colocamos una referencia llamada (message) a nuestro elemento (figure). -->
+	<figure x-ref="message" class="overlay">
+		<div class="message">
+			<header>
+				<h4>Mensaje</h4>
+			</header>
+			<div>
+				<p>Body</p>
+				<!-- Removemos una clase al elemento por referencia (message). -->
+				<input type="button" value="Cerrar" width="100" height="auto" x-on:click="$refs.message.classList.remove('visible')">
+			</div>
+			<footer>
+				<small>Pie</small>
+			</footer>
+		</div>
+	</figure>
+
+	<section>
+		<h3>Acepto los terminos y condiciones: </h3>
+		<!-- Agregamos una clase al elemento por referencia (message). -->
+		<input type="button" value="Acepto" width="100" height="auto" x-on:click="$refs.message.classList.add('visible')">
+	</section>
+
+</section>

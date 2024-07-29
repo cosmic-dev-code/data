@@ -1,0 +1,18 @@
+<script type="text/javascript">
+	// Se retorna un valor asincrono.
+	async function getData(){
+		let response = await fetch('https://webdataexample/examples/data-text');
+
+		return await response.text();
+	}
+</script>
+
+<section x-data>
+	<div>
+		<!-- Se resiben los datos de una menera asincrona. -->
+		<p x-text="await getData()"></p>
+
+		<!-- Pueden omitirse los parentesis de la funcion. -->
+		<p x-text="await getData"></p>
+	</div>
+</section>

@@ -1,0 +1,39 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	/* Nuestra aplicación posee un método llamado (filter), el cual recibe los siguientes parámetros: 
+		--- El nombre del filtro que queremos crear.
+		--- Un callback con la lógica de nuestro filtro. */
+	app.filter('esJoven', function(){
+		// (x) representa el valor que recibe nuestro filtro desde el HTML.
+		return function(x){
+
+			/* Aqui se aplica toda la logica al filtro y se retorna lo que se desee. */
+
+			if(/^[0-9]+$/.test(x)){
+				if(x >= 18 && x < 30){
+					return (`
+						<span class="blue">${x}</span>
+					`);
+				}else{
+					return (`
+						<span class="red">No es una persona joven</span>
+					`);
+				}
+			}
+
+			return x;
+		};
+	});
+
+	app.controller("ctrl", function($scope){});  
+</script>
+
+<!-- (ng-init) declara una propiedad llamada (edad). -->
+<section ng-app="app" ng-init="edad = 23">
+	<div ng-controller="ctrl">
+		<!-- Al imprimir hacemos uso de nuestro filtro y se retorna el valor del filtro, 
+		en este cado (edad) se envia por parametro al filtro. -->
+		<p>{{ edad | esJoven }}</p>
+	</div>
+</section>

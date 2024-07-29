@@ -1,0 +1,23 @@
+.texto{
+	/* Aplica una sombra al texto, donde: 
+		--- Indica la direccion X (derecha) y -(izquierda).
+		--- Indica la direccion Y (abajo) y -(arriba).
+		--- Indica el (difuminado).
+		--- Indica el (color). */
+	text-shadow: 3px 3px 3px black;
+
+	/* Especificamos una sombra para cada lado. */
+	text-shadow: 
+		1px 0 10px rgb(0 0 0 / 30%), 
+		0 1px 10px rgb(0 0 0 / 30%), 
+		-1px 0 10px rgb(0 0 0 / 30%), 
+		0 -1px 10px rgb(0 0 0 / 30%);
+	
+	/* Sombra para todos lados. */
+	text-shadow: 
+		1px 1px 10px rgb(0 0 0 / 30%), 
+		-1px -1px 10px rgb(0 0 0 / 30%);
+
+	/* Sombra para todos los lados, (los cuatro lados). */
+	text-shadow: 0 0 10px rgba(0, 0, 0, 30%);
+}

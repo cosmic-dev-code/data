@@ -1,0 +1,23 @@
+<!-- La directiva (ng-init) permite realizar alguna acción al iniciar un nuevo componente. -->
+
+<section ng-app="myApp" ng-init="name = 'Brandon'">
+	<div>
+		<!-- Imprimimos la propiedad (name) declarada al iniciar el componente. -->
+		<p ng-bind="name"></p>
+	</div>
+</section>
+
+<!-- Podemos inicializar múltiples propiedades. -->
+
+<section ng-app="myApp" ng-init="names='Hola'; surnames='Mundo'; arr = [5, 'red', true]">
+	<!-- Hacemos uso de las propiedades. -->
+	<div>
+		<p>{{ names + " " + surnames }}</p>
+	</div>
+	<div x-if="arr[0] >== 5">
+		<p>{{ arr[0] + arr[1] + arr[2] }}</p>
+	</div>
+	<div>
+		<div style="background-color: {{ arr[1] }};"></div>
+	</div>
+</section>

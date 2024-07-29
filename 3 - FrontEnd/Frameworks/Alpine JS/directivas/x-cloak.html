@@ -1,0 +1,50 @@
+<!-- ##########===========================########## -->
+<!-- ######===--- El atributo (x-cloak) ---===###### -->
+<!-- ##########===========================########## -->
+
+<!-- A veces cuando la pagina muestra el contenido, (puede observarse un parpadeo con todo sin inicializar), 
+esto ocurre antes de que cargue Alphine. -->
+
+<!-- La directiva (x-cloak) permite ejecutar un bloque de codigo hasta que se inicialize (alpine), 
+pero debe agregarse la siguiente regla CSS: -->
+
+<style type="text/css">
+	/* Esto porque Alphine carga hasta el final, y para entonces no hay frameworks en el sitio web, 
+	asi que aplicamos este estilo previo. */
+	[x-cloak]{
+		display: none !important;
+	}
+</style>
+
+<!-- Ahora el componente no se mostrara hasta que haya cargado (Alphine) en la pagina. -->
+<section x-data x-cloak>
+
+	<div>
+		<div>
+			<h3>Hola</h3>
+		</div>
+		<span>Hola</span>
+	</div>
+
+</section>
+
+<!-- ##########===========================########## -->
+<!-- ######===--- El atributo (x-cloak) ---===###### -->
+<!-- ##########===========================########## -->
+
+<!-- Hasta que (Alphine) cargue por completo todo esto se muestra. -->
+<section x-data="{data: {
+	uno: {name: 'Brandon', age: 19, active: true},
+	dos: {name: 'Anthony', age: 20, active: true}
+}}" x-cloak>
+
+	<template x-if="data.length > 0">
+		
+		<template x-for="obj in Object.values(data)">
+			<span x-text="(obj.name + ' - ' + obj.age)"></span>
+			<span x-text="(' - '+(obj.active ? 'Activo' : 'Inactivo'))"></span>
+		</template>
+
+	</template>
+	
+</section>

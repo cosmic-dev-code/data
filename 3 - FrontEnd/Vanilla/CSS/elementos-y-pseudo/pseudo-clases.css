@@ -1,0 +1,149 @@
+/* ##########===================########## */
+/* ######===--- PSEUDO CLASES ---===###### */
+/* ##########===================########## */
+
+input[type="button"]{
+	/* Aqui tenemos un boton. */
+}
+
+input[type="button"]:hover{
+	/* La pseudo clase (hover) se activa cuando el cursor pasa por encima del elemento. */
+}
+
+input[type="button"]:active{
+	/* (Active) se activa cuando damos un 'click' al elemento. */
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus{
+	/* (Focus) representa cuando el usuario dio 'click' en una caja de texto y 
+	naturalmente se encuentra en ella. */
+}
+
+/* (Link) representa solo cuando el enlace tiene un link, como lo son las etiquetas 'a'. */
+a:link{
+	color: blue;
+}
+
+/* (Visited) representa cuando el link ya fue visitado. */
+a:visited{
+	color: violet;
+}
+
+/* ---------------------------------- */
+/* ------ La pseudo clase (is) ------ */
+/* ---------------------------------- */
+
+/* Es utilizado como un shothand. */
+
+ul li a, 
+ol li a{
+	color: red;
+}
+
+/* Equivalente. */
+
+:is(ul, ol) a{
+	color: red;
+}
+
+/* ------------------------------------- */
+/* ------ La pseudo clase (where) ------ */
+/* ------------------------------------- */
+
+/* Donde describe una condicion para aplicar estilos. */
+
+main h1, 
+main h2, 
+main h3{
+	font-size: 20px;
+}
+
+/* Equivalente. */
+
+main:where(h1, h2, h3){
+	font-size: 20px;
+}
+
+/* ------------------------------------- */
+/* ------ La pseudo clase (empty) ------ */
+/* ------------------------------------- */
+
+/* (Empty), aplica estilos cuando el (input) se encuentra vacio. */
+
+input:empty{
+	/* Cuando el input se encuentra vacio aplica los estilos. */
+}
+
+input[type="text"]:empty::placeholder{
+	/* Cuando el (input) se encuentra vacio aplica estilos a su (pseudo elemento). */
+}
+
+/* ----------------------------------- */
+/* ------ La pseudo clase (not) ------ */
+/* ----------------------------------- */
+
+/* La pseudo clase (not) aplica los estilos siempre y cuando se cumpla la condicion. */
+
+.element:not(.clase){
+	/* Se aplican a la clase (.element) si no contiene la clase (.clase). */
+}
+
+input:not([type="submit"]){
+	/* Se aplican a todos los (input) que no sean de tipo (submit). */
+}
+
+input[type="text"]:not(:empty)::placeholder{
+	/* Se aplica al (input) cuando este no esta vacio. */
+}
+
+label:not(.clase):hover::before{
+	/* Se aplican a todos los (label) que no contienen la clase (.clase) en su estado (hover) a su (before). */
+}
+
+button:not(:hover){
+	/* Se aplican a todos los (botones) que no tienen el estado hover. */
+}
+
+button:not(:hover):not(.btn){
+	/* Se aplica al que no este en (hover) y no contenga la clase (btn). */
+}
+
+article > div:not(:first-child){
+	/* Se aplican a todos los (div) del elemento (article) a excepcion del primer (div). */
+}
+
+main .btn-primary:not(article > button){
+	/* Se aplica a la clase (.btn-primary) si: 
+		--- Es esta no se encuentra dentro de un (article) y se le aplica a un (button).  */
+}
+
+/* ------------------------------- */
+/* ------ Elementos (hijos) ------ */
+/* ------------------------------- */
+
+/* El primer elemento hijo recibira los cambios. */
+.contenedor-padre > .hijo-directo:first-child{
+	background-color: red;
+}
+
+/* El ultimo elemento hijo recibira los cambios. */
+.contenedor-padre > .hijo-directo:last-child{
+	background-color: red;
+}
+
+/* Selecciona el tercer elemento hijo y le aplica los valores. */
+.contenedor-padre > .hijo-directo:nth-child(3){
+	background-color: red;
+}
+
+/* Selecciona un hijo no, el siguiente si, no, si, no, si, etc. */
+.contenedor-padre > .hijo-directo:nth-child(even){
+	background-color: red;
+}
+
+/* Selecciona un hijo si, el siguiente no, si, no, si, no, etc. */
+.contenedor-padre > .hijo-directo:nth-child(odd){
+	background-color: red;
+}

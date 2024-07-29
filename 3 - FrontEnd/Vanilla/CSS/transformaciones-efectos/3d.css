@@ -1,0 +1,43 @@
+.container{
+	display: block;
+	
+	/* Le damos un alto y un ancho determinado. */
+	width: 200px;
+	height: 200px;
+	margin: auto;
+	margin-top: 60px;
+
+	/* (perspective), la propiedad de perspectiva define qué tan lejos está el objeto del usuario. Por lo tanto: 
+		--- Un valor más bajo dará como resultado un efecto 3D más intenso que un valor más alto. */
+	perspective: 1000px;
+}
+
+	.cubo{
+		/* Posicionamos el elemento. */
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+
+		display: block;
+		width: 100%;
+		height: 100%;
+
+		/* (transform-style), define si el elemento esta posicionado en un espacio (3d): 
+			--- (preserve-3d), posiciona el elemento en un espacio 3d, colocando los cambios hechos en 3d.
+			--- (flat), posiciona el elemento en un espacio normal. */
+		transform-style: preserve-3d;
+	}
+
+		.cubo > figure{
+			/* Posicionamos el elemento. */
+			position: absolute;
+			top: 0; right: 0; bottom: 0; left: 0;
+			/*  Le damos estilos al elemento. */
+			width: 100%;
+			height: 100%;
+			border: 2px solid #000;
+			background-color: rgba(0,0,0,10%);
+
+			/* Ahora las transformaciones se veran como (3d). */
+			transform: rotateX(45deg) rotateY(45deg) translateZ(10px);
+			top: 30px;
+		}

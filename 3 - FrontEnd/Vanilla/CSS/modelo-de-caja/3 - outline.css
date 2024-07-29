@@ -1,0 +1,34 @@
+.elemento{
+	/* ##########=============########## */
+	/* ######===--- Outline ---===###### */
+	/* ##########=============########## */
+
+	/* Solamente establece el (outline) a todas direcciones. */
+
+	/* Establece el ancho del outline. */
+	outline-width: 10px;
+
+	/* Establece el estilo del outline, recibe uno de los siguientes valores: 
+   		--- (solid), un borde solido.
+   		--- (dashed), un borde de lineas discontinuas.
+   		--- (dotted), un borde de puntitos.
+   		--- (double), un borde doble.
+   		--- (groove), un borde solido marcado.
+   		--- (ridge), un borde solido sobresaliente.
+   		--- (outset), el borde en colina y el contenido del elemento sobresaliente. */
+	outline-style: solid;
+
+	/* Establece el color. */
+	outline-color: red;
+
+	/* Establece la separacion entre el ouline y el elemento.
+	(Como si hubiera un margen interno que los separa). */
+	outline-offset: 10px;
+
+	/* ----------------------- */
+	/* ------ shorthand ------ */
+	/* ----------------------- */
+
+	/* Establece el (outline) con todas sus propiedades. */
+	outline: 10px solid red;
+}

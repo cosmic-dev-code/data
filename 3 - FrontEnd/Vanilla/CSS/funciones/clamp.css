@@ -1,0 +1,9 @@
+/* Se utiliza para establecer un rango de valores para una propiedad, recibe: 
+	--- Valor minimo permitido.
+	--- Valor de preferencia.
+	--- Valor maximo permitido. */
+
+.elemento{
+	/* Ejemplo: Establecer un valor que se encuentre entre (200) y (400), pero preferimos un ancho de (300). */
+	width: clamp(200px, 300px, 400px);
+}

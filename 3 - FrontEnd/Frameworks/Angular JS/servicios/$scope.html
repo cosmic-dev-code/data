@@ -1,0 +1,33 @@
+<script type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", function($scope){
+
+		/* El servicio ($scope) permite crear funciones y propiedades que posteriormente 
+		serán utilizadas dentro del componente. */
+		
+		$scope.names = "Brandon Anthony";
+		
+		$scope.present = function(){
+			window.alert(this.names + " " + this.surnames);
+		}
+
+	});
+</script>
+
+<section ng-app="myApp">
+
+	<!-- Podemos crear propiedades desde el código HTML. -->
+	<div ng-controller="ctrl" ng-init="surnames='Olivares Amador'">
+		<p>
+			<b>Su nombre es: </b>
+			<!-- Imprimimos la propiedad que creamos. -->
+			<span>{{ names }}</span>
+		</p>
+		<div>
+			<!-- Hacemos uso del metodo. -->
+			<input type="button" ng-click="present()" value="Presentar">
+		</div>
+	</div>
+
+</section>

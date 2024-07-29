@@ -1,0 +1,51 @@
+/* ##########=====================########## */
+/* ######===--- Posicionamiento ---===###### */
+/* ##########=====================########## */
+
+.container{
+	position: relative;
+}
+
+	.inner-container{
+		position: absolute;
+		inset: 0;
+
+		margin: auto;
+	}
+
+/* ##########========================================########## */
+/* ######===--- Posicionamiento y transformaciones ---===###### */
+/* ##########========================================########## */
+
+.container{
+	position: relative;
+}
+
+	.inner-container{
+		position: absolute;
+
+		top: 50%; left: 50%;
+
+		transform: translate(-50%, -50%);
+	}
+
+/* ##########==============########## */
+/* ######===--- Flex Box ---===###### */
+/* ##########==============########## */
+
+.container{
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+
+/* ##########==========########## */
+/* ######===--- Grid ---===###### */
+/* ##########==========########## */
+
+.container{
+	display: grid;
+
+	place-items: center;
+}

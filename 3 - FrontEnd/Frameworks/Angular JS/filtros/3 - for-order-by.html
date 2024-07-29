@@ -1,0 +1,72 @@
+<!-- ##########===============########## -->
+<!-- ######===--- (orderBy) ---===###### -->
+<!-- ##########===============########## -->
+
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", ['$scope', function(data){
+		// Tenemos un arreglo de objetos.
+		data.users = [
+			{name: "Brandon", age: 22}, 
+			{name: "Anthony", age: 20}, 
+			{name: "Cosmic", age: 19}
+		];
+	}]);
+</script>
+
+<section ng-app="myApp" ng-controller="ctrl">
+	<div>
+		<!-- Podemos recorrer los registros de acuerdo a la propiedad (age), 
+		por medio del filtro (orderBy). -->
+		<ul ng-repeat="user in users | orderBy:'age'">
+			<li>
+				<!-- Imprimimos cada valor. -->
+				<b>{{ user.name }}</b> <span>{{ user.age }}</span>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<!-- ##########=========================########## -->
+<!-- ######===--- Manipular (orderBy) ---===###### -->
+<!-- ##########=========================########## -->
+
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", ['$scope', function(data){
+		// Tenemos un arreglo de objetos.
+		data.users = [
+			{name: "Brandon", age: 22}, 
+			{name: "Anthony", age: 20}, 
+			{name: "Cosmic", age: 19}
+		];
+
+		// Variable que maneja el orden.
+		data.usuario = "name";
+		// Cambiamos el valor del orden.
+		data.cambiar = function(cambio = "name"){
+			this.usuario = cambio;
+		};
+	}]);
+</script>
+
+<section ng-app="myApp" ng-controller="ctrl">
+	<div>
+		<div>
+			<!-- Cambiamos el valor del orden: 
+				--- Por nombre, (name).
+				--- Por edad, (age). -->
+			<input type="button" ng-click="cambiar()" value="Por nombre">
+			<input type="button" ng-click="cambiar('age')" value="Por edad">
+		</div>
+		<!-- (orderBy) será en este caso de acuerdo al valor almacenado en la variable (usuario). -->
+		<ul ng-repeat="user in users | orderBy:usuario">
+			<li>
+				<!-- Imprimimos cada valor. -->
+				<b>{{ user.name }}</b> <span>{{ user.age }}</span>
+			</li>
+		</ul>
+	</div>
+</section>

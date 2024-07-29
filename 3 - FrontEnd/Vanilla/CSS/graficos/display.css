@@ -1,0 +1,43 @@
+div{
+	display: block;
+	/* Elemento en bloque y abarca todo el ancho de la 
+	pantalla. */
+}
+
+u{
+	display: inline;
+	/* Elemento en linea y solo abarca el espacio que 
+	necesita el contenido. */
+}
+
+li{
+	display: inline-block;
+	/* Elemento en linea con las propiedades del bloque y 
+	abarca solo lo que el contenido necesita. */
+}
+
+.container{
+	display: flex;
+	/* Elemento flexible y abarca solo lo que el contenido 
+	necesita. */
+}
+
+.grilla{
+	display: grid;
+	/* Elemento en grilla y abarca solo lo que el contenido 
+	necesita. */
+}
+
+#none{
+	display: none;
+	/* El elemento no se muestra. */
+}
+
+/* Estas son las dos propiedades que existen por defecto dentro de la web. */
+div, header, footer, section, article, p, .etc{
+	display: block;
+}
+
+b, u, i, span, s, strong, .etc{
+	display: inline;
+}

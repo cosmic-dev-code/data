@@ -1,0 +1,34 @@
+<!-- -------------------------------- -->
+<!-- ------ Valores primitivos ------ -->
+<!-- -------------------------------- -->
+
+<!-- Podemos dar datos a un componente de Alphine de la siguiente manera: -->
+
+<section x-data="{numero: 10, numero1: 10}">
+
+	<!-- Hacemos uso de las propiedades. -->
+	<template x-if="numero !== 0 && numero1 !== 0">
+		<dl>
+			<span x-text="('La suma es: '+(numero + numero1))"></span>
+		</dl>
+	</template>
+
+</section>
+
+<!-- ------------------------------- -->
+<!-- ------ Valores complejos ------ -->
+<!-- ------------------------------- -->
+
+<!-- Dentro del objeto podemos colocar un metodo que haga referencia a una de las propiedades del mismo objeto. -->
+
+<section x-data="{
+	getNumber: function(){
+		window.alert('El numero es: '+this.number)
+	},
+	number: 10
+}">
+
+	<!-- Mandamos a llamar el metodo. -->
+	<span x-text="getNumber()"></span>
+	
+</section>

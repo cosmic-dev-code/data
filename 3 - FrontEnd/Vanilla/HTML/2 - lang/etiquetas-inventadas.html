@@ -1,0 +1,182 @@
+<!-- ##########===============================########## -->
+<!-- ######===--- Etiquetas HTML inventadas ---===###### -->
+<!-- ##########===============================########## -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Titulo</title>
+</head>
+<body>
+	<!-- Puedes inventar etiquetas HTML y darles estilos. Esto no da error, las etiquetas inventadas son 
+	elementos en linea completamente reseteados.
+
+	Sin embargo, es importante no utilizarlos, ya que no ayudaran al SEO y podrian dar complicaciones en un futuro. -->
+
+	<!-- Ejemplo HTML. -->
+
+	<cabecera>
+		<navegacion>
+			<lista>
+				<elemento>
+					<titulo1>Nombre de sitio</titulo1>
+				</elemento>
+				<elemento>
+					<enlace referencia="https://www.example.com">Enlace</enlace>
+				</elemento>
+			</lista>
+		</navegacion>
+	</cabecera>
+
+	<!-- Ejemplo CSS -->
+
+	<style type="text/css">
+		/* Puedes dar estilos sin ningun problema. */
+		cabecera{
+			display: block;
+		}
+
+			cabecera > navegacion > lista{
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				width: 100%;
+			}
+
+		enlace{
+			color: blue;
+			text-decoration: underline;
+		}
+	</style>
+
+</body>
+</html>
+
+<!-- ##########=============########## -->
+<!-- ######===--- Ejemplo ---===###### -->
+<!-- ##########=============########## -->
+
+<!-- Aqui tienes un ejemplo mas claro de como funciona. Como podras observar, nos basamos en etiquetas 
+ya existentes para inventar otras: 
+	--- (header) -> (cabecera). -->
+
+<!-- ###### --- --- --- --- --- --- index.html --- --- --- --- --- --- ###### -->
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventadas</title>
+  
+  <!-- Enlace de los estilos para las etiquetas. -->
+  <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body>
+
+	<!-- header -->
+	<Cabecera>
+		<Logo>
+			Logo
+		</Logo>
+		<!-- nav -->
+		<Navegacion>
+			<!-- ul -->
+			<Enlaces>
+				<!-- li -->
+				<Enlace>Inicio</Enlace>
+				<Enlace>Maquetas</Enlace>
+				<Enlace>Puentes</Enlace>
+			</Enlaces>
+		</Navegacion>
+	</Cabecera>
+	<!-- section -->
+	<Seccion>
+		<!-- article -->
+		<Articulo>
+			<!-- p -->
+			<Parrafo>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum ut lorem elit. Quisque scelerisque magna quis leo dignissim facilisis. Quisque sodales euismod mauris, ut feugiat nisi molestie quis. Aliquam ut.
+			</Parrafo>
+		</Articulo>
+	</Seccion>
+	<!-- footer -->
+	<Pie>
+		<!-- small -->
+		<Legal>Derechos reservados por: Brandon Anthony.</Legal>
+	</Pie>
+
+</body>
+</html>
+
+<!-- ###### --- --- --- --- --- --- index.css --- --- --- --- --- --- ###### -->
+
+<!-- Podemos darle estilos a las etiquetas HTML en un archivo aparte. -->
+
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		font-family: "Arial";
+	}
+
+	Cabecera{
+		display: block;
+		background-color: #888;
+		box-shadow: 0px 3px 10px #ccc;
+	}
+
+		Cabecera Logo{
+			display: inline-block;
+			padding: 20px;
+			color: #fff;
+		}
+
+		Cabecera Navegacion Enlaces Enlace{
+			display: inline-block;
+			padding: 20px;
+			color: #fff;
+		}
+
+		Cabecera Navegacion Enlaces Enlace:hover{
+			cursor: pointer;
+			background-color: #ccc;
+			color: #000;
+		}
+
+
+	Seccion{
+		display: block;
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 60px;
+		padding: 30px;
+		box-shadow: 3px 3px 10px #ccc, -3px 3px 10px #ccc, 
+						3px -3px 10px #ccc, -3px -3px 10px #ccc;
+		border-radius: 6px;
+	}
+
+		Seccion Articulo{
+			padding: 30px;
+		}
+
+		Seccion Articulo Parrafo{
+			line-height: 25px;
+			letter-spacing: 1px;
+		}
+
+	Pie{
+		display: block;
+		width: 80%;
+		margin: 0 auto;
+		padding: 30px;
+		background-color: #000;
+		color: #fff;
+		margin-top: 90px;
+		text-align: center;
+		border-radius: 6px;
+	}
+</style>

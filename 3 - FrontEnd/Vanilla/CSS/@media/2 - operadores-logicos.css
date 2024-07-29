@@ -1,0 +1,23 @@
+/* --------------------------------- */
+/* ------ (not), (and) y (or) ------ */
+/* --------------------------------- */
+
+/* Si el medio no es un sintetizador de voz. */
+@media not speech{
+	/* ... */
+}
+
+/* Si el medio no es una pantalla y es un sintetizador de voz. */
+@media not screen and speech{
+	/* ... */
+}
+
+/* Si el medio no es una pantalla y cuando mande a imprimir. */
+@media screen or print{
+	/* ... */
+}
+
+/* Podemos hacer combinaciones. */
+@media screen or print and not speech{
+	/* ... */
+}

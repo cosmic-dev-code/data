@@ -1,0 +1,14 @@
+/**
+ * (@debug) envia mensajes a la consola.
+ */
+
+$saludo: "Hola mundo";
+
+@debug "Hola mundo";
+@debug $saludo;
+
+/**
+ * Envia un mensaje de precaucion a la consola.
+ */
+ 
+@warn "Alerta";

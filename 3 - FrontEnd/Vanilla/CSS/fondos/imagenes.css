@@ -1,0 +1,69 @@
+/* ##########=====================########## */
+/* ######===--- Images de fondo ---===###### */
+/* ##########=====================########## */
+
+#fondo-imagen{
+	/* Ponemos una imagen de fondo. */
+	background-image: url('mi-fondo.jpg');
+	background-image: url('imagen.svg');
+
+	/* Podemos poner estas propiedades: 
+
+		--- (No-repeat), la imagen no se repite.
+		--- (Repeat), la imagen se repite a todas direcciones. 
+		--- (Repeat-x), la imagen se repite solo horizontalmente. 
+		--- (Repeat-y), la imagen se repite solo verticalmente. */
+	background-repeat: no-repeat;
+
+	/* Esta propiedad puede tomar los siguientes valores: 
+		--- (medidas), puede adquirar una medida en (px), (%), (rem), (etc).
+		--- (contain), abarca todo el eje 'Y' y ajusta la imagen en el eje 'X', pero dejara espacios vacios.
+		--- (cover), ajusta la imagen abarcando el eje 'X', pero la imagen no se vera completa.
+		para que la imagen se ve vea. */
+	background-size: cover;
+	/* Modifica ambos ejes 'X' e 'Y'. */
+	background-size: 100%;
+	/* Los valores que toma son: 
+		--- El primero 'X'.
+		--- El segundo 'Y'. */
+	background-size: 100% 100%;
+
+	/* Podemos posicionar la imagen en: 
+		--- (Center), (top), (rigth), (bottom), (left). */
+	background-position: center;
+	background-position: top right;
+	background-position: bottom center;
+
+	/*	Posiciona el fondo del elemento, recibe los posibles valores: 
+		--- (Scroll), hace que el fondo sea estatico.
+		--- (Fixed), la imagen de fondo se queda fijada en su lugar, se nota cuando se hace 'scroll'. */
+	background-attachment: scroll;
+
+	/* La propiedad toma tres valores diferentes:
+	--- (border-box), la imagen de fondo comienza en la esquina superior izquierda del borde.
+	--- (padding-box), la imagen de fondo comienza desde la esquina superior izquierda del borde de relleno.
+	--- (content-box), la imagen de fondo comienza en la esquina superior izquierda del contenido. */
+	background-origin: padding-box;
+}
+
+/* ----------------------------------------- */
+/* ------ Colocar mas de una (imagen) ------ */
+/* ----------------------------------------- */
+
+.container{
+	/* A la propiedad (background-image) se le puede dar una o mas imagenes de fondo. 
+		--- La primera 'url' sera la imagen dominante.
+		--- La segunda quedara detras de la primera.
+		--- Etc. */
+	background-image: url('flor.png'), url('fondo.png');
+
+	/* El primer valor se aplica a la primera imagen. El segundo a la segunda imagen. */
+	background-repeat: no-repeat, repeat;
+
+	/* La primera imagen se posiciona abajo a la derecha. 
+	   La segunda imagen se posiciona arriba a la izquierda. */
+	background-position: right bottom, left top;
+
+	/* Una manera abreviada de hacerlo. */
+	background: url('flor.png') bottom right no-repeat, url('fondo.png') top left repeat;
+}

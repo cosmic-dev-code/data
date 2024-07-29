@@ -1,0 +1,47 @@
+<!-- ##########==========================########## -->
+<!-- ######===--- La propiedad ($refs) ---===###### -->
+<!-- ##########==========================########## -->
+
+<section x-data>
+
+	<div>
+		<!-- La propiedad (x-ref) permite darle a un elemento un nombre al cual hace referencia. -->
+		<div x-ref="miDiv" class="cuadrado"></div>
+	</div>
+
+	<div>
+		<!-- ($refs) contiene todas las referencias, podemos modificar las propiedades de una referencia. -->
+		<button x-on:click="$refs.miDiv.classList.add('invisible')">Click</button>
+	</div>
+
+</section>
+
+<!-- ##########==========================########## -->
+<!-- ######===--- La propiedad ($refs) ---===###### -->
+<!-- ##########==========================########## -->
+
+<section x-data>
+	
+	<!-- (span) con la referencia (miSpan). -->
+	<span x-ref="miSpan"></span>
+
+	<div>
+		<!-- Metemos el (miDiv) dentro del (miSpan) y despues metemos eliminamos el (miDiv), todo por 
+		(referencias). -->
+		<button x-on:click="$refs.miSpan.innerHTML = $refs.miDiv.innerHTML; $refs.miDiv.remove()">Click</button>
+	</div>
+
+	<!-- (div) con la referencia (miDiv). -->
+	<div x-ref="miDiv">
+		<header>
+			<h5>Lol</h5>
+		</header>
+		<div>
+			<label>Lol</label>
+		</div>
+		<footer>
+			<small>Lol</small>
+		</footer>
+	</div>
+
+</section>

@@ -1,0 +1,8 @@
+textarea{
+	/* Ajusta si el usuario puede cambiar el tamaño del (textarea), recibe las siguientes propiedades: 
+		--- (none), no permite reedimencionar el (textarea), (se desabilita la pestaña).
+		--- (both), permite reedimencionar el (textarea) a todos lados.
+		--- (horizontal), permite reedimencionar el (textarea) solo en horizontal.
+		--- (vertical), permite reedimencionar el (textarea) solo en vertical. */
+	resize: none;
+}

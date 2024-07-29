@@ -1,0 +1,80 @@
+<!-- ##########========================================########## -->
+<!-- ######===--- (x-for) en un (array) de (objetos) ---===###### -->
+<!-- ##########========================================########## -->
+
+<!-- Recibimos nuestro objeto con los datos para nuestro componente. -->
+<section x-data="getData()">
+
+	<!-- Verificacion para saber si nuestros datos no estan vacios. -->
+	<template x-if="productsArray.length > 0">
+		<ul>
+			<!-- El atributo (x-for) permite iterar un arreglo e imprimir todo lo que 
+			se encuentre dentro de las etiquetas (template), debe ser dentro de 
+			las etiquetas (template), de lo contrario no funcionara. -->
+			<template x-for="product in productsArray">
+				<li>
+					<!-- Imprimimos los valores delobjeto temporal. -->
+					<span x-text="product.number"></span>
+					<span> - </span>
+					<span x-text="product.name"></span>
+				</li>
+			</template>
+		</ul>
+	</template>
+
+</section>
+
+<script type="text/javascript">
+	function getData(){
+		return {
+			productsArray: [
+				{name: 'Zero', number: 0},
+				{name: 'Uno', number: 1},
+				{name: 'Dos', number: 2},
+				{name: 'Tres', number: 3},
+				{name: 'Cuatro', number: 4},
+				{name: 'Cinco', number: 5}
+			]
+		};
+	}
+</script>
+
+<!-- ##########=========================================########## -->
+<!-- ######===--- (x-for) en un (objeto) de (objetos) ---===###### -->
+<!-- ##########=========================================########## -->
+
+<section x-data="getData()">
+
+	<!-- Verificacion para saber si nuestros datos no estan vacios. -->
+	<template x-if="productsArray.length > 0">
+		<ul>
+			<!-- Para poder iterar un objeto de objetos, es necesario convertir 
+			dicho objeto en un (array indexado) haciendo uso de la 
+			clase (Object) y su metodo (values). -->
+			<template x-for="product in Object.values(productsObject)">
+				<li>
+					<!-- Imprimimos los valores delobjeto temporal. -->
+					<span x-text="product.number"></span>
+					<span> - </span>
+					<span x-text="product.name"></span>
+				</li>
+			</template>
+		</ul>
+	</template>
+
+</section>
+
+<script type="text/javascript">
+	function getData(){
+		return {
+			productsObject: {
+				cero: {name: 'Zero', number: 0},
+				uno: {name: 'Uno', number: 1},
+				dos: {name: 'Dos', number: 2},
+				tres: {name: 'Tres', number: 3},
+				cuatro: {name: 'Cuatro', number: 4},
+				cinco: {name: 'Cinco', number: 5}
+			}
+		};
+	}
+</script>

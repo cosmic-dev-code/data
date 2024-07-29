@@ -1,0 +1,28 @@
+
+/* ##########======================########## */
+/* ######===--- Tipos de colores ---===###### */
+/* ##########======================########## */
+
+.color{
+	/* El color puede escribirse de las siguientes manera: 
+		--- (Red), rojo.
+		--- (Yellow), amarillo.
+		--- (Cyan), celeste.
+		--- (Green), verde,
+		--- (Blue), azul,
+		--- (Lightblue), azul claro.
+		--- (Black), negro.
+		--- (White), blanco.
+		--- (Violet), violeta.
+		Etc... */
+	color: red;
+
+	/* Colores con porcentajes. */
+	background-color: rgb(114%, 51%, 60%);
+
+	/* Colores con una opacidad, (el cuarto parametro representa la opacidad). */
+	color: rgba(0,0,0,0.9);
+
+	/* Es un color como tal, solo que este es totalmente transparente. */
+	color: transparent;
+}

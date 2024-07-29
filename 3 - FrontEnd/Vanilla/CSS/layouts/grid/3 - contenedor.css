@@ -1,0 +1,70 @@
+/* ##########====================================########## */
+/* ######===--- Propiedades del elemento padre ---===###### */
+/* ##########====================================########## */
+
+.container-grid{
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 1fr min-content repeat(0.5, 1fr);
+	grid-auto-columns: 1fr;
+	grid-auto-rows: 0.5fr;
+
+	/* Separacion entre filas. */
+	row-gap: 10px;
+
+	/* Separacion entre columnas. */
+	column-gap: 10px;
+	
+	/* Separacion entre filas y columnas. */
+	grid-gap: 10px;
+
+	/* ------------------------------------ */
+	/* ------ Alinear elementos hijo ------ */
+	/* ------------------------------------ */
+
+	/* Manipula los elementos (hijo) en el eje 'X', recibe las siguientes propiedades: 
+		--- (start), las columnas se posicionan del lado izquierdo dentro del elemento padre.
+		--- (center), las columnas se centran.
+		--- (end), las columnas se posicionan del lado izquierdo del elemento padre.
+		--- (space-around), coloca la mayor cantidad de espacio entre las columnas y deja poco espacio 
+			entre las paredes.
+		--- (space-between), coloca un espacio entre las columnas, pero no deja espacio a las paredes 
+			del elemento padre.
+		--- (space-evenly), los espacios son en mismo entre las columnas y las paredes del elemento padre. */
+	justify-content: stretch;
+
+	/* Manipula los elementos (hijo) en el eje 'Y', recibe las siguientes propiedades: 
+		--- (start), coloca las filas en la parte superior del elemento padre.
+		--- (center), centra las filas.
+		--- (end), las filas se colocan en la parte inferior del elemento padre.
+		--- (space-around), coloca la mayor cantidad de espacio entre las filas y deja poco espacio entre las paredes.
+		--- (space-between), coloca un espacio entre las filas, pero no deja espacio a las paredes del elemento padre.
+		--- (space-evenly), los espacios son en mismo entre las filas y las paredes del elemento padre. */
+	align-content: stretch;
+
+	/* ------------------------------------------------- */
+	/* ------ Alinear contenido de elementos hijo ------ */
+	/* ------------------------------------------------- */
+
+	/* Manipula el contenido de los elementos hijo en el eje 'X', recibe las siguientes propiedades:
+		--- (center), centra los elementos.
+		--- (start, flex-start), los elementos comienzan desde la izquierda.
+		--- (end, flex-end), los elementos comienzan desde la derecha.
+		--- (stretch), los elementos toman todo el espacio disponible. */
+	justify-items: stretch;
+
+	/* Manipula el contenido de los elementos hijo en el eje 'Y', recibe las siguientes propiedades: 
+		--- (center), centra los elementos.
+		--- (start, flex-start), los elementos comienzan desde la izquierda.
+		--- (end, flex-end), los elementos comienzan desde la derecha.
+		--- (stretch), los elementos toman todo el espacio disponible. */
+	align-items: stretch;
+
+	/* ------------------- */
+	/* ------ Atajo ------ */
+	/* ------------------- */
+
+	/* Establece: 
+		--- (align-items) y (justify-items). */
+	place-items: center stretch;
+	place-items: center;
+}

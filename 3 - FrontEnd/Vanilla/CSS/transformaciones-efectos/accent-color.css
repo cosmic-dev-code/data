@@ -1,0 +1,10 @@
+:root{
+	/* Modifica el color de los (input) como: 
+		--- radio activo, checkbox activo, cursor del usuario, barra de progreso y de rango. */
+	accent-color: red;
+}
+
+/* Cuando contenga la clase (clase). */
+input[type="radio"].clase{
+	accent-color: yellow;
+}

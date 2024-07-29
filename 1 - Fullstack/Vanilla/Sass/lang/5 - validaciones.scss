@@ -1,0 +1,35 @@
+/* ##########==================########## */
+/* ######===--- Validaciones ---===###### */
+/* ##########==================########## */
+
+// Devuelve si un numero es comparable.
+$result: comparable(15px, 10px); // true
+$result: comparable(20mm, 1cm); // true
+$result: comparable(35px, 2em); // false
+
+// Comprueba si una funcion existe.
+$result: function-exists("mi-funcion"); // false
+
+// Comprueba si una variable global existe.
+$result: global-variable-exists("result"); // true
+
+// Comprueba si una variable existe en el (scope actual).
+$result: variable-exists("variable"); // false
+
+// Comprueba si un (mixin) existe.
+$result: mixin-exists("mi-mixin"); // false
+
+// Comprueba si el numero tiene una unidad asosiada.
+$result: unitless(15px); // true
+$result: unitless(15); // false
+
+// Devuelve la unidad asosiada a un numero.
+$result: unit(15px); // px
+
+/* ##########================########## */
+/* ######===--- Ver tipado ---===###### */
+/* ##########================########## */
+
+// Devuelve el tipo de dato.
+$result: type-of(10px); // number
+$result: type-of(#fff); // color

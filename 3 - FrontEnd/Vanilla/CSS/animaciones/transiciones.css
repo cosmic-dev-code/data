@@ -1,0 +1,50 @@
+/* ##########==================########## */
+/* ######===--- Transiciones ---===###### */
+/* ##########==================########## */
+
+input[type="button"]{
+
+	/* Define el retardo de la transicion en segundo, (s), o milisegundos, (ms). */
+	transition-delay: 500ms;
+	transition-delay: 0.5s;
+	transition-delay: 0;
+
+	/* Define la duracion de la transicion en segundo, (s), o milisegundos, (ms). */
+	transition-duration: 500ms;
+	transition-duration: 0.5s;
+	transition-duration: 1.10s;
+
+	/* Define a que elementos 'hijos' se les va a aplicar la 
+	transicion, recibe los siguientes valores: 
+		--- (none), a ninguno.
+		--- (all), indica que se le van a aplicar a todos.
+		--- ({propiedades}), colocamos ciertas propiedades que van a recibir la transicion. */
+	transition-property: background-color;
+
+	/* Define la tipo de transicion, recibe los siguientes valores: 
+		--- (linear), transición con la misma velocidad de principio a fin
+		--- (ease), transición con un inicio lento, luego rápido y luego un final lento.
+		--- (ese-in), transición con un inicio lento.
+		--- (ease-out), transición con un final lento.
+		--- (ease-in-out), efecto de transición con un comienzo y un final lentos. */
+	transition-timing-function: linear;
+}
+
+.forma-acortada{
+	/* La propiedad 'transition' es un (short hand) Las propiedades que reciben son: 
+		--- (transition-duration).
+		--- (transition-property).
+		--- (transition-timing-function). */
+	transition: 500ms all ease;
+
+	/* Pueden especificarse solo dos propiedades. */
+	transition: background-color .3s;
+	transition: transform, height, 0.3s;
+	transition: color, background, width, 0.3s;
+
+	/* Pueden especificarse los ajustes para cada propiedad. */
+	transition: 
+		background-color .3s linear, 
+		color .3s, 
+		transform 500ms all;
+}

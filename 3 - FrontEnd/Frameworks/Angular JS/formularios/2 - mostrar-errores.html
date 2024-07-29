@@ -1,0 +1,41 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+		$scope.master = {
+			first: "Brandon", 
+			last: "Anthony"
+		};
+
+		$scope.reset = function(){
+			this.user = angular.copy(this.master);
+		};
+
+	});
+</script>
+
+<section ng-app="app">
+	<!-- Ejecutamos el (reset) al iniciar la aplicación. -->
+	<div ng-controller="ctrl" ng-init="reset()">
+
+		<form action="#" method="POST" name="form" novalidate autocomplete="on">
+			
+			<input type="text" name="primer" ng-model="user.first">
+			<input type="text" name="ultimo" ng-model="user.last">
+
+		</form>
+
+		<div>
+			<!-- Mostramos los errores de acuerdo al nombre del campo (name), 
+			solo si el campo ha sido tocado y si es inválido. -->
+
+			<div ng-show="form.primer.$touched && form.primer.$invalid">
+				<span>{{ "El primer campo no es válido" }}</span>
+			</div>
+			<div ng-show="form.ultimo.$touched && form.ultimo.$invalid">
+				<span>{{ "El segundo campo no es válido" }}</span>
+			</div>
+		</div>
+
+	</div>
+</section>

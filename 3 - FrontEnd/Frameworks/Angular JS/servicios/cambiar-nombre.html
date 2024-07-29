@@ -1,0 +1,30 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	/* La funcion anonima recibe los servicios, estos reciben su nombre distintivo ($servicio).
+	Para cambiar el nombre del servicio se coloca como segundo parametro un arreglo.
+
+	El ultimo es la funcion anonima recibiendo los servicios de acuerdo al orden del arreglo. */
+	app.controller("ctrl", ["$scope", "http", function(s, h){
+		
+		// --- Dependecias: 
+		// (s) = $scope.
+		// (h) = $http.
+
+		// Ahora podemos hacer uso de los servicios recibidos con distinto nombre.
+
+		s.names = "Brandon Anthony";
+		s.getNames = function(){
+			return ("Nombres: "+this.names);
+		};
+
+	}]);
+</script>
+
+<section ng-app="app">
+	<div ng-controller="ctrl">
+		<!-- Hacemos uso los métodos y propiedades del objeto ($scope). -->
+		<p>{{ names }}</p>
+		<p>{{ getNames() }}</p>
+	</div>
+</section>

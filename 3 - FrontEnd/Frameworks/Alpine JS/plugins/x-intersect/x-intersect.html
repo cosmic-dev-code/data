@@ -1,0 +1,111 @@
+<!-- ##########=============================########## -->
+<!-- ######===--- (Intersection Observer) ---===###### -->
+<!-- ##########=============================########## -->
+
+<!-- El complemento Intersect de Alpine es un contenedor conveniente para Intersection Observer que le permite 
+reaccionar fácilmente cuando un elemento ingresa a la ventana gráfica.
+
+Esto es útil para: carga diferida de imágenes y otro contenido, activación de animaciones, desplazamiento infinito, 
+registro de "vistas" de contenido, etc. -->
+
+<!-- --------------------------- -->
+<!-- ------ (x-intersect) ------ -->
+<!-- --------------------------- -->
+
+<!-- (x-intersect), ejecuta el codigo cuando este entra en el (viewport). -->
+<section x-data x-intersect="window.alert('¡Elemento intersectado!')">
+	<!-- ... -->
+</section>
+
+<!-- En este caso manejamos una propiedad booleana que solo se activa cuando cierto elemento se 
+encuentra en el (viewport). -->
+<section x-data="{show: false}">
+	<article>
+
+		<div x-intersect="show = true" x-show="show" x-transition.duration.100ms>
+			<h1>Visto en la interseccion</h1>
+		</div>
+
+	</article>
+</section>
+
+<!-- ------------------------------- -->
+<!-- ------ (enter) y (leave) ------ -->
+<!-- ------------------------------- -->
+
+<section x-data="{show: false}">
+	<article>
+
+		<!-- (:enter), establece cuando el elemento entra en el (viewport). -->
+		<div x-intersect:enter="show = true">
+			<div x-show="show" x-transition.duration.100ms>
+				<h1>Visto en la interseccion</h1>
+			</div>
+		</div>
+
+		<!-- (:leave), establece cuando el elemento sale del (viewport). -->
+		<div x-intersect:leave="show = true">
+			<div x-show="show" x-transition.duration.100ms>
+				<h1>Visto en la interseccion</h1>
+			</div>
+		</div>
+
+	</article>
+</section>
+
+<!-- Repetir una animacion siempre que el elemento entre al (viewport). -->
+
+<section x-data="{show: false}">
+
+	<!-- Podemos hacer que un modal aparezca siempre que entre al viewport, (repetir un evento). -->
+	<article x-intersect:enter="show = true" x-intersect:leave="show = false">
+		<div x-show="show" x-transition.duration.100ms>
+			<h1>Visto en la interseccion</h1>
+		</div>
+	</article>
+
+</section>
+
+<!-- ##########===================########## -->
+<!-- ######===--- Modificadores ---===###### -->
+<!-- ##########===================########## -->
+
+<!-- (.once), hace que el codigo se ejecute solo una vez, (de esta manera no se estara ejecutando una y otra vez). -->
+<div x-data="{show: false}" x-intersect.once="show = true"></div>
+
+<!-- --------------------------------------- -->
+<!-- ------ Proporciones del elemento ------ -->
+<!-- --------------------------------------- -->
+
+<!-- (.half), evalúa la expresión una vez que se supera el umbral de intersección 0.5. 
+Esto es util para elementos donde es importante (mostrar al menos parte del elemento). -->
+<div x-data="{show: false}" x-intersect.half="show = true"></div>
+
+<!-- (.half), evalúa la expresión una vez que se supera el umbral de intersección 0.99.
+Esto es util para elementos donde es importante (mostrar el elemento completo). -->
+<div x-data="{show: false}" x-intersect.full="show = true"></div>
+
+<!-- (.threshold.{x}), evalúa la expresión una vez que el {x} por ciento del elemento entra al (viewport).  -->
+<div x-data="{show: false}" x-intersect.threshold.10="show = true"></div>
+<div x-data="{show: false}" x-intersect.threshold.50="show = true"></div>
+<div x-data="{show: false}" x-intersect.threshold.100="show = true"></div>
+
+<!-- -------------------- -->
+<!-- ------ Margen ------ -->
+<!-- -------------------- -->
+
+<!-- (.margin.{x}), evalúa la expresión tomando en cuenta las proporciones del elemento mas {x} 
+numero de (margen). Si el valor es negativo -{x}, entonces se toma en cuenta el (relleno). -->
+
+<!-- Aqui se toma en cuenta el valor {x} en (px). -->
+<div x-data="{show: false}" x-intersect.margin.10="show = true"></div>
+<div x-data="{show: false}" x-intersect.margin.10px="show = true"></div>
+
+<!-- Toma en cuenta las proporciones del elemento mas {x} numero de margen en (%). -->
+<div x-data="{show: false}" x-intersect.margin.10%="show = true"></div>
+
+<!-- Aqui toma en cuenta como: (top/bottom) y (right/left). -->
+<div x-data="{show: false}" x-intersect.margin.10px.10%="show = true"></div>
+
+<!-- Aqui toma en cuenta como: (top), (right), (bottom), (left). -->
+<div x-data="{show: false}" x-intersect.margin.10%.20.10%.20="show = true"></div>

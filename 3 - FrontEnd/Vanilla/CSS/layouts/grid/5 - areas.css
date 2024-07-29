@@ -1,0 +1,150 @@
+/* ##########================########## */
+/* ######===--- grid-areas ---===###### */
+/* ##########================########## */
+
+.elemento-padre{
+	/* Esta es una forma de definir las areas en donde se van a encontrar los elementos. */
+	grid-template-areas: "header header header" "section section aside" "section section widget" "footer footer footer";
+
+	/* Esta es una manera mas ordenada de definir las areas en donde se van a encontrar los elementos. */
+	grid-template-areas: "header header header"
+						 "section section aside"
+						 "section section widget"
+						 "footer footer footer";
+
+	/* Le damos las medidas a cada area. */
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 100px);
+}
+
+	/* Cada elemento tomara el espacio segun su lugar asignado. */
+
+	.elemento-hijo-0{
+		grid-area: header;
+	}
+
+	.elemento-hijo-1{
+		grid-area: section;
+	}
+
+	.elemento-hijo-2{
+		grid-area: aside;
+	}
+
+	.elemento-hijo-3{
+		grid-area: widget;
+	}
+
+	.elemento-hijo-4{
+		grid-area: footer;
+	}
+
+/* ##########=========================########## */
+/* ######===--- Nombres para lineas ---===###### */
+/* ##########=========================########## */
+/*
+
+	V   V   V   V
+	_____________ H
+	|___|___|___| H
+	|___|___|___| H
+	|___|___|___| H
+
+	Lineas que conforman la grilla.
+
+	Linea vertical (V), son cuatro lineas.
+	Linea horizontal (H), son cuatro lineas.
+
+	La idea es darle los (nombres) a las lineas, de manera que podramos manejar las lineas por nombre y 
+	no por numeros.
+*/
+
+/**
+ * Dar (nombres) a las lineas.
+ */
+
+.container-grid{
+	display: grid;
+	grid-template-columns: 
+		[v-primera] 200px /* Nombre de la linea y dimension de la columna. */
+		[v-segunda] 200px 
+		[v-tercera] 200px 
+		[v-cuarta]; /* Nombre de la ultima linea. */
+	grid-template-rows: 
+		[h-primera] 200px /* Nombre de la linea y dimension de la fila. */
+		[h-segunda] 200px 
+		[h-tercera] 200px 
+		[h-cuarta]; /* Nombre de la ultima linea. */
+	grid-gap: 10px;
+
+	justify-content: flex-start;
+	align-content: flex-start;
+}
+
+.elemento-hijo:first-child{
+
+	/* Maneamos las lineas con (numeracion). */
+
+	/* Toma desde la primera linea hasta la cuarta. (En columnas). */
+	grid-column: 1 / 4;
+	
+	/* Toma desde la primera linea hasta la tercera. (En filas). */
+	grid-row: 1 / 3;
+
+	/**
+	 * Maneamos las lineas con (nombres).
+	 */
+
+	/* Toma desde la primera linea hasta la cuarta. (En columnas). */
+	grid-column: v-primera / v-cuarta;
+
+	/* Toma desde la primera linea hasta la tercera. (En filas). */
+	grid-row: h-primera / h-tercera;
+}
+
+/* ##########=====================########## */
+/* ######===--- (grid-template) ---===###### */
+/* ##########=====================########## */
+
+.container-grid{
+	display: grid;
+
+	/* La propiedad (grid-template) recibe": 
+		--- Primero las filas, (grid-template-rows).
+		--- Despues las columnas, (grid-template-columns). */
+	grid-template: 
+		200px 
+		minmax(min-content, max-content) /* Aqui las filas. */
+		/* Hacemos una division. */
+		200px 
+		/ 
+		repeat(3, 1fr); /* Aqui las columnas. */
+
+	/* Podemos hacer uso de funciones. */
+	grid-template: 
+		repeat(3, 200px) 
+		/ 
+		repeat(
+			auto-fill, 
+			minmax(min-content, 1fr)
+		);
+
+	/* Podemos nombrar las lineas tanto: 
+		--- Horizontales.
+		--- Verticales. */
+	grid-template: 
+		[h-primera] 200px 
+		[h-segunda] 200px 
+		[h-tercera] 200px 
+		[h-cuarta]  
+			/		
+		[v-primera] 200px 
+		[v-segunda] 200px 
+		[v-tercera] 200px 
+		[v-cuarta];
+
+	grid-gap: 10px;
+
+	justify-content: flex-start;
+	align-content: flex-start;
+}

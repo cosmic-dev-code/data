@@ -1,0 +1,78 @@
+/* ##########============================########## */
+/* ######===--- Operadores aritmeticos ---===###### */
+/* ##########============================########## */
+
+$operacion: (5 + 5);
+$operacion: (5 - 5);
+$operacion: (5 * 5);
+$operacion: (5 / 5);
+$operacion: (5 % 5);
+
+// Con medidas.
+
+// 25px
+$result: 5px * 5;
+$result: (5px * 5);
+
+// 15px
+$result: 5px + 10;
+$result: (5px + 10);
+// CSS.
+$result: sans- + serif; // sans-serif
+$result: sans - serif; // sans-serif
+
+// 5px
+$result: 10px - 5;
+$result: (10px - 5);
+
+// 0px
+$result: 10px % 2;
+$result: (10px % 2);
+
+// Las divisiones deben llevar un parententesis obligatorio.
+$result: (10px / 2); // 5px
+
+/**
+ * NOTA: No se pueden operar unidades entre si.
+ * 
+ * Debe ser: (medida * numero).
+ */
+$result: 5px + 3em;
+$result: 5px * 5px;
+
+/* ##########========================########## */
+/* ######===--- Operadores logicos ---===###### */
+/* ##########========================########## */
+
+// Con numeros todo funciona bien.
+
+$bool: (5 == 5);
+$bool: (10 > 20);
+$bool: (10 >= 10);
+$bool: (10 < 20);
+$bool: (10 <= 10);
+
+// Diferente a.
+$bool: (10 != 5);
+$bool: (not 10 == 5);
+
+// Con medidas es un poco distinto.
+
+$bool: (5 == "5"); // false
+$bool: (5px == 5); // true
+$bool: (5px >= 10px); // true
+$bool: (10px > 10s); // error.
+
+// ---------------------------------- //
+// ------ Mas de una condicion ------ //
+// ---------------------------------- //
+
+// (And) == (and).
+$bool: (5 === 5 and 5 > 10);
+
+// (Or) == (or).
+$bool: (5 === 5 or 5 > 10);
+
+// (Not) == (not) y (!).
+$bool: (not (5 == 5));
+$bool: (! (5 == 5));

@@ -1,0 +1,63 @@
+.radial-gradient{
+	/* Crea un elipse 'azul' que se degrada a 'azul bajo' hacia todos lados.  */
+	background-image: radial-gradient(blue, lightblue);
+
+	/* Podemos agregar mas colores: 
+		--- El elipse empezara desde el 'azul', luego se degradara al 'verde' y despues al 'azul bajo'. */
+	background-image: radial-gradient(blue, green, lightblue);
+
+	/* ------------------------------- */
+	/* ------ Ellipse o circulo ------ */
+	/* ------------------------------- */
+
+	/* El degradado toma la forma de un circulo sin importar las dimensiones de contenedor. */
+	background-image: radial-gradient(circle, blue, lightblue);
+
+	/* El degradado toma la forma de un elipse sin importar las dimensiones de contenedor. */
+	background-image: radial-gradient(ellipse, blue, lightblue);
+
+	/* ------------------------- */
+	/* ------ Direcciones ------ */
+	/* ------------------------- */
+
+	/* (At right), hace que el circulo o elipse se posiciona a la derecha. */
+	background-image: radial-gradient(circle at right, blue, lightblue);
+
+	/* (At left), hace que el circulo o elipse se posiciona a la izquierda. */
+	background-image: radial-gradient(circle at left, blue, lightblue);
+
+	/* (At top), hace que el circulo o elipse se posiciona hacia arriba. */
+	background-image: radial-gradient(circle at top, blue, lightblue);
+
+	/* (At bottom), hace que el circulo o elipse se posiciona hacia abajo. */
+	background-image: radial-gradient(circle at bottom, blue, lightblue);
+
+	/* Mas de una instruccion (at bottom left). */
+
+	/* (At top right), hace que el circulo o elipse se posiciona a la esquina derecha superior. */
+	background-image: radial-gradient(circle at top right, blue, lightblue);
+
+	/* (At top left), hace que el circulo o elipse se posiciona a la esquina izquierda superior. */
+	background-image: radial-gradient(circle at top left, blue, lightblue);
+
+	/* (At bottom right), hace que el circulo o elipse se posiciona a la esquina derecha inferior. */
+	background-image: radial-gradient(circle at bottom right, blue, lightblue);
+
+	/* (At bottom left), hace que el circulo o elipse se posiciona a la esquina izquierda inferiors. */
+	background-image: radial-gradient(circle at bottom left, blue, lightblue);
+
+	/* ------------------------- */
+	/* ------ Porcentajes ------ */
+	/* ------------------------- */
+
+	/* Cada colo abarca segun su porcentaje: 
+		--- El circulo 'azul' es mas chico y se degrada solo el 20%.
+		--- Mientras que el 'azul bajo' se degrada el 60%, (el resto del contenedor). */
+	background-image: radial-gradient(circle, blue 20%, lightblue 60%);
+
+	/* Podemos agregar mas colores y se ajustartan cada uno segun su porcentaje. */
+	background-image: radial-gradient(circle, blue 20%, green 30%, lightblue 60%);
+
+	/* Podemos colocar las mismas direcciones utilizando mas colores y sus porcentajes para cada color. */
+	background-image: radial-gradient(circle at top right, blue 20%, green 30%, lightblue 60%);
+}

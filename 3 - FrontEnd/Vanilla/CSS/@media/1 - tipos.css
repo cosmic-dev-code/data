@@ -1,0 +1,32 @@
+/* ##########============================########## */
+/* ######===--- Tipos de condicionales ---===###### */
+/* ##########============================########## */
+
+/* -------------------------------------- */
+/* ------ Tipos de medios, (media) ------ */
+/* -------------------------------------- */
+
+/* Cuando el medio es una pantalla. */
+@media screen{
+	/* ... */
+}
+
+/* Cuando se mande a imprimir. */
+@media print{
+	/* ... */
+}
+
+/* Cuando el medio es un sintetizador de voz. */
+@media speech{
+	/* ... */
+}
+
+/* Si el medio es una television. */
+@media tv{
+	/* ... */
+}
+
+/* Si todas las condiciones anteriores se cumplen. */
+@media all{
+	/* ... */
+}

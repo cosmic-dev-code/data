@@ -1,0 +1,47 @@
+<!-- --------------------------------- -->
+<!-- ------ Utilizar (mascaras) ------ -->
+<!-- --------------------------------- -->
+
+<!-- La directiva (x-mask) valida que el usuario coloque un patron numerico especifico, por ejemplo: 
+	--- "29/11/2022". -->
+<input x-data x-mask="99/99/9999" placeholder="MM/DD/YYYY">
+
+<!-- Utilizamos otro tipo de patron especifico: 
+	--- "brandon@gmail.com" -->
+<input x-data x-mask="a@*.a" placeholder="MM/DD/YYYY">
+
+<!-- La directiva acepta: 
+	--- (*), acepta caracteres [a-zA-Z0-9].
+	--- (a), acepta caracteres [a-zA-Z].
+	--- (9), acepta caracteres [0-9]. -->
+
+<!-- ------------------------------------------ -->
+<!-- ------ Mascaras dinamicas (dynamic) ------ -->
+<!-- ------------------------------------------ -->
+
+<!-- (:dynamic), aplica dinamismo, en este caso: 
+	--- Patron para una targeta de credito.
+	--- Si el valor del input cumple con ciertas reglas, retorna un patron especifico. -->
+<input x-data x-mask:dynamic="
+	($input.startsWith('34') || $input.startsWith('37')) ? '9999 999999 99999' : '9999 9999 9999 9999'
+"/>
+
+<!-- La directiva puede recibir el patron de una funcion externa. -->
+<input x-data x-mask:dynamic="getPatternCreditCard"/>
+<script type="text/javascript">
+
+	function getPatternCreditCard(input){
+		return (input.startsWith("34") || input.startsWith("37") ? "9999 999999 99999" : "9999 9999 9999 9999");
+	}
+
+</script>
+
+<!-- ($money) recibe por parametro el valor del input y (retorna un patron de moneda "USA"): 
+	--- (0.00). -->
+<input x-data x-mask:dynamic="$money($input)"/>
+<input x-data x-mask:dynamic="$money($input, '.')"/>
+
+<!-- ($money) recibe por parametro el valor del input y el tipo de patron de monesa 
+y (retorna un patron de moneda "Latina"): 
+	--- (0,00). -->
+<input x-data x-mask:dynamic="$money($input, ',')"/>

@@ -1,0 +1,15 @@
+<script type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	myApp.controller("ctrl", function($timeout){
+
+		/* El servicio (timeout) es el mismo que window.setTimeout */
+		$timeout(function(){
+			window.alert("Hola mundo");
+		}, 6000);
+
+	});
+</script>
+
+
+<div ng-app="myApp" ng-controller="ctrl"></div>

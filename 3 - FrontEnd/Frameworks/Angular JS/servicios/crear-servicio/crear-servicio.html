@@ -1,0 +1,60 @@
+<script defer type="text/javascript">
+	const myApp = angular.module("myApp", []);
+
+	/* ##########======================########## */
+	/* ######===--- Crear (servicio) ---===###### */
+	/* ##########======================########## */
+
+	/* El método (service), recibe por parámetros: 
+		--- El nombre de nuestro servicio a crear.
+		--- Una funcion anonima con la logica de nuestro servicio. */
+	myApp.service('estilo', function(){
+		// Le colocamos un método llamado (resaltar) el cual recibe algún dato y lo retorna modificado.
+		this.resaltar = function(x){
+			return (`
+				<b>
+					<i>
+						<u>${x}</u>
+					</i>
+				</b>
+			`);
+		}
+	});
+
+	// ------------------------------------- //
+	// ------ (Utilizar) en un filtro ------ //
+	// ------------------------------------- //
+
+	/* Para utilizar un servicio propio, es necesario pasar por parámetros al método (filter): 
+		--- El nombre de nuestro filtro a crear.
+		--- Un arreglo con nuestros servicios y al final una funcion anonima que recibira esos servicios 
+		y los utilizara en el filtro. */
+	myApp.filter('estilos', ['estilo', function(estilo){
+		return function(x){
+			// Hacemos uso de nuestro servicio.
+			return estilo.resaltar(x);
+		};
+	}]);
+
+	// ------------------------------------------ //
+	// ------ (Utilizar) en un controlador ------ //
+	// ------------------------------------------ //
+
+	// Recibimos nuestro servicio sin ($).
+	myApp.controller("ctrl", function($scope, estilo){
+		/* Hacemos uso de los métodos y propiedades que le hayamos dado a nuestro servicio. */
+		$scope.message = estilo.resaltar("Hola");
+	});
+</script>
+
+<section ng-app="myApp">
+	<div ng-controller="ctrl" ng-init="names = 'Brandon Anthony'">
+
+		<!-- Mostramos el resultado. -->
+		<p>{{ message }}</p>
+
+		<!-- Utilizamos nuestro filtro que utiliza nuestro servicio. -->
+		<p>{{ names | estilos }}</p>
+		
+	</div>
+</section>

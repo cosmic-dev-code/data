@@ -1,0 +1,23 @@
+textarea{
+	/* Tenemos limitadas las dimensiones del contenedor. */
+	min-width: 300px;
+	max-width: 300px;
+	min-height: 300px;
+	max-height: 400px;
+
+	/* Podemos poner estas propiedades:
+		(hidden), cuando el contenido sobresale del contenedor, este se oculta.
+		(scroll), coloca un scroll horizontal y un scroll vertical sea o no sea necesario. 
+		(auto), coloca un scroll horizontal o verticalmente solo cuando es necesario. */
+	overflow: auto;
+
+	/* Reciben los mismos valores pero en un (eje) especifico. */
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* Podemos aplicar los estilos a cualquier elemento. */
+body, textarea, div{
+	overflow-x: hidden;
+	overflow-y: auto;
+}

@@ -1,0 +1,71 @@
+/* La directiva (use) permite importar archivos (sass) a otros archivos. De esta manera podemos 
+modularizar el codigo. */
+
+// ---------------------------- //
+// ------ Creando modulo ------ //
+// ---------------------------- //
+
+////// --- --- --- --- --- --- sass/modules/my.scss --- --- --- --- --- --- //////
+
+@mixin mixin-1(){
+	// ...
+}
+
+@function funcion(){
+	// ...
+}
+
+$variable: "Valor";
+
+// -------------------------- //
+// ------ Uso del @use ------ //
+// -------------------------- //
+
+////// --- --- --- --- --- --- sass/welcome.scss --- --- --- --- --- --- //////
+
+/**
+ * (use) se utiliza para importar codigo de otros archivos.
+ */
+
+// Aqui se recibe por referencia a un objeto con el nombre del archivo.
+@use "modules/my";
+
+$result: my.variable;
+$result: my.funcion();
+
+////// --- --- --- --- --- --- sass/welcome.scss --- --- --- --- --- --- //////
+
+/**
+ * Utilizando (*) para importar sin referencia.
+ */
+
+// Aqui se recibe todo el codigo sin referencia, (incluyendo el archivo).
+@use "modules/my" as *;
+
+$result: $variable;
+$result: funcion();
+
+// NOTA: Esta es una forma antigua.
+
+// ----------------------------- //
+// ------ Uso del @import ------ //
+// ----------------------------- //
+
+// Esta es la forma mas nueva.
+@import "modules/my";
+
+// Importando con extension.
+@import "file.scss";
+
+// Importando mas de un archivo.
+@import "file-1.scss", "file-2.scss";
+
+// Importando una carpeta de estilos.
+@import "styles";
+
+// Un archivo CSS.
+@import "file.css";
+
+// Importa sin referencias.
+$result: $variable;
+$result: funcion();

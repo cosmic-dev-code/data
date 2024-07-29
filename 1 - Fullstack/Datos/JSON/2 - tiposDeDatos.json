@@ -1,0 +1,28 @@
+{
+	// Solo se admiten estos tipos de datos.
+	"valorNulo": null, // Nulo
+
+	"valorBooleano": true, // Booleanos.
+
+	"valorNumerico": 56, // Numerico.
+
+	"valorString": "Brandon", // Cadena.
+
+	// Almacenar objetos.
+	"valorComplejo": {
+		"names": "Brandon Anthony", 
+		"age": 22, 
+		"email": "brandon@gmail.com"
+	}, 
+
+	// Arreglo.
+	"array": [
+		57, true, "Hola", 
+		{
+			"id": 1, 
+			"prodfuct_id": 1, 
+			"stars": 5, 
+			"sale": true
+		}
+	]
+}

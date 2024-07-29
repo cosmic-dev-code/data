@@ -1,0 +1,34 @@
+ul{
+	/* Establece el estilo de la viñeta una lista, recibe uno de estos valores: 
+		--- (circle), circulo.
+		--- (decimal), se convierte en una lista ordenada.
+		--- (decimal-leading-zero), se convierte en una lista ordenada con ceros a la izquierda.
+		--- (disc), circulos rellenos.
+		--- (disclosure-closed), triangulos rellenos a la derecha.
+		--- (disclosure-open), triangulos rellenos hacia abajo.
+		--- (square), se convierten en cuadrados.
+		--- (upper-latin), numerales con letras en mayusculas.
+		--- (lower-latin), numerales con letras en minusculas.
+		--- (lower-latin), enumeras por abecedario. 
+		--- (upper-alpha): enumeras por mayúsculas del alfabeto. 
+		--- (lower-alpha): enumeras por minúsculas del alfabeto. 
+		--- (inside), un espaciado.
+		--- (outside), espaciado por defecto.
+		--- (none), ninguno. */
+	list-style-type: circle;
+
+	/* Estable una imagen personalizada como viñeta de una lista en lugar del símbolo predeterminado. */
+	list-style-image: url("../imagenes/viñeta.png");
+
+	/* Modifica el espaciado entre el texto y el elemento, sea numerico o puntos suspensivos, 
+	adquieren las siguientes propiedades: 
+		--- (inside), los puntitos forman parte del texto.
+		--- (outside), los puntitos se quedan y el texto es independiente. */
+	list-style-position: inside;
+}
+
+ul > li{
+	/* Conbina las propiedades: 
+		--- (list-style-type), (list-style-image) y (list-style-position). */
+	list-style: none;
+}

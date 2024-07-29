@@ -1,0 +1,23 @@
+<!-- ($store), nos permite acceder a las secciones declaradas en (Aphine.store) 
+y manipular los datos de la seccion especifica.  -->
+
+<button x-data @click="$store.datos.cambiar()">
+	<span>Boton</span>
+</button>
+
+<div x-data :class="$store.datos.show && 'bg-black'">
+	<!-- ... -->
+</div>
+
+
+<script>	
+	document.addEventListener('alpine:init', () => {
+		// Creamos una seccion llamada (datos) y le damos un objeto con los datos.
+		Alpine.store('datos', {
+			show: false, 
+			cambiar(){
+				this.show = ! this.show
+			}
+		});
+	});
+</script>

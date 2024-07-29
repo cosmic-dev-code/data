@@ -1,0 +1,26 @@
+/* ##########==============########## */
+/* ######===--- Imprimir ---===###### */
+/* ##########==============########## */
+
+// Con #{$variable} se puede imprimir el contenido de una variable.
+
+$nombre: "header";
+
+.div-#{$nombre}{
+	// ...
+}
+
+// Se pueden imprimir los elementos de una lista de esta manera.
+
+$paginas: "Home" "Services" "Contact";
+
+@each $pagina in $paginas{
+	##{$pagina}{
+		// ...
+	}
+}
+
+// Se imprime el valor que retorna una funcion.
+##{nth($paginas, 1)}{
+	// ...
+}

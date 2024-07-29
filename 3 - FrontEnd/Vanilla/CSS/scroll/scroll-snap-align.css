@@ -1,0 +1,36 @@
+.alineamiento{
+
+	/* Cuando los elementos no se ajustan al contenedor, pueden alinearse dejando ver los otros elementos. */
+
+	/*	(scroll-snap-align) permite posicionar el 'scroll' para que descance en un punto deteminado de sus elementos, 
+		recibe por valores: 
+			--- (none), el 'scroll' descansa donde quiera.
+			--- (end), el 'scroll' descansa justo al (final) del elemento mas cercano.
+				NOTA: Deja ver al elemento y parte del elemento anterior.
+			--- (start), el 'scroll' descansa justo al (principio) del elemento mas cercano.
+				NOTA: Deja ver al elemento y parte del siguiente elemento.
+			--- (center), el elemento descansa en el (centro) del elemento mas cercano.
+				NOTA: Deja ver parte del siguiente elemento y del anterior. */
+	scroll-snap-align: none;
+	scroll-snap-align: center;
+
+	/* Cuando se establecen dos valores: 
+		--- El primero es representa el eje (X).
+		--- El segundo es representa el eje (Y). */
+	scroll-snap-align: start end;
+	scroll-snap-align: center center;
+}
+
+.container{
+	display: flex;
+	width: 300px;
+	/* Permitimos el scroll en el eje horizontal. */
+	overflow-x: scroll;
+}
+
+	.container > .item{
+		width: 100px;
+
+		/* NOTA: La (scroll-snap-align) requiere un contenedor padre que lo contenda junto con otros elementos. */
+		scroll-snap-align: center;
+	}

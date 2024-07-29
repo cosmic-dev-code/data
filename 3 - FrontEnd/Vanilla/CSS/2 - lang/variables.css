@@ -1,0 +1,34 @@
+/* ##########==========================########## */
+/* ######===--- Variables (globales) ---===###### */
+/* ##########==========================########## */
+
+/* Las variables se pueden crear en el (root) para ser utilizadas de manera global. */
+:root{
+	--back: red;
+}
+
+.background, 
+.back-1, 
+.back-2{
+	background-color: var(--back);
+}
+
+/* -------------------------------------- */
+/* ------ Sobre escribir variables ------ */
+/* -------------------------------------- */
+
+/* Las variables pueden sobreescribirse, ya que estos elementos estan utilizando 
+la misma variable en su propiedad, pero con diferente valor. */
+.back-1{--back: blue;}
+.back-1{--back: green;}
+
+/* ##########=========================########## */
+/* ######===--- Variables (locales) ---===###### */
+/* ##########=========================########## */
+
+/* Tambien se pueden definir variables de manera local. */
+#elemento{
+	--variable-local: 23rem;
+
+	font-size: var(--variable-local);
+}

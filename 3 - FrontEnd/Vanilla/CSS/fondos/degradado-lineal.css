@@ -1,0 +1,59 @@
+.linear-gradient{
+	/* (Linear-gradient) es una funcion que permite poner un color degradado.
+		--- (blue, lightblue), el color 'azul' sera el que estara arriba y se va a 
+		ir degradando hasta el color 'azul bajo'. */
+	background-image: linear-gradient(blue, lightblue);
+
+	/* ------------------------- */
+	/* ------ DIRECCIONES ------ */
+	/* ------------------------- */
+
+	/* El degradado va de izquierda a derecha: 
+		--- Comienza con el 'azul' y se degrada hasta el 'azul bajo'. */
+	background-image: linear-gradient(to right, blue, lightblue);
+
+	/* El degradado va de derecha a izquierda: 
+		--- Comienza con el 'azul bajo' y se degrada hasta el 'azul'. */
+	background-image: linear-gradient(to left, blue, lightblue);
+
+	/* El degradado va hacia arriba: 
+		--- Comienza con el 'azul bajo' y se degrada hasta el 'azul'. */
+	background-image: linear-gradient(to top, blue, lightblue);
+
+	/* El degradado va hacia abajo: 
+		--- Comienza con el 'azul' y se degrada hasta el 'azul bajo'. */
+	background-image: linear-gradient(to bottom, blue, lightblue);
+
+	/* El degradado: 
+		--- Comienza desde la esquina superior izquierda.
+		--- Y se degrada al azul bajo hacia la esquina superior derecha. */
+	background-image: linear-gradient(to top right, blue, lightblue);
+
+	/* El degradado: 
+		--- Comienza desde la esquina superior derecha.
+		--- Y se degrada al azul bajo hacia la esquina superior izquierda. */
+	background-image: linear-gradient(to top left, blue, lightblue);
+
+	background-image: linear-gradient(to bottom right, blue, lightblue);
+	/* El degradado: 
+		--- Comienza desde la esquina inferior izquierda.
+		--- Y se degrada al azul bajo hacia la esquina inferior derecha. */
+
+	background-image: linear-gradient(to bottom left, blue, lightblue);
+	/* El degradado: 
+		--- Comienza desde la esquina inferior derecha.
+		--- Y se degrada al azul bajo hacia la esquina inferior izquierda. */
+	
+	/* ------------------------- */
+	/* ------ PORCENTAJES ------ */
+	/* ------------------------- */
+
+	/* Cada color abarcara segun su porcentaje. */
+	background-image: linear-gradient(blue 30%, lightblue 90%);
+
+	/* Cada uno de los colores abarcara solo regun su porcentaje. Podemos colocar tantos colores como queramos. */
+	background-image: linear-gradient(blue 10%, green 30%, lightblue 60%);
+
+	/* Podemos utilizar las mismas direcciones utilizando mas colores y sus porcentajes para cada color. */
+	background-image: linear-gradient(to top right, blue 10%, green 30%, lightblue 60%);
+}

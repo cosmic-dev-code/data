@@ -1,0 +1,38 @@
+<!-- ##########===========================########## -->
+<!-- ######===--- La propiedad ($event) ---===###### -->
+<!-- ##########===========================########## -->
+
+<section x-data="{text: ''}">
+
+	<!-- Por medio del evento (input) podemos capturar el evento haciendo uso 
+	de la accion magica ($event). -->
+	<input type="text" x-on:input="text = $event.target.value">
+	
+	<span x-text="text"></span>
+
+</section>
+
+<!-- ##########=======================########## -->
+<!-- ######===--- Guardar elementos ---===###### -->
+<!-- ##########=======================########## -->
+
+<section x-data="{element: null}">
+
+	<!-- Elemento 0, se guarda a si mismo al hacer en la variable (element) 
+	al hacer 'click'. -->
+	<button type="button" x-on:click="element = $event.target">
+		<span>Click</span>
+	</button>
+
+	<!-- Elemento 0, se guarda a si mismo al hacer en la variable (element) 
+	al hacer 'click'. -->
+	<div x-on:click="element = $event.target">
+		<h3>Hola</h3>
+	</div>
+
+	<div>
+		<!-- Imprimimos el elemento guardado en la variable (element). -->
+		<span x-text="element"></span>
+	</div>
+
+</section>

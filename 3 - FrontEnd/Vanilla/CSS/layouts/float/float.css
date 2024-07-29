@@ -1,0 +1,40 @@
+.contenedor-padre{
+	/* Eje 'X'. */
+	overflow-x: hidden;
+
+	/* Eje 'Y'. */
+	overflow-y: hidden;
+
+	/* Al flotar los elementos el contenedor no puede abarcar a sus hijos, por lo que on esta propiedad lo 
+	hara, asi no se desmaqueta. */
+
+	/* Podemos poner estas propiedades:
+		--- (hidden), cuando el contenido es demasiado grande para el contenedor entonces el contenido se corta y el 
+			contenido sobrante se oculta, no podremos ver el contenido sobrante. 
+		--- (scroll), coloca un scroll horizontal y un scroll vertical sea o no sea necesario. 
+		--- (auto), coloca un scroll horizontal o verticalmente solo cuando sea necesario. */
+	overflow: hidden;
+}
+
+	.elemento-0, .elemento-1{
+		/* El elemento flota hacia la izquierda. */
+		float: left;
+	}
+
+	.elemento-2{
+		/* El elemento flota hacia la derecha. */
+		float: right;
+	}
+
+	.elemento-3{
+		/* El elemento no flota hacia ninguna parte, por lo que permanece en su lugar de origen. */
+		float: none;
+
+		/* Esta es otra manera de hacer que el elemento abarque a sus hijos, un elemento que tenga esta 
+		propiedad para que los demas elementos no se floten.
+			--- (both), borra todo y lo devuelve a su forma original.
+			--- (left), borra solo los elementos flotantes a la izquierda.
+			--- (right), borra solo los elementos flotantes a la derecha.
+			--- (none), no borra nada. */
+		clear: both;
+	}

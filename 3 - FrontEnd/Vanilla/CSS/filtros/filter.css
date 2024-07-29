@@ -1,0 +1,31 @@
+/**
+ * Aplica un filtro al (elemento) y a sus (hijos).
+ */
+.filter{
+	/* Aplica un efecto de sombra donde: 
+		--- El primer valor representa -(left) y (right).
+		--- El segundo valor representa (bottom) y -(top).
+		--- El tercer valor representa (difuminado).
+		--- El cuarto valor representa (color de sombra). */
+	filter: drop-shadow(10px 10px 10px #ccc);
+
+	/* Aplica una rotacion de color en (grados), (0) es por defecto. */
+	filter: hue-rotate(90deg);
+
+	/* Invierte los colores; (0) es por defecto. */
+	filter: invert(50%);
+
+	/* Aplica opacidad a la imagen. */
+	filter: opacity(30%);
+
+	/* Representa que tan vivo se vera el color, (100%) es por defecto, (puede incrementar mas). */
+	filter: saturate(50%);
+	filter: saturate(0.50);
+
+	/* Parecido a la saturacion pero al reves, (0) es por defecto, (100%) es lo maximo. */
+	filter: sepia(50%);
+	filter: sepia(0.50);
+
+	/* Podemos mezclar valores. */
+	filter: contrast(200%) brightness(150%);
+}

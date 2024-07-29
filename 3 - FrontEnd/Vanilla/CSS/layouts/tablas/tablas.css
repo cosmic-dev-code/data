@@ -1,0 +1,15 @@
+table{
+	/* (table-layout) establece el diseño de las (filas) y (columnas) de la tabla, recibe por valores: 
+		--- (auto), donde las celdas toman como ancho minimo el contenido.
+		--- (fixed), las celdas sigan disminuyendo sin importar sin importar el tamaño del contenido. */
+	table-layout: auto;
+	width: auto;
+
+	/* Las columnas son desproporcionables. */
+	table-layout: auto;
+	width: 100%;
+
+	/* Las columnas tienen la misma medida. */
+	table-layout: fixed;
+	width: 100%;
+}

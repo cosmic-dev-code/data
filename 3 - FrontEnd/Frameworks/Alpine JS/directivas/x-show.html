@@ -1,0 +1,70 @@
+<!-- ##########===========================########## -->
+<!-- ######===--- La propiedad (x-show) ---===###### -->
+<!-- ##########===========================########## -->
+
+<section x-data>
+	<div>Caja 0</div>
+	
+	<!-- (x-show), muestra un elemento o no en el DOM. -->
+	<div x-show="false">
+		Caja 1
+	</div>
+
+	<div>Caja 2</div>
+</section>
+
+<!-- ##########======================########## -->
+<!-- ######===--- Menu desplegable ---===###### -->
+<!-- ##########======================########## -->
+
+<!-- Declaramos una variable llamada (open) con el valor de (false). -->
+<section x-data="{open: false}">
+
+	<!-- Cuando de 'click' la variable (open) adquiere su valor contrario. -->
+	<button x-on:click="open = !open">Mostrar menu</button>
+	
+	<!-- La propiedad (x-show) muestra un bloque de codigo cuando el valor sea (true), 
+	en caso de que sea (false) oculta ese bloque de codigo. -->
+	<div x-show="open">
+		<ul>
+			<li>Item #0</li>
+			<li>Item #1</li>
+			<li>Item #2</li>
+		</ul>
+	</div>
+
+</section>
+
+<!-- ##########================########## -->
+<!-- ######===--- Transicion ---===###### -->
+<!-- ##########================########## -->
+
+<section x-data="{open: false}">
+
+	<button x-on:click="open = !open">Mostrar menu</button>
+
+	<!-- (x-transition), da una transicion a la directiva (x-show), (cuando aparece y desaparece). -->
+	<div x-show="open" x-transition>
+		<ul>
+			<li>Item #0</li>
+			<li>Item #1</li>
+			<li>Item #2</li>
+		</ul>
+	</div>
+
+</section>
+
+<!-- ##########===================================########## -->
+<!-- ######===--- Cerrar menu al clickear fuera ---===###### -->
+<!-- ##########===================================########## -->
+
+<section x-data="{open = true}">
+	
+	<input type="button" value="Click me" x-on:click="open = !open">
+
+	<!-- (x-on:click.away), se ejecuta cuando se da (en este caso click) fuera del elemento. -->
+	<div x-show="open" x-on:click.away="open = false">
+		...
+	</div>
+
+</section>

@@ -1,0 +1,116 @@
+/* ##########==================########## */
+/* ######===--- Alineamiento ---===###### */
+/* ##########==================########## */
+
+.elemento-hijo-0{
+	/* Manipula el elemento hijo en el eje 'Y', recibe los siguietes valores: 
+		--- (start y self-start), el elemento se posiciona en la parte superior del elemento padre.
+		--- (end y self-end), el elemento se posiciona en la parte inferior del elemento padre. 
+		--- (center), el elemento se centra. 
+		--- (strech), el elemento ocupa el espacio que puede. 
+		--- (baseline), la base de la fuente perteneciente a los elementos se colocan de manera centrada.*/
+	align-self: stretch;
+
+	/* Manipula el elemento hijo en el eje 'X', recibe los siguietes valores: 
+		--- (start y self-start), el elemento se posiciona del lado izquierdo.
+		--- (end y self-end), el elemento se posiciona del lado derecho.
+		--- (center), el elemento se centra. 
+		--- (strech), el elemento ocupa el espacio que puede. 
+		--- (baseline), la base de la fuente perteneciente a los elementos se colocan de manera centrada.*/
+	justify-self: stretch;
+
+	/* Las propiedades que recibe son: 
+		--- align-self.
+		--- justify-self. */
+	place-self: center start;
+}
+
+/* ##########=============########## */
+/* ######===--- Colspan ---===###### */
+/* ##########=============########## */
+
+/* ------------------------- */
+/* ------ Informacion ------ */
+/* ------------------------- */
+/*
+
+	V   V   V   V
+	_____________ H
+	|___|___|___| H
+	|___|___|___| H
+	|___|___|___| H
+
+	Lineas que conforman la grilla.
+
+	Linea vertical (V).
+	Linea horizontal (H).
+*/
+
+/* ------------------------- */
+/* ------ Propiedades ------ */
+/* ------------------------- */
+
+.element-0{
+	/* El elemento hijo toma desde la primera linea vertical. */
+	grid-column-start: 1;
+
+	/* El elemento hijo toma hasta la cuarta linea vertical. */
+
+	/* En total el elemento hijo ha tomado 3 espacios, (los demas elementos se recorren). */
+	grid-column-end: 4;
+}
+
+.element-1{
+	/* El elemento hijo toma desde la primera linea horizontal. */
+	grid-row-start: 1;
+
+	/* El elemento hijo toma hasta la tercera linea horizontal. */
+	grid-row-end: 3;
+}
+
+/* ----------------------- */
+/* ------ shorthand ------ */
+/* ----------------------- */
+
+.element-2{
+	/* El elemento toma desde la primera linea vertical hasta la tercera linea vertical. */
+	grid-column: 1/3;
+
+	/* El elemento toma desde la primera linea horizontal hasta la cuarta linea horizontal. */
+	grid-row: 1/4;
+}
+
+.element-3{
+	/* El primer valor representa (grid-colum),
+	   El segundo valor representa (grid-row),
+	   El tercer valor representa (grid-colum),
+	   El cuarto valor representa (grid-row). */
+	grid: 2 / 1 / 4 / 3;
+}
+
+.element-4{
+	/* Toma desde la primera columna hasta la segunda columna, (aqui se basa por columnas y no por las lineas 
+	de la grilla). */
+	grid-column: 1 span 2;
+
+	/* Toma desde la primera fila hasta la segunda fila, (aqui se basa por filas y no por las lineas de la grilla). */
+	grid-row: 1 span 2;
+}
+
+/* ##########======================########## */
+/* ######===--- Cambiar el orden ---===###### */
+/* ##########======================########## */
+
+.element-1{
+	/* El elemento va hasta el final. */
+	order: 2;
+}
+
+.element-2{
+	/* El elemento va detras del primero hasta el final. */
+	order: 1;
+}
+
+/* Aqui el (order) funciona como un (z-index).
+	--- Entre mas alto sea el valor de (order), mas se va hasta el final.
+	--- Entre mas bajo sea el valor de (order) entonces este ira detras de los que tengan un valor mas alto. */

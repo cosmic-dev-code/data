@@ -1,0 +1,90 @@
+/* ##########=================########## */
+/* ######===--- Los (mixin) ---===###### */
+/* ##########=================########## */
+
+/* Los (mixin) son similares a las funciones, son estilos que se pueden reutilizar en 
+otros elementos. Estos tambien se guardan en (pila) y son llamados al final. */
+
+@mixin button{
+	display: inline-block;
+	border-radius: 3px;
+	background-color: rgb(0 10 32 / 30%);
+	color: #000;
+	font-size: 14px;
+	letter-spacing: 1px;
+	outline: none;
+	box-shadow: 0 2px 5px rgb(0 0 0 / 36%);
+	transition: 300ms transform linear;
+	&:hover{
+		transform: scale(1.1);
+	}
+}
+
+// La directiva (include) funciona para mandar a llamar los estilos de un (mixin).
+input[type="submit"]{
+	@include button;
+}
+
+button{
+	@include button;
+}
+
+// ---------------------------------- //
+// ------ Llamamiento multiple ------ //
+// ---------------------------------- //
+
+// Como las funciones, podemos mandar a llamar varios (mixin) a la vez.
+.elemento{
+	@include mixin-0;
+	@include mixin-1;
+	@include mixin-2;
+}
+
+// Los mixin pueden llamar otros mixin dentro de si mismos.
+@mixin nombre(){
+	@include mixin-0();
+	@include mixin-1("valor");
+}
+
+/* ##########================########## */
+/* ######===--- Parametros ---===###### */
+/* ##########================########## */
+
+// Similar a las funciones, los (mixin) puede recibir parametros.
+
+// Se reciben valores por parametros.
+@mixin button($color, $corder-radius, $size){
+	// Se utilizan la variables ecibidas por parametros.
+
+	border-radius: $corner-radius;
+
+	background-color: $color;
+	color: $color;
+	box-shadow: 0 2px 5px rgba($color, 36%);
+	
+	font-size: $size;
+
+	// ...
+}
+
+// ----------------------------------- //
+// ------ Parametros opcionales ------ //
+// ----------------------------------- //
+
+// Como el parametro: ($border), pueden existir parametros opcionales en los (mixin).
+@mixin button($color, $border: 2px solid #000){
+	// ...
+}
+
+input{ @include button(red); }
+
+// ------------------------------------ //
+// ------ Listas como parametros ------ //
+// ------------------------------------ //
+
+// Se pueden recibir (listas) como parametros.
+@mixin button($dim: (1rem, 20px, 2em)){
+	@if length($dim) > 0 {
+		$valor: nth($dim, 1);
+	}
+}

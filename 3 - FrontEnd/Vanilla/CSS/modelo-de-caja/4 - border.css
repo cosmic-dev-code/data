@@ -1,0 +1,114 @@
+.elemento{
+	/* ##########===================########## */
+	/* ######===--- Borde general ---===###### */
+	/* ##########===================########## */
+
+	/* -------------------------- */
+	/* ------ Border-width ------ */
+	/* -------------------------- */
+
+	/* Bordes especificos: 
+		--- (top) => 10.
+		--- (right) => 20.
+		--- (bottom) => 30.
+		--- (left) => 40. */
+	border-width: 10px 20px 30px 40px;
+
+	/* Bordes: 
+		--- (top) => 10.
+		--- (right), (left) => 15. 
+		--- (bottom) => 30. */
+	border-width: 10px 15px 30px;
+
+	/* Bordes a: 
+		--- (top), (bottom) => 10. 
+		--- (right), (left) => 20. */
+	border-width: 10px 20px;
+
+	/* Bordes a todas direcciones. */
+	border-width: 10px;
+
+	/* -------------------------- */
+	/* ------ border-style ------ */
+	/* -------------------------- */
+
+	/* Establece el estilo del borde, puede recibir las siguientes propiedades: 
+   		--- (solid), un borde solido.
+   		--- (dashed), un borde de lineas discontinuas.
+   		--- (dotted), un borde de puntitos.
+   		--- (double), un borde doble.
+   		--- (groove), un borde solido marcado.
+   		--- (ridge), un borde solido sobresaliente.
+   		--- (outset), el borde en colina y el contenido del elemento sobresaliente. */
+	border-style: solid;
+
+	/* -------------------------- */
+	/* ------ border-color ------ */
+	/* -------------------------- */
+
+	/* Establece el color del borde. */
+	border-color: #fff;
+	border-color: rgb(30, 100, 199);
+	border-color: blue;
+
+	/* ----------------------- */
+	/* ------ shorthand ------ */
+	/* ----------------------- */
+
+	/* Establece todos los bordes: 
+		--- (width), (style), (color). */
+	border: 10px solid black;
+
+	/* Borde sin color. */
+	border: 10px solid transparent;
+
+	/* ##########===========================########## */
+	/* ######===--- Especificar direccion ---===###### */
+	/* ##########===========================########## */
+
+	/* Especifica los valores de una sola propiedad de un solo lado. */
+
+	/* Borde hacia (arriba). */
+	border-top-width: 10px;
+	border-top-style: solid;
+	border-top-color: #000;
+
+	/* Borde hacia (derecha). */
+	border-right-width: 10px;
+	border-right-style: solid;
+	border-right-color: #000;
+
+	/* Borde hacia (abajo). */
+	border-bottom-width: 10px;
+	border-bottom-style: solid;
+	border-bottom-color: #000;
+
+	/* Borde hacia (izquierda). */
+	border-left-width: 10px;
+	border-left-style: solid;
+	border-left-color: #000;
+
+	/* ----------------------- */
+	/* ------ shorthand ------ */
+	/* ----------------------- */
+
+	/* Establece las propiedades: 
+		--- (width), (style), (color). */
+	border-top: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+
+	/* ##########=========================########## */
+	/* ######===--- Establecer (imagen) ---===###### */
+	/* ##########=========================########## */
+
+	/* Se pueden establecer imagenes como borde. */
+
+	/* Esta propiedad recibe tres valores: 
+		--- La imagen a colocar como borde.
+		--- Cuanto se va a cortar la imagen.
+		--- Indica si las secciones intermedias deben repetirse: 
+			--- (round), o estirarse, (stretch). */
+	border-image: url('images/border.png') 30 round;
+}

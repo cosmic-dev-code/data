@@ -1,0 +1,24 @@
+/* Normalmente a las figuras se les dan los valores por medio de su atributo de 
+etiqueta, pero tanbien pueden darse por CSS. */
+svg > rect, 
+svg > circle, 
+svg > polygon{
+	fill: rgb(0,0,255);
+	stroke-width: 10;
+	stroke: #000;
+	opacity: 0.5;
+}
+
+svg > polygon{
+	fill-rule: evenodd;
+}
+
+svg > defs > linearGradient > stop:first-child{
+	stop-color:rgb(255,255,0);
+	stop-opacity:1
+}
+
+svg > defs > linearGradient > stop:last-child{
+	stop-color:rgb(255,200,5);
+	stop-opacity:1
+}

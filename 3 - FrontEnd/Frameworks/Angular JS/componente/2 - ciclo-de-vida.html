@@ -1,0 +1,19 @@
+
+<!-- (ng-app), es la primera directiva de Angular JS que se ejecuta, permite crear distintas secciones 
+de aplicacion. -->
+<section ng-app="myApp">
+
+	<!-- (ng-controller), se ejecuta despues de (ng-app), esta define un controlador dentro de una 
+	aplicacion (ng-app) e hidrata el componente con metodos y propiedades. -->
+	<div ng-controller="ctrl">
+		
+		<!-- (ng-init), ejecuta el codigo cuando inicia (Angular). -->
+		<div x-init="metodo()"></div>
+
+		<!-- (ng-init), incluye otro archivo cuando inicia (Angular), sin embargo demora un poco mas 
+		debido a que debe realizar peticiones a archivos o dominios. -->
+		<div ng-include="'miArchivo.html'"></div>
+
+	</div>
+
+</section>

@@ -1,0 +1,31 @@
+<section ng-app="app">
+
+	<article ng-controller="ctrl">
+
+		<input type="checkbox" ng-model="active"/>
+		<input type="button" ng-click="cambiar()" value="Cambiar">
+
+		<div>
+			<!-- (ng-disabled), permite desabilitar o habilitar un elemento de acuerdo a 
+			un valor booleano. -->
+			<button ng-disabled="active">
+				<span>Active</span>
+			</button>
+
+			<input type="button" ng-disabled="active" value="Active">
+		</div>
+	</article>
+
+</section>
+
+<script type="text/javascript">
+
+	angular.module("app", []).controller("ctrl", function($scope){
+		
+		// Para activar y desactivar.
+		$scope.cambiar = function(){
+			this.active = !this.active;
+		};
+
+	});
+</script>

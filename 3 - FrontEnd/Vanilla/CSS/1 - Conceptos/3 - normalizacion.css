@@ -1,0 +1,51 @@
+/* ##########===================########## */
+/* ######===--- Normalizacion ---===###### */
+/* ##########===================########## */
+
+/* La normalizacion consiste en quitar los estilos predefinidos de los elementos HTML de la pagina web. 
+
+Se hace porque cada navegar preestablece estilos para los elementos HTML, asi que para poder darle nuestros estilos 
+propios es necesario (reiniciar los estilos predefinidos). Ademas ayuda a garantizar que los sitios 
+web se vean y se comporten de manera consistente en diferentes navegadores.
+
+Las bibliotecas como (Normalize.css) y (Reset.css) pueden ayudar a realizar este trabajo. */
+
+/* ##########=============########## */
+/* ######===--- Ejemplo ---===###### */
+/* ##########=============########## */
+
+/* Primero, a todos los elementos se le quitan: 
+	--- Los margenes, rellenos, outline y se le dan ciertos estilos. */
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	font-family: "arial", sans-serif, serif; 
+}
+
+/* Se normaliza el tamaño de las fuentes. */
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	/* Manejo facil de las medidas (rem) una vez modificado el (html) al (62.5%).
+		1px = 0.1rem,
+		2px = 0.2rem,
+		3px = 0.3rem,
+		10px = 1rem,
+		19px = 1.9rem,
+		100 = 10rem, 
+		etc. */
+	font-size: 1.6rem;
+}
+
+/* Reiniciar titulos. */
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-size: 100%;
+	font-weight: normal;
+}

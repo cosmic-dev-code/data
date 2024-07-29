@@ -1,0 +1,17 @@
+<!-- La directiva (ng-app) le permite crear un componente de Angular JS e hidratar el componente. -->
+<section ng-app="miApplicacion">
+
+    <!-- Podemos utilizar la sintaxis de Angular JS dentro de un componente. -->
+    <p>{{ "Hola mundo" }}</p>
+    <p>{{ ("El resultado es: "+(5+5)) }}</p>
+
+</section>
+
+<script type="text/javascript">
+    /* El metodo (module) recibe dos parámetros: 
+        --- El nombre del módulo que se desea extraer.
+        --- Un arreglo con todos los módulos, (dependencias) que requiere nuestro módulo.
+         
+        (La comunidad de Angular JS ha desarrollado nuevos módulos). */
+    const myApp = angular.module("miApplicacion", []);
+</script>

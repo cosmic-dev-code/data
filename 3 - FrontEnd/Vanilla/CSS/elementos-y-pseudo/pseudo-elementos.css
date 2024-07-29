@@ -1,0 +1,52 @@
+/* ##########======================########## */
+/* ######===--- PSEUDO ELEMENTOS ---===###### */
+/* ##########======================########## */
+
+#elemento{
+	/* Este es el elemento como tal. */
+}
+
+#elemento::before{
+	/* (Before) representa 'antes de'. */
+	/* Es necesario poner esta propiedad ya que define el contenido. 
+	Si no la ponemos el pseudo elemento no funcionara. */
+	content: 'Este es el contenido';
+	
+	/* Podemos darle propiedades como una caja, dicha caja estara detras del objeto. */
+	padding: 10px;
+	margin: 10px;
+	background-color: black;
+	border: 1px solid black;
+}
+
+#elemento::after{
+	/* (After) representa 'despues de' y toma las mismas propiedades que una caja junto con su propiedad 
+	elemental 'content' para el contenido. El elemento quedara por encima del otro elemento. */
+	content: 'Este es el contenido';
+
+	padding: 10px;
+	margin: 10px;
+	background-color: black;
+	border: 1px solid black;
+}
+
+/* Cuando el usuario selecciona el texto. */
+.este-es-mi-texto::selection{
+	background-color: red;
+	color: black;
+}
+
+/* Primera fila del texto. */
+p::first-line{
+	/* ... */
+}
+
+/* La primera letra de la primera fila. */
+#idTextoInformacion::first-letter{
+	/* ... */
+}
+
+/* Modificamos el pseudo elemento 'texto de fondo'. */
+input[type="text"]::placeholder{
+	/* ... */
+}

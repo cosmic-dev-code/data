@@ -1,0 +1,38 @@
+<!-- La directiva (ng-controller) permite crear distintos controladores dentro de 
+nuestras aplicaciones (ng-app). -->
+
+<section ng-app="controladores">
+
+	<!-- Cada controlador utiliza sus propias propiedades y metodos. -->
+
+	<div ng-controller="ctrlOne">
+		<p>{{ names }}</p>
+	</div>
+
+	<div ng-controller="ctrlTwo">
+		<p>{{ names }}</p>
+		<p>{{ getNames() }}</p>
+	</div>
+
+</section>
+
+<script type="text/javascript">
+
+	// Extraemos la aplicacion.
+	const myApp = angular.module("controladores", []);
+
+	/* Cada controlador de nuestra aplicacion recibe sus propias propiedades y metodos 
+	que hidratan el componente. */
+
+	myApp.controller("ctrlOne", function($scope){
+		$scope.names = "Brandon Anthony";
+	});
+
+	myApp.controller("ctrlTwo", function($scope){
+		$scope.names = "Anthony Brandon";
+		$scope.getNames = function(){
+			return ("Nombres: "+this.names);
+		};
+	});
+
+</script>

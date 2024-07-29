@@ -1,0 +1,25 @@
+/* ---------------------------------------- */
+/* ------ Orientacion de la pantalla ------ */
+/* ---------------------------------------- */
+
+@media screen (orientation: landscape){
+	/* Cuando la pagina se coloca horizontalmente, (como cuando volteas un celular). */
+}
+
+@media screen (orientation: portrait){
+	/* Cuando la pagina se coloca verticalmente, (como en un celular). */
+}
+
+/* Podemos hacer combinaciones. */
+
+@media not (orientation: landscape) and (orientation: portrait){
+	/* ... */
+}
+
+@media tv and (min-width: 700px) and (orientation: landscape){
+	/* ... */
+}
+
+@media not screen or tv and (max-width: 1024px) and (orientation: landscape) and not print{
+	/* ... */
+}

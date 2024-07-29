@@ -1,0 +1,41 @@
+<script defer type="text/javascript">
+	const app = angular.module("app", []);
+
+	app.controller("ctrl", function($scope){
+
+		/* Definimos el objeto "maestro" con los valores por defecto de cada campo. */
+		$scope.master = {
+			first: "Brandon", 
+			last: "Anthony"
+		};
+
+		/* Reiniciamos los campos del formulario de acuerdo a los valores del objeto "maestro". */
+		$scope.reset = function(){
+			// El método (copy) se utiliza para copiar un dato a otro lugar.
+			this.user = angular.copy(this.master);
+		};
+	});
+</script>
+
+<section ng-app="app">
+	<!-- Ejecutamos el (reset) al iniciar la aplicación. -->
+	<div ng-controller="ctrl" ng-init="reset()">
+
+		<!-- El objeto (user) como tal no existe, pero es creado, al ejecutar los (ng-model). -->
+		<form action="#" method="POST" novalidate autocomplete="on">
+			<div>
+				<label>Primer nombre: </label>
+				<input type="text" ng-model="user.first" placeholder="Primer">
+			</div>
+			<div>
+				<label>Segundo nombre: </label>
+				<input type="text" ng-model="user.last" placeholder="Primer">
+			</div>
+			<div>
+				<!-- Podemos ejecutar el (reset) para reiniciar los valores. -->
+				<input type="button" ng-click="reset()" value="Reiniciar valores">
+			</div>
+		</form>
+		
+	</div>
+</section>

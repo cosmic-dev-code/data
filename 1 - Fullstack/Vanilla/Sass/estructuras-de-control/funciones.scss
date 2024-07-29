@@ -1,0 +1,114 @@
+/* ##########==================================########## */
+/* ######===--- Declaracion e inicializacion ---===###### */
+/* ##########==================================########## */
+
+// La funcion se guarda en (pila).
+@function nombre-funcion(){
+
+	// Siempre se debe retornar algo.
+	@return true;
+}
+
+// ------------------------- //
+// ------ Llamamiento ------ //
+// ------------------------- //
+
+// Las funciones pueden mandar a llamar otras dentro de si mismas.
+@function funcion(){
+	$result: funcionUno();
+	$result: funcionDos();
+}
+
+$result: funcion();
+
+/* ##########================########## */
+/* ######===--- Parametros ---===###### */
+/* ##########================########## */
+
+@function al-cuadrado($numero){
+	@return ($numero * 2);
+}
+
+$resut: al-cuadrado(55);
+
+// ------------------------------------- //
+// ------ Valores predeterminados ------ //
+// ------------------------------------- //
+
+// Los parametros opcionales se dan desde los parametros de la funcion.
+@function potencia($numero, $potencia: 2){
+	@return ($numero * $potencia);
+}
+
+$resut: potencia(55);
+$resut: potencia(55, 55);
+
+// -------------------- //
+// ------ Listas ------ //
+// -------------------- //
+
+/**
+ * Una lista (obligatioria) y una (opcional).
+ */
+@function iterar($lista, $lista-2: (true, false)){
+	@each $valor in $lista{
+		@debug $valor;
+	}
+	@if(length($lista-2) > 0){
+		@each $valor-2 in $lista-2{
+			@debug $valor-2;
+		}
+	}
+
+	@return 0;
+}
+
+$result: iterar(555);
+$result: iterar(555, 66);
+
+/* ##########======================########## */
+/* ######===--- Retorno de datos ---===###### */
+/* ##########======================########## */
+
+// Retornando algun numero.
+@function sumar($numeros: ()){
+	$suma: 0;
+	@each $numero in $numeros{
+		$suma: ($suma + $numero);
+	}
+
+	@return $suma;
+}
+
+$suma: sumar(5 10 35);
+
+// ------------------------- //
+// ------ Valores CSS ------ //
+// ------------------------- //
+
+/**
+ * Se pueden retornar valores de propiedad de CSS.
+ */
+@function ver($mostrar){
+	@if $mostrar == "oculto"{
+		@return hidden;
+	}@else{
+		@return visible;
+	}
+}
+
+$visibility: ver("oculto");
+
+// -------------------- //
+// ------ Arrays ------ //
+// -------------------- //
+
+// Retorna una lista.
+@function iterar(){
+	@return ("Uno", "Dos", "Tres");
+}
+
+// Se recibe la lista y se itera.
+@each $elemento in iterar(){
+	@debug $elemento;
+}

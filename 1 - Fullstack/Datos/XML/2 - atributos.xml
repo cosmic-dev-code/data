@@ -1,0 +1,82 @@
+<!-- Protocolo (XML) -->
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Aqui por ejemplo tenemos varios libros, para lo cual podemos diferenciar la categoria de cada uno de 
+ellos de la siguiente manera:
+	=== (atributos y valores), de esta manera podemos hacer diferencia entre las distintas etiquetas y 
+		darles especificaciones a cada una de ellas. -->
+
+<libros>
+	<libro categoria="cocina">
+		<titulo lang="es">El plato del buen comer</titulo>
+		<autor>Brandon</autor>
+		<precio>$300.00</precio>
+	</libro>
+	<libro categoria="programacion">
+		<titulo lang="en">A good programador</titulo>
+		<autor>Anthony</autor>
+		<precio>$299.99</precio>
+	</libro>
+	<libro categoria="Londres">
+		<titulo lang="es">Viaje por londres</titulo>
+		<autor>Brandon</autor>
+		<autor>Anthony</autor>
+		<autor>Cosmic</autor>
+		<precio>$250.00</precio>
+	</libro>
+</libros>
+
+<!-- ##########=======================================########## -->
+<!-- ######====== Los atributos NO son obligatorios ======###### -->
+<!-- ##########=======================================########## -->
+
+<!-- Los atributos en (XML) no son obligatorios dado que en (XML) no hay atributos y valores definidor por 
+defecto como tal, (no existe aqui algunos atributos y valores), por lo que nosotros los podemos 
+inventar sin ningun problema. -->
+
+<!-- Podemos utilizar un atributo para la fecha. -->
+<note date="20-Oct-2021">
+	<to>Anthony</to>
+	<from>Brandon</from>
+</note>
+
+<!-- Podemos colocar la fecha como etiqueta. -->
+<note>
+	<date>20-Oct-2021</date>
+	<to>Anthony</to>
+	<from>Brandon</from>
+</note>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<!-- ~~~~~~ (Etiqueta) / (Atributo) ~~~~~~ -->
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- (Aqui no hay reglas). -->
+
+<!-- Toda la informacion como etiquetas. -->
+<note>
+	<date>
+		<day>20</day>
+		<month>Oct</month>
+		<year>2021</year>
+	</date>
+	<to>Anthony</to>
+	<from>Brandon</from>
+</note>
+
+<!-- Toda la informacion como atributos. -->
+<note day="20" month="Oct" year="2021" to="Anthony" from="Brandon" body="Esta es una nota"></note>
+
+<!-- NOTA: (Esta es una mala practica), los archivos (XML) se supone que son (documentos extensibles), por 
+lo que con cualquier modificacion deberia seguir funcionando la aplicacion, pero si empezamos a utilizar 
+bastantes atributos, entonces sera algo dificil de mantener en un futuro. -->
+
+<!-- ##########=====================########## -->
+<!-- ######====== Identificadores ======###### -->
+<!-- ##########=====================########## -->
+
+<!-- Los identificadores funcionan igual que los identificadores en (HTML), estos sirven para 
+darle un (identificador unico) a cada elemento a fin de diferenciar una etiqueta de otra. -->
+<direccion id="idDireccion">
+	<content>...</content>
+</direccion>

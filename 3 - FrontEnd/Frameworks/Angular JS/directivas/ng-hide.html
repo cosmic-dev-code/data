@@ -1,0 +1,26 @@
+<!-- La directiva aplica un (display: none). -->
+
+<article ng-app="app" ng-controller="ctrl">
+
+	<div>
+		<input type="button" ng-click="cambiar()" value="Cambiar">
+	</div>
+
+	<div>
+		<!-- La directiva (ng-hide) permite ocultar o desocultar un elemento en el DOM. -->
+		<dl ng-hide="active">
+			Contenido de mi elemento.
+		</dl>
+	</div>
+</article>
+
+<script type="text/javascript">
+	angular.module("app", []).controller("ctrl", function($scope){
+
+		// Propiedad (active) booleana.
+		$scope.cambiar = function(){
+			this.active = !this.active;
+		};
+
+	});
+</script>s

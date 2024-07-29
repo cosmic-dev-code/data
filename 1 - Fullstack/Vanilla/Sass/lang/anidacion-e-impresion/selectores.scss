@@ -1,0 +1,53 @@
+/* ##########=====================########## */
+/* ######===--- Selectores Sass ---===###### */
+/* ##########=====================########## */
+
+// En Sass podemos anidar elementos dentro de otros y darles estilos.
+
+.contenedor{
+	// ...
+	> .hijo-directo{
+		// ...
+	}
+
+	.desendientes{
+		// ...
+		img{
+			// ...
+
+			/* (&) se refiere al elemento al cual se le dan los estilos actualmente. 
+			Como si del (this) se tratara. */
+
+			&.animation{
+				// ...
+			}
+			&[type="submit"]{
+				// ...
+			}
+		}
+	}
+}
+
+/* ##########=======================########## */
+/* ######===--- Salida para (CSS) ---===###### */
+/* ##########=======================########## */
+
+.contenedor{
+	// ...
+}
+
+	.contenedor > .hijo-directo{
+		// ...
+	}
+
+	.contenedor .desendientes{
+		// ...
+	}
+
+		.desendientes img{
+			// ...
+		}.desendientes img.animation{
+			// ...
+		}.desendientes input[type="submit"]{
+			// ...
+		}

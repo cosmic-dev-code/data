@@ -1,0 +1,20 @@
+
+<form enctype="multipart/form-data">
+
+	<!-- (capture), abre la camara del usuario para tomar un video o fotografia en lugar de seleccionar un archivo, 
+	luego de tomar el video o fotografia el archivo se sube.
+
+		--- (user), indica la camara frontal del dispositivo del usuario.
+		--- (environment), indica la camara trasera del dispositivo del usuario.
+
+	NOTA: Ambos (user/environment) pueden ser utilizados tanto en (image/video). -->
+
+	<input type="file" name="image" accept="image/*" capture="user">
+	<input type="file" name="video" accept="video/*" capture="environment">
+
+
+	<button>Send</button>
+
+</form>
+
+<!-- NOTA: (capture) solo funciona en dispositivos moviles, NO en ordenadores o webcam. -->

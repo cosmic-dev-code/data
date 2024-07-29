@@ -1,0 +1,156 @@
+/* ##########=============================########## */
+/* ######===--- Ajustes de la animacion ---===###### */
+/* ##########=============================########## */
+
+#elemento{
+	/* Escribimos el nombre de la animacion. */
+	animation-name: animacionDeVentana;
+
+	/* Aqui establecemos la direccion de la animacion, puede 
+	recibir los siguientes valores: 
+
+		--- (reverse), la animacion comienza invertida.
+		--- (alternate), hace que la animacion se complete y despues la animacion regresa invertida.
+		--- (alternate-reverse), la animacion comienza invertida y despues regresa normal. */
+	animation-direction: alternate;
+
+	/* Establecemos el tiempo en el que se durara la animacion 
+	para iniciar. */
+	animation-delay: 3s;
+
+	/* Establecemos la duracion de la animacion. */
+	animation-duration: 9s;
+
+	/* Establecemos la cantidad de iteraciones de la animacion, 
+	los valores que podemos poner son: 
+
+		--- (initial), inicialmente, es decir, solo una vez.
+		--- (0,1,2,3,4,5,6,7,8,9), podemos poner numeros.
+		--- (infinite), la animacion se va a repetir infinitamente. */
+	animation-iteration-count: 3;
+
+	/* Indicamos la tipo de animacion que sera, estos valores son: 
+
+		--- (linear), animacion directa sin ninguna pausa.
+		--- (ease), especifica una animación con un inicio lento, luego rápido, luego termina lentamente.
+		--- (ease-in), especifica una animación con un inicio lento.
+		--- (ease-out), especifica una animación con un final lento.
+		--- (ease-in-out), especifica una animación con un inicio y un final lentos.
+		--- (cubic-bezier(n,n,n,n)), le permite definir sus propios valores en una función cubic-bezier. */
+	animation-timing-function: linear;
+
+	/* Modo de manejar los datos de la animacion ,estos son los valores que 
+	podemos darle: 
+
+		--- (none), valor por defecto. La animación no aplicará ningún estilo al elemento antes o después de 
+		su ejecución.
+		--- (forwards), el elemento conservará los valores de estilo establecidos por el último fotograma 
+		clave 'depende de la dirección de la animación y del recuento de iteraciones de la animación'.
+		--- (backwards), el elemento obtendrá los valores de estilo establecidos por el primer fotograma 
+		clave 'depende de la dirección de la animación' y los conservará durante el período de retraso de la animación.
+		--- (both), la animación seguirá las reglas tanto hacia adelante como hacia atrás, extendiendo las 
+		propiedades de la animación en ambas direcciones. */
+	animation-fill-mode: forwards;
+
+	/* Podemos poner todas las propiedades en una sola propiedad, esta propiedad es un shorthand. 
+
+		El primer valor representa el 'animation-name'.
+		El segundo valor representa el 'animation-duration'.
+		El tercer valor representa el 'animation-iteration-count'.
+		El cuarto valor representa el 'animation-direction'. */
+	animation: animacionDeVentana linear 2s infinite alternate;
+}
+
+/* ##########=========================########## */
+/* ######===--- Animacion detallada ---===###### */
+/* ##########=========================########## */
+
+@keyframes animacionDeVentana{
+	0% {
+		background-color:red;
+		left:0px;
+		top:0px;
+	}
+	25%{
+		background-color:yellow;
+		left:200px;
+		top:0px;
+	}
+	50%{
+		background-color:blue;
+		left:200px;
+		top:200px;
+	}
+	75%{
+		background-color:green;
+		left:0px;
+		top:200px;
+	}
+	100%{
+		background-color:red;
+		left:0px;
+		top:0px;
+	}
+}
+
+/* ##########==================================########## */
+/* ######===--- Animacion de un lugar a otro ---===###### */
+/* ##########==================================########## */
+
+@keyframes animacionDeVentana{
+	from{
+		background-color: yellow;
+		transform: scale(1.5) rotate(0);
+	}
+
+	to{
+		background-color: red;
+		transform: scale(2) rotate(90deg) translateY(190px);
+	}
+}
+
+/* ##########==============########## */
+/* ######===--- Practica ---===###### */
+/* ##########==============########## */
+
+/* Le decimos que la animacion vaya de un lugar a otro. */
+
+.div{
+	background-color: red;
+    width: 50px;
+    height: 50px;
+    padding: 3px;
+    border: 1px solid black;
+    border-radius: 3px;
+    text-align: center;
+    font-family: "arial", sans-serif;
+    font-weight: bold;
+    color: white;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    animation-name: cuadrado;
+    animation-duration: 6s;
+    animation-delay: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes cuadrado{
+	0%{
+    	background-color: red;
+        transform: translate(0) ratate(0);
+    }
+    25%, 50%{
+    	background-color: blue;
+        transform: translateX(500px) rotate(360deg);
+    }
+    75%, 100%{
+    	background-color: red;
+        transform: translateX(0) rotate(0);
+    }
+}
