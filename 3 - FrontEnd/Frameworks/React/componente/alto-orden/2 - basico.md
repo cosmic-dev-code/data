@@ -13,7 +13,7 @@
 	// Retorna un nuevo componente.
 
 	/* La convencion React dicta: 
-		--- (conFuncion): duncion que recibe el Componente por parametro.
+		--- (conHerramienta): Funcion que recibe el Componente por parametro.
 		--- Retorna un nuevo componente (ConHerramienta) que renderiza el recibido por parametro. */
 
 	function conHerramienta(Componente){
