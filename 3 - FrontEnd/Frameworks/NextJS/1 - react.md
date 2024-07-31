@@ -3,13 +3,13 @@
 ### ========================= ###
 
 Next.JS es un framework basado en React, pero con mas caracteristicas implementadas: 
-	- (Enrutamiento)
-	- (Servidor integrado, Node JS)
-	- (Despliegue optimizado)
-	- (Ahorro de recursos)
-	- (Ayuda al SEO)
-	- (Renderiza las paginas en archivos fisicos HTML)
-	- (Guarda en cache)
+	- (Enrutamiento).
+	- (Servidor integrado, Node JS).
+	- (Despliegue optimizado).
+	- (Ahorro de recursos).
+	- (Ayuda al SEO).
+	- (Renderiza las paginas en archivos fisicos HTML).
+	- (Guarda en cache).
 	- (Utiliza solo lo necesario).
 	- (Renderiza componentes del Front y Back).
 	- (Puedes crear aplicaciones moviles).

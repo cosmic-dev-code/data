@@ -26,7 +26,7 @@
          * Se ejecuta (después de que) el componente (haya sido montado en el DOM).
          */
         componentDidMount() {
-            // ...
+            // Normalmente aqui se hace (cambios) o (peticiones) para el componente.
         }
 
         /**
