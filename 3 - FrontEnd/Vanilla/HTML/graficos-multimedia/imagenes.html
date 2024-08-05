@@ -1,0 +1,25 @@
+<!-- ##########==============########## -->
+<!-- ######===--- Imagenes ---===###### -->
+<!-- ##########==============########## -->
+<!--
+	--- (width) es el ancho de la imagen.
+	--- (height) es el alto de la imagen. Puedes poner uno y no el otro, de esa manera la imagen se acomoda.
+	--- (alt), si la imagen no carga, se coloca el texto (alternativo).
+	--- (title) es una pequeña descripcion del texto.
+-->
+<img src="Fondo.png" alt="Logotipo" title="Logotipo hecho por Brandon" width="300" height="300"/>
+
+<!-- ##########=============########## -->
+<!-- ######===--- Picture ---===###### -->
+<!-- ##########=============########## -->
+
+<!-- Se utiliza para proporcionar múltiples versiones de una imagen, 
+en diferentes resoluciones de pantalla. -->
+
+<picture>
+	<source srcset="imagen-grande.jpg" media="(min-width: 800px)">
+	<source srcset="imagen-mediana.jpg" media="(min-width: 500px)">
+	<source srcset="imagen-pequeña.jpg" media="(max-width: 499px)">
+	<!-- En caso de que no se cumpla una de las resoluciones anteriores. -->
+	<img src="imagen-fallback.jpg" alt="Descripción de la imagen">
+</picture>

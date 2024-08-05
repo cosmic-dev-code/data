@@ -1,0 +1,33 @@
+
+<!-- ##########=====================########## -->
+<!-- ######===--- Documentos HTML ---===###### -->
+<!-- ##########=====================########## -->
+
+<!-- La etiqueta (iframe) puede anidar un documento (HTML) dentro de otro. 
+	--- Debemos darle las medidas de acuerdo a los atributos (width), (height).
+	--- O pueden darse los atrivutos directamente con css. -->
+<iframe src="documentoparaanidar.html" width="100%" height="600"></iframe>
+
+<!-- ##########=========================########## -->
+<!-- ######===--- Documentos externos ---===###### -->
+<!-- ##########=========================########## -->
+
+<!-- (object), Utilizada llamar a un recurso externo de la web. Este recurso será tratado como una imagen, o un recurso 
+externo para ser procesado por un plugin. El atributo (data) es lo mismo que (src). -->
+<object type="application/pdf" data="diploma-programacion-basica.pdf"
+	width="100%"
+	height="600">
+</object>
+
+<!-- Cargamos un archivo de audio. -->
+<object data="sonido.wav">
+	<!-- La etiqueta (param) nos permite activar ciertos atributos: 
+		--- (autoplay), inicia automaticamente. -->
+	<param name="autoplay" value="true">
+</object>
+
+<!-- Mandamos a llamar una imagen vectorizada. -->
+<object data="image.svg" width="300" height="300"></object>
+
+<!-- La etiqueta (embed), es usada para integrar una aplicación o contenido interactivo externo que no suele ser HTML. -->
+<embed type="text/css" src="estilos.css" width="100%" height="600"></embed>

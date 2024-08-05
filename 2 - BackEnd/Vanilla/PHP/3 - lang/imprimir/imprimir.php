@@ -30,15 +30,26 @@ if(true){
     <?php
 }
 
-// ---------------------------- //
-// ------ Impresion HTML ------ //
-// ---------------------------- //
+// --------------------- //
+// ------ Heredoc ------ //
+// --------------------- //
 
 // De esta manera tambien puede hacerse una impresion.
 
-$my_result = funcion();
+$my_result = funcion(); // Resultado.
 
 echo <<<HTML
+    <div>
+        <h1>{$my_variable}</h1>
+    </div>
+    <div>
+        <p>{$my_result}</p>
+    </div>
+HTML;
+
+// Tambien puede asignarse a una variable como si fuera un string.
+
+$cadena = <<<HTML
     <div>
         <h1>{$my_variable}</h1>
     </div>

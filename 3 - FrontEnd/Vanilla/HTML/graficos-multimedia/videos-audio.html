@@ -1,0 +1,23 @@
+<!-- ##########====================########## -->
+<!-- ######===--- Videos y audio ---===###### -->
+<!-- ##########====================########## -->
+<!--
+	--- (preload) permite que el video descargue desde antes para no tener al usuario en modo de espera.
+	--- (controls) permite agregar los controles que normalmente tiene un video.
+	--- (autoplay) y (muted), permite que el video inicie automaticamente sin ningun sonido. -->
+<video controls="" preload="" autoplay="" muted="">
+	<!-- (Source) sirve para diferentes formatos.
+		--- Crome siempre respeta el primer formato que entiende. Podemos tener varios formatos, de esta manera 
+		si el navegador no entiende uno, podra entender el otro. -->
+	<source src="pics/Video.wvm#t=10,60" type="video/wvm">
+	<source src="./pics/Video.mp4#t=10,60" type="video/mp4">
+</video>
+
+<!-- Insertar un audio: 
+	--- (controls), habilita los controles.
+	--- (autoplay), play automatico.
+	--- (muted), audio en mudo. -->
+<audio controls="" preload="">
+	<source src="megalovania.wav" type="audio/wav">
+	<source src="./megalovania.ogg" type="audio/ogg">
+</audio>
