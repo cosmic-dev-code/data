@@ -2,9 +2,8 @@
 : ######===--- Lista de tareas ---===###### :
 : ##########=====================########## :
 
-: Apaga el ordenador.
-shutdown
-shutdown /s
+: Lista completa de opciones.
+shutdown /?
 
 : Añade un comentario al registro de eventos para el apagado.
 shutdown /c "Comentario"
@@ -16,12 +15,6 @@ shutdown /s /t 300
 : Forzar el cierre de todas las aplicaciones sin esperar a que se cierren.
 shutdown /f
 
-: Reinicia el ordenador.
-shutdown /r
-
-: Aborta una operación de apagado o reinicio.
-shutdown /a
-
 : Cierra la sesion de usuario.
 shutdown /i
 shutdown /l
@@ -32,5 +25,16 @@ shutdown /h
 : Configura el reinicio automático después de la actualización de Windows.
 shutdown /fw
 
-: Lista completa de opciones.
-shutdown /?
+: -------------------------------- :
+: ------ Apagar / Reiniciar ------ :
+: -------------------------------- :
+
+: Reinicia el ordenador.
+shutdown /r
+
+: Apaga el ordenador.
+shutdown
+shutdown /s
+
+: Aborta una operación de apagado o reinicio.
+shutdown /a

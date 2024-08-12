@@ -8,18 +8,18 @@ tasklist
 : Muestra informacion detallada de cada tarea ejecutandose.
 tasklist /v
 
-: Muestra información adicional de los servicios hospedados en cada proceso.
-tasklist /svg
-
-: Muestra todas las rareas que usan el modulo ntdll.dll.
-tasklist /M ntdll.dll
-
 : Muestra la informacion organizada de una de las posibles maneras: "TABLE", "LIST", "CSV".
 tasklist /fo table
 
 : Si se usan los formatos "TABLE" y "CSV", especifica que el "encabezado de columna" no 
 : se debe mostrar.
 tasklist /nh
+
+: Muestra información adicional de los servicios hospedados en cada proceso.
+tasklist /svg
+
+: Muestra todas las tareas que usan el modulo ntdll.dll.
+tasklist /M ntdll.dll
 
 : ##########=====================########## :
 : ######===--- Finalizar tarea ---===###### :

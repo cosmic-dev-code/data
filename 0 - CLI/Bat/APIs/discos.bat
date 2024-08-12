@@ -1,3 +1,16 @@
+: ##########=======================########## :
+: ######===--- Cambiar de discos ---===###### :
+: ##########=======================########## :
+
+: Describe lo que se encuentra en el disco actual.
+dir
+
+: Cambia al disco (E)
+E:
+
+: Cambia al disco (D)
+D:
+
 : ##########=================########## :
 : ######===--- Particiones ---===###### :
 : ##########=================########## :
@@ -24,6 +37,9 @@ delete partition
 : ##########=======================================########## :
 : ######===--- Formatear por completo una unidad ---===###### :
 : ##########=======================================########## :
+
+: Entramos al modificador de discos.
+diskpart
 
 : Muestra una tabla con las caracteristicas de cada disco.
 list disk
@@ -52,16 +68,3 @@ assing letter=w
 
 : Salimos de la (Diskpart).
 exit
-
-: ##########=======================########## :
-: ######===--- Cambiar de discos ---===###### :
-: ##########=======================########## :
-
-: Describe lo que se encuentra en el disco actual.
-dir
-
-: Cambia al disco (E)
-E:
-
-: Cambia al disco (D)
-D:
