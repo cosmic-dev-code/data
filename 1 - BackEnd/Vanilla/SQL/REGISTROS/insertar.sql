@@ -38,14 +38,14 @@ VALUES
 
 # (INSERT INTO SELECT), copia datos de una tabla y los inserta en otra tabla.
 
-INSERT INTO `copy_registers` SELECT * FROM `registers`;
 -- Opia todos los datos de la tabla (registers) a la tabla (copy_registers).
+INSERT INTO `copy_registers` SELECT * FROM `registers`;
 
-INSERT INTO `clientes`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `usuarios`;
 /* Las datos especificos de la tabla (usuarios) se insertan en la tabla (clientes). */
+INSERT INTO `clientes`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `usuarios`;
 
-INSERT INTO `clientes`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `usuarios` WHERE `id` = 20;
 -- Se pueden utilizar con (WHERE).
+INSERT INTO `clientes`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `usuarios` WHERE `id` = 20;
 
-INSERT INTO `registers`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `registers` LIMIT 1;
 -- Colocamos un (limite) para copiar.
+INSERT INTO `registers`(`nombres`, `edad`, `pais`) SELECT `nombres`, `edad`, `pais` FROM `registers` LIMIT 1;

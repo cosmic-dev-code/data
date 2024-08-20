@@ -1,6 +1,6 @@
-### ========================= ###
-###### ===--- Image ---=== ######
-### ========================= ###
+### ============================ ###
+###### ===--- Imagenes ---=== ######
+### ============================ ###
 
 Como optimizacion tenemos las imagenes.
 
@@ -11,10 +11,15 @@ Fuera de la carpeta [](src) se encuentra la carpeta [](public), es ahi donde gua
 		./app
 			page.js
 
-
-###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
+### ====================================== ###
+###### ===--- Componente (Image) ---=== ######
+### ====================================== ###
 
 El modulo [](Image) esta creado para optimizar la carga de imagenes y se posiciona en la carpeta [](public).
+
+# NOTA: Es obligatorio utilizarlo y no utilizar la etiqueta IMG de toda la vida.
+
+###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
 
 ```jsx
 	// Ahora importamos el modula (Image).
@@ -23,13 +28,31 @@ El modulo [](Image) esta creado para optimizar la carga de imagenes y se posicio
 	export default function Home() {
 		return (
 			<main>
+
+				{/* Forma (correcta) de llamar una imagen. */}
+
 				<Image 
-					src="/imagen.png" // Se posiciona en la carpeta (public)/imagen.png 
-					width={500} height={500} // Obligatiorios para evitar malas practicas.
-					// Clases comunes.
-					alt="Imagen"
-					className="object-cover"
+					// Se posiciona en la carpeta (public)/imagen.png
+					// NOTA: Es necesario que lleve la (/) inicial para indicar que hablamos de la carpeta (public).
+					src="/imagen.png" 
+
+					// Define la (calidad) de la imagen al servirse como HTML, es decir el (size) del archivo.
+					// Ejemplo: Calidad de (500px) de ancho para optimizar.
+					width={500} height={500}
+
+					/* Si quieres concervar un (size) grande, por ejemplo (2000px) pero quieres concervar 
+					la optimizacion es necesario utilizar el atributo (quality).  */
+					quality={ 75 } // 1 - 100 % de calidad.
+
+					// Podemos colocar su Size real con clases, (Esto no es la calidad).
+					className="w-1/2"
 				/>
+
+				{/* Forma (incorrecta) de llamar una imagen. */}
+
+				{/* Aunque funciona, Next lo califica como incorrecto. */}
+				<img src="/imagen.png">
+
 			</main>
 		);
 	}

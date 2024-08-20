@@ -101,7 +101,7 @@ Notificandole el tipo de respuesta que va a recibir.
 ###### ===--- Encabezados CORS ---=== ######
 ### ==================================== ###
 
-Controlar acceso a los recursos del servidor.
+1. Controlar acceso a los recursos del servidor.
 
 ```php
 	# Permite que cualquier (dominio) pueda acceder a los recursos del servidor.
@@ -111,20 +111,20 @@ Controlar acceso a los recursos del servidor.
 	header("Access-Control-Allow-Origin: https://example.com");
 ```
 
-Puedes permitir que solo se acepten ciertos metodos.
+2. Permitir solo se acepten ciertos metodos.
 
 ```php
 	header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 ```
 
-Indica que encabezados se pueden utilizar en una solicitud.
+3. Encabezados se pueden utilizar en una solicitud.
 
 ```php
 	# Se aceptan (Content-Type), (Authorization).
 	header("Access-Control-Allow-Headers: Content-Type, Authorization");
 ```
 
-Indica si las credenciales (como cookies o encabezados de autenticación) se pueden incluir en las solicitudes.
+4. Indica si las credenciales (como cookies o encabezados de autenticación) se pueden incluir en las solicitudes.
 
 ```php
 	header("Access-Control-Allow-Credentials: true");

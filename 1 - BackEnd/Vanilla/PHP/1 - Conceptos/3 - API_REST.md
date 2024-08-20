@@ -6,12 +6,19 @@ Primero establecemos las configuraciones pertinentes.
 
 ###### --- --- --- --- --- --- config.php --- --- --- --- --- --- ######
 
-Configuramos la API.
+Configuramos la API funcion [](header).
 
 ```php
+	# Indicamos el tipo de contenido a renderizar en el navegador.
 	header("Content-Type: application/json; charset=UTF-8");
+
+	# Acceso a los recursos.
 	header("Access-Control-Allow-Origin: *");
+
+	# Tipos de peticiones permitidas.
 	header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+
+	# Encabezados permitidos.
 	header("Access-Control-Allow-Headers: Content-Type");
 ```
 
@@ -30,6 +37,9 @@ Ahora implementamos.
 	$method = $_SERVER['REQUEST_METHOD'];
 
 	switch($method){
+		/**
+		 * Metodo para Conocer tipo de peticiones.
+		 */
 		case "OPTIONS": 
 		    header("Access-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS");
 		    header("Access-Control-Allow-Headers: Content-Type, Authorization");

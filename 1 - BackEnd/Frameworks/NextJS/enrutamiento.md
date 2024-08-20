@@ -18,7 +18,7 @@ Cada ruta se define por tres cosas.
 			page.js
 	----------------------------------------------- ( /acerca ): Pagina de acerca de
 			./acerca
-				page.js ==== index.html
+				page.js === index.html
 				loading.js
 				layout.js
 	----------------------------------------------- ( /contacto )

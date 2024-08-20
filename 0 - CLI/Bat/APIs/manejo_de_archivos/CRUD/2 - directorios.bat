@@ -35,10 +35,10 @@ rmdir "nueva carpeta"
 : Borra una carpeta con archivos.
 rmdir /s "nueva carpeta"
 
-: Borra un directorio sin pedir autorizacion del usuario.
+: Borra un directorio (sin pedir) autorizacion del usuario.
 rmdir /s /q "nueva carpeta"
 
-: Borra un directorio pidiendo autorizacion del usuario.
+: Borra un directorio (pidiendo) autorizacion del usuario.
 rmdir /s /i "nueva carpeta"
 
 : Borra mas de una carpeta con archivos.

@@ -40,7 +40,7 @@ Algunos ejemplos populares de ORMs en [](PHP) son [](Doctrine), [](Eloquent), y 
 			// Logica para: SELECT y WHERE.
 		}
 
-		static public function get_all(string $table):array{
+		static public function all(string $table):array{
 			// Logica para: SELECT *.
 		}
 
@@ -78,20 +78,24 @@ Algunos ejemplos populares de ORMs en [](PHP) son [](Doctrine), [](Eloquent), y 
 			$this->apellidos = $apellidos;
 			$this->active = $active;
 			$this->descripcion = $descripcion;
+
+			// Se indica la tabla que va a manipular.
+			$this -> table = "usuarios";
 		}
 
 		// ...
 	}
 
 	// Se crea el registro.
-	$usuario = new Usuario("Brandon", "Olivares", true)
-
-	// Se indica la tabla que va a manipular.
-	$usuario -> table = "usuarios"
+	$usuario = new Usuario("Brandon", "Olivares", true);
 
 	// Inserta el registro.
 	$usuario -> save();
 
 	// Indicando la tabla podemos traer todos los registros.
-	$usuarios = (array) Usuario::get_all("usuarios");
+	$usuarios = (array) Usuario::all("usuarios");
+
+	foreach ($usuarios as $usuario) {
+		if($usuario -> nombres === "Brandon") $usuario->delete();
+	}
 ```
