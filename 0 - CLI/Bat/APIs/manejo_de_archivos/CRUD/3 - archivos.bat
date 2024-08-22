@@ -4,6 +4,7 @@
 
 : Muestra el contenido de un texto plano en consola.
 : (CTRL + C), para salir cuando la informacion es muy grande.
+: (Q), para salir de la lectura.
 more archivo.txt
 
 : Muestra los atributos de los archivos.
