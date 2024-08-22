@@ -28,7 +28,8 @@ acceda a ellas. -->
 	use Illuminate\Support\Facades\Route;
 	use App\Http\Controllers\PaymentController;
 
-	Route::get("paypal/process/{order_id}/{product_id}", [PaymentController::class, "process"]) -> name("payment.process");
+	Route::get("paypal/process/{order_id}/{product_id}", [PaymentController::class, "process"]) 
+		-> name("payment.process");
 ```
 
 ###### --- --- --- --- --- --- {proyecto}/resources/views/payment.blade.php --- --- --- --- --- --- ######

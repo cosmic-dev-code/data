@@ -90,9 +90,9 @@ entonces si se procesa el pago en el cliente y luego se envia una orden al servi
 
 ###### --- --- --- --- --- --- {proyecto}/server.php --- --- --- --- --- --- ######
 
-### =============================================================== ###
-###### ===--- Establecer (credenciales) y recibir (token) ---=== ######
-### =============================================================== ###
+### ==================================================== ###
+###### ===--- (Credenciales) y recibir (Token) ---=== ######
+### ==================================================== ###
 
 ```php
 	use GuzzleHttp\Client;
@@ -121,6 +121,7 @@ entonces si se procesa el pago en el cliente y luego se envia una orden al servi
             /**
              * Especificamos que queremos recibir las credenciales.
              */
+
             // ALTERNATIVA (0): Preferible al enviar JSON, XML u otros formatos personalizados.
             "body" => "grant_type=client_credentials", 
             // ALTERNATIVA (1): Es mas claro y permite enviar mas campos de formulario en el cuerpo de la solucitud.
@@ -151,8 +152,10 @@ entonces si se procesa el pago en el cliente y luego se envia una orden al servi
 ```php
 	if(isset($_GET['order_id'])){
 
-		# Se recibe la orden del cliente.
+		# Se reciben los datos del Front-End.
 		$order_id = $_GET['order_id'];
+		$product_id = $_GET['product_id'];
+
 		# Obtenemos el (token) de acceso.
         $access_token = get_access_token();
 
@@ -165,14 +168,14 @@ entonces si se procesa el pago en el cliente y luego se envia una orden al servi
             ]
         ]);
 
-        /* Obtenemos la respuesta que literalmente es el objeto (details) que se recibia en el cliente 
-        y lo deserializamos. */
+        /* Obtenemos la respuesta que literalmente es el objeto (details) 
+        que se recibia en el cliente y lo deserializamos. */
         $details = json_decode($order -> getBody(), true);
 
         if($details["status"] === "APPROVED"){
 
         	// Obtener precio del (producto) y de la (transaccion).
-        	$product = Database::get("products", $_GET['product_id']);
+        	$product = Database::get("products", $product_id);
         	$price = (float) $details["purchase_units"][0]["amount"]["value"];
 
         	if(!is_null($product) && $product !== null){
@@ -185,6 +188,7 @@ entonces si se procesa el pago en el cliente y luego se envia una orden al servi
         	}else{
         		printf("El producto no existe");
         	}
+        	
         }else{
         	printf("La orden no ha sido aprovada");
         }
