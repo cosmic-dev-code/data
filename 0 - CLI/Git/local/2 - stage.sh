@@ -28,45 +28,62 @@ git add .
 # ------ Eliminar archivos ------ #
 # ------------------------------- #
 
-# Elimina los archivos del (add).
+# Elimina un archivo especifico agregado en el (stage).
+# Puedes volver a agregarlo con (git add).
 git rm --cached archivo.txt
 
-# Remueve el archivo de la etapa del (Stage).
+# Elimina los archivos del de la zona (Stage) y lo restaura al ultimo (commit).
+# Pero no afecta al directorio de trabajo..
 git restore --staged myArchivo.html
 
 # Elimina todos los archivos del (Stage).
+# NOTA: Revierte los cambios no confirmados en el (directorio).
 git reset --hard
 
-# Restaura un archivo eliminado del (Stage) hacia la (Computadora).
+# Recupera el archivo del último commit confirmado y lo restaura al (directorio).
 git restore myArchivo.html
 
 # ----------------------- #
 # ------ Shorthand ------ #
 # ----------------------- #
 
-# Este comando acorta los comandos (rm myArchivo.html) y (git add myArchivo.html).
+# Acoramiento para: 
+#	--- rm myArchivo.html
+#	--- git add myArchivo.html
 git rm myArchivo.html
 
-# Este comando acorta los comandos (mv myArchivo.html nuevoNombre.html) y (git add nuevoNombre.html).
+# Acortamiento para: 
+#	--- mv myArchivo.html nuevoNombre.html
+#	--- git add nuevoNombre.html
 git mv myArchivo.html nuevoNombre.html
 
 # ##########==========================########## #
 # ######===--- Informacion de datos ---===###### #
 # ##########==========================########## #
 
-# Muestra todos los archivos agregados.
+# Muestra todos los archivos.
+#	--- Agregados (stage).
+#	--- No agregados (directorio).
 git status
 
-# Muestra los archivos con menos informacion: 
-	# M, en rojo: Un archivo modificado y no agregado.
-	# M, en verde: Un archivo modificado y agregado.
-	# ??, en rojo: Un archivo nuevo y no agregado.
-	# A, en vere: Un archivo nuevo agregado.
+# Muestra todos los archivos agregados y no agregados.
+# Pero con mas detalles sobre cada archivo.
+	# M ===  Modificado y no agregado.
+	# D ===  Eliminado.
+	# ?? ===  Nuevo y no agregado.
+	# R ===  Renombrado.
+	# C ===  Copiado.
+	# UU ===  Conflictos de fusion.
+	# A === Agregado.
 git status -s
 
-# Muestra los cambios realizados en un archivo modificado y no agregado, muestra las nuevas 
-# lineas agregadas y borradas.
+# Cambios (No Agregados).
+# Muestra los cambios en los archivos modificados y no agregados (git add).
+# Muestra las lineas agregadas y borradas de cada archivo.
 git diff
 
+# Cambios (Agregados).
 # Muestra los cambios realizados en el (stage).
 git diff --staged
+
+# PUEDES SALIR CON 'Q'

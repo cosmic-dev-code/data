@@ -15,6 +15,25 @@
 # en diferentes características de un proyecto de manera independiente y colaborar en el mismo código 
 # de forma más eficiente.
 
+# ----------------------- #
+# ------ Ver ramas ------ #
+# ----------------------- #
+
+# Muestra un listado de todas las ramas (locales) que tenemos.
+# Y muestra la rama (Actual).
+git branch
+
+# USO REMOTO.
+
+# Vemos un listado de las ramas (remotas) que tenemos.
+git branch -r
+
+# Lista las ramas (locales) y (remotas).
+git branch -a
+
+# Muestra un resumen mas detallado de las (ramas) y sus (commits).
+git show-branch -r
+
 # ------------------------- #
 # ------ Crear ramas ------ #
 # ------------------------- #
@@ -22,11 +41,14 @@
 # Podemos crear varias ramas y cada una de ellas tendra su propio (Stage) y (Commit), 
 # podemos utilizar los comandos en cada una de las ramas.
 
-# Muestra la rama en la que nos encontramos, por defecto es la rama (master).
-git branch
-
 # Crea una nueva rama llamada (mi-rama).
 git branch mi-rama
+git branch miRama
+
+# Muchos especifican los nombres de las ramas cuando trabajan en equipo.
+git branch project/brandon
+git branch project/anthony
+git branch project/cosmic
 
 # --------------------------------- #
 # ------ Moverse entre ramas ------ #
@@ -35,24 +57,27 @@ git branch mi-rama
 # Nos movemos a la rama (master).
 git checkout master
 
-# Ahora nos movemos a la rama (features/nueva_rama).
-git checkout features/nueva_rama
+# Ahora nos movemos a la rama (mi/nueva).
+git checkout mi/nueva
 
 # Muestra la rama actual.
 git branch
 
-# (Crea) una nueva rama llamada (features/nueva_rama) y se (mueve) a ella.
-git checkout -b features/nueva_rama
+# (Crea) una nueva rama llamada (mi/nueva) y se (mueve) a ella.
+#	--- git branch mi/nueva
+#	--- git checkout mi/nueva
+git checkout -b mi/nueva
 
-# ---------------------------- #
-# ------ Fusionar ramas ------ #
-# ---------------------------- #
+# -------------------------------------------- #
+# ------ Fusionar cambios de una (rama) ------ #
+# -------------------------------------------- #
 
 # Estamos en la rama (master).
 git branch
 
-# Sobreescribimos la rama actual por los datos de la rama (features/nueva_rama).
-git merge features/nueva_rama
+# Fusionamos la rama actual (master) con los cambios de la rama (mi/nueva).
+# NOTA: Si hay conflictos, git pide que los resuelvas manualmente.
+git merge mi/nueva
 
 # ---------------------------- #
 # ------ Eliminar ramas ------ #
@@ -60,6 +85,7 @@ git merge features/nueva_rama
 
 # Eliminamos la rama (features/nueva_rama).
 git branch -d features/nueva_rama
+git branch --delete features/nueva_rama
 
 # ##########====================########## #
 # ######===--- Ejemplo de uso ---===###### #

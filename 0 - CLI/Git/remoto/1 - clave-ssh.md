@@ -52,18 +52,18 @@ Lo creamos en la ruta [](Desktop/Example).
 ```
 
 Pedira un password para el archivo para protejer las claves, (parecido a un password).
+# NOTA: No es obligatorio y puedes decidir no ingresar nada.
 
 ```sh
+	# Ingresar password.
+	> password_github
+
+	# Confirmacion del password.
 	> password_github
 ```
 
-Pide la confirmacion de la frase.
-
-```sh
-	> password_github
-```
-
-Tras aceptar las hubicaciones por defecto ahora ejecutamos los comandos. Para agregar la clave SSH a tu agente SSH: 
+Tras aceptar las hubicaciones por defecto ahora ejecutamos los comandos.
+Para agregar la clave SSH a tu agente SSH: 
 
 ```sh
 	# Inicia el agente y establece las variables de entorno necesarias.
@@ -83,8 +83,7 @@ Pero si lo creaste en (Desktop/Example), la ruta es:
 	# El comando (ssh-add) y frente a el la ruta de tu archivo.
 	ssh-add ~/Desktop/Example/id_ed25519
 
-	# Te pedira el password para agregar las claves al agente SSH en tu sistema.
-
+	# Te pedira el password, (si lo hay) para agregar las claves al agente SSH en tu sistema.
 	> password_github
 ```
 
