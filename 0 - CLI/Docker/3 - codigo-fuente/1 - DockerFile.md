@@ -13,7 +13,7 @@ En el directorio de nuestra aplicacion creamos el [](DockerFile) SIN extension.
 
 ###### --- --- --- --- --- --- {proyecto}/src/DockerFile --- --- --- --- --- --- ######
 
-# Indicar directorio de trabajo.
+# Indicar DIRECTORIO, (WORKDIR).
 
 ```sh
 	# Aunque sea nuestra propia imagen.
@@ -46,7 +46,7 @@ En el directorio de nuestra aplicacion creamos el [](DockerFile) SIN extension.
 	CMD ["npm", "run", "dev"]
 ```
 
-# Sin directorio de trabajo.
+# Sin DIRECTORIO.
 
 ```sh
 	FROM node:14

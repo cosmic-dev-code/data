@@ -29,21 +29,19 @@ Instalamos NextJS.
 ```
 
 Podemos ver las opciones que tenemos, normalmente muestra: 
-	[](start): Para correr el servidor de (produccion).
-	[](dev): Para correr el servidor de (desarrollo).
-	[](built): Para compilar todos los archivos.
-	[](lint): Para correr el Linter.
+<!--
+	--- (start): Para correr el servidor de (produccion).
+	--- (dev): Para correr el servidor de (desarrollo).
+	--- (built): Para compilar todos los archivos.
+	--- (lint): Para correr el Linter.
+-->
 
 ```bat
 	npm run
-```
 
-Ahora procedemos a correr el servidor.
-
-```bat
+	: Ahora procedemos a correr el servidor.
 	npm run dev
+
+	: Next.js local
+	http://localhost:3000
 ```
-
-Next.js [](local)
-
-	- http://localhost:3000

@@ -2,11 +2,10 @@
 ###### ===--- API Enrutamiento ---=== ######
 ### ==================================== ###
 
-Por convencion, para crear las API REST estan se encuentran dentro de un directorio llamado 
-[](api), el cual alberca las APIs que utilizaremos como servidor.
+Por convencion, para crear las API REST estan se encuentran dentro de un directorio llamado [](api).
+El cual alberca las APIs que utilizaremos como servidor.
 
 Estas APIs pueden ejecutar tareas como conectarse a bases de datos, y demas.
-
 Por convencion la carpeta se llama [](api) y los archivos que responden son [](route.js).
 
 	./src
@@ -17,17 +16,17 @@ Por convencion la carpeta se llama [](api) y los archivos que responden son [](r
 			./hola
 				route.js === Respuesta.
 
-# Asi es como se maneja el [](Enrutamiento) de nuestras APIs.
+Asi es como se maneja el [](Enrutamiento) de nuestras APIs.
 
 ### =========================== ###
 ###### ===--- Metodos ---=== ######
 ### =========================== ###
 
+# Codigo de servidor (Node JS).
+
 ###### --- --- --- --- --- --- {proyecto}/src/app/api/route.js --- --- --- --- --- --- ######
 
-Aqui definimos nuestras respuestas de cuerdo a la ruta.
-
-# Codigo de servidor (Node JS).
+<!-- Aqui definimos nuestras respuestas de cuerdo a la ruta. -->
 
 ```js
 
@@ -61,7 +60,7 @@ Aqui definimos nuestras respuestas de cuerdo a la ruta.
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/api/route.js --- --- --- --- --- --- ######
 
-Si quieres escuchar peticiones diferentes.
+<!-- Si quieres escuchar peticiones diferentes. -->
 
 ```js
 
@@ -92,7 +91,7 @@ Si quieres escuchar peticiones diferentes.
 # ------ Clase Response ------ #
 # ---------------------------- #
 
-Esta es otra forma de retornar la respuesta.
+<!-- Esta es otra forma de retornar la respuesta. -->
 
 ```js
 	export function GET(){
@@ -127,7 +126,7 @@ Esta es otra forma de retornar la respuesta.
 
 ```
 
-Ejemplo de [](salida).
+<!-- Ejemplo de salida. -->
 
 ```json
 	{
@@ -139,24 +138,25 @@ Ejemplo de [](salida).
 ###### ===--- Parametros ---=== ######
 ### ============================== ###
 
-Para definir parametros en las rutas.
+<!-- Para definir parametros en las rutas. -->
 
 	./src
 	----------------------------------------------- ( /api/brandon ): Se recibe el nombre
 		./api
-			[nombre] === Nombre de parametro.
+			[nombre] === Nombre de PARAM.
 			route.js === Respuesta.
 	----------------------------------------------- ( /api/brandon/24 ): Segundo nivel de nuestra API.
 			./hola
-				[edad] === Nombre de parametro.
+				[edad] === Nombre de PARAM.
 				route.js === Respuesta.
 
-En este ejemplo las rutas declaradas son: 
-
-	- /api
-	- /api/[nombre]
-	- /api/hola
-	- /api/hola/[edad]
+<!-- En este ejemplo las rutas declaradas son:  -->
+<!-- 
+	--- /api
+	--- /api/[nombre]
+	--- /api/hola
+	--- /api/hola/[edad]
+-->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/api/[nombre].js --- --- --- --- --- --- ######
 

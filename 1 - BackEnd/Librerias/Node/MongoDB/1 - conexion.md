@@ -3,15 +3,12 @@
 ### ======================================== ###
 
 ```js
+	// Importamos la libreria de Mongo.
 	import { MongoClient } from 'mongodb';
-```
 
-# Con instancia
-
-```js
-	/**
-	 * Con instancia.
-	 */
+	// ------------------------- //
+	// ------ Instanciada ------ //
+	// ------------------------- //
 
 	// Instanciamos el cliente con la URL a conectar.
 	const client = new MongoClient("mongodb://localhost:27017");
@@ -21,11 +18,13 @@
 		// Conectamos.
 		await client.connect();
 
-	}catch(error){ console.error(error); }
+	}catch(error){
+		console.error(error.message);
+	}
 
-	/**
-	 * Sin instancia.
-	 */
+	// --------------------------- //
+	// ------ Sin instancia ------ //
+	// --------------------------- //
 
 	try{
 
@@ -43,8 +42,10 @@
 			useUnifiedTopology: true 
 		})
 
-	}catch(error){ console.error(error) }
-```
+	}catch(error){
+		console.error(error.message);
+	}
+````
 
 # ----------------------------- #
 # ------ Cerrar conexion ------ #

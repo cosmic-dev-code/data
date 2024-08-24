@@ -2,6 +2,8 @@
 ###### ===--- Instalacion por (npm) ---=== ######
 ### ========================================= ###
 
+<!-- Instalamos via consola. -->
+
 ```bat
 	npm install mongodb
 ```

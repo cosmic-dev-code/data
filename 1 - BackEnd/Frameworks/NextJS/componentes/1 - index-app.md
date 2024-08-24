@@ -2,11 +2,11 @@
 ###### ===--- Plantilla / Layout ---=== ######
 ### ====================================== ###
 
-La estructura cambia un poco a diferencia de React.
+<!-- La estructura cambia un poco a diferencia de React. -->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/layout.js --- --- --- --- --- --- ######
 
-Este es el archivo que estara presente en todos los componentes del sitio web.
+<!-- Este es el archivo que estara presente en todos los componentes del sitio web. -->
 
 ```jsx
 	// Estilos que se aplicaran de manera global.
@@ -38,7 +38,7 @@ Este es el archivo que estara presente en todos los componentes del sitio web.
 	}
 ```
 
-Debemos mostrar que el [](RootLayout) recibe el parametro [](children), que envolvera a toda la app.
+# NOTA: El [](RootLayout) recibe el parametro [](children), que envolvera a la APP.
 
 ### ================================ ###
 ###### ===--- Page / Index ---=== ######
@@ -46,7 +46,7 @@ Debemos mostrar que el [](RootLayout) recibe el parametro [](children), que envo
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
 
-Por convencion [](page) es el [](index.jsx) que se tomara en cuenta.
+<!-- Por convencion (page) es el (index.jsx) que se tomara en cuenta. -->
 
 ```jsx
 	// Como puedes observar aqui no es necesario importar React.

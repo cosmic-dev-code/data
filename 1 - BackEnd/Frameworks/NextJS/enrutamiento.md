@@ -3,10 +3,12 @@
 ### ================================ ###
 
 Cada ruta se define por tres cosas.
+<!--
 	--- Una carpeta con el nombre de la ruta.
-	--- Un archivo llamado [](page.js) que es como el [](index.html) de esa ruta.
-	--- Y si quieres un [](layout.js) que define el layout que tendras todas las paginas 
+	--- Un archivo llamado (page.js) que es como el (index.html) de esa ruta.
+	--- Y si quieres un (layout.js) que define el layout que tendras todas las paginas 
 		desde esa ruta hacia abajo, de sus demas rutas.
+-->
 
 	./public
 		imagen.png
@@ -33,12 +35,14 @@ Cada ruta se define por tres cosas.
 					layout.js
 
 Aqui las rutas son: 
-	[](/) === {proyecto}/src/app/page.js
-	[](/acerca) === {proyecto}/src/app/acerca/page.js
-	[](/contacto) === {proyecto}/src/app/contacto/page.js
-	[](/contacto/redes) === {proyecto}/src/app/contacto/redes/page.js
+<!--
+	--- / === {proyecto}/src/app/page.js
+	--- /acerca === {proyecto}/src/app/acerca/page.js
+	--- /contacto === {proyecto}/src/app/contacto/page.js
+	--- /contacto/redes === {proyecto}/src/app/contacto/redes/page.js
+-->
 
-Asi de definen las rutas que puedes visitar en tu proyecto.
+<!-- Asi de definen las rutas que puedes visitar en tu proyecto. -->
 
 ### ========================== ###
 ###### ===--- Layout ---=== ######
@@ -50,7 +54,8 @@ Asi de definen las rutas que puedes visitar en tu proyecto.
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/contacto/layout.js --- --- --- --- --- --- ######
 
-Este archivo [](RootLayout) es el que afecta a todas las paginas, pero cada pagina puede tener su propio layout.
+<!-- Este archivo (RootLayout) es el que afecta a todas las paginas, 
+pero cada pagina puede tener su propio layout. -->
 
 ```jsx
 	// Permite utilizar logica del lado del cliente.
@@ -121,12 +126,12 @@ Este archivo [](RootLayout) es el que afecta a todas las paginas, pero cada pagi
 ###### ===--- Page ---=== ######
 ### ======================== ###
 
-La [](page) funciona como el [](index.html) cuando el usuario visita la ruta.
+<!-- La (page) funciona como el (index.html) cuando el usuario visita la ruta. -->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/contacto/page.js --- --- --- --- --- --- ######
 
 ```jsx
-	export default function Contact(){
+	export default function Page(){
 	    return <>
 	    	{/* Logica del componente */}
 	    </>
@@ -137,7 +142,8 @@ La [](page) funciona como el [](index.html) cuando el usuario visita la ruta.
 ###### ===--- Loading ---=== ######
 ### =========================== ###
 
-La [](loading) sera tomada cuando el componente [](page) se encuentra cargandose y todavia no se muestra al cliente.
+<!-- La (loading) sera tomada cuando el componente (page) se encuentra 
+cargandose y todavia no se muestra al cliente. -->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/contacto/loading.js --- --- --- --- --- --- ######
 

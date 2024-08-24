@@ -3,18 +3,20 @@
 ### ====================================== ###
 
 # Componentes del Cliente ("use client"):
-
-*	Ejecución en el navegador del usuario.
+<!-- 
+	Ejecución en el navegador del usuario.
 	Incluyen lógica del cliente, como manejadores de eventos y estado local.
 	Si un componente del cliente importa otro componente del cliente o del servidor.
-	__El código del servidor también se ejecutará en el cliente__.
+-->
+*El código del servidor también se ejecutará en el cliente*
 
 # Componentes del Servidor:
-
-*	Ejecución en el servidor para generar el HTML inicial.
+<!-- 
+	Ejecución en el servidor para generar el HTML inicial.
 	No pueden usar lógica específica del cliente.
 	Si un componente del servidor importa un componente del cliente, el componente del cliente se incluirá en el HTML generado y luego será hidratado en el navegador.
-	__Mientras que el servidor no se convierte en cliente.__
+-->
+*Mientras que el servidor no se convierte en cliente.*
 
 ### =============================== ###
 ###### ===--- Componentes ---=== ######
@@ -24,9 +26,7 @@
 # ------ Componente Cliente ------ #
 # -------------------------------- #
 
-###### --- --- --- --- --- --- {proyecto}/src/app/components/client.js --- --- --- --- --- --- ######
-
-Aqui [](document) y [](window) estan disponibles como en cualquier codigo JavaScript.
+<!-- Aqui (document) y (window) estan disponibles como en cualquier codigo JavaScript. -->
 
 ```jsx
 	// Componente que accede a funciones de cliente, (codigo Fronted).
@@ -41,17 +41,13 @@ Aqui [](document) y [](window) estan disponibles como en cualquier codigo JavaSc
 	}
 ```
 
-# NOTA: 
-*	Si tratas de utilizar funciones del lado del [](cliente) en un componente sin especificar _use client_, 
-	entonces te dara un [](error), ya que el componente no esta declarado como del cliente.
+# NOTA: Si colocas logica de cliente en servidor sin especificar USE CLIENT, dara error.
 
 # --------------------------------- #
 # ------ Componente Servidor ------ #
 # --------------------------------- #
 
-###### --- --- --- --- --- --- {proyecto}/src/app/components/server.js --- --- --- --- --- --- ######
-
-Aqui [](require) esta disponible como en cualquier codigo NodeJS.
+<!-- Aqui (require) esta disponible como en cualquier codigo NodeJS. -->
 
 ```jsx
 	// Importa el cliente.
@@ -79,14 +75,12 @@ Aqui [](require) esta disponible como en cualquier codigo NodeJS.
 # ------ Componente Cliente ------ #
 # -------------------------------- #
 
-Antes utilizavamos [](use_effect) para inicializar un componente con los datos por defecto, generalmente 
-esto se hacia con [](fetch) cuando queriamos extraer de la [](DB).
-
-###### --- --- --- --- --- --- {proyecto}/src/app/components/client.js --- --- --- --- --- --- ######
+###### --- --- --- --- --- --- {proyecto}/src/app/components/cliente.js --- --- --- --- --- --- ######
 
 ```jsx
 	"use client";
 
+	// Utilizamos (useEffect) para hacer peticiones o hidratarlo el componete.
 	import React, { useEffect } from "react";
 
 	export default function Client(){
@@ -100,7 +94,7 @@ esto se hacia con [](fetch) cuando queriamos extraer de la [](DB).
 	}
 ```
 
-# Esto conyeva sobrecarga para el cliente, quien despues de montar el componente, tambien hace la peticion.
+# Esto conyeva sobrecarga para el cliente, debe montar el componente y hacer la peticion.
 
 # --------------------------------- #
 # ------ Componente Servidor ------ #
@@ -108,7 +102,7 @@ esto se hacia con [](fetch) cuando queriamos extraer de la [](DB).
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/components/server.js --- --- --- --- --- --- ######
 
-Ahora con los componentes de [](servidor) podemos hacer fetch desde el servidor y este envia al [](cliente).
+<!-- Podemos hacer fetch desde el servidor y enviar al (cliente). -->
 
 ```jsx
 	export default async function Server(){

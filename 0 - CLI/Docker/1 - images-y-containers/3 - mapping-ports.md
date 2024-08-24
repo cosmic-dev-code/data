@@ -13,14 +13,15 @@ Para eso hacemos un [](Binding) entre un puerto de nuestro ordenador y uno del c
 # ------------------------------ #
 
 - Especificamos
-	- [](docker_create): Indica el comando para crear un contenedor.
-	- [](-p): Indica que publicaremos en puertos, [publish].
-		- El puerto [3000] de nuestra computadora.
-		- El puerto [3000] del contenedor.
-		- [300:3000]
-	- [](name): Nombre del contenedor.
-	- [](node): Nombre de la imagen a utilizar.
-		- En este caso una imagen con la dependencia de node instalada.
+<!--
+	--- (docker-create): Indica el comando para crear un contenedor.
+	--- (-p): Indica que publicaremos en puertos, [publish].
+		--- El puerto [3000] de nuestra computadora.
+		--- El puerto [3000] del contenedor.
+	--- (name): Nombre del contenedor.
+	--- (node): Nombre de la imagen a utilizar.
+		--- En este caso una imagen con la dependencia de node instalada.
+-->
 
 ```bat
 	: Puerto PC (3000) : Puerto contenedor (3000).
@@ -30,34 +31,18 @@ Para eso hacemos un [](Binding) entre un puerto de nuestro ordenador y uno del c
 	docker create -p3000 --name mi-contedor node
 ```
 
-# NOTA: No se recomienda dejar a docker elejir para evitar la duplicacion de puertos del contenedor.
+# NOTA: No se recomienda dejar a docker elejir para evitar la duplicacion de puertos.
 
 # ------------------------------- #
 # ------ Correr contenedor ------ #
 # ------------------------------- #
 
-Ahora procedemos a correrlo.
-
 ```bat
+	: Ahora procedemos a correrlo.
 	docker start mi-contedor
-```
 
-Y podemos ver en la tabla los puertos que conectan la computadora y el contenedor.
-
-```bat
+	: Podemos ver en la tabla los puertos que conectan la computadora y el contenedor.
 	docker ps
-```
-
-# ----------------------- #
-# ------ Verificar ------ #
-# ----------------------- #
-
-```bat
-	: Muestra todo lo que esta pasando con un contenedor.
-	docker logs mi-contedor
-
-	: Hace lo mismo pero se encuentra a la escucha. Puedes salir con (CTRL + C).
-	docker logs --follow mi-contedor
 ```
 
 ### ================================ ###
@@ -65,10 +50,12 @@ Y podemos ver en la tabla los puertos que conectan la computadora y el contenedo
 ### ================================ ###
 
 - Al ejecutar crea varias cosas.
-	- 1. Verifica si tiene la imagen, en este caso (mongo), sino, entonces la instala.
-	- 2. Crea un contenedor.
-	- 3. Corre ese contenedor.
-	- 4. Esta a la escucha de los logs que suceden. (follow).
+<!--
+	--- Verifica si tiene la imagen, en este caso (mongo), sino, entonces la instala.
+	--- Crea un contenedor.
+	--- Corre ese contenedor.
+	--- Esta a la escucha de los logs que suceden. (follow).
+-->
 
 ```bat
 	: docker pull mongo.

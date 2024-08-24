@@ -2,9 +2,7 @@
 ###### ===--- Imagenes ---=== ######
 ### ============================ ###
 
-Como optimizacion tenemos las imagenes.
-
-Fuera de la carpeta [](src) se encuentra la carpeta [](public), es ahi donde guardaremos nuestras imagenes.
+<!-- Fuera de la carpeta (src) se encuentra la carpeta (public), ahi guardaremos las imagenes -->
 	./public
 		imagen.png
 	./src
@@ -15,9 +13,9 @@ Fuera de la carpeta [](src) se encuentra la carpeta [](public), es ahi donde gua
 ###### ===--- Componente (Image) ---=== ######
 ### ====================================== ###
 
-El modulo [](Image) esta creado para optimizar la carga de imagenes y se posiciona en la carpeta [](public).
+<!-- El modulo (Image) esta creado para optimizar la carga de imagenes y se posiciona en la carpeta (public). -->
 
-# NOTA: Es obligatorio utilizarlo y no utilizar la etiqueta IMG de toda la vida.
+# NOTA: Es obligatorio utilizarlo y no utilizar la etiqueta IMG.
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
 
@@ -29,7 +27,7 @@ El modulo [](Image) esta creado para optimizar la carga de imagenes y se posicio
 		return (
 			<main>
 
-				{/* Forma (correcta) de llamar una imagen. */}
+				{/* Forma (CORRECTA) de llamar una imagen. */}
 
 				<Image 
 					// Se posiciona en la carpeta (public)/imagen.png
@@ -48,7 +46,7 @@ El modulo [](Image) esta creado para optimizar la carga de imagenes y se posicio
 					className="w-1/2"
 				/>
 
-				{/* Forma (incorrecta) de llamar una imagen. */}
+				{/* Forma (INCORRECTA) de llamar una imagen. */}
 
 				{/* Aunque funciona, Next lo califica como incorrecto. */}
 				<img src="/imagen.png">

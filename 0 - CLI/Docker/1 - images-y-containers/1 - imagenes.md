@@ -7,11 +7,13 @@
 # -------------------------- #
 
 - # Muestra una tabla de imagenes
-	- [](repository): Nombre del repositorio de la imagen.
-	- [](tag): Etiqueta de la imagen (por ejemplo, latest, 14, 8.0).
-	- [](image_id): Identificador único de la imagen.
-	- [](created): Fecha y hora en que se creó la imagen.
-	- [](size): Tamaño de la imagen.
+<!--
+	(repository): Nombre del repositorio de la imagen.
+	(tag): Etiqueta de la imagen (por ejemplo, latest, 14, 8.0).
+	(image_id): Identificador único de la imagen.
+	(created): Fecha y hora en que se creó la imagen.
+	(size): Tamaño de la imagen.
+-->
 
 ```bat
 	: Muestra las imagenes instaladas.
@@ -27,7 +29,7 @@
 	docker pull {nombre de la imagen}
 ```
 
-Instalamos por (ejemplo), una imagen que contenga (node) como dependecia.
+<!-- Instalamos por (ejemplo), una imagen que contenga (node) como dependecia. -->
 
 ```bat
 	: Instala la ultima version de Node, (latest / LTS).

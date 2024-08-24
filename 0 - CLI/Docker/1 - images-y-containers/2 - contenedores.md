@@ -6,7 +6,7 @@
 # ------ Crear ------ #
 # ------------------- #
 
-Crear (contenedor) a partir de una imagen
+<!-- Crear (contenedor) a partir de una imagen -->
 
 ```bat
 	: Creando contenedor, donde (node) es la imagen a utilizar.
@@ -17,14 +17,13 @@ Crear (contenedor) a partir de una imagen
 	docker create fe9e0b56b023
 
 	: Tambien podemos asigarle un (nombre) al contenedor para referirnos a el.
-		: Nombre.
-		: Imagen a utilizar.
+	:	--- Nombre.
+	:	--- Imagen a utilizar.
+	: Si NO le damos un (name), entonces docker le asignara uno por defecto.
 	docker create --name mi-contenedor node
-
-	: Si no le damos un (name), entonces docker le asignara uno por defecto.
 ```
 
-Devuelve el (id) del contenedor.
+<!-- Devuelve el (id) del contenedor. -->
 
 ```bat
 	: Una vez creado devuelve el (id) que hace referencia al (contenedor).
@@ -47,6 +46,17 @@ Devuelve el (id) del contenedor.
 # ------ Ver contenedores ------ #
 # ------------------------------ #
 
+- Muestra una Tabla: 
+<!--
+	--- (id): El id de los contenedores que tenemos, (Es mas corto y funciona como que el id grande).
+	--- (image): La imagen, (plantilla) del contenedor.
+	--- (commant): Comando que utiliza el contenedor para poder ejecutarse.
+	--- (created): Cuando fue creado el contenedor.
+	--- (status): Estado del contenedor, (corriendo o no)
+	--- (posts): Puerto que utiliza para que otros clientes se conecten a el, (si se encuentra corriendo).
+	--- (names): Nombre del contenedor.
+-->
+
 ```bat
 	: Muestra todos los contenedores (corriendo).
 	docker ps
@@ -55,15 +65,48 @@ Devuelve el (id) del contenedor.
 	docker ps -a
 ```
 
-- Muestra una Tabla: 
-	- [](id): El id de los contenedores que tenemos, 
-		- (Es mas corto y funciona como que el id grande).
-	- [](image): La imagen, (plantilla) del contenedor.
-	- [](commant): Comando que utiliza el contenedor para poder ejecutarse.
-	- [](created): Cuando fue creado el contenedor.
-	- [](status): Estado del contenedor, (corriendo o no)
-	- [](posts): Puerto que utiliza para que otros clientes se conecten a el, (si se encuentra corriendo).
-	- [](names): Nombre del contenedor.
+- # Podemos ver los disparos en consola que ocurren dentro del contenedor.
+<!--
+	--- Warnings.
+	--- Errores.
+	--- Mensajes.
+-->
+
+```bat
+	: Muestra todo lo que esta pasando con un contenedor.
+	docker logs mi-contedor
+
+	: Hace lo mismo pero se encuentra a la escucha. Puedes salir con (CTRL + C).
+	docker logs --follow mi-contedor
+	docker logs --f mi-contedor
+```
+
+# ------------------------------- #
+# ------ Ejecutar comandos ------ #
+# ------------------------------- #
+
+# NOTA: Recuerda que los contenedores vienen con sistema operativo Linux.
+
+```bat
+
+	: Permite ejecutar un comando dentro de un contenedor.
+	:	--- (mi-contenedor): Es el contenedor a utilizar.
+	:	--- (ls): Comando a ejecutar dentro del contenedor.
+	docker exec -it mi-contenedor ls
+```
+
+Entrar a un contenedor.
+
+```bat
+	: Entramos al CLI del contenedor.
+	docker exec -it site-hospital-db /bin/bash
+
+	: Podemos ejecutar comandos dentro del contenedor.
+	bash$ ls -a
+
+	: Salimos del contenedor.
+	bash$ exit
+```
 
 # -------------------------------- #
 # ------ Detener y Eliminar ------ #
@@ -76,9 +119,7 @@ Devuelve el (id) del contenedor.
 	docker stop 
 ```
 
-# Eliminar contenedor.
-
-Primero asegurate de haberlo (detenido).
+# NOTA: Primero asegurate de haber (detenido) el contenedor anted de [](Eliminarlo).
 
 ```bat
 	: Usar (id) que nos da al momento de crearlo.

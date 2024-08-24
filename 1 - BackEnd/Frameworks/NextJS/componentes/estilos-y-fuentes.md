@@ -2,10 +2,12 @@
 ###### ===--- Estilos ---=== ######
 ### =========================== ###
 
-Podemos importar estilos de manera independiente e inyectarlas como clases o estilos embebidos.
+<!-- Podemos importar estilos de manera independiente e inyectarlas como clases o estilos embebidos. -->
 
-Para esto creamos un archivo con la siguiente convencion: 
-	- [](nombre.module.css): Donde (Nombre) lo reemplazaremos por (cajas), por dar el ejemplo.
+Creamos un archivo con la siguiente convencion: 
+<!-- 
+	--- (nombre.module.css): Donde (Nombre) lo reemplazaremos por (cajas), por dar el ejemplo.
+-->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/estilos/cajas.module.css --- --- --- --- --- --- ######
 
@@ -17,7 +19,7 @@ Para esto creamos un archivo con la siguiente convencion:
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
 
-Ahora procedemos a importar.
+<!-- Ahora procedemos a importar. -->
 
 ```jsx
 	import styles from "./my.module.css";
@@ -41,11 +43,8 @@ Ahora procedemos a importar.
 ###### ===--- Fuentes ---=== ######
 ### =========================== ###
 
-Y las fuentes no se quedan atras.
-
-Next JS tiene un modulo que nos permite importar cualquier fuente desde Google Fonts.
-
-Creamos un archivo, por ejemplo [](fuentes.jsx).
+<!-- Next JS tiene un modulo que nos permite importar cualquier fuente desde Google Fonts. -->
+<!-- Creamos un archivo, por ejemplo (fuentes.jsx). -->
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/fuentes.jsx --- --- --- --- --- --- ######
 
@@ -67,7 +66,7 @@ Creamos un archivo, por ejemplo [](fuentes.jsx).
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/page.js --- --- --- --- --- --- ######
 
-Ahora procedemos a importar.
+<!-- Ahora procedemos a importar. -->
 
 ```jsx
 	// Importamos una o mas tipografias de nuestro archivo.
