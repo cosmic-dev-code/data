@@ -58,28 +58,28 @@
 						<span>Error: {this.props.error.message}</span>
 					</div>
 				);
-			}else{
-				return (
-					<section>
-						<div>
-							<h1>Usuarios</h1>
-						</div>
-						{/* Mapear los datos. */}
-						{this.props.usuarios.map((usuario, index) => (
-							<div index={index} className="fila">
-								<picture>
-									<img src={usuario.image} width="50" height="50">
-								</picture>
-								<figcaption>
-									<h2>Usuario: {usuario.names}</h2>
-									<span className="block">Id {usuario.id}</span>
-									<span className="block">Correo {usuario.mail}</span>
-								</figcaption>
-							</div>
-						))}
-					</section>
-				);
 			}
+
+			return (
+				<section>
+					<div>
+						<h1>Usuarios</h1>
+					</div>
+					{/* Mapear los datos. */}
+					{this.props.usuarios.map((usuario, index) => (
+						<div index={index} className="fila">
+							<picture>
+								<img src={usuario.image} width="50" height="50">
+							</picture>
+							<figcaption>
+								<h2>Usuario: {usuario.names}</h2>
+								<span className="block">Id {usuario.id}</span>
+								<span className="block">Correo {usuario.mail}</span>
+							</figcaption>
+						</div>
+					))}
+				</section>
+			);
 		}
 	}
 

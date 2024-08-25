@@ -1,18 +1,70 @@
-###### --- --- --- --- --- --- {proyecto}/src/components/grupo-lista.jsx --- --- --- --- --- --- ######
+### ========================= ###
+###### ===--- Clase ---=== ######
+### ========================= ###
+
+```jsx
+	import React, { Component } from "react";
+
+	// Obtener los articulos.
+	export default class GrupoLista extends Component{
+
+		// Propiedad para manejar filtros.
+		state = {
+			filtrados: []
+		}
+
+		handleFiltrar(event){
+			// Cuando la variable (filtrados) se actualize, el componente se renderiza.
+			this.setState(
+				// Setear solo los articulos que cumplan con la regla.
+				filtrados: this.props.articulos.filter(articulo => {
+					return (articulo.name.includes(event.target.value));
+				})
+			);
+		}
+
+		render(){
+			if(this.state.filtrados.length > 0){
+				return (
+					<article>
+						<ul className="lista">
+							{/* Imprimir los articulos filtrados */}
+							{this.state.filtrados.map(articulo => (
+								<li key={articulo.id} className="item">{articulo.name}</li>
+							))}
+						</ul>
+						<div>
+							{/* El evento se escucha y se renderiza el componente por el (set) del (state).*/}
+							<input type="text" onKeyUp={this.handleFiltrar}>
+						</div>
+					</article>
+				);
+			}
+
+			return (
+				<h1 className="empty">No hay articulos a mostrar</h1>
+			);
+		}
+	}
+```
+
+### ============================= ###
+###### ===--- Funcional ---=== ######
+### ============================= ###
 
 ```jsx
 	import React, { useState } from "react";
 
-	function GrupoLista(props){
-		// Declarar una variable que maneje los filtros, un (arreglo).
-		const [filtrados, setFiltrados] = useState([]);
-		// Obtener los articulos.
-		const { articulos } = props;
+	// Obtener los articulos.
+	function GrupoLista({ articulos }){
 
-		// Cuando la variable (filtrados) se actualize, el componente se renderiza.
+		// Variable para manejar filtros.
+		const [filtrados, setFiltrados] = useState([]);
+
 		function handleFiltrar(event){
+			// Cuando la variable (filtrados) se actualize, el componente se renderiza.
 			setFiltrados(
-				// Extraer solo los articulos que cumplan con la regla.
+				// Setear solo los articulos que cumplan con la regla.
 				articulos.filter(articulo => {
 					return (articulo.name.includes(event.target.value));
 				})
@@ -21,9 +73,9 @@
 
 		if(filtrados.length > 0){
 			return (
-				// Imprimir los articulos filtrados.
 				<article>
 					<ul className="lista">
+						{/* Imprimir los articulos filtrados */}
 						{filtrados.map(articulo => (
 							<li key={articulo.id} className="item">
 								{articulo.name}
@@ -31,7 +83,7 @@
 						))}
 					</ul>
 					<div>
-						{/* El evento se escucha y se renderiza el componente por el (set) del (state). */}
+						{/* El evento se escucha y se renderiza el componente por el (set) del (state).*/}
 						<input type="text" onKeyUp={handleFiltrar}>
 					</div>
 				</article>
@@ -45,6 +97,10 @@
 
 	export default GrupoLista;
 ```
+
+### ============================ ###
+###### ===--- Ejecutar ---=== ######
+### ============================ ###
 
 ###### --- --- --- --- --- --- {proyecto}/src/App.jsx --- --- --- --- --- --- ######
 

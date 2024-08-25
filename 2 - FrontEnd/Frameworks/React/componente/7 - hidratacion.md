@@ -1,4 +1,4 @@
-### ============================== ###
+### =============================== ###
 ###### ===--- Hidratacion ---=== ######
 ### =============================== ###
 
@@ -23,8 +23,8 @@
 
 	    incremento = () => {
 	    	// Indicamos que vamos a modificar el (state) === (componente).
-	    	/* NOTA: (setState) permite hacerle saber al componente cuando una propiedad ha sido modificada, 
-	    	de manera que puede actualizarla. */
+	    	// NOTA: (setState) le hace saber al componente que una propiedad fue modificada.
+	  		// Asi se renderiza nuevamente.
 	        this.setState({
 	        	// Modificamos la propiedad que queremos.
 	        	contador: this.state.contador + 1

@@ -15,22 +15,24 @@
          */
 		useEffect(() => {
 			// Normalmente aqui se hace (cambios) o (peticiones) para el componente.
-
 			return () => {
 		        /**
 		         * (componentWillUnmount).
 		         * Se ejecuta (antes de que) el componente (sea eliminado del DOM).
 		         */
 			}
-
-		// Sin dependencias.
+		// Sin dependencias (useEffect) se ejecuta solo una vez.
 		}, []);
+
+		// Al no especificar dependencias.
+		// (useEffect), se ejecuta en cada renderizado del componente.
+		useEffect(() => {});
 
         /**
          * (componentDidUpdate).
          * Se ejecuta cada vez que se (actualiza el estado o las props del componente).
          */
-		// Declara una propiedad (count) y su modificador (setCount), con valor por defecto (0).
+		// Declara una propiedad (count) y su modificador (setCount), con valor por inicial (0).
 		const [count, setCount] = useState(0);
 		useEffect(() => {
 			// Indica una dependencia a una propiedad, (se ejecuta cuando la propiedad cambia su valor).
@@ -41,7 +43,6 @@
          * Se ejecuta cuando se (produce un error durante el renderizado) del componente.
          */
 		const errorRef = useRef(null);
-
 		const componentDidCatch = (error, info) => {
 		    console.log("Error durante el renderizado del componente: ", error);
 

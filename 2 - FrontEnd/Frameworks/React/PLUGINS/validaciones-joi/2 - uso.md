@@ -59,8 +59,7 @@
 		const validateProperty = ({ name, value }) => {
 			// Se crea un objeto.
 
-			// var obj = {}; 
-			// obj[input.name] = input.value;
+			// var obj[input.name] = input.value;
 			var obj = { [name]: value };
 
 			// Se valida el (obj) de acuerdo a las reglas de validacion.
@@ -117,7 +116,8 @@
 						value={cuenta.nombre} 
 					/>
 					{/* Si hay un error especifico se imprime el componente de alerta. */}
-					{ errores.nombre && <Alert color="danger" message={errores.nombre}/> }
+					{ errores.nombre }
+					{ <Alert color="danger" message={errores.nombre}/> }
 
 					<input 
 						type="password" 
@@ -125,7 +125,9 @@
 						onChange={handleChange} 
 						value={cuenta.password} 
 					/>
-					{ errores.password && <Alert color="danger" message={errores.password}/> }
+					{ errores.password }
+					{ <Alert color="danger" message={errores.password}/> }
+					
 				</div>
 				<div>
 					{/* Si (validate) devuelve el objeto de errores, entonces es [true]. */}

@@ -2,11 +2,11 @@
 ###### ===--- Reactividad ---=== ######
 ### =============================== ###
 
-<!-- La reactividad sirve para comunicar componentes de manera mas rapida sin la 
+La reactividad sirve para comunicar componentes de manera mas rapida sin la 
 necesidad de recorrer todos los componentes.
 
 De esta manera un componente desendiente puede comunicarse con el primer padre sin 
-tener que pasar los datos un componente tras otro. -->
+tener que pasar los datos un componente tras otro.
 
 ### ============================ ###
 ###### ===--- Practica ---=== ######
@@ -39,7 +39,7 @@ tener que pasar los datos un componente tras otro. -->
 		private myCart = new BehaviorSubject<Product[]>([]);
 
 		/* Propiedad publica la cual sera un (Observable).
-		Por buena practica se coloca al final de un (observable) el simbolo ($) que lo identifica. */
+		Por buena practica se coloca al final de un (observable) el simbolo ($). */
 		myCart$ = this.myCart.asObservable();
 
 		// Este servicio contiene estos datos que se compartiran a los componentes que se suscriban a este servicio.
@@ -55,7 +55,7 @@ tener que pasar los datos un componente tras otro. -->
 		/**
 		 * NOTA: Solo los (componentes) suscritos podran recibir los datos transmitidos.
 		 * 
-		 * 	component.storeService.myCart$.subscribe();
+		 * 	---- component.storeService.myCart$.subscribe();
 		 */
 
 		constructor() { }

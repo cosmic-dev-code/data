@@ -1,3 +1,7 @@
+### ================================= ###
+###### ===--- Condicionales ---=== ######
+### ================================= ###
+
 ###### --- --- --- --- --- --- {proyecto}/src/components/my-component.jsx --- --- --- --- --- --- ######
 
 ```jsx
@@ -5,22 +9,21 @@
 
 	class MyComponent extends Component{
 
+		state = {
+			nombre: "Brandon", 
+			edad: 24
+		}
+
 		// Una condicion en un metodo externo.
-		getResult = function(edad = 0){
-			if(edad >= 18) return <h1 className="good">Eres mayor de edad</h1>
+		getResult = function(){
+			if(this.state.edad >= 18) return <h1 className="good">Eres mayor de edad</h1>
 			else return <h1 className="bad">Eres menor de edad</h1>
 		};
 
 		// En el metodo render.
 		render(){
-			
-			let usuario = {
-				nombre: "Brandon", 
-				edad: 22
-			};
-
 			// Una condicion interna.
-			if(nombre.length >= 6){
+			if(this.state.nombre.length >= 6){
 				return (
 					<div>
 						<h2>Muchas felicidades!</h2>

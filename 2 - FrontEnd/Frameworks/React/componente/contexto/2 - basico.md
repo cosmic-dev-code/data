@@ -43,6 +43,8 @@
 
 ###### --- --- --- --- --- --- {proyecto}/src/context/paginaPelicula.jsx --- --- --- --- --- --- ######
 
+# Aqui no se recibe ningun valor para [](listaPelicula)
+
 ```jsx
 	import React, { Component } from "react";
 
@@ -69,7 +71,7 @@
 	import React, { Component } from "react";
 	import './App.css';
 
-	// Importar el componente (paginaPelicula) que renderiza el componente (listaPelicula).
+	// Importar el componente que renderiza el componente (listaPelicula).
 	import paginaPelicula from "./context/paginaPelicula";
 
 	// Importar el contexto.
@@ -87,7 +89,7 @@
 			return (
 				// (UsuarioContext.Provider) permite darle valores a un contexto por medio del atributo (value).
 
-				/* En este caso, el valor del contexto es el objeto (usuarioActual) el cual utiliza el componente 
+				/* El valor del contexto es el objeto (usuarioActual). Utiliza el componente 
 				(listaPelicula) apesar de ser llamado desde (paginaPelicula). */
 				<UsuarioContext.Provider value={this.state.usuarioActual}>
 					<div>
@@ -99,10 +101,8 @@
 		}
 	}
 
-	/* NOTA: De esta manera El componente (App) no debe pasarle el objeto a (paginaPelicula) atraves de 
-	sus [props] y este a su vez a (listaPelicula).
-
-	Sino que (listaPelicua) accede directamente al valor del contexto. */
-
 	export default App;
 ```
+
+# NOTA:El componente (App) debe pasarle el objeto al (Contexto) atraves de sus [value]
+# Entonces (listaPelicua) accede directamente al valor del contexto.

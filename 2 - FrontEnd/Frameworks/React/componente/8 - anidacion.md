@@ -1,3 +1,7 @@
+### ============================= ###
+###### ===--- Anidacion ---=== ######
+### ============================= ###
+
 ###### --- --- --- --- --- --- {proyecto}/src/components/contador.jsx --- --- --- --- --- --- ######
 
 <!-- Tenemos un componente llamado (Contador). -->
@@ -8,7 +12,7 @@
 	export default class Contador extends Component {
 
 	    state = {
-	    	// (valor) obtendra el valor iniciar por el atributo de la etiqueta.
+	    	// (valor) obtendra el valor iniciar por el atributo como <etiqueta>.
 	    	valor: this.props.value
 	    };
 
@@ -17,6 +21,7 @@
 	    }
 
 	    incremento = () => {
+	    	// Seteamos.
 	        this.setState({
 	        	valor: (this.state.valor + 1)
 	        });
@@ -28,7 +33,7 @@
 	                <div>
 	                	<div>
 	                		{/* Imprimir el valor. */}
-	                		<h3>Valor: {this.obtenerValor()}</h3>
+	                		<h3>Valor: { this.obtenerValor() }</h3>
 	                	</div>
 	                    <button onClick={ this.incremento }>Incrementar</button>
 	                </div>
@@ -66,6 +71,8 @@
 		render(){
 			return (
 				<section>
+					{/* INDIVIDUAL */}
+
 					{/* Podemos imprimir de esta manera el componente (Contador) que recibe: 
 						--- (key), porque ambas etiquetas Contador son iguales, asi que React debe diferenciarlas.
 						--- (value), es el parametro que recibe el componente, (props). */}
@@ -74,10 +81,14 @@
 						<Contador key={2} value={10}/>
 					</div>
 
+					{/* MAPEO */}
+
 					{/* Por otra parte podriamos mapear los datos de la propiedad (contadores) de este componente. */}
 					<div>
 						{/* Se imprime cada etiqueta (Contador) con sus valores. */}
-						{ this.state.contadores.map(contador => <Contador key={contador.id} value={contador.value}/> ) }
+						{ this.state.contadores.map(contador => (
+							<Contador key={contador.id} value={contador.value}/>
+						) ) }
 					</div>
 				</section>
 			);
@@ -87,23 +98,54 @@
 	export default Contadores;
 ```
 
-###### --- --- --- --- --- --- {proyecto}/src/App.jsx --- --- --- --- --- --- ######
+### ===================================== ###
+###### ===--- Agregar atributos ---=== ######
+### ===================================== ###
 
-<!-- Dado el componente (Contadores) renderiza contenido HTML y al componente (Contador) varias veces, 
-es mas comun renderizarlo en este archivo. -->
+<!-- Si deseas agregar atributos comunes. -->
+
+###### --- --- --- --- --- --- {proyecto}/src/components/propiedades.jsx --- --- --- --- --- --- ######
 
 ```jsx
-	import React from "react";
+	import React, { Component } from "react";
 
-	// El componente (Contadores) que manda a llamar dentro de si al componente (Contador).
-	import Contadores from "./components/contadores";
+	export default class Propiedades extends Component {
+
+	    render() {
+	        return (
+	            <button 
+	            	// Recibe las propiedades.
+	            	className={ this.props.className } 
+	            	onClick={ this.props.onClick } 
+	            	id={ this.props.id }
+	            >
+	            	<span>Click Aqui</span>
+	            </button>
+	        );
+	    }
+	}
+```
+
+###### --- --- --- --- --- --- {proyecto}/src/App.jsx --- --- --- --- --- --- ######
+
+```jsx
+	import React, { useState } from "react";
+
+	// Importamos el componente.
+	import Propiedades from "./components/propiedades";
 
 	function App() {
+
+		let [valor, setValor] = useState(0);
+
+		// Valor que sera modificado por el componente hijo.
+		const handleClick = () => setValor(100);
+
 		return (
 			<div className="App">
 
-				{/* Imprimir componente. */}
-				<Contadores/>
+				{/* Le damos al componente sus propiedades. */}
+				<Propiedades className="mi-clase" onClick={ handleClick } id="idCom"/>
 
 			</div>
 		);
