@@ -13,12 +13,11 @@
 		// ------ La funcion (auth) ------ //
 		// ------------------------------- //
 
-		public function verificacion(){
+		public function datos_del_usuario(){
 			# Devuelve si hay un usuario actualmente autentificado.
 			auth() -> check();
 
-			/* El metodo (guard) permite extraer al usuario actualmente autentificado instanciandolo 
-			por un modelo especifico. */
+			// Extrae al usuario actualmente autentificado instanciandolo por un modelo especifico.
 			auth() -> guard("user") -> attempt([
 				"mail" => "brandon@gmail.com", 
 				"password" => "MiPassword123"

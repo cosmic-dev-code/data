@@ -18,24 +18,21 @@ class HashController extends Controller
 
 		// Recibe una cadena de texto y la retorna encriptada.
 		Hash::make("Brandon");
-
-		// La opcion de (rondas) manipula el factor de trabajo de (Bcrypt), (si se esta trabajando con el).
+		// La opcion de (rounds) manipula el factor de trabajo de (Bcrypt), (si se esta trabajando con el).
+		// Permite ser configurable.
 		Hash::make("Brandon", [
 			"rounds" => 12
 		]);
 
 		// Devuelve un booleano comparando ambos passwords, para esto (pass que se quiere comprobar y pass encriptado).
-		Hash::check("password", $password_encriptado); // bool
-
-		// Recibe una cadena de texto y la retorna encriptada.
-		bcrypt("Hola mundo");
+		Hash::check("password", $pass_bcryp); // bool
 	}
 
 	/**
 	 * Verificar actualizacion de Hashing.
 	 */
 
-	public function needsRehash(Request $request)
+	public function verificar_con_needs(Request $request)
 	{
 		// Suponiendo que tienes el usuario autenticado.
 		$user = Auth::user();

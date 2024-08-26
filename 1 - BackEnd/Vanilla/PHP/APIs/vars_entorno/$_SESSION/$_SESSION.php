@@ -1,5 +1,25 @@
 <?php
 
+##########=============##########
+######===--- Session ---===######
+##########=============##########
+
+/*
+	Almacenamiento Back-End.
+		--- Se envia al front-end una cookie con un identificador de sesion (unico).
+	Persistencia.
+		--- Suelen expirar después de un tiempo de inactividad o cuando el navegador se cierra.
+	Almacenamiento.
+		--- No tienen un límite estricto en el tamaño.
+	Uso.
+		--- Almacen datos sensibles.
+		--- Guardar informacion sin limite de tamaño.
+*/
+
+##########=====================##########
+######===--- Iniciar session ---===######
+##########=====================##########
+
 // Esta funcion es la mas importante y va al principio del archivo.
 // Indica que trabajaremos con sesiones, de lo sontrario ($_SESSION) estara indefinido.
 session_start();

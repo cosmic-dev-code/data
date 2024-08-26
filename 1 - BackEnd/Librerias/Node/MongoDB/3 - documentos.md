@@ -91,9 +91,14 @@
 		let filtro = { _id: 128 } // Podemos traer por nuestro (id) personalizado.
 		let filtro = { _id: new ObjectId("64e2f948ad0b5e8b54d12d36") } // O podemos traer por su (ObjectId).
 
-		const registros = await database.collection("myCollection").find(filtro).toArray();
+		const registros = await database.collection("myCollection").find(filtro).toArray(); // Document[]
 
-		registros[0]; // Object
+		/**
+		 * Unico documento.
+		 */
+
+		// Devuelve un solo documento y no un arreglo.
+		const registros = await database.collection("myCollection").findOne(filtro); // Document
 
 		// ------------------------ //
 		// ------ Actualizar ------ //
@@ -113,7 +118,7 @@
 
 		// (updateMany), todos los registro coincidentes.
 		const result = await database.collection(collectionName).updateMany(
-			// Sin filtros.
+			// Puede ser sin filtros.
 			{},
 			// Dato que reemplazara.
 			{ $set: {name: "Brandon", email: "brandon@gmail.com"} }

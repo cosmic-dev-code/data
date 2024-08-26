@@ -6,8 +6,10 @@ PHPMailer es gratuito y no existe un limite para enviar correos utilizando esta 
 
 Puedes enviar correos de forma masiva y no tiene costo ya que es de codigo abierto.
 
-Sin embargo hay que considerar que el servidor [](SMTP) puede tener limites en cuanto al numero de envio 
-de correos electronicos o puede estar sujeto a costos.
+- El servidor [](SMTP) puede tener limites en el envio de o puede tener costos: 
+	--- [](smtp.gmail.com): 
+		--- *SMTP de Gmail, ofrece 500 correos al dia, 15,000 correos por mes.*
+		--- *Puedes enviar mas correos si contratas Google Workspaces*.
 
 ### ======================================================== ###
 ###### ===--- Instalacion por (CDN) - (Descargado) ---=== ######

@@ -118,10 +118,12 @@ Asi es como se maneja el [](Enrutamiento) de nuestras APIs.
 	export function GET(){
 
 		// Retornamos una respuesta JSON.
-		return NextResponse.json({
-			// El cuerpo puede tener la estructura que queramos.
-			mensaje: "Hola mundo"
-		});
+
+		// El cuerpo puede tener la estructura que queramos.
+		return NextResponse.json({ mensaje: "Hola mundo" });
+
+		// Mandar con un codigo de estado.
+		return NextResponse.json({ mensaje: "Hola mundo" }, { status: 200 });
 	}
 
 ```
@@ -166,5 +168,16 @@ Asi es como se maneja el [](Enrutamiento) de nuestras APIs.
 		let nombre = params.nombre; // Contiene el nombre.
 
 	    return new Response(nombre);
+	}
+```
+
+<!-- Utilizando POST. -->
+
+```js
+	export async function POST(request){
+
+		// Extraemos los (keys => values) de la peticion.
+		const body = await request.json();
+
 	}
 ```

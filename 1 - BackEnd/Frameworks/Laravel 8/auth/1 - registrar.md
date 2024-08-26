@@ -18,12 +18,18 @@
 		// ------ Pasos para autenticar a un usuario ------ //
 		// ------------------------------------------------ //
 
-		public function iniciar_sesion(Request $request)
+		public function Registrase(Request $request)
 		{
 			/* Para inicar sesion debemos: 
-				--- Encriptar el password de un usuario.
-				--- Registrar al usuario con su password encriptado en la base de datos.
-				--- Iniciar sesion con el usuario registrado. */
+				--- (Encriptar) el password de un usuario.
+				--- (Registrar) al usuario con su password encriptado en la base de datos.
+				--- (Iniciar sesion) con el usuario registrado.
+			*/
+
+			/**
+			 * REGISTRAR.
+			 */
+
 			// Encriptamos el password del usuario.
 			$request -> merge([
 				"password" => Hash::make($request -> password)
@@ -35,10 +41,16 @@
 			// Por motivos de seguridad cambiamos el token (csrf).
 			$request -> session() -> regenerate();
 
-			/* (attempt), es un metodo que recibe por parametros un array asosiativo, puede tener mas de un dato del usuario, 
+			/**
+			 * INICIAR SESION (attempt).
+			 * 
+			 * Es un metodo que recibe por parametros un array asosiativo, 
+			 * puede tener mas de un dato del usuario
+			 * 
+			 * Extrae de la base de datos e inicia sesion.
+			 */
 
-			Con esos datos lo extrae de la base de datos e inicia sesion con el.
-			NOTA: Devuelve un booleano que comprueba si todo salio bien o no. */
+			// NOTA: Devuelve un booleano que comprueba si todo salio bien o no.
 			
 			$iniciar_sesion = auth() -> attempt([
 				"mail" => "brandon@gmail.com", 
@@ -82,7 +94,7 @@
 		<!-- La contraparte de (@auth), si el usuario no se ha autenticado. -->
 
 		@guest
-			<a href="{{ route('login') }}">Iniciar sesion</a>
+			<a href="{{ route('register') }}">Registrarse</a>
 		@endguest
 		
 	</section>

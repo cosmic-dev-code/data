@@ -16,14 +16,11 @@
 		// ------ La clase (Auth) ------ //
 		// ----------------------------- //
 
-		// Todos los metodos de la funcion (auth) los implementa como estaticos la clase (Auth).
-
-		public function verificacion(){
+		public function datos_del_usuario(){
 			# Devuelve si hay un usuario actualmente autentificado.
 			Auth::check();
 
-			/* El metodo (guard) permite extraer al usuario actualmente autentificado instanciandolo 
-			por un modelo especifico. */
+			// Extrae al usuario actualmente autentificado instanciandolo por un modelo especifico.
 			Auth::guard("user") -> attempt([
 				"mail" => "brandon@gmail.com", 
 				"password" => "MiPassword123"
