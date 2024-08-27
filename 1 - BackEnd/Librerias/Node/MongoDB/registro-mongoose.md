@@ -147,6 +147,7 @@
 			secure: process.env.NODE_ENV === "production", 
 			// Prevenir ataques CSRF, la cookie no se envia con solicitudes iniciadas por terceros.
 			sameSite: "strict", 
+			sameSite: "none", 
 			// Expira en (86400s) === (1d).
 			maxAge: 86400, 
 			// Disponible en todo el sitio.
