@@ -110,14 +110,14 @@ $newArray_2 = explode(" ", $fecha_2, 4);
 */
 
 $newArray_2 = explode(" ", $fecha_1, -1);
-/* Divide el string en un array menos el ultimo eemento. */
+/* Divide el string en un array menos el ultimo elemento. */
 /* 
   2021,
   5
 */
 
 $newArray_2 = explode(" ", $fecha_1, -2);
-/* Divide el string en un array menos los ultimos eemento. */
+/* Divide el string en un array menos los ultimos elemento. */
 /* 
   2021
 */

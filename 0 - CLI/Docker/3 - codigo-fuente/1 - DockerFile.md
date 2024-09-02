@@ -69,3 +69,23 @@ En el directorio de nuestra aplicacion creamos el [](DockerFile) SIN extension.
 	# Especificamos al final la ruta.
 	CMD ["npm", "run", "dev", "./app"]
 ```
+
+### ==================================== ###
+###### ===--- Crear DockerFile ---=== ######
+### ==================================== ###
+
+<!-- Con este comando creas la imagen de docker. -->
+
+```bat
+	: 	--- (-t), se utiliza para etiquetar la imagen con nombre.
+	:		--- (mi-imagen), es el nombre de la imagen.
+	: 	--- (.), indica la ruta donde encontrara el DockerFile.
+	docker build -t mi-imagen .
+
+	: Si tu DockerFile y archivos a subir estan en otro directorio.
+	docker build -t mi-imagen /ruta/a/mi/directorio
+
+	: Puedes agregar una etiqueta adicional para diferenciar entre versiones.
+	:	--- (:v1.0), Indica la version.
+	docker build -t mi-imagen:v1.0 .
+```

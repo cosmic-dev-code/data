@@ -1,9 +1,10 @@
 <?php
 
-/**
- * Condicional normal.
- */
+/* ##########===============########## */
+/* ######===--- Condicion ---===###### */
+/* ##########===============########## */
 
+# Condicional normal.
 $edad = 19;
 
 if($edad >== 18){
@@ -12,9 +13,9 @@ if($edad >== 18){
     // ...
 }
 
-/**
- * Condicion (else if).
- */
+/* ##########=========================########## */
+/* ######===--- Condicion (Else If) ---===###### */
+/* ##########=========================########## */
 
 $numero = 6;
 
@@ -30,4 +31,14 @@ if($numero === 1 && $numero === 2){
     // Condicion, 'sino si'.
 }else{
     // Condicion, 'sino'.
+}
+
+/**
+ * Puede ser (elseif) pegado.
+ */
+
+if(condition){
+    // ...
+}elseif(condition){
+    // ...
 }

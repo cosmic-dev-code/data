@@ -27,6 +27,29 @@ for($i = 0; $i < 100; $i++){
 /* ######===--- Bucle (foreach) ---===###### */
 /* ##########=====================########## */
 
+# ---------------------------- #
+# ------ Uso de (range) ------ #
+# ---------------------------- #
+
+// Genera un array de números: 0, 1, 2, 3, 4
+foreach (range(0, 4) as $i) {
+    echo $i;
+}
+
+// Genera un array de números desde 2 hasta 4
+foreach (range(2, 4) as $i) {
+    echo $i;
+}
+
+// Genera un array de números desde 0 hasta 8, con un paso de 2
+foreach (range(0, 8, 2) as $i) {
+    echo $i;
+}
+
+# --------------------- #
+# ------ foreach ------ #
+# --------------------- #
+
 $array = array(10, "Brandon Anthony", false);
 
 foreach($array as $valor){
@@ -52,9 +75,7 @@ foreach($assoc as $nombre => $edad){
 /* ##########===================########## */
 
 // Buble (while) con incrementacion de toda la vida.
-
-(int) $i = 0;
-
+$i = 0;
 while($i > 10){
     $i += 1;
 }

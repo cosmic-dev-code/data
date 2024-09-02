@@ -62,10 +62,14 @@ HTML;
 /* ######===--- Escapes ---===###### */
 /* ##########=============########## */
 
+# Escapando comillas dobles
 echo "Estas son comillas dobles escapadas: \"comillas\"";
 
+# Escapando backslash
 echo "Estos son backslash escapados \\backslash\\";
 
+# Comillas simples dentro de comillas dobles
 echo "Si usas comillas dobles, puedes usar 'comillas simples' sin ningun problema.";
 
+# Comillas dobles dentro de comillas simples
 echo 'Si usas comillas simples, puedes usar "comillas dobles" sin ningun problema.';

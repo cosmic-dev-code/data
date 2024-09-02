@@ -58,17 +58,54 @@ crear_global();
 // Utilizamos la variable global declarada aun dentro de la funcion.
 printf("%s", $GLOBALS["nombre"]);
 
+###### ---------------------------------------------------------------------------------- ######
+
+// Otra forma de acceder a las variables locales.
+
+$local = ["dato"];
+
+function my_function(){
+	// Accede a la variable que se encuentra fuera de ella.
+	global $local[0];
+}
+
 // --------------------- //
 // ------ Locales ------ //
 // --------------------- //
 
-# Varible global, pero la funcion no tiene acceso a ella.
+# Varible global, pero la funcion NO tiene acceso a ella.
 $local = true;
 
 function funcion(){
 	// Variable (local) solo existente en este bloque de codigo.
 	$variable_local = "valor";
 }
+
+// ----------------------- //
+// ------ (Closure) ------ //
+// ----------------------- //
+
+/**
+ * Acceder a las variables externas.
+ */
+
+$local = 10;
+
+$closure = function() use ($local) {
+    // Accede a la variable externa $local
+    echo $local;
+};
+
+/**
+ * Modificar variables externas.
+ */
+
+$local = 10;
+
+$closure = function() use (&$local) {
+    // Modifica la variable externa $local
+    $local = 20;
+};
 
 // ------------------------------------ //
 // ------ Estáticas en funciones ------ //
@@ -85,32 +122,6 @@ function staticExample() {
 
 staticExample(); // Imprime 1
 staticExample(); // Imprime 2
-
-// ----------------------- //
-// ------ (Closure) ------ //
-// ----------------------- //
-
-$outsideVar = 5;
-
-/* La palabra reservada (use) se utiliza cuando se quiere que la funcion anonima acceda a una 
-variable global que no esta dentro de su ambito, a esto se le conoce como (Closure). */
-$myClosure = function () use ($outsideVar) {
-	// Acceso a variable externa.
-    echo $outsideVar;
-};
-
-$myClosure();
-
-###### ---------------------------------------------------------------------------------------------- ######
-
-// Otra forma de acceder a las variables locales.
-
-$local = ["dato"];
-
-function my_function(){
-	// Accede a la variable que se encuentra fuera de ella.
-	global $local[0];
-}
 
 /* ##########================########## */
 /* ######===--- Constantes ---===###### */

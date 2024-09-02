@@ -38,10 +38,10 @@ filter_var($variable, TYPE);
 $variable = 58;
 var_dump($variable);
 
+# Evalua booleanos.
 var_dump(is_int($entero)); // true
 var_dump(is_int($flotante)); // false
 
-# Verifica el tipo de dato de una variable.
 /* Tambien se pueden evaluar condiciones con 'var_dump'. */
 var_dump(5 == "5"); # True.
 var_dump(5 === "5"); # False.
