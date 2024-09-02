@@ -71,38 +71,9 @@
 ###### ===--- Fetch de datos ---=== ######
 ### ================================== ###
 
-# -------------------------------- #
-# ------ Componente Cliente ------ #
-# -------------------------------- #
-
-###### --- --- --- --- --- --- {proyecto}/src/app/components/cliente.js --- --- --- --- --- --- ######
-
-```jsx
-	"use client";
-
-	// Utilizamos (useEffect) para hacer peticiones o hidratarlo el componete.
-	import React, { useEffect } from "react";
-
-	export default function Client(){
-
-		// Cuando el componente se inicializa.
-		useEffect(async () => {
-			// Se extraen datos de alguna base de datos.
-			const result = await fetch("https://www.example.com/users"), 
-				  data = await result.json();
-		});
-	}
-```
-
-# Esto conyeva sobrecarga para el cliente, debe montar el componente y hacer la peticion.
-
-# --------------------------------- #
-# ------ Componente Servidor ------ #
-# --------------------------------- #
-
 ###### --- --- --- --- --- --- {proyecto}/src/app/components/server.js --- --- --- --- --- --- ######
 
-<!-- Podemos hacer fetch desde el servidor y enviar al (cliente). -->
+<!-- Podemos hacer fetch desde el (servidor) y enviar al cliente. -->
 
 ```jsx
 	export default async function Server(){
@@ -110,5 +81,11 @@
 		// Directamente extrae los datos de alguna base de datos.
 		const result = await fetch("https://www.example.com/users"), 
 			  data = await result.json();
+
+		return (
+			<div>
+				{/* ... */}
+			</div>
+		);
 	}
 ```

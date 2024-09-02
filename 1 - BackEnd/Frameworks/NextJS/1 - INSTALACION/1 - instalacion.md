@@ -9,10 +9,12 @@ Instalamos NextJS.
 ```bat
 	npx create-next-app@latest nombre-de-mi-app
 
-	: Nos preguntara si deseamos el proyecto con TypeScript.
+	: Nos preguntara que cosas queremos en el proyecto.
+
+	: TypeScript.
 	> No
 
-	: Luego si queremos el proyecto con ESLint, (un Linter).
+	: ESLint, (un Linter).
 	> Yes
 
 	: Tailwindcss
@@ -38,8 +40,11 @@ Podemos ver las opciones que tenemos, normalmente muestra:
 
 ```bat
 	npm run
+```
 
-	: Ahora procedemos a correr el servidor.
+<!-- Ahora procedemos a correr el servidor. -->
+
+```bat
 	npm run dev
 
 	: Next.js local

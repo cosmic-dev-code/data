@@ -14,14 +14,14 @@ Con una clave [](SSH), los usuarios pueden:
 # ------ Ver todas las claves ------ #
 # ---------------------------------- #
 
-Muestra las claves existentes que hemos creado.
+<!-- Muestra las claves existentes que hemos creado. -->
 
 ```sh
 	ls -al ~/.ssh
 ```
 
-Tambien es posible ver las claves creadas en la siguiente ruta: 
-	---	[](C:\Users\{usuario}\.ssh)
+<!-- Tambien es posible ver las claves creadas en la siguiente ruta: 
+	---	C:\Users\{usuario}\.ssh -->
 
 # NOTA: De ser primera vez, (es posible que no tengas claves).
 
@@ -29,17 +29,17 @@ Tambien es posible ver las claves creadas en la siguiente ruta:
 # ------ Generar claves ------ #
 # ---------------------------- #
 
-Vamos a una ruta especifica para generar las claves.
+<!-- Vamos a una ruta especifica para generar las claves. -->
 
 ```sh
 	# En la carpeta (Example) generaremos nuestras claves.
 	cd Desktop/Example/
 ```
 
-Para generar una nueva clave (SSH), (no olvides cambiar el correo).
+<!-- Para generar una nueva clave (SSH), (no olvides cambiar el correo). -->
 
 ```sh
-	ssh-keygen -t ed25519 -C "usuario@example.com"
+	ssh-keygen -t ed25519 -C "brandonolivares.developer@gmail.com"
 ```
 
 Ahora pedira el *nombre del archivo* que contendra las claves (publica) y (privada).
@@ -51,7 +51,8 @@ Lo creamos en la ruta [](Desktop/Example).
 	> id_ed25519
 ```
 
-Pedira un password para el archivo para protejer las claves, (parecido a un password).
+<!-- Pedira un password para el archivo para protejer las claves, (parecido a un password). -->
+
 # NOTA: No es obligatorio y puedes decidir no ingresar nada.
 
 ```sh
@@ -62,15 +63,15 @@ Pedira un password para el archivo para protejer las claves, (parecido a un pass
 	> password_github
 ```
 
-Tras aceptar las hubicaciones por defecto ahora ejecutamos los comandos.
-Para agregar la clave SSH a tu agente SSH: 
+<!-- Tras aceptar las hubicaciones por defecto ahora ejecutamos los comandos.
+Para agregar la clave SSH a tu agente SSH: -->
 
 ```sh
 	# Inicia el agente y establece las variables de entorno necesarias.
 	eval "$(ssh-agent -s)"
 ```
 
-Ahora agregamos las claves privadas al agente de autenticación SSH en nuestro sistema.
+<!-- Ahora agregamos las claves privadas al agente de autenticación SSH en nuestro sistema. -->
 
 Si creaste el archivo desde la base, entonces la ruta es: 
 	- **ssh-add ~/.ssh/id_ed25519**
@@ -148,25 +149,26 @@ Muestra algo como lo siguiente
 ###### ===--- Limpiar claves ---=== ######
 ### ================================== ###
 
-Si deseas limpiar tus claves [](SSH), entonces entra al directorio.
+<!-- Si deseas limpiar tus claves SSH, entonces entra al directorio. -->
 
 ```sh
 	cd ~/.ssh/
 ```
 
-Aqui puedes ver tus archivos los cuales contienen tus claves.
+<!-- Aqui puedes ver tus archivos los cuales contienen tus claves. -->
 
 ```sh
 	ls
 ```
 
-Borra la carpeta.
+<!-- Borra la carpeta. -->
 
 ```sh
 	rm -f ~/.ssh/*
 ```
 
-Es todo lo que tienes que hacer.
+<!-- Es todo lo que tienes que hacer. -->
 
-# NOTA: Esto hazlo cuando has creado otro git y deseas volver a crear las claves o porque eliminaste las que tenias.
-# Recuerda que debes darlas de alta en tu ordenador y en tu GitHub, como se vio en los pasos anteriores.
+# NOTA: Esto hazlo cuando has creado otro git y deseas volver a crear las claves o 
+# porque eliminaste las que tenias. Recuerda que debes darlas de alta en tu 
+# ordenador y en tu GitHub, como se vio en los pasos anteriores.

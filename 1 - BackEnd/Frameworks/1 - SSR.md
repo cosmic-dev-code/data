@@ -52,12 +52,32 @@ La velocidad de la aplicación depende de la latencia entre el cliente y el serv
 
 A medida que crece la base de usuarios, escalar una aplicación SSR puede ser más desafiante, ya que cada solicitud requiere que el servidor renderice la página desde cero.
 
+### =========================== ###
+###### ===--- Proceso ---=== ######
+### =========================== ###
+
+# Resumen del Proceso
+
+1. Solicitud del Cliente: 
+	_El cliente hace una solicitud para una página._
+
+2. Generación del HTML: 
+	_Next.js renderiza el HTML en el servidor y lo envía al navegador del cliente._
+
+3. Envío del JavaScript: 
+	_El JavaScript necesario para la interactividad y el funcionamiento de la aplicación 
+	se envía junto con el HTML._
+
+4. Hidratación: 
+	_Una vez que el HTML se ha cargado en el navegador, el JavaScript se ejecuta y React toma 
+	control del HTML, convirtiéndolo en una aplicación React interactiva._
+
 ### ============================== ###
 ###### ===--- Frameworks ---=== ######
 ### ============================== ###
 
 - Laravel 
-	- # Server-Side Rendering (SSR)
+	- # Server-Side Rendering (SSR) Clasico
 		- 1. Genera el HTML completo en el servidor para cada solicitud.
 - Livewire 
 	- # Server-Side Rendering (SSR)

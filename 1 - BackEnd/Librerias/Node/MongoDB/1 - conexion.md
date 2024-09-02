@@ -47,25 +47,6 @@
 	}
 ````
 
-# ----------------------------- #
-# ------ Cerrar conexion ------ #
-# ----------------------------- #
-
-```js
-	try{
-
-		// ...
-
-	}catch(error){
-
-		// ...
-
-	}finally{
-		// Puedes colocarlo despued de realizar las operaciones.
-		await client.close();
-	}
-```
-
 # --------------------------------- #
 # ------ Abrir base de datos ------ #
 # --------------------------------- #
@@ -75,4 +56,17 @@
 	// Crear base de datos.
 	const database = client.db("miBaseDeDatos");
 
+```
+
+# ----------------------------- #
+# ------ Cerrar conexion ------ #
+# ----------------------------- #
+
+```js
+	try{}catch(error){}
+
+	finally{
+		// Puedes colocarlo despued de realizar las operaciones.
+		await client.close();
+	}
 ```

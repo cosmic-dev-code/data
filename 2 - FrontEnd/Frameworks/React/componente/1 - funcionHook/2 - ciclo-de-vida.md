@@ -11,6 +11,7 @@
 
         /**
          * (componentDidMount).
+         * 
          * Se ejecuta (después de que) el componente (haya sido montado en el DOM).
          */
 		useEffect(() => {
@@ -18,18 +19,19 @@
 			return () => {
 		        /**
 		         * (componentWillUnmount).
+		         * 
 		         * Se ejecuta (antes de que) el componente (sea eliminado del DOM).
 		         */
 			}
-		// Sin dependencias (useEffect) se ejecuta solo una vez.
-		}, []);
 
-		// Al no especificar dependencias.
-		// (useEffect), se ejecuta en cada renderizado del componente.
-		useEffect(() => {});
+		// Si le pasamos un [] vacio (useEffect) se ejecuta solo una vez.
+		// Si le pasamos un [] con datos (useEffect) se ejecuta solo cuando la propiedad cambia.
+		// Si NO damos un segundo parametro, (useEffect) se ejecuta en cada renderizado del componente.
+		}, []);
 
         /**
          * (componentDidUpdate).
+         * 
          * Se ejecuta cada vez que se (actualiza el estado o las props del componente).
          */
 		// Declara una propiedad (count) y su modificador (setCount), con valor por inicial (0).
@@ -40,6 +42,7 @@
 
         /**
          * (componentDidCatch).
+         * 
          * Se ejecuta cuando se (produce un error durante el renderizado) del componente.
          */
 		const errorRef = useRef(null);
