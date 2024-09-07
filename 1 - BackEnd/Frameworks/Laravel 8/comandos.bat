@@ -65,3 +65,7 @@ REM nos puede ayudar:
 
 	: --- Key: 
 		php artisan key:generate
+
+	: --- Server: 
+		php artisan serve
+		php artisan serve --host=192.168.100.13
