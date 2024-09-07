@@ -26,6 +26,10 @@ coordenadas.left; // 0
 /* ######===--- Anchura y altura total en (pixeles) ---===###### */
 /* ##########=========================================########## */
 
+/* NOTA: Cuando nos referimos (dentro del elemento), nos referimos a su contenido total: 
+	--- (content, margin, padding).
+	--- Medido en (pixeles). */
+
 // Devuelve el ancho total del elemento en (pixeles).
 coordenadas.width; // 600
 

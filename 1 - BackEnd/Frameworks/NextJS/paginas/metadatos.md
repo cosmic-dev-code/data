@@ -15,6 +15,9 @@
 		// Datos generales de la pagina
 		title: "Mi titulo de cabecera",
 		description: "Descripcion de la pagina", 
+	    author: "Hospital Excel",
+	    revised: "16/08/2024", 
+        robots: "index,follow", 
 		// Palabras clave
 		keywords: ["nextjs", "react", "web development"], 
 		// Los meta robots.
@@ -22,8 +25,21 @@
 			index: true,
 			follow: true,
 		},
+		// Asignar pagina unica.
+		canonical: "https://www.hospitalexcel.com/acerca",
+		// Bajo otros idiomas.
+        alternates: {
+            canonical: "https://www.hospitalexcel.com/acerca",
+            hreflangs: [
+                { hreflang: 'es', href: "https://www.hospitalexcel.com/acerca" }
+            ]
+        }
 	};
-
+	// Los ajustes del viewport van aparte.
+	export const viewport = {
+	    width: "device-width", 
+	    initialScale: 1.0
+	}
 	export default function Home() {
 		return (
 			<main>
@@ -40,6 +56,7 @@
 ```jsx
 
 	// Maneja sus propios metadatos de pagina.
+
 	export const metadata = {
 		title: "Mi titulo de cabecera",
 		description: "Descripcion de la pagina", 
@@ -49,7 +66,10 @@
 			follow: true,
 		},
 	};
-
+	export const viewport = {
+	    width: "device-width", 
+	    initialScale: 1.0
+	}
 	export default function AcercaPage() {
 		return (
 			<main>
@@ -81,7 +101,11 @@
 			keywords: registro.keywords.split(", "), // array
 		}
 	}
-
+	// Esto aun va aparte.
+	export const viewport = {
+	    width: "device-width", 
+	    initialScale: 1.0
+	}
 	export default async function Page({ params }){
 		// Flujo normal de la pagina.
 

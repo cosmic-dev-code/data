@@ -20,7 +20,7 @@
 	}
 
 	// Cuando a esta ruta se hace una peticion POST.
-	export function POST(){
+	export function POST(req, res){
 		// ...
 	}
 
@@ -36,6 +36,20 @@
 
 	// Cuando a esta ruta se hace una peticion PATCH.
 	export function PATCH(){
+		// ...
+	}
+```
+
+Las funciones pueden ser asincronas.
+
+```js
+	export async function POST()
+	{
+		let result = await pep();
+	}
+
+	// Podemos declarar tambien funciones fuera.
+	async function pep(){
 		// ...
 	}
 ```
@@ -111,7 +125,7 @@
 
 ```js
 	// Por medio de (request).
-	export async function POST(request){
+	export async function POST(request, response){
 
 		// Resolvemos la (promesa).
 		const body = await request.json();

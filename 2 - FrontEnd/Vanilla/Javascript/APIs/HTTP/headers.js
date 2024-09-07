@@ -73,7 +73,7 @@ headers.append('Authorization', 'Bearer ' + token);
 fetch('https://ejemplo.com/recurso', {
   method: 'GET',
   // Aqui podemos utilizar el objeto (headers).
-  headers: headers
+  headers
 }).then(response => response.json())
 	.then(data => console.log(data))
 	.catch(error => console.error(error));
