@@ -77,19 +77,12 @@
 		 * Crear cookie.
 		 */
 
-		/* Los parametros: 
-				--- Nombre de la cookie.
-				--- El valor que almacela la cookie, normalmente un valor (JWT).
-				--- Ajustes. */
+		// Almacenamos el (token) en la cookie.
 		response.cookies.set('auth_cookie', token, {
-			// La cookie solo se envia a traves de la conexion (HTTPS).
 			secure: process.env.NODE_ENV === "production", 
-			// Prevenir ataques CSRF, la cookie no se envia con solicitudes iniciadas por terceros.
 			sameSite: "strict", 
 			sameSite: "none", 
-			// Expira en (86400s) === (1d).
 			maxAge: 86400, 
-			// Disponible en todo el sitio.
 			path: "/" 
 		});
 

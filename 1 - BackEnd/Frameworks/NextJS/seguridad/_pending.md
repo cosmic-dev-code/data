@@ -29,24 +29,12 @@
 		 */
 
 		let datos = {
-			// Datos del (usuario).
 			email: "brandon@gmail.com", 
 			username: "Brandon", 
-			// El token caduca en 30 dias.
 			exp: Math.floor(Date.now() / 1000) * 60 * 60 * 24 * 30
 		}
 
-		/* Creamos el token el cual recibe: 
-			--- Los datos del token.
-			--- Una palabra clave para cifrarlo.
-			--- Los ajustes del token, (opcional). */
-		const token = jwt.sign(datos, 'palabra-clave');
-		const token = jwt.sign(datos, 'palabra-clave', {
-			// Podemos establecer fecha de expiracion al token.
-			expiresIn: 86400
-		});
-		// Lo ideas seria guardar la (palabra) en un .ENV
-		const token = jwt.sign(datos, process.env.NODE_WORD);
+		const token = jwt.sign(datos, 'palabra-clave', { expiresIn: 86400 });
 
 		/**
 		 * Serializar (token) para una cookie.
