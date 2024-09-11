@@ -63,7 +63,7 @@
 	});
 
 	/**
-	 * Rutas especificas.
+	 * Conversion de (datos).
 	 */
 
 	// Convierte los (body) que se reciben en datos (JSON) y ya no como (Buffer).
@@ -118,7 +118,15 @@
 	/* ######===--- Recibir datos ---===###### */
 	/* ##########===================########## */
 
+	// Otra forma de convertir los datos por medio de un (Middleware).
+	app.use(express.json());
+
 	app.post("/users/store", (request, response) => {
+		
+		/**
+		 * Conversion de datos de forma (manual).
+		 */
+
 		let completo = "";
 
 		request.on("data", chunk => {
