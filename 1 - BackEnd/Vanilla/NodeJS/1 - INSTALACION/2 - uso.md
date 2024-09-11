@@ -18,6 +18,9 @@
 ```bat
 	: Ejecutamos el siguiente comando.
 	node proyecto/index.js
+
+	: (--watch) Para no tener que reiniciar el servidor una y otra vez.
+	node proyecto/index.js --watch
 ```
 
 <!-- La salida en nuestra terminal sera la siguiente:  -->

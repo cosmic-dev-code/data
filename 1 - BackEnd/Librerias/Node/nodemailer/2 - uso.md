@@ -70,6 +70,10 @@
 	});
 ```
 
+# ----------------------- #
+# ------ Respuesta ------ #
+# ----------------------- #
+
 <!-- El objeto (info) contiene informacion del envio. -->
 
 ```json

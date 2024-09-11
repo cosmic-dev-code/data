@@ -4,10 +4,6 @@
 
 <!-- Los diferentes codigos de estado que podemos recibir son los siguientes. -->
 
-```php
-	http_response_code( (int) $codigo );
-```
-
 # 1xx Informational
 *   [](100_Continue): El cliente puede continuar con su solicitud.
 *	[](101_Switching_Protocols): El servidor acepta cambiar el protocolo según lo solicitado por el cliente.
