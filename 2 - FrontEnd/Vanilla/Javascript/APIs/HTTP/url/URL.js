@@ -40,6 +40,10 @@ url.search; // "?lol=Nuevo&names=Brandon%20Anthony"
 // Devuelve un objeto (URLSearchParams) para manipular los parametros de la (URL).
 url.searchParams;
 
+// --------------------- //
+// ------ Metodos ------ //
+// --------------------- //
+
 // Convierte la cadena como tal en un formato (JSON).
 url.toJSON();
 

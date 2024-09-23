@@ -1,4 +1,12 @@
-"use strict";
+/* ##########===========================########## */
+/* ######===--- Crear un objeto (URL) ---===###### */
+/* ##########===========================########## */
+
+// El [new URL()] de JavaScript tambien funciona aqui en Node.
+
+/* ##########================########## */
+/* ######===--- Modulo URL ---===###### */
+/* ##########================########## */
 
 // Este modulo nos permite analizar y trabajar con las URLs.
 var url = require('url');
@@ -7,10 +15,16 @@ var url = require('url');
 // ------ Converciones ------ //
 // -------------------------- //
 
-// De "string" a URL.
+/**
+ * De (string) a URL.
+ */
+
 const location = url.parse('http://localhost:8080?lol=Nuevo&names=Brandon Anthony', true);
 
-// De URL a "string".
+/**
+ * De URL a (string).
+ */
+
 const locationstring = url.format({
 	protocol: 'https',
 	host: 'www.ejemplo.com',

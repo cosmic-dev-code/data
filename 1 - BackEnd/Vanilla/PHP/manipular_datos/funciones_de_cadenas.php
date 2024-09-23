@@ -16,27 +16,27 @@ $newArray_1 = explode("-", $fecha_1);
 
 $newArray_2 = explode(" ", $fecha_2);
 
-/**
- * Las cadenas pueden dividirse por partes.
- */
+// -------------------------------- //
+// ------ Dividir por partes ------ //
+// -------------------------------- //
 
-# El string se va a dividir en dos partes.
-$newArray_2 = explode(" ", $fecha_2, 2);
+# El string se va a dividir en (dos) partes.
+$array = explode(" ", $fecha_2, 2);
 /* 
   2021,
   del mes 5 y el dia 13
 */
 
-# El string se va a dividir en tres partes.
-$newArray_2 = explode(" ", $fecha_2, 3);
+# El string se va a dividir en (tres) partes.
+$array = explode(" ", $fecha_2, 3);
 /* 
   2021,
   del,
   mes 5 y el dia 13
 */
 
-# El string se va a dividir en cuatro partes.
-$newArray_2 = explode(" ", $fecha_2, 4);
+# El string se va a dividir en (cuatro) partes.
+$array = explode(" ", $fecha_2, 4);
 /* 
   2021,
   del,
@@ -44,15 +44,15 @@ $newArray_2 = explode(" ", $fecha_2, 4);
   5 y el dia 13
 */
 
-# Divide el string en un array menos el ultimo eemento.
-$newArray_2 = explode(" ", $fecha_1, -1);
+# Divide el string en un array (menos el ultimo elemento).
+$array = explode(" ", $fecha_1, -1);
 /* 
   2021,
   5
 */
 
-# Divide el string en un array menos los ultimos eemento.
-$newArray_2 = explode(" ", $fecha_1, -2);
+# Divide el string en un array (menos los ultimos elemento).
+$array = explode(" ", $fecha_1, -2);
 /* 
   2021
 */
@@ -75,7 +75,7 @@ stristr($mensaje, "hello");
 strpos($mensaje, "como");
 
 // Busca una cadena de texto y devuelve 'true' en caso de encontrarla.
-str_contains($mensaje, "Hello");
+str_contains($mensaje, "Hello"); // 
 
 /* ##########=======================########## */
 /* ######===--- Cortar una cadena ---===###### */

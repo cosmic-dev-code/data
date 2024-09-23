@@ -10,7 +10,7 @@
 for i in range(5):
     print(i)
 
-# Genera una secuencia de números desde 2 hasta 4
+# Genera una secuencia de números desde 2 hasta 5
 for i in range(2, 5):
     pass # Indicamos que el codigo (esta vacio).
 

@@ -26,10 +26,10 @@ function calculadora(string $simbolo = "+", ...$arrNumeros){
 }
 
 // Todos los parametros desde el segundo donde se encuentra el (spread), se almacena en el arreglo.
-echo calculadora("+", 5,5,5); // Da: (15).
-echo calculadora("-", 10, 10, 5); // Da: (-5).
-echo calculadora("*", 5,5,2); // Da: (50).
-echo calculadora("/", 10,2,2); // Da: (2.5).
+echo calculadora("+", 5,5,5); // 15
+echo calculadora("-", 10, 10, 5); // -5
+echo calculadora("*", 5,5,2); // 50
+echo calculadora("/", 10,2,2); // 2.5
 
 ///////// ------------------------------------------------------------------------------------- /////////
 

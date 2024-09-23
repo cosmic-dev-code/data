@@ -1,4 +1,10 @@
-"use strict";
+/* ##########============================########## */
+/* ######===--- Parametros de la (URL) ---===###### */
+/* ##########============================########## */
+
+// ----------------------------- //
+// ------ Crear Instancia ------ //
+// ----------------------------- //
 
 // La clase (URLSearchParams), permite instanciar un objeto para crear parametros.
 const params = new URLSearchParams();
@@ -8,11 +14,34 @@ const params = new URLSearchParams(
 	window.location.search
 );
 
+// ----------------------- //
+// ------ Comprobar ------ //
+// ----------------------- //
+
+// Devuelve un booleano verificando si existe cierto parametro.
+params.has("age");
+
+// Los parametros que no e encuentran en la URL dan un valor de (null).
+params.get("otro"); // null
+
+// ------------------------------ //
+// ------ Agregar / Borrar ------ //
+// ------------------------------ //
+
 // Agrega un nuevo parametro con su respectivo valor.
 params.append("surnames", "Olivares Amador");
 
+/* (Modifica) el primer parametro encontrado dandole un nuevo valor, recibe por parametros: 
+	--- El parametro que se va a modificar.
+	--- El nuevo valor que va a adquirir. */
+params.set("age", "20");
+
 // Elimina un parametro con su valor.
 params.delete("age");
+
+// --------------------- //
+// ------ Obtener ------ //
+// --------------------- //
 
 // Devuelve el valor del primer parametro llamado 'age'.
 params.get("age");
@@ -20,14 +49,8 @@ params.get("age");
 // Devuelve un arreglo con todos los valores de todos los parametros llamados 'age'.
 params.getAll("age");
 
-// Devuelve un booleano verificando si existe cierto parametro.
-params.has("age");
-
-/* El metodo (set), modifica el primer parametro encontrado dandole un nuevo valor, 
-recibe por parametros: 
-	--- El parametro que seva a modificar.
-	--- El nuevo valor que va a adquirir. */
-params.set("age", "20");
+// https://example.com?age=22&age=20&age=19
+params.getAll('age'); // ["22", "20", "19"]
 
 // Iteramos todos los valores de los parametros.
 params.forEach((parametro) => {

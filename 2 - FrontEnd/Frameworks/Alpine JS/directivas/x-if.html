@@ -4,10 +4,14 @@
 		<input type="button" value="Click" width="100" height="auto" x-on:click="option = true">
 	</div>
 
-	<!-- El atributo (x-if) permite ejecutar una validacion atraves de un valor 
-	booleano, es decir, con una condicion, pero el atributo (x-if) debe estar 
-	dentro de etiquetas (template). -->
+	<!-- El atributo (x-if) permite ejecutar una validacion atraves de un valor booleano. -->
+	<!-- Se utiliza dentro de <template>. Si la condicion es (false), ELIMINA los elementos del DOM, sino, los muestra. -->
 	<template x-if="option">
 		<span x-text="El boton ha sido clickeado"></span>
 	</template>
+
+	<!-- NOTA: JS no encontrara los elementos dentro del <template> si estos son (false). -->
+	<!-- Y los (listeners) de los elementos se (borraran). -->
+
+	<!-- Si quieres tener (listeners) en alguno de los elementos, mejor usa (x-show). -->
 </section>

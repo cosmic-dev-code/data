@@ -52,7 +52,7 @@ funcion();
 /* ##########================########## */
 
 // Aqui podemos tener tipado.
-function decir_nombre($nombre, int $edad){
+function decir_nombre(string $nombre, int $edad){
 	// Recibimos los parametros y los imprimimos.
 	printf("%s tiene una edad de: (%d).", $nombre, $edad);
 }
@@ -140,6 +140,13 @@ $mostrar_usuarios(
 // --------------------- //
 // ------ Objetos ------ //
 // --------------------- //
+
+// Clase para nuestro tipado.
+class Usuario{}
+
+/**
+ * Funciones
+ */
 
 function obtener($usuario){
 	// Aqui podemos recivir cualquier tipo de dato.

@@ -1,5 +1,9 @@
 <?php
 
+/* ##########===============########## */
+/* ######===--- Try Catch ---===###### */
+/* ##########===============########## */
+
 /* La estructura de control (match) funciona de la misma manera que 
 la estructura de control (switch).
 
@@ -21,6 +25,10 @@ echo match($number) {
 	default => "Ningun numero seleccionado."
 }
 
+// ---------------------------- //
+// ------ Retornar valor ------ //
+// ---------------------------- //
+
 /* El valor seleccionado se retorna. */
 $usuario = match("1999"){
 	"2019" => "Brandon", 
@@ -29,6 +37,9 @@ $usuario = match("1999"){
 	default => "Ninguno"
 }
 
+# --------------------- #
+# ------ Funcion ------ #
+# --------------------- #
 
 function hola(string $val = ""){
 	return match($val){
