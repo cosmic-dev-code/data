@@ -188,14 +188,11 @@ string.padEnd(4, 0); // Da: 5000.
 
 let string = "Esta es una cadena de prueba.";
 
-/* (charAt) es un metodo que recibe el indice por 
-parametro para extraer y retornar el caracter 
-en dicha posicion. */
+// (charAt) recibe el indice para extraer y retornar el caracter en dicha posicion.
 string.charAt(0); // "E"
 string.charAt(180); // ""
 
-/* (charCodeAt) toma el caracter del indice 0 y retorna el valor 'unicode' de ese caracter.
-
+/* Toma el caracter del indice 0 y retorna el valor 'unicode' de ese caracter.
 El método devuelve un código UTF-16 (un número entero entre 0 y 65535). */
 string.charCodeAt(0); // Retorna '72'.
 
@@ -225,9 +222,8 @@ string.replace("cadena", "string");
 minusculas, por lo que de esta manera no funcionara. */
 string.replace("CADENA", "string");
 
-/* Solucion: Poder la palabra como expresion 
-regular, la letra (i) representa 'insensible' a 
-mayusculas y minusculas. */
+/* Poner la palabra como expresion regular.
+La letra (i) representa 'insensible' a mayusculas y minusculas. */
 string.replace(/CADENA/i, "string");
 
 /* Reemplaza todas las coincidencias de la cadena. */

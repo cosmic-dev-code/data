@@ -16,15 +16,13 @@ Array.from(["Hola", "mundo"]);
 Array.isArray([5, 5, 5]); // Da: true.
 Array.isArray(4); // Da: false.
 
-/* ##########=======================########## */
-/* ######===--- De array a string ---===###### */
-/* ##########=======================########## */
+/* ##########==================########## */
+/* ######===--- Conversiones ---===###### */
+/* ##########==================########## */
 
-let array = new Array("Manzana", "Pera", "Mango");
-
-let array = [0,1,2];
-
-let array = Array(1,false,"Hola");
+// -------------------- //
+// ------ String ------ //
+// -------------------- //
 
 // Convierte un array completo a una cadena de texto.
 let string = array.toString();
@@ -96,8 +94,10 @@ arrFrutas.reverse();
 
 // Incorpora un array anidado dentro del padre.
 [128, true, 58, ["Map", "Otro"], false].flat(); // [128, true, 58, "Map", "Otro", false]
+
 // Incorpora niveles de anidacion.
 [128, ["Map", "Otro", [true, 58]], false].flat(2);
+
 // Incorpora todos los niveles.
 [128, ["Map", "Otro", [true, [[125]], 58]], false].flat(2);
 
@@ -126,22 +126,13 @@ arrNumbers.indexOf(4); // Da: -1.
 let arrFrutas = Array("Manzana", "Pera", "Fresa"),
 	arrVerduras = new Array("Calabaza", "Pepino", "Lechuga");
 
-/* (concat) como su nombre lo dice, concatena los arrays en uno solo. 
-Ademas el metodo (concat) no altera los arrays, siempre devuelve una nuevo. */
-
-let newArray = arrFrutas.concat(arrVerduras);
-// Da: ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"].
-
-
-newArray = arrFrutas.concat("uva");
-// Da: ["Manzana", "Pera", "Fresa", "uva"].
+// Concatena los arrays en uno solo, devuelve un array nuevo.
+arrFrutas.concat(arrVerduras); // ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"].
+arrFrutas.concat("uva"); // ["Manzana", "Pera", "Fresa", "uva"]
 
 // El operador (spread) funciona tambien para concatenar 'arrays'.
-newArray = [...arrFrutas, ...arrVerduras];
-// Da: ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"].
-
-newArray = [...arrFrutas, "uva"];
-// Da: ["Manzana", "Pera", "Fresa", "uva"].
+newArray = [...arrFrutas, ...arrVerduras]; // ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"]
+newArray = [...arrFrutas, "uva"]; // ["Manzana", "Pera", "Fresa", "uva"]
 
 /* ##########===================########## */
 /* ######===--- Cortar arrays ---===###### */

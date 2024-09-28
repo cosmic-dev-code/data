@@ -36,11 +36,11 @@ a una cadena de texto:
 
 	--- El primer parametro recibe el separador de los elementos de la cadena.
 	--- El segundo parametro es el 'array' el cual se ha de convertir. */
-$str = implode(", ", $arr); // Da: Hola, true, 35.
+$str = implode(", ", $arr); // "Hola, true, 35."
 
-$str = implode(" ", $arr); // Da: Hola true 35.
+$str = implode(" ", $arr); // "Hola true 35"
 
-$str = implode("", $arr); // Da: Holatrue35.
+$str = implode("", $arr); // "Holatrue35"
 
 // ------------------------------------------ //
 // ------ Convertir variables a arrays ------ //

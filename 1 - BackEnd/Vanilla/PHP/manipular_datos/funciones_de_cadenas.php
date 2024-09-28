@@ -4,6 +4,10 @@
 /* ######===--- Conversiones ---===###### */
 /* ##########==================########## */
 
+// ------------------- //
+// ------ Array ------ //
+// ------------------- //
+
 # Variable con datos separados por '/'.
 $fecha = "2021/5/13";
 $fecha_1 = "2021-5-13";
@@ -135,10 +139,10 @@ $result = "La cadena es: $text";
 // Metodo de comparacion normal.
 ("Hola" === "Hola");
 
-// Compara cadenas (no teniendo en cuenta mayusculas y minusculas).
+// (No teniendo en cuenta mayusculas y minusculas).
 strcasecmp("Hola", "Hola");
 
-// Compara cadenas (teniendo en cuenta mayusculas y minusculas).
+// (Reniendo en cuenta mayusculas y minusculas).
 strcmp("Hola", "Adios");
 
 /* Si la primera cadena devuelve cualquier otro valor diferente a 0, entonces las dos cadenas son diferentes. */

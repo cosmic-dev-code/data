@@ -37,7 +37,6 @@ print( is_nan )  # False
 
 # Verificar tipo de dato y valor.
 type(58) # <class 'int'>
-
 # Instancia de clase
 type(Usuario()) # <class '__main__.Usuario'>
 

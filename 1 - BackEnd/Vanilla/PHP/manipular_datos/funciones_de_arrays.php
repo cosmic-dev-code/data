@@ -1,8 +1,12 @@
 <?php
 
-/* ##########=======================########## */
-/* ######===--- De array a string ---===###### */
-/* ##########=======================########## */
+/* ##########==================########## */
+/* ######===--- Conversiones ---===###### */
+/* ##########==================########## */
+
+// -------------------- //
+// ------ String ------ //
+// -------------------- //
 
 $arr = array("Hola", true, 35);
 
@@ -10,15 +14,15 @@ $arr = array("Hola", true, 35);
 a una cadena de texto: 
 	--- El primer parametro recibe el separador de los elementos de la cadena.
 	--- El segundo parametro es el 'array' el cual se ha de convertir. */
-$str = implode(", ", $arr); // Da: Hola, true, 35.
+$str = implode(", ", $arr); # Hola, true, 35.
 
-$str = implode(" ", $arr); // Da: Hola true 35.
+$str = implode(" ", $arr); # Hola true 35.
 
-$str = implode("", $arr); // Da: Holatrue35.
+$str = implode("", $arr); # Holatrue35.
 
-// ------------------------------------------ //
-// ------ Convertir variables a arrays ------ //
-// ------------------------------------------ //
+// -------------------------------- //
+// ------ Variables a arrays ------ //
+// -------------------------------- //
 
 $variable_0 = "Brandon";
 $variable_1 = null;
@@ -38,9 +42,9 @@ print_r($arr_variables);
 	)
 */
 
-// ------------------------------------------- //
-// ------ Convertir arrays a variables  ------ //
-// ------------------------------------------- //
+// --------------------------------- //
+// ------ Arrays a variables  ------ //
+// --------------------------------- //
 
 $array = [
 	"uno" => 55, 
@@ -59,14 +63,6 @@ extract($array, EXTR_PREFIX_SAME, "hola");
 print $hola_uno;
 print $hola_dos;
 
-// ----------------------------------------- //
-// ------ Convertir arrays complejos  ------ //
-// ----------------------------------------- //
-
-# En un array complejo, los 'values' pasan a ser 'keys' y los 'keys' 
-# pasan a ser 'values'.
-array_flip($cursos_complejos);
-
 /* ##########==================================########## */
 /* ######===--- Eliminar o agregar elementos ---===###### */
 /* ##########==================================########## */
@@ -75,21 +71,21 @@ array_flip($cursos_complejos);
 // ------ Agregar elementos ------ //
 // ------------------------------- //
 
-array_push($cursos_complejos, "Otro");
 # Agrega un nuevo elemento al final.
+array_push($cursos_complejos, "Otro");
 
 // -------------------------------- //
 // ------ Eliminar elementos ------ //
 // -------------------------------- //
 
-array_pop($cursos);
 # Elimina el ultimo elemento y lo retorna.
+array_pop($cursos);
 
-array_shift($cursos);
 # Elimina el primer elemento y lo retorna.
+array_shift($cursos);
 
-array_unshift($cursos, "nuevoPrimerElemento");
 # Reemplaza el primer elemento y retorna la cantidad de elementos.
+array_unshift($cursos, "nuevoPrimerElemento");
 
 /* ##########=========================########## */
 /* ######===--- Manipular elementos ---===###### */
@@ -100,37 +96,36 @@ $array_prueba = array("Amigo", "Tornado", "Musica");
 sort($array_prueba); # Ordena los arrays por orden alfabetico.
 rsort($array_prueba); # Ordena los arrays por orden alfabetico en reversa.
 
-$array_frutas_verduras = array(
+$array_complejo = array(
 	"valor0" => "Manzana",
     "otro_valor" => "Pera",
     "mas_valores" => "Naranja",
     "fruta_verdura" => "A_comer"
 );
 
-asort($array_frutas_verduras); # Se ordena en orden alfabetico de acuerdo al valor y no al elemento.
+# Se ordena en orden alfabetico de acuerdo al valor y no al elemento.
+asort($array_complejo);
+# Se ordenan alfabeticamente de acuerdo al elemento y no a valor.
+ksort($valores);
 
-$valores = array("valor_0" => 35,"my_valor" => 37,"new_valor" => 43);
-
-foreach ($valores as $key => $value) {
-	echo "<div>El valor perteneciente al elemento $key es: $value.</div>";
-}
-
-ksort($valores); # Se ordenan alfabeticamente de acuerdo al elemento y no a valor.
-
-# Ordena los arrays alfabeticamente en reversa, de acuerdo con el valor.
-arsort($array_frutas_verduras);
-
-# Ordena los arrays alfabeticamente en reversa, de acuerdo con el elemento.
-krsort($array_frutas_verduras);
+# Ordena (alfabeticamente) en reversa, de acuerdo con el valor.
+arsort($array_complejo);
+# Ordena (alfabeticamente) en reversa, de acuerdo con el elemento.
+krsort($array_complejo);
 
 # Los ordena en reversa.
 array_reverse($array_frutas);
 
 # Los elementos se organizan con tabulacion.
-array_chunk($cursos_complejos, 2);
+array_chunk($array_complejo, 2);
 
 # Los elementos se organizan con tabulacion de uno en uno, 'key' y su 'value'.
-array_chunk($cursos_complejos, 1);
+array_chunk($array_complejo, 1);
+
+/* En un array complejo: 
+	--- 'values' pasan a ser 'keys'
+	--- 'keys' pasan a ser 'values' */
+array_flip($array_complejo);
 
 /* ##########======================########## */
 /* ######===--- Buscar en arrays ---===###### */
@@ -152,29 +147,31 @@ in_array('javascript', $array_complejo);
 $frontend = ['javascript'];
 $backend = ['php', 'laravel'];
 
-var_dump($frontend + $backend);
 # Se concatena, pero el indice 0 se sobreescribe.
+var_dump(
+	$frontend + $backend
+);
 
-var_dump($cursos_complejos + $cursos_complejos_1);
 # Aqui si funciona.
+var_dump(
+	$array_complejo + $array_complejo_1
+);
 
-array_merge($frontend, $backend); 
-/* Se concatenan correctamente sin importar que un indice 
-tenga el mismo nombre, por lo que no se sobreescriben. 
-Pero solo funciona con indices numericos. */
+# No importa que un indice tenga el mismo nombre, no se sobreescriben.
+# Pero solo funciona con indices (numericos).
+array_merge($frontend, $backend);
 
+# Funciona con indices de tipo (string).
 array_merge_recursive($frontend, $backend);
-# Funciona con indices de tipo 'string'.
 
 $categorias = ['frontend', 'backend', 'framework'];
 
+# Los arrays se conbinan, el primer array pasa a ser los (keys).
+# El segundo array pasa a ser los (values).
 array_combine($categorias, $cursos);
-# Los arrays se conbinan, el primer array pasa a ser los 'keys'.
-# El segundo array pasa a ser los 'values'.
 
 // El operador (spread) sirve para concatenar los arrays.
 $lenguajes = [...$frontend, ...$backend]; # ['javascript', 'php', 'laravel']
-
 $lenguajes = [...$frontend, "php"]; # ['javascript', 'php']
 
 /* ##########================================########## */
@@ -183,14 +180,16 @@ $lenguajes = [...$frontend, "php"]; # ['javascript', 'php']
 
 $array_frutas = array("Manzana", "Pera", "Uva");
 
+# Corta desde el indice (1) al (final).
 array_slice($cursos_complejos, 1);
-# Comenzamos el array desde el elemento 1 y quitamos el indice 0.
+# Corta desde el indice (1) hasta el limite de (10) elementos.
+array_slice($cursos_complejos, 1, 10);
 
+# Permite imprimir un array, tambien imprime los arrays asosiativos.
 print_r($array_frutas);
-# (Print_r) permite imprimir un array, tambien imprime los arrays asosiativos.
 
-var_dump($array_frutas);
 /* Imprimi el array y ademas el tipo de dato de cada uno de los elementos. */
+var_dump($array_frutas);
 
 /* ##########========================########## */
 /* ######===--- Comparacion arrays ---===###### */
@@ -273,9 +272,8 @@ function recorrer($valor, $indice){
 
 /**
  * Esta funcion permite recorrer el array: 
- * 	--- El primer parametro recibe el array que se va a recorrer. 
- * 	--- El segundo array recibe la funcion que recibira por 
- * parametros los elementos del array. 
+ * 	--- Recibe el array que se va a recorrer. 
+ * 	--- Recibe la funcion que recibira los elementos del array. 
  */
 array_walk($array_complejo, 'recorrer');
 
@@ -296,8 +294,8 @@ function cuadrado($numero){
 $arr_nums = array(10, 20, 30, 40, 50, 60, 70, 80, 90);
 
 /* La funcion (array_map) recorre el array y retorna uno nuevo: 
-		--- Primero recibe la funcion para alterar el array.
-		--- El segundo parametro recibe el array con el que se va a trabajar. */
+		--- Funcion para alterar el array.
+		--- El array con el que se va a trabajar. */
 $arr_new_nums = array_map("cuadrado", $arr_nums);
 
 /* Da: 
@@ -325,9 +323,9 @@ $arr_nums = array(10, 20, 30, 40, 50, 60, 70, 80, 90);
 $arr_nums_1 = array(3, 4, 5, 10, 15, 60, 7, 8.9, 10);
 
 /* Aqui: 
-		--- Primero recibe la funcion para alterar el array.
-		--- El segundo parametro recibe el array con el que se va a trabajar.
-		--- El tercer parametro recibe el otro array con el que tambien se va a trabajar. */
+		--- Recibe la funcion para alterar el array.
+		--- Recibe el array con el que se va a trabajar.
+		--- Recibe el otro array con el que tambien se va a trabajar. */
 $arr_new_nums = array_map("sumar", $arr_nums, $arr_nums_1);
 
 /* Da: 
@@ -422,8 +420,7 @@ $array = array(10,15,20);
 	--- Por segundo parametro recibe la funcion anonima.
 	--- Por tercer parametro recibe el numero, en este caso 
 	comenzara en 0. */
-$suma = array_reduce($array, "myfunction", 0);
-// Da: 45.
+array_reduce($array, "myfunction", 0); # 45
 
 // ----------------------------------------------------- //
 
@@ -436,5 +433,4 @@ $array = array(10,15,20);
 // Al no darle el tercer parametro automaticamente la suma es un 'string'.
 $suma = array_reduce($array, "myfunction");
 
-echo $suma;
-// Da: 10/15/20/.
+echo $suma; # "10/15/20/"

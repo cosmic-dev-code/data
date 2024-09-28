@@ -9,7 +9,8 @@
 
 // Array vacio.
 let array = new Array();
-let array1 = [];
+let array1 = Array();
+let array2 = [];
 
 // ---------------------------- //
 // ------ Inicializacion ------ //

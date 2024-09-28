@@ -69,6 +69,10 @@ i = 0
 while i <= 10:
     i += 1
 
+# ---------------------- #
+# ------ Mientras ------ #
+# ---------------------- #
+
 # Mientras el número aleatorio no sea 5.
 import random
 
