@@ -51,7 +51,7 @@ funcion_anidada()  # Llama a la función que contiene las anidadas
 
 # Aquí podemos tener tipado (usando type hints).
 #   --- (-> None), es el retorno.
-def decir_nombre(nombre: str, edad: int) -> None:
+def decir_nombre(nombre:str, edad:int)->None:
     # Recibimos los parámetros y los imprimimos.
     print(f"{nombre} tiene una edad de: {edad}.")
 
@@ -70,7 +70,7 @@ my_function(30)
 # ------------------------------------- #
 
 # Recibimos valores predefinidos.
-def informacion(nombre: str = "Ninguno", edad: int = 21) -> None:
+def informacion(nombre:str = "Ninguno", edad:int = 21)->None:
     print(f"El usuario {nombre} tiene la edad de: {edad}.")
 
 # En este caso el segundo argumento ya lo toma por defecto como (21).
@@ -83,11 +83,11 @@ informacion("Brandon")
 # Importar para hacer el opcional similar a Typescript (?).
 from typing import Optional
 
-def funcion(name: Optional[str]) -> None:
+def funcion(name:Optional[str])->None:
     # ...
     pass
 
-def get_name() -> Optional[str]:
+def get_name()->Optional[str]:
     return None
 
 # -------------------- #
@@ -95,7 +95,7 @@ def get_name() -> Optional[str]:
 # -------------------- #
 
 # Una lista (opcional).
-def sumar(lista: list = []) -> None: 
+def sumar(lista:list = [])->None: 
     print(f"La suma es: {sum(lista)}")
 
 # Podemos pasarle una lista y esta sumará cada uno de sus valores.
@@ -103,8 +103,7 @@ sumar([5, 5, 5])
 sumar([10, 20, 5, 2, 1, 10])
 
 # Otros parámetros.
-def mostrar_usuarios(arr_usuarios: list = [], mensaje: str = "No hay más usuarios") -> None:
-    print(fmensaje)
+def mostrar_usuarios(arr_usuarios:list = [], mensaje:str = "Sin usuarios")->None:
     for usuario in arr_usuarios:
         print(f"usuario\n")
 
@@ -127,15 +126,15 @@ class Usuario:
     Funciones
 '''
 
-def obtener(usuario) -> None:
+def obtener(usuario)->None:
     # Aquí podemos recibir cualquier tipo de dato.
     pass
 
-def objeto(objeto: object) -> None:
+def objeto(objeto:object)->None:
     # Especifica que debe recibir un objeto (sin importar el tipo de objeto que sea).
     pass
 
-def obtener_typado(usuario: Usuario) -> None:
+def obtener_typado(usuario:Usuario)->None:
     # Aquí se declara que el parámetro debe ser una instancia de la clase Usuario.
     pass
 
@@ -144,18 +143,19 @@ def obtener_typado(usuario: Usuario) -> None:
 # ##########======================##########
 
 # Función que retorna la suma de dos números.
-def suma(numero_0: int = 0, numero_1: int = 0) -> int:
+def suma(numero_0:int = 0, numero_1:int = 0) -> int:
     return numero_0 + numero_1
 
 # Ejemplo de uso
 suma(5, 3)  # 8
 
 # Función para redondear a un número de decimales específicos.
-def to_fixed(numero: float = 0.0, decimales: int = 0) -> float:
+def to_fixed(numero:float = 0.0, decimales:int = 0)->float:
     num_texto = str(numero)
     num_final = ""
 
-    decimales += 1  # Aumentar decimales para incluir el redondeo.
+    # Aumentar decimales para incluir el redondeo.
+    decimales += 1
 
     if "." in num_texto:
         posicion = num_texto.index(".") + decimales
@@ -174,7 +174,7 @@ to_fixed(555.555) # 555.0
 # -------------------- #
 
 # Función para etiquetar usuarios en una lista.
-def etiquetar_usuarios(arr_usuarios: list = []) -> list:
+def etiquetar_usuarios(arr_usuarios:list = [])->list:
     etiquetados = []
 
     for key in arr_usuarios:
@@ -211,7 +211,7 @@ class Usuario:
     pass
 
 # Puede devolver cualquier tipo de dato.
-def sin_especificar() -> list:
+def sin_especificar()->list:
     return [Unknown(), Usuario()]
 
 # Especifica que puede retornar cualquier objeto.

@@ -2,11 +2,28 @@
 # ######===--- Conversiones ---===######
 # ##########==================##########
 
+lista = ["Hola", True, 35]
+
+# ------------------------- #
+# ------ diccionario ------ #
+# ------------------------- #
+
+lista = [('Manzana', 3), ('Pera', 5)]
+lista = [['Manzana', 3], ['Pera', 5]]
+
+# Convertir a diccionario, (clave => valor).
+diccionario = dict(lista)
+
+# ------------------- #
+# ------ tupla ------ #
+# ------------------- #
+
+# Convertir a tupla, (inmutable).
+tupla = tuple(lista)
+
 # -------------------- #
 # ------ String ------ #
 # -------------------- #
-
-lista = ["Hola", True, 35]
 
 # Devuelve un objeto para convertir.
 #	--- Tipo de dato a convertir.
@@ -33,9 +50,10 @@ lista = []
 # ------ Agregar elementos ------ #
 # ------------------------------- #
 
-# Agrega un nuevo elemento al final.
- # Inicializa la lista si no existe
-lista.append("Otro")
+# Agrega un nuevo elemento al final, (inicializa la lista si no existe)
+lista.append("Otro") # Elemento
+lista.append([1,2]) # Lista
+lista.append((1,4)) # Tupla
 
 # Agrega mas elementos a la lista.
 lista.extend([1, 2, 3])
@@ -113,6 +131,15 @@ lista.index("elemento")
 # Busca desde el indice especifico.
 lista.index("elemento", 3)
 
+# Devuelve el valor maximo.
+min(lista) # 1
+
+# Devuelve el valor minimo.
+max(lista) # 2
+
+# Suma todos los elementos.
+sum(lista)
+
 # Intentar buscar un elemento que no se encuentra.
 try:
 	lista.index("otro")
@@ -130,7 +157,7 @@ frontend = ['javascript']
 backend = ['php', 'laravel']
 
 # Concatenar listas (+)
-frontend + backend  # ['javascript', 'php', 'laravel']
+res = frontend + backend  # ['javascript', 'php', 'laravel']
 
 # Utilizando (extend).
 frontend.extend(backend)  # ['javascript', 'php', 'laravel']
@@ -144,8 +171,8 @@ list(
 )
 
 # Usando el operador de expansión (sólo en Python 3.5+)
-[*frontend, *backend]  # ['javascript', 'php', 'laravel']
-[*frontend, "php"]  # ['javascript', 'php']
+res = [*frontend, *backend]  # ['javascript', 'php', 'laravel']
+res = [*frontend, "php"]  # ['javascript', 'php']
 
 # ##########=================================##########
 # ######===--- Contar e imprimir una lista ---===######

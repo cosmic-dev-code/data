@@ -2,6 +2,26 @@
 # ######===--- Conversiones ---===######
 # ##########==================##########
 
+# ------------------------- #
+# ------ diccionario ------ #
+# ------------------------- #
+
+tupla = (('Manzana', 3), ('Pera', 5))
+tupla_1 = (['Manzana', 3], ['Pera', 5])
+
+# Convertir a diccionario, (clave => valor).
+diccionario = dict(tupla)
+
+# (dict), tiene que recibir una tupla, (clave, valor)
+diccionario = dict((tuple(item) for item in tupla_1))
+
+# ------------------- #
+# ------ tupla ------ #
+# ------------------- #
+
+# Convertir a una lista, (mutable).
+tupla = list(lista)
+
 # -------------------- #
 # ------ String ------ #
 # -------------------- #
@@ -127,20 +147,20 @@ frontend = ('javascript',)
 backend = ('php', 'laravel')
 
 # Concatenar tuplas (+)
-concatenada = frontend + backend  # ('javascript', 'php', 'laravel')
+res = frontend + backend  # ('javascript', 'php', 'laravel')
 
 # Usando (itertools.chain) para concatenar múltiples tuplas
 from itertools import chain
 
 # Convertir a tupla.
-tuple(
+res = tuple(
     # Concatenar iterables.
     chain(frontend, backend)
 )
 
 # Usando el operador de expansión (sólo en Python 3.5+)
-(*frontend, *backend)  # ('javascript', 'php', 'laravel')
-(*frontend, "php")  # ['javascript', 'php']
+res = (*frontend, *backend)  # ('javascript', 'php', 'laravel')
+res = (*frontend, "php")  # ['javascript', 'php']
 
 # ##########=================================##########
 # ######===--- Contar e imprimir una tupla ---===######
