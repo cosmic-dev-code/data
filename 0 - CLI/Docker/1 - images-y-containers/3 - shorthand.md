@@ -8,16 +8,16 @@ en nuestra maquina virtual.
 
 Para eso hacemos un [](Binding) entre un puerto de nuestro ordenador y uno del contenedor.
 
-# ------------------------------ #
-# ------ Conectar puertos ------ #
-# ------------------------------ #
+# ----------------------- #
+# ------ Shorthand ------ #
+# ----------------------- #
 
 - Especificamos
 <!--
-	--- (docker-create): Indica el comando para crear un contenedor.
-	--- (-p): Indica que publicaremos en puertos, [publish].
-		--- El puerto [3000] de nuestra computadora.
-		--- El puerto [3000] del contenedor.
+	--- (docker create): Creamos un contenedor.
+	--- (-p): Publicaremos en puertos === [publish].
+		--- Puerto [3000] de nuestra computadora.
+		--- Puerto [3000] del contenedor.
 	--- (name): Nombre del contenedor.
 	--- (node): Nombre de la imagen a utilizar.
 		--- En este caso una imagen con la dependencia de node instalada.

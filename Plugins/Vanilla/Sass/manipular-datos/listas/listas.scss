@@ -29,6 +29,18 @@ $lista-diferentes: ("Uno", true, 55, 26rem, null, ("Sub uno", "Sub dos"));
  * NOTA: Es importante mencionar que las listas inician por el indice (1) y no del (0).
  */
 
+/* ##########====================########## */
+/* ######===--- Unidimensional ---===###### */
+/* ##########====================########## */
+
+$unidimensional: ("Uno", true);
+
+// Con un (for) podemos iterar.
+@for $i from 1 through length($unidimensional){
+	// Imprime el valor.
+	@debug nth($unidimensional, $i);
+}
+
 /* ##########=====================########## */
 /* ######===--- Bidimensionales ---===###### */
 /* ##########=====================########## */

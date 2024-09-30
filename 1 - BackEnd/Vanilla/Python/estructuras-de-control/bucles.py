@@ -2,9 +2,22 @@
 # ######===--- Bucle (for) ---===######
 # ##########=================##########
 
+# NOTA: Esto NO FUNCIONA.
+
+# ERROR.
+for i in 10:
+    print(i)
+
+# Forma CORRECTA.
+for i in range(10):
+    print(i)
+
 # ---------------------------- #
 # ------ Uso de (range) ------ #
 # ---------------------------- #
+
+# Devuelve un objeto (range) iterable.
+range(3) # range([1,2,3])
 
 # Genera una secuencia de 5 números: 0, 1, 2, 3, 4
 for i in range(5):

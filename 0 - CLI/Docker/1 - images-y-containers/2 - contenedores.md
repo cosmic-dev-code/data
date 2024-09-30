@@ -16,11 +16,18 @@
 	: Podemos utilizar el (id) corto de la imagen, (que se muestra en la tabla de imagenes).
 	docker create fe9e0b56b023
 
-	: Tambien podemos asigarle un (nombre) al contenedor para referirnos a el.
-	:	--- Nombre.
-	:	--- Imagen a utilizar.
-	: Si NO le damos un (name), entonces docker le asignara uno por defecto.
+	: Podemos asigarle un (nombre) al contenedor para referirnos a el.
+	:	--- (--name): 
+	:		--- Nombre para el contenedor (mi-contenedor).
+	:	--- Imagen a utilizar, (node).
+	: 		--- Si NO le damos un (name), docker le asigna uno por defecto.
 	docker create --name mi-contenedor node
+
+	: Opcionalmente podemos indicar los puertos para comunicarnos.
+	:	--- (-p): 
+	:		--- Puerto PC (3000).
+	:		--- Puerto contenedor (3000).
+	docker create --name mi-contenedor -p3000:3000 node
 ```
 
 <!-- Devuelve el (id) del contenedor. -->
@@ -99,6 +106,8 @@ Entrar a un contenedor.
 
 ```bat
 	: Entramos al CLI del contenedor.
+	:	--- (-i): Accede al contenedor de forma (interactiva).
+	:	--- (-t): A su terminal.
 	docker exec -it site-hospital-db /bin/bash
 
 	: Podemos ejecutar comandos dentro del contenedor.

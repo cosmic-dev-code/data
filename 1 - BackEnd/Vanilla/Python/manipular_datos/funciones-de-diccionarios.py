@@ -203,16 +203,6 @@ for key in list(frutas)[:2]:
 # ######===--- Recorrer diccionarios ---===###### 
 # ##########===========================##########
 
-# --------------------------------- #
-# ------ Funcion (enumerate) ------ #
-# --------------------------------- #
-
-diccionario = {'a': 1, 'b': 2, 'c': 3}
-
-for indice, (clave, valor) in enumerate(diccionario.items()):
-    # Uso de (clave), (valor) y (indice).
-    pass
-
 # ------------------------- #
 # ------ Bucle (for) ------ #
 # ------------------------- #
@@ -223,14 +213,18 @@ for clave in diccionario:
     # ...
     pass
 
-# ------------------------- #
-# ------ Por (Items) ------ #
-# ------------------------- #
+for clave, valor in diccionario.items():
+    # Uso de (clave) y (valor).
+    pass
+
+# --------------------------------- #
+# ------ Funcion (enumerate) ------ #
+# --------------------------------- #
 
 diccionario = {'a': 1, 'b': 2, 'c': 3}
 
-for clave, valor in diccionario.items():
-    # Uso de (clave) y (valor).
+for indice, (clave, valor) in enumerate(diccionario.items()):
+    # Uso de (clave), (valor) y (indice).
     pass
 
 # --------------------------- #

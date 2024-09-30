@@ -22,6 +22,23 @@ let array = new Array("Uno", "Dos", "Tres");
 // Elementos de tipos diferentes.
 let array1 = new Array("Uno", false, 55, [5, "Uno"]);
 
+/* ##########====================########## */
+/* ######===--- Unidimensional ---===###### */
+/* ##########====================########## */
+
+let array = new Array("Brandon", "Anthony");
+
+// Recorre cada elemento del arreglo.
+for(let i = 0; i < array.length; i++){
+    // Elemento.
+    array[i];
+}
+
+// Esta es otra forma de recorrer arreglos.
+array.forEach(elemento => {
+    // ...
+});
+
 /* ##########=====================########## */
 /* ######===--- Bidimensionales ---===###### */
 /* ##########=====================########## */
@@ -42,18 +59,14 @@ for(let i = 0; i < array.length; i++){
 /* ##########======================########## */
 
 let array = [
-    [
-        new Array(22.35223, 3.325245)
-    ],
-    [
-        new Array(0, 3.3)
-    ],
-    [
-        new Array(341.134314, 1)
-    ]
+    [ new Array(22.35223, 3.325245) ],
+    [ new Array(0, 3.3) ],
+    [ new Array(341.134314, 1) ]
 ];
 
-// Iteramos cada uno de los arreglos.
+/**
+ * Forma clasica.
+ */
 for(let i = 0; i < array.length; i++){
     for(let j = 0; j < array[i].length; j++){
         for(let k = 0; k < array[i][j].length; k++){
@@ -64,7 +77,9 @@ for(let i = 0; i < array.length; i++){
     }
 }
 
-// For (in).
+/**
+ * Obtener los indices directamente. (for in).
+ */
 for(let i in array){
     for(let j in array[i]){
         for(let k in array[i][j]){
@@ -75,7 +90,9 @@ for(let i in array){
     }
 }
 
-// For (of).
+/**
+ * Obtener los valores directamente. (for of).
+ */
 for(let arrUno of array){
 	for(let arrDos of arrUno){
 		for(let item of arrDos){
