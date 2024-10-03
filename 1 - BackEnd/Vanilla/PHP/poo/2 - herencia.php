@@ -41,11 +41,12 @@ $user = new User("Brandon", 21, "brandonanthonyolivaresamador@gmail.com");
 
 /* Primera clase. */
 class Auto{
+	# (protected) y (public) son heredadas a otras clases.
 	protected string $pais = "Ninguno";
 	protected $estado = "Ninguno";
+	protected float $motor;
 	public string $color;
 	public $costo = 0.000;
-	protected float $motor;
 
 	public function __construct($pais = "Ninguno", $estado = "", $color = "Negro", $costo, float $motor){
 		$this -> pais = $pais;
@@ -73,10 +74,7 @@ class Auto{
 
 /* Esta segunda clase hereda todas las propiedades asi como los 
 metodos (incluyendo el metodo constructor), e incluso esta 
-tiene otras dos propiedades mas y un metodo mas.
-
-(Dado que las propiedades de la primera clase estan declaradas 
-como (protected) y (public, esta clase tiene acceso a ellas). */
+tiene otras dos propiedades mas y un metodo mas. */
 class Toyota extends Auto{
 	protected readonly string $marca = "Toyota";
 	protected readonly string $fecha_salida = "201 / Mayo / 23";
@@ -128,10 +126,10 @@ class User{
     }
 }
 
-/* La clase se extiende de la primera clase y toma todos sus 
-metodos y propiedades. */
+// La clase se extiende de la primera clase y toma todos sus metodos y propiedades.
 class Admin extends User{
-	protected $numero; // Propiedad perteneciente a la clase.
+	// Propiedad perteneciente a la clase.
+	protected $numero = 172;
 
 	/* Heredamos el metodo constructor. */
 
@@ -165,6 +163,8 @@ class Admin extends User
 	public function __construct($nombre = "", $edad = 0, $correo = "", $numero = 0){
 		# Le damos los valores al primer metodo constructor.
 		parent::__construct($nombre, $edad, $correo);
+
+		// Propiedad especifica de esta clase.
 		$this -> numero = $numero;
 	}
 

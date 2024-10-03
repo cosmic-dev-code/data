@@ -164,8 +164,8 @@ class Usuario{
 		$this -> edad = $edad;
 	}
 
-    /* El metodo (destructor) se ejecuta cuando termina el programa.
-    Se utiliza para liberar los datos. */
+    # El metodo (destructor) se ejecuta cuando termina el programa.
+    # Se utiliza para liberar los datos.
 	function __destruct(){
 		$this -> nombre = "";
 		$this -> edad = "";
@@ -184,9 +184,15 @@ $resultado = $usuario -> get_info();
 /* ######===--- Modificadores de acceso ---===###### */
 /* ##########=============================########## */
 
+// ----------------------------- //
+// ------ Encapsulamiento ------ //
+// ----------------------------- //
+
 class Usuario
 {
-	// Propiedades y metodos (publicos).
+	/**
+	 * Propiedades y metodos (publicos).
+	 */
 
 	public $descripcion;
 	var $descripcion_1;
@@ -196,7 +202,9 @@ class Usuario
 		cualquier objeto instanciado desde la misma clase. */
 	}
 
-	// Propiedades y metodos (privados).
+	/**
+	 * Propiedades y metodos (privados).
+	 */
 
 	$variable = 50;
 	private string $correo_electronico;
@@ -206,7 +214,9 @@ class Usuario
 		las clases hijas no tienen acceso a ella. */
 	}
 
-	// Propiedades y metodos (protejidos).
+	/**
+	 * Propiedades y metodos (protejidos).
+	 */
 	
 	protected string $nombre;
 	protected $edad;
@@ -279,7 +289,7 @@ $nombre = $usuario -> get_name();
 /* Las propiedades (readonly) hacen que una propiedad pueda inicializarse una vez 
 y que estas no puedan modificarse.
 
-Sindo asi los metodos (getter) y (setter) son inecesarios, por lo que podemos 
+Siendo asi los metodos (getter) y (setter) son inecesarios, por lo que podemos 
 volver (publicas) las propiedades asegurando su integridad. */
 
 class Usuario{
@@ -319,9 +329,7 @@ $usuario -> edad;
 /* ######===--- Métodos estáticos ---===###### */
 /* ##########=======================########## */
 
-/* Los metodos estaticos tienen la caracteristica de 
-que se puede acceder a ellos sin la necesidad de 
-instanciar un objeto. */
+# Los metodos estaticos permiten acceder a un metodo de una clase directamente sin instanciarla.
 class Usuario{
 	private string $nombre;
 	private int $edad;

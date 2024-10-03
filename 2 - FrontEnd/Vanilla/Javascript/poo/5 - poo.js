@@ -127,6 +127,10 @@ usuario1.saludo();
 /* ######===--- Modificadores de acceso ---===###### */
 /* ##########=============================########## */
 
+// ----------------------------- //
+// ------ Encapsulamiento ------ //
+// ----------------------------- //
+
 class Usuario
 {
 	// (private/#), permite el acceso al miembro de la clase desde sí misma, pero no de las clases que hereden.
