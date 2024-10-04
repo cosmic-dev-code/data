@@ -130,6 +130,15 @@ tupla.index("python")  # 1
 # Busca desde el índice específico
 tupla.index("javascript", 1)  # 3
 
+# Devuelve el valor maximo.
+min(lista) # 1
+
+# Devuelve el valor minimo.
+max(lista) # 2
+
+# Suma todos los elementos.
+sum(lista)
+
 # Intentar buscar un elemento que no se encuentra
 try:
     tupla.index("otro")

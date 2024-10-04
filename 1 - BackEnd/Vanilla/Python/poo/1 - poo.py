@@ -115,9 +115,41 @@ class Usuario:
 # El objeto (usuario) tiene esas únicas propiedades.
 usuario = Usuario("Brandon", 22)
 
-# ##########=======================##########
-# ######===--- Método destructor ---===###### 
-# ##########=======================##########
+# -------------------------- #
+# ------ Método (new) ------ #
+# -------------------------- #
+
+# (new) Se manda a llamar primero que el (init).
+#   --- (__init__) Es el encargado de crear la instancia de la clase.
+#   --- (__new__) Es el encargado de crear la clase como tal.
+
+class MiClase:
+    def __new__(cls, *args, **kwargs):
+
+        # Puedes hacer otro proceso aqui.
+        
+        # Llama a __new__ de la clase base
+        # Devuelve la nueva instancia
+        return super().__new__(cls)
+
+    '''
+        Parametros para (new)
+    '''
+    def __new__(cls, name, bases, attrs):
+        # (cls): Representa el parametro en si.
+        # (name): Nombre de la clase que se quiere crear.
+        # (bases): Tupla que contiene las clases bases en la que se basa esta clase.
+        # (attrs): Diccionario con las propiedades y metodos de la clase que se quiere crear.
+
+        # Definimos un nuevo metodo.
+        attrs['greet'] = lambda self: f"Hello, {self.name}!"
+
+        # Retornamos todo.
+        return super().__new__(cls, name, bases, attrs)
+
+# --------------------------------- #
+# ------ Método (destructor) ------ #
+# --------------------------------- #
 
 class Usuario:
     def __init__(self, nombre:str = "Brandon", edad:int = 21):
@@ -352,8 +384,15 @@ class Usuario:
         # Llamando a un método estático dentro de la misma clase
         Usuario.__texto()
 
+    # (cls) Permite referirse a la clase misma, como (self) a la instancia.
+    # NOTA: Tambien debe recibirse por parametro.
+    @staticmethod
+    def otro(cls)->str:
+        return cls.__texto()
+
 # Llamamos al método estático que a su vez llama a otro
 Usuario.saludar()
+Usuario.otro()
 
 # Acceso a la propiedad pública estática
 Usuario.propiedad_publica

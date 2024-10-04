@@ -1,13 +1,16 @@
-# /* ##########==========########## */
-# /* ######===--- Args ---===###### */
-# /* ##########==========########## */
+# ##########==========##########
+# ######===--- Args ---===######
+# ##########==========##########
 
-# El operador *args indica que todos los parámetros que se van a recibir en la función se recibirán como una tupla.
+# El operador *args indica que todos los parámetros que se van a recibir en la función se recibirán como una (tupla).
 
-def calculadora(simbolo="+", *arr_numeros):
+def calculadora(simbolo="+", *args):
     suma = 0
 
-    for numero in arr_numeros:
+    # Esto es una (tupla).
+    args
+
+    for numero in args:
         if simbolo == "+":
             suma += numero
         elif simbolo == "-":
@@ -21,15 +24,21 @@ def calculadora(simbolo="+", *arr_numeros):
 
     return suma
 
-# Todos los parámetros desde el segundo donde se encuentra el *args, se almacenan en la tupla.
+# Todos los parámetros desde el segundo donde se encuentra el *args, se almacenan en la (tupla).
 calculadora("+", 5, 5, 5)  # 15
 calculadora("-", 10, 10, 5)  # -5
 calculadora("*", 5, 5, 2)  # 50
 calculadora("/", 10, 2, 2)  # 2.5
 
-# -------------------------------------------------------------------------------------------
+# ------------------------------------- #
+# ------ Operador de propagacion ------ #
+# ------------------------------------- #
+
+# No es obligatorio que se llame (args), pero se hace por (convencion).
 
 class Calculadora:
+
+    # Recuerda que se recibe en formato de (tupla).
     
     @staticmethod
     def suma(*numeros):
@@ -59,7 +68,9 @@ class Calculadora:
             resultado /= numero
         return resultado
 
-# Imprimimos los valores en pantalla.
+'''
+    Imprimimos los valores en pantalla.
+'''
 
 print("La suma es:", Calculadora.suma(5, 5, 5))
 
@@ -68,3 +79,16 @@ print("La resta es:", Calculadora.resta(5, 5, 5))
 print("La multiplicación es:", Calculadora.multiplicacion(5, 5, 5))
 
 print("La división es:", Calculadora.division(5, 5, 5))
+
+# ##########==============##########
+# ######===--- **kwargs ---===######
+# ##########==============##########
+
+# SImilar a *args, (**kwargs) permite recibin un numero indefinido de parametros, pero los recibe en formato de un (diccionario).
+
+def imprimir_info(**kwargs):
+    for clave, valor in kwargs.items():
+        # Clave y valor como un diccionario.
+        print(f"{clave}: {valor}")
+
+imprimir_info(nombre="Juan", edad=30)  # Imprime: nombre: Juan \n edad: 30

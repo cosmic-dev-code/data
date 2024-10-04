@@ -1,34 +1,58 @@
 <?php
 
-/* ##########==================########## */
-/* ######===--- Validaciones ---===###### */
-/* ##########==================########## */
+# ##########==================##########
+# ######===--- Validaciones ---===######
+# ##########==================##########
 
-is_int($entero); # Verifica que sea un numero entero.
+# Verificar tipo de dato
 
-is_integer($entero); # Funciona exactamentew igual que el 'int'.
+# Un entero.
+isinstance(10, int)  # True
 
-is_long($entero); # Verifica un valor entero.
+# Un flotante.
+isinstance(10.5, float)  # True
 
-is_float($flotante); # Verifica un valor flotante.
+# Una cadena de texto.
+isinstance("texto", str)  # True
 
-is_double($flotante); # Verifica un valor flotante.
+# Valor None (nulo).
+isinstance(None, type(None))  # True
 
-is_string($cadena); # Verifica un valor de cadena.
+# Numérico (int o float).
+isinstance(123, (int, float))  # True
 
-is_nan($NaN); # Verifica un valor irracional.
+# Una lista (equivalente a un arreglo).
+isinstance([1, 2, 3], list)  # True
 
-is_null($nulo); # Verifica un valor nulo.
+# Verifica que un objeto posea un atributo.
+hasattr(obj, "_is_final")
 
-is_numeric($numero);
-is_numeric($flotante); # Verifica un dato numerico.
-is_numeric($numero + $flotante);
+# Verificar si un valor es NaN (Not a Number).
+import math
+is_nan = math.isnan(flotante)  # False en este caso
 
-is_array($array); # Verifica si se trata de un arreglo.
+# Ejemplo de uso: 
+isinstance(entero, int)  # True
+isinstance(flotante, float)  # True
+is_nan  # False
 
-/* La funcion (filter_var) permite validar tipos de datos.
-Para mas informacion visita el archivo (filter.php) en la carpeta (APIs). */
-filter_var($variable, TYPE);
+# ---------------------- #
+# ------ callable ------ #
+# ---------------------- #
+
+def my_function():
+    return "Hello"
+
+class MyClass:
+    def __call__(self):
+        return "Hello from MyClass"
+
+obj = MyClass()
+
+# Verifica si algo se puede llamar, (invocar).
+
+callable(my_function) # True
+callable(obj) # True
 
 /* ##########================########## */
 /* ######===--- Ver tipado ---===###### */

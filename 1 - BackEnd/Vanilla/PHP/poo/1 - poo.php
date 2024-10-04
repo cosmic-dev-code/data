@@ -152,9 +152,9 @@ class Usuario
 // Se puede instanciar como siempre.
 const $usuario = new Usuario("Brandon", 22);
 
-/* ##########=======================########## */
-/* ######===--- Método destructor ---===###### */
-/* ##########=======================########## */
+// --------------------------------- //
+// ------ Método (destructor) ------ //
+// --------------------------------- //
 
 class Usuario{
 	var $nombre; var $edad;
