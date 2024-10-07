@@ -32,23 +32,22 @@ Route::get('/cursos', function(){
 		<h1>Bienvenido a la pagina de <strong>cursos</strong></h1>
 		<div>
 			<p>Gracias por visitar nuestra pagina de cursos.</p>
-		</div>";
+		</div>
+	";
 
 	return $content; // La pagina mostrara el contenido.
 });
 
 /* ##########===========================########## */
-/* ######===--- parametros con nombre ---===###### */
+/* ######===--- Parametros con nombre ---===###### */
 /* ##########===========================########## */
 
 /* Las rutas pueden recibir parametros, (de una manera convencional).
+   	--- /cursos/laravel
+*/
+// NOTA: Estos parametros son obligatorios cuando los defines en una ruta.
 
-   Forma personalizada: --- /cursos?el_curso=18
-   
-   Forma convencional: --- /cursos/18
-
-// NOTA: Estos parametros son obligatorios cuando los defines en una ruta. */
-
+// Declaramos una ruta de tipo (string).
 Route::get('/cursos/{el_curso}', function(string $el_curso)){
 	$content = "
 		<h1>Bienvenido al curso $el_curso</h1>
@@ -63,7 +62,8 @@ Route::get('/cursos/{el_curso}', function(string $el_curso)){
 /**
  * Podemos pasar mas de un parametro.
  * 
- * NOTA: Por (convencion) el nombre del parametro en la ruta lleva el mismo que el que se recibe la funcion.
+ * NOTA: Por (convencion) el nombre del parametro en la ruta lleva el mismo 
+ * que el que se recibe la funcion.
  */
 
 Route::get('/cursos/{curso}/{seccion}', function(string $curso, string $seccion){
@@ -79,7 +79,7 @@ Route::get('/cursos/{curso}/{seccion}', function(string $curso, string $seccion)
 });
 
 /* ##########===========================########## */
-/* ######===--- parametros opcionales ---===###### */
+/* ######===--- Parametros opcionales ---===###### */
 /* ##########===========================########## */
 
 // Los parametros opcionales se indican dentro de {} y al final el signo (?).
@@ -121,9 +121,9 @@ Route::get('/cursos/{el_curso}/{seccion?}', function(string $el_curso, string $s
 	}
 });
 
-/* ##########===============================########## */
-/* ######===--- parametros personalizados ---===###### */
-/* ##########===============================########## */
+/* ##########=============########## */
+/* ######===--- Queries ---===###### */
+/* ##########=============########## */
 
 // Importamos a la clase (Request) para tener disponible al objeto que puede extraer parametros personalizados.
 use Illuminate\Http\Request;
