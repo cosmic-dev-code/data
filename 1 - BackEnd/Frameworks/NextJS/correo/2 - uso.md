@@ -29,14 +29,11 @@
 
 ###### --- --- --- --- --- --- {proyecto}/src/app/api/route.js --- --- --- --- --- --- ######
 
+<!-- Obtener Template. -->
+
 ```js
-    // Importamos las librerias.
-    import nodemailer from "nodemailer";
     import handlebars from "handlebars";
     
-    /**
-     * Obtener Template.
-     */
     function templatesEmail(){
         // Obtener la plantilla.
         const getTemplate = () => {
@@ -58,15 +55,15 @@
         };
         
         // Genera el HTML a partir de la plantilla y los datos
-        const emailHtml = template(templateData);
-
-        return emailHtml;
+        return template(templateData);
     }
+```
 
+<!-- Enviar correo. -->
 
-    /**
-     * Enviar correo.
-     */
+```js
+    import nodemailer from "nodemailer";
+
     function sendEmail(){
         return new Promise(async (resolve, reject) => {
             try{
@@ -76,7 +73,7 @@
                     secure: true, 
                     auth: {
                         user: "brandonanthonyolivaresamador@gmail.com", 
-                        pass: "etvz ukgb qide wfri"
+                        pass: "fyhj awfg ruip ewkl"
                     }
                 });
         
@@ -100,7 +97,11 @@
             }
         });
     }
+```
 
+<!-- Ruta de la API -->
+
+```js
     export async function GET(){
         try{
             // Enviamos el correo.
