@@ -13,22 +13,37 @@ usuario.nombre = "Brandon"
 usuario.apellido = "Olivares"
 usuario.edad = 21
 
-# El registro no tiene ninguna otra propiedad más que las que definimos.
-# Dado que no tiene un 'id' definido, este objeto se insertará como un nuevo registro.
+# El registro no tiene ninguna otra propiedad más que las que definimos,
+# dado que no tiene un 'id' definido, este objeto se insertará como un
+# nuevo registro.
 usuario.save()
+
+print(usuario)  # Imprimimos el objeto
+"""
+  Imprimimos el objeto:
+  Usuario(
+    id=1,
+    nombre="Brandon",
+    apellido="Olivares",
+    edad=21,
+    created_at="2021-08-29 01:57:39",
+    updated_at="2021-08-29 01:57:39"
+  )
+"""
 
 # ##########============================##########
 # ######===--- Actualizar un registro ---===######
 # ##########============================##########
 
-# Para actualizar el registro, simplemente cambiamos
-# el valor de las propiedades que queremos actualizar.
+# Para actualizar el registro, solo debemos cambiar
+# el valor de la propiedad que queremos actualizar y
+# volver a guardarlo.
 usuario.nombre = "Brandon Anthony"
 usuario.apellido = "Olivares Amador"
 usuario.edad = 20
 
-# Dado que el objeto ahora tiene un 'id',
-# el registro se actualizará en lugar de insertarse.
+# Dado que el objeto ya tiene un 'id', el registro
+# en lugar de insertarse se actualizará.
 usuario.save()
 
 # ##########==========================##########
@@ -38,88 +53,160 @@ usuario.save()
 # El registro se elimina.
 usuario.delete()
 
+# Trunca toda la tabla.
+Curso.objects.all().delete()
+
+# Borra todos los registros.
+Curso.objects.all().delete()
+
 # ##########=====================##########
 # ######===--- Traer registros ---===######
 # ##########=====================##########
 
-from app.models import Curso
-
-# Truncar la tabla.
-Curso.objects.all().delete()
+# -------------------------- #
+# ------ Extraer todo ------ #
+# -------------------------- #
 
 # Traer todos los registros de la tabla.
-Curso.objects.all()  # Curso[]
+Curso.objects.all()
+
+# Extraer todos los registros por el 'id' de forma ascendente o descendente.
+Curso.objects.order_by('-id')
+Curso.objects.order_by('id')
+
+# NOTA: 'latest' por defecto ordena por 'created_at'.
+
+Curso.objects.latest('id')
+Curso.objects.earliest('id')
+
+# ------------------------- #
+# ------ Un registro ------ #
+# ------------------------- #
+
+# Extrae el primer registro.
+Curso.objects.first()
+
+# Extrae el segundo registro.
+Curso.objects.last()
+
+# Trae el registro donde su campo 'id' sea igual a 10.
+Curso.objects.get(id=10)
+
+# Maneja el error si no se encuentra el curso con id 10.
+try:
+    Curso.objects.get(id=10)
+except Curso.DoesNotExist:
+    # Manejo del error
+    pass
+
+# --------------------- #
+# ------ Filtros ------ #
+# --------------------- #
 
 # Solo trae 10 registros.
-Curso.objects.all()[:10]  # Curso[]
-
-# Ordenar los registros por el 'id' de forma ascendente.
-Curso.objects.order_by('id')  # Curso[]
-
-# Ordenar los registros por el 'id' de forma descendente.
-Curso.objects.order_by('-id')  # Curso[]
-
-# De todos los registros, solo trae el primer registro.
-Curso.objects.first()  # Curso
-
-# De todos los registros, solo trae el último registro.
-Curso.objects.last()  # Curso
-
-# Trae el primer registro que coincida con la condición.
-Curso.objects.filter(edad=20).first()  # Curso
-
-# Trae el último registro que coincida con la condición.
-Curso.objects.filter(edad=20).order_by('-id').first()  # Curso
+Curso.objects.all()[:10]
 
 # Solo trae los registros que tengan una (edad) de 20.
-Curso.objects.filter(edad=20)  # Curso[]
+Curso.objects.filter(edad=20)
 
-# Trae todos los registros que coincidan con la condición ordenados ascendentemente por su 'id'.
-Curso.objects.filter(edad=20).order_by('id')  # Curso[]
+# Trae todos los registros que coincidan con la (condición) bajo el (orden).
+Curso.objects.filter(edad=20).order_by('-id')
 
 # Trae los registros que contengan en su campo (nombre) la palabra (Brandon).
-Curso.objects.filter(nombre__icontains='Brandon')  # Curso[]
+Curso.objects.filter(nombre__icontains="Brandon")
+
+# Podemos concatenar más (WHERE) utilizando (AND).
+Curso.objects.filter(nombre__icontains="Brandon", activo=1, categoria="Matemáticas")
+
+# Podemos concatenar con un (OR).
+from django.db.models import Q
+Curso.objects.filter(Q(nombre__icontains="Brandon") | Q(categoria="Matemáticas"))
 
 # Traemos los datos solo si el 'id' es:
 Curso.objects.filter(id__gt=9)  # Mayor que 9
 Curso.objects.filter(id__gte=9)  # Mayor o igual a 9
-Curso.objects.filter(id__lt=9)  # Menor que 9
+Curso.objects.filter(id__lt=9)  # Menor a 9
 Curso.objects.filter(id__lte=9)  # Menor o igual a 9
 Curso.objects.filter(id=9)  # Igual a 9
-Curso.objects.exclude(id=9)  # Diferente a 9
+Curso.objects.filter(id__ne=9)  # Diferente a 9
 
-# Trae todos los 'nombres' y los 'correos'.
-Curso.objects.values('nombre', 'correo')  # Curso[]
+# (WHERE) y (AND), utilizando un diccionario.
+Curso.objects.filter(
+    nombre__icontains="Brandon",
+    activo=1,
+    categoria="Matemáticas"
+)
 
-# Trae el correo y la edad solo si el correo es correspondiente a (brandon@gmail.com).
-Curso.objects.filter(correo='brandon@gmail.com').values('correo', 'edad')  # Curso[]
+# -------------------- #
+# ------ Select ------ #
+# -------------------- #
 
-# Podemos traer los datos bajo un 'alias'.
-Curso.objects.values('nombre', mail=F('correo'))  # Curso[]
+# Trae todos los (nombres) y los (correos).
+Curso.objects.values('nombre', 'correo')
 
-# Trae el dato donde su campo (id) sea igual a 10.
-Curso.objects.get(id=10)  # Curso
+# Trae el (correo) y la (edad) solo si el (where) se cumple.
+Curso.objects.filter(correo="brandon@gmail.com").values('correo', 'edad')
 
-# Trae el dato donde su campo (id) sea igual a 10, pero en caso de que no 
-# se encuentre el 'id', entonces da un error (404).
-try:
-    Curso.objects.get(id=10)  # Curso
-except Curso.DoesNotExist:
-    # Manejar el error 404 aquí
-    pass
+# Podemos traer los datos bajo un (alias).
+Curso.objects.values('nombre', correo='email')
 
-# Esto devuelve un queryset paginado de 3 en tres.
-from django.core.paginator import Paginator
+# Selecciona el (id) solo si se cumple el (where) y trae (1).
+Curso.objects.filter(correo="brandon@gmail.com")[:1].values('id')
 
-cursos = Curso.objects.filter(correo__icontains='gmail')
-paginator = Paginator(cursos, 3)  # 3 registros por página
-page_number = 1  # Cambia según la página deseada
-cursos_pagina = paginator.get_page(page_number)
+# Podemos comparar de manera explícita (=).
+Curso.objects.filter(correo="brandon@gmail.com", activo=1).values('correo', 'edad')
+
+# ------------------ #
+# ------ Join ------ #
+# ------------------ #
+
+# De (Curso) a (categorias).
+# Si (cursos.categoria_id = categorias.id).
+Curso.objects \
+    .join('categorias', 'cursos.categoria_id', '=', 'categorias.id') \
+    .values('cursos.*', categoria_nombre='categorias.nombre')
+
+# ---------------------- #
+# ------ Replicar ------ #
+# ---------------------- #
+
+# Extraer registro.
+curso = Curso.objects.get(id=10)
+
+# Replicar registro a un objeto nuevo.
+curso_clon = curso
+
+# Podemos modificarlo y guardarlo en la base de datos.
+curso_clon.pk = None  # Elimina el ID para que sea un nuevo objeto
+curso_clon.save()
+
+# ------------------------ #
+# ------ Paginación ------ #
+# ------------------------ #
+
+# Esto devuelve un array con todos los registros (paginados de 3 en 3).
+cursos = Curso.objects.filter(correo__icontains='gmail').paginate(page=1, per_page=3)
 
 # Proporciona los links de la paginación.
-# Puedes usar `cursos_pagina.has_next()` y `cursos_pagina.has_previous()` para generar enlaces en la vista.
+cursos.paginator.page_range
 
-# Podemos replicar un registro haciendo uso del método (replicate).
-Curso.objects.get(id=10)  # Curso
-curso_clon = Curso(nombre=curso.nombre, correo=curso.correo, edad=curso.edad)  # Clonando el objeto
-curso_clon.save()
+# ##########=========================##########
+# ######===--- Convertir registros ---===######
+# ##########=========================##########
+
+# Convierte a un (diccionario).
+curso_dict = curso.__dict__
+
+# Solo convierte ciertas propiedades a un (diccionario).
+curso_dict = {key: curso.__dict__[key] for key in ["id", "nombre", "descripcion"]}
+
+# Convierte a un objeto JSON.
+import json
+curso_json = json.dumps(curso.__dict__)
+
+# Convierte el diccionario a un objeto.
+curso_object = dict(curso.__dict__)
+
+# Convierte el diccionario a una colección.
+from collections import namedtuple
+Collection = namedtuple('Collection', curso.__dict__.keys())(*curso.__dict__.values())

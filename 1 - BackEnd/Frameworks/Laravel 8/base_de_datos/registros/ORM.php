@@ -15,20 +15,23 @@ $usuario -> nombre = "Brandon";
 $usuario -> apellido = "Olivares";
 $usuario -> edad = 21;
 
-/* El registro no tiene ninguna otra propiedad mas que las que definimos, dado que no tiene un 'id' 
-definido este objeto se insertara como un nuevo registro. */
+/* El registro no tiene ninguna otra propiedad mas que las que definimos, 
+dado que no tiene un 'id' definido este objeto se insertara como 
+un nuevo registro. */
 $usuario -> save();
 
 dd($usuario);
-/* Imprimimos el objeto {
-  #3440
-  nombre: "Brandon",
-  apellido: "Olivares",
-  edad: 21,
-  updated_at: "2021-08-29 01:57:39",
-  created_at: "2021-08-29 01:57:39",
-  id: 1,
-} */
+/*
+  Imprimimos el objeto {
+      #3440
+      nombre: "Brandon",
+      apellido: "Olivares",
+      edad: 21,
+      updated_at: "2021-08-29 01:57:39",
+      created_at: "2021-08-29 01:57:39",
+      id: 1
+  } 
+*/
 
 /* ##########============================########## */
 /* ######===--- Actualizar un registro ---===###### */
@@ -54,118 +57,182 @@ $usuario -> save();
 # El registro se elimina.
 $usuario -> delete();
 
-/* ##########=====================########## */
-/* ######===--- Traer registros ---===###### */
-/* ##########=====================########## */
-
-# Acemos uso de la tabla (Curso).
-use App\Models\Curso;
-
-# Trunca la tabla.
+# Trunca toda la tabla.
 Curso::truncate();
 
 # Borra todos los registros.
 Curso::all() -> delete();
 
+/* ##########=====================########## */
+/* ######===--- Traer registros ---===###### */
+/* ##########=====================########## */
+
+// -------------------------- //
+// ------ Extraer todo ------ //
+// -------------------------- //
+
 # Traer rodos los registros de la tabla.
-$cursos = Curso::all(); // Curso[]
+Curso::all(); // Curso[]
 
-/* Ordena los registros en este caso por el 'id' de forma (ascendente). */
-// Curso[]
-$cursos = Curso::all() -> latest('id');
-$cursos = Curso::all() -> sortBy('id');
-$cursos = Curso::orderBy("id", "asc") -> get();
+// Extraer todos los registros por el 'id' de forma (descendente) o (ascendente).
+Curso::orderBy('id', 'desc')->get();
+Curso::orderBy('id', 'asc')->get();
 
-/* Ordena los registros en este caso por el 'id' de forma (descendente). */
-// Curso[]
-$cursos = Curso::all() -> oldest('id');
-$cursos = Curso::all() -> sortByDesc('id');
-$cursos = Curso::orderBy("id", "desc") -> get();
+// NOTA: (latest) por defecto ordena por 'created_at'.
 
-# De todos los registros solo trae el primer registro.
-$primer_curso = Curso::all() -> first(); // Curso
+// Extrae todos los registros y los ordena por 'id' de manera (descendente) o (ascendente).
+Curso::all() -> latest('id');
+Curso::all() -> oldest('id');
 
-# De todos los registros solo trae el ultimo registro.
-$ultimo_curso = Curso::all() -> latest(); // Curso
+// NOTA: (sortBy) ordena en memoria, no en la base de datos, y no es eficiente 
+// para grandes volúmenes de datos.
 
-# Trae el primer registro que coincida con la condicion.
-$cursos_edad = Curso::where('edad', 20) -> first(); // Curso
+// Extrae todos los registros y los ordena por 'id' de manera (ascendente).
+Curso::all() -> sortBy('id');
 
-# Trae el ultimo registro que coincida con la condicion.
-$cursos_edad = Curso::where('edad', 20) -> latest(); // Curso
+// ------------------------- //
+// ------ Un registro ------ //
+// ------------------------- //
+
+// Extrae el primer registro.
+Curso::all() -> first(); // Curso
+
+// Extrae el segundo registro.
+Curso::all() -> latest(); // Curso
+
+# Trae el dato donde su campo (id) sea igual a 10.
+Curso::find(10); // Curso
+
+# Maneja el error si no se encuentra el curso con id 10.
+try {
+    Curso::findOrFail(10);
+} catch (Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+    // ...
+}
+
+// --------------------- //
+// ------ Filtros ------ //
+// --------------------- //
 
 # Solo trae 10 registros.
-$cursos = Curso::all() -> take(10); // Curso[]
+Curso::all() -> take(10); // Curso[]
 
 # Solo trae los registros que tengan una (edad) de 20.
-$cursos_edad = Curso::where('edad', 20) -> get(); // Curso[]
+Curso::where('edad', 20) -> get(); // Curso[]
 
-# Trae todos los registros que coincidan con la condicion ordenados ascendentemente por su 'id'.
-$cursos = Curso::where('edad', 20) -> orderBy('id', 'desc') -> get(); // Curso[]
+# Trae todos los registros que coincidan con la (condicion) bajo el (orden).
+Curso::where('edad', 20) -> orderBy('id', 'desc') -> get(); // Curso[]
 
 # Trae los registros que contengan en su campo (nombre) la palabra (Brandon).
-$curso = Curso::where('nombre', 'like', '%Brandon%') -> get(); // Curso[]
+Curso::where('nombre', 'like', '%Brandon%') -> get(); // Curso[]
 
-/* Traemos los datos solo si el 'id' es: 
-    --- Mayor que 9.
-    --- Mayor o igual a 9.
-    --- Menor a 9.
-    --- Menor o igual a 9.
-    --- igual a 9.
-    --- diferente a 9.
-    --- diferente a 9. */
-// Curso[]
-$curso = Curso::where('id', '>', 9) -> get();
-$curso = Curso::where('id', '>=', 9) -> get();
-$curso = Curso::where('id', '<', 9) -> get();
-$curso = Curso::where('id', '<=', 9) -> get();
-$curso = Curso::where('id', '=', 9) -> get();
-$curso = Curso::where('id', '<>', 9) -> get();
-$curso = Curso::where('id', '!=', 9) -> get();
+# Podemos concatenar mas (WHERE) utilizando (AND).
+Curso::where('nombre', 'like', '%Brandon%')
+    ->where('activo', 1)
+    ->where('categoria', 'Matemáticas')
+    ->get();
 
-/* Trae todos los 'nombres' y los 'correos'. */
-$curso = Curso::select('nombre', 'correo') -> get(); // Curso[]
+# Podemos concatenar con un (OR).
+Curso::where('nombre', 'like', '%Brandon%')
+    ->orWhere('categoria', 'Matemáticas')
+    ->get();
 
-/* Trae el correo y la edad solo si el correo es correspondiente a (brandon@gmail.com). */
-$curso = Curso::select('correo, edad') -> where('correo', 'brandon@gmail.com') -> get(); // Curso[]
+# Traemos los datos solo si el 'id' es: 
+$curso = Curso::where('id', '>', 9) -> get(); // --- Mayor que 9.
+$curso = Curso::where('id', '>=', 9) -> get(); // --- Mayor o igual a 9.
+$curso = Curso::where('id', '<', 9) -> get(); // --- Menor a 9.
+$curso = Curso::where('id', '<=', 9) -> get(); // --- Menor o igual a 9.
+$curso = Curso::where('id', '=', 9) -> get(); // --- igual a 9.
+$curso = Curso::where('id', '<>', 9) -> get(); // --- diferente a 9.
+$curso = Curso::where('id', '!=', 9) -> get(); // --- diferente a 9.
 
-/* Podemos traer los datos bajo un 'alias'. */
-$curso = Curso::select('nombre as nombre', 'correo as mail') -> get(); // Curso[]
+// (WHERE) y (AND), utilizando un arreglo.
+Curso::where([
+    ['nombre', 'like', '%Brandon%'], 
+    // Comportamiento implicito (=).
+    ['activo', 1], 
+    ['categoria', 'Matemáticas']
+]) -> get();
 
-/* Trae el dato donde su campo (id) sea igual a 10. */
-$curso = Curso::find(10); // Curso[]
+// -------------------- //
+// ------ Select ------ //
+// -------------------- //
 
-$id = Curso::select('id') -> where('correo', 'brandon@gmail.com') -> take(1) -> get();
-$curso = Curso::find($id); // Curso[]
+# Trae todos los (nombres) y los (correos).
+Curso::select('nombre', 'correo') -> get(); // Curso[]
 
-/* Trae el dato donde su campo (id) sea igual a 10, pero en caso de que no 
-se encuentre el 'id', entonces da un error (404). */
-$curso = Curso::findOrFail(10); // Curso
+# Trae el (correo) y la (edad) solo si el (where) se cumple.
+Curso::select('correo, edad') -> where('correo', 'brandon@gmail.com') -> get(); // Curso[]
+Curso::select('correo, edad') -> where([
+    ['correo', 'brandon@gmail.com'], 
+    ['activo', 1]
+]) -> get();
 
-/* Esto devuelve un array con todos los registros 'paginados de 3 en tres', 
-por lo que no se mostraran todos en la vista. (Aqui ya no es necesario 
-utilizar el metodo 'get'). */
+// Podemos traer los datos bajo un (alias).
+Curso::select('name as nombre', 'correo as mail') -> get(); // Curso[]
+
+// Selecciona el (id) solo si se cumple el (where) y trae (1).
+Curso::select('id') -> where('correo', 'brandon@gmail.com') -> take(1) -> get();
+
+// Podemos comparar de manera explicita, (=).
+Curso::select(['correo', 'edad'])
+    ->where([
+        ['correo', '=', 'brandon@gmail.com'], 
+        ['activo', '=', 1]
+    ])
+    ->get();
+
+// ------------------------ //
+// ------ Inner Join ------ //
+// ------------------------ //
+
+// De (Curso) a (categorias).
+// Si (cursos.categoria_id = categorias.id).
+Curso::join('categorias', 'cursos.categoria_id', '=', 'categorias.id')
+    // Selecciona (todo de cursos) y (nombre de categorias)
+    ->select('cursos.*', 'categorias.nombre as categoria_nombre') // nombre === categoria_nombre
+    ->get();
+
+// ---------------------- //
+// ------ Replicar ------ //
+// ---------------------- //
+
+// Extraer registro.
+$curso = Curso::find(10); // Curso
+
+// Replicar registro a un objeto nuevo.
+$curso_clon = $curso -> replicate();
+
+// Podemos modificarlo y guardarlo en la base de datos.
+$curso_clon -> save();
+
+// ------------------------ //
+// ------ Paginacion ------ //
+// ------------------------ //
+
+/* Esto devuelve un array con todos los registros (paginados de 3 en tres). */
 $cursos = Curso::where('correo', 'like', '%gmail%') -> paginate(3);
+
 // Proporciona los links de la paginacion.
 $cursos -> links();
-
-/* Podemos replicar un registro haciendo uso del metodo (replicate). */
-$curso = Curso::find(10); // Curso
-$curso_clon = $curso -> replicate();
-$curso_clon -> save();
 
 /* ##########=========================########## */
 /* ######===--- Convertir registros ---===###### */
 /* ##########=========================########## */
 
-// Convierte todas las propiedades del objeto en un (array asosiativo).
+// Convierte a un (array asosiativo).
 $curso -> toArray();
 
-// Convierte todas propiedades especificas del objeto en un (array asosiativo).
+// Solo convierte ciertas propiedades a un (array asosiativo).
 $curso -> only(["id", "name", "description"]);
+
+// Convierte a un objeto JSON.
+$curso -> toJson();
 
 // Convierte el array a un objeto.
 $curso_object = (object) $curso -> toArray();
 
 // Convierte el array a una coleccion.
-$collection = collect($curso -> toArray());
+$collection = collect(
+    $curso -> toArray()
+);
