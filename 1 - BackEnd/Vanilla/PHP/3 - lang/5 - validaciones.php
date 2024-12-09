@@ -4,37 +4,9 @@
 # ######===--- Validaciones ---===######
 # ##########==================##########
 
-# Verificar tipo de dato
 
-# Un entero.
-isinstance(10, int)  # True
-
-# Un flotante.
-isinstance(10.5, float)  # True
-
-# Una cadena de texto.
-isinstance("texto", str)  # True
-
-# Valor None (nulo).
-isinstance(None, type(None))  # True
-
-# Numérico (int o float).
-isinstance(123, (int, float))  # True
-
-# Una lista (equivalente a un arreglo).
-isinstance([1, 2, 3], list)  # True
-
-# Verifica que un objeto posea un atributo.
-hasattr(obj, "_is_final")
-
-# Verificar si un valor es NaN (Not a Number).
-import math
-is_nan = math.isnan(flotante)  # False en este caso
-
-# Ejemplo de uso: 
-isinstance(entero, int)  # True
-isinstance(flotante, float)  # True
-is_nan  # False
+// Verifica si existe un campo en un (array).
+isset($my_arreglo["campo"]) # bool
 
 # ---------------------- #
 # ------ callable ------ #

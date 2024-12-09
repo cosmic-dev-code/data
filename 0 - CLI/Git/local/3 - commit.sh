@@ -54,6 +54,13 @@ git commit -an
 # Igual a lo anterior pero ahora agregamos un comentario (git commit -m).
 git commit -an -m "Nuevo repositorio"
 
+# -------------------- #
+# ------ Editar ------ #
+# -------------------- #
+
+# Modifica el (ultimo) commit enviado.
+git commit --amend -m "Nueva descripcion"
+
 # ##########===============================########## #
 # ######===--- Versiones de un (archivo) ---===###### #
 # ##########===============================########## #
@@ -63,18 +70,18 @@ git commit -an -m "Nuevo repositorio"
 git show archivo.txt
 
 # Muestra todos los (commit/cambios) realizados de nuestro archivo en la rama (master).
-# (HEAD -> master) nos muestra el cambio mas reciente.
+# 	--- (HEAD -> master) nos muestra el cambio mas reciente.
 git log archivo.txt
 
 # Muestra todos los (commit) realizados en la rama actual.
 git log
 
 # Lo mismo que (git log archivo.txt) pero solo muestra cambios especificos en cada (commit).
-# Presione 'Q' para salir.
+# 	--- Presione 'Q' para salir.
 git log --stat
 
 # Muestra cada commit con un 'id' asignado para cada uno, los 'comentarios' de cada uno.
-# Desde el (primero) al (ultimo).
+# 	--- Desde el (primero) al (ultimo).
 git log --oneline
 
 # Compara dos versiones.

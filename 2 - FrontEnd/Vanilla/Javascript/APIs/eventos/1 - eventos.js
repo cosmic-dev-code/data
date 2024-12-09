@@ -191,9 +191,10 @@ segundoDiv.addEventListener("click", event => {
 tercerDiv.addEventListener("click", event => {
 	window.alert('Click al tercer elemento div.');
 
-	/* El metodo (stopPropagation) detiene todos los demas eventos del mismo tipo de evento 
-	pertenevientes a los elementos padre que lo contienen. */
+	// El metodo (stopPropagation) detiene los eventos declarados en sus elementos padre.
 	event.stopPropagation();
+	// El metodo (stopImmediatePropagation) detiene los eventos declarados en este mismo elemento.
+	event.stopImmediatePropagation();
 });
 
 /* ##########=======================########## */

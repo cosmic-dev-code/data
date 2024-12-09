@@ -48,7 +48,9 @@ class FormulariosController extends Controller{
 			"fecha" => "date",
 			"fecha" => "date_format:Y-m-d",  
 			# Valida (datetime-local), fecha y hora.
-			"fecha_hora" => "date_format:Y-m-d\TH:i"
+			"fecha_hora" => "date_format:Y-m-d\TH:i", 
+			# Valida un JSON.
+			"json" => "json"
 		],[
 			# Podemos cambiar los mensajes directamente.
 			'nombre.required' => 'El campo nombre es requerido.',

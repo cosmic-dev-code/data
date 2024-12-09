@@ -11,6 +11,7 @@
 let array = new Array();
 let array1 = Array();
 let array2 = [];
+let array3 = Array([]);
 
 // ---------------------------- //
 // ------ Inicializacion ------ //

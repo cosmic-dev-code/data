@@ -48,6 +48,7 @@ let a = document.getElementById("idDiv"); // HTMLDivElement
  * Devuelve las referencias de los elementos coincidentes con la clase especificada.
  */
 let a = document.getElementsByClassName("parrafo"); // HTMLCollection
+	a = document.getElementsByClassName('clase-1 clase-2 clase-3'); // HTMLCollection
 
 /**
  * Devuelve las referencias de los elementos conicidentes con el (name) especificado.

@@ -25,7 +25,7 @@ git branch
 
 # USO REMOTO.
 
-# Vemos un listado de las ramas (remotas) que tenemos.
+# Vemos un listado de las ramas (remotas) que tenemos descargadas.
 git branch -r
 
 # Lista las ramas (locales) y (remotas).
@@ -83,9 +83,14 @@ git merge mi/nueva
 # ------ Eliminar ramas ------ #
 # ---------------------------- #
 
-# Eliminamos la rama (features/nueva_rama).
+# Elimina la rama (features/nueva_rama) solo si: 
+#	--- Los cambios han sido fusionados a la rama (maestra).
+#	--- No tienes cambios pendientes.
 git branch -d features/nueva_rama
 git branch --delete features/nueva_rama
+
+# Fuerza la eliminacion de la rama sin importar loa cambios pendientes.
+git branch -D features/nueva_rama
 
 # ##########====================########## #
 # ######===--- Ejemplo de uso ---===###### #

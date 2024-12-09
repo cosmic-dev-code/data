@@ -1,4 +1,4 @@
-{proyecto}/### ==================================== ###
+### ==================================== ###
 ###### ===--- Ejecutar archivo ---=== ######
 ### ==================================== ###
 
@@ -85,6 +85,9 @@ Para no tener que estar ejecutando el mismo comando ingresamos el siguiente coma
 
 ```bat
 	tsc prueba.ts --watch
+
+	: (--outDir), indica otro directorio de salida de compilacion.
+	tsc ./src/ts/global.ts --outDir ./public/assets/js --watch
 ```
 
 <!-- Esto hara que el archivo este siempre a la escucha, y cada vez que el archivo se este actualizando nuestro codigo 

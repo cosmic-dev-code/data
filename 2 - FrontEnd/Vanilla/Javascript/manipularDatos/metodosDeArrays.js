@@ -134,6 +134,22 @@ arrFrutas.concat("uva"); // ["Manzana", "Pera", "Fresa", "uva"]
 newArray = [...arrFrutas, ...arrVerduras]; // ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"]
 newArray = [...arrFrutas, "uva"]; // ["Manzana", "Pera", "Fresa", "uva"]
 
+/* ##########========================########## */
+/* ######===--- Relleno de cadenas ---===###### */
+/* ##########========================########## */
+
+// Devuelve un array vacio con (10) espacios declarados.
+let array = Array(3); // length 3
+
+// Llena todos los (indices) con el dato especificado.
+array.fill("Llenado"); // ["Llenado", "Llenado", "Llenado"]
+
+// Llena desde el indice 1 hasta el 3, (el 4 no cuenta).
+array.fill("Llenado", 1, 4);
+
+// Crea un array de (3) espacios y los llena con el dato especificado.
+Array(3).fill(10); // [10,10,10]
+
 /* ##########===================########## */
 /* ######===--- Cortar arrays ---===###### */
 /* ##########===================########## */

@@ -93,6 +93,7 @@ El archivo [](public/final.css) no tiene utilidades, debemos *compilar* el archi
 	Rem (src/styles.css), son los archivos de estilos que tambien seran compilados.
 	Rem (public/final.css), indica la salida de la compilacion.
 
+	npx tailwindcss -i src/styles.css -o public/final.css --watch
 	npx tailwindcss build src/styles.css -o public/final.css
 
 	Rem NOTA: Si cambiamos el nombre de nuestro archivo (tailwind.config.js), entonces lo especificamos.

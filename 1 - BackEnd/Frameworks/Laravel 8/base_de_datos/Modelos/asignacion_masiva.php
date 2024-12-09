@@ -63,6 +63,8 @@ class UsuarioController extends Controller{
 	/* ######===--- Registro de asignacion masiva ---===###### */
 	/* ##########===================================########## */
 
+	// Paso por paso.
+
 	public function registrarse_1(Request $request){
 
 		// Ahora omitimos la instancia y el metodo (save), todo se guarda de manera automatica segun cada campo.
@@ -76,6 +78,8 @@ class UsuarioController extends Controller{
 
 		return redirect() -> route("iniciar_sesion", $usuario);
 	}
+
+	// request -> all
 
 	public function registrarse_2(Request $request){
 
