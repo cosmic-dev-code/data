@@ -166,6 +166,14 @@ Curso.objects \
     .join('categorias', 'cursos.categoria_id', '=', 'categorias.id') \
     .values('cursos.*', categoria_nombre='categorias.nombre')
 
+# Realizando el Inner Join implícito.
+Pedido.objects.filter(producto__categoria__id=50) # Pedidos[]
+
+# Para optimizar la consulta y evitar consultas adicionales.
+Pedido.objects \
+    .select_related('producto__categoria') \
+    .filter(producto__categoria__id=50)
+
 # ---------------------- #
 # ------ Replicar ------ #
 # ---------------------- #
