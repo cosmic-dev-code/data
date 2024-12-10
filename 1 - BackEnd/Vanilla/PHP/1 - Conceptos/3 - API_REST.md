@@ -120,7 +120,7 @@
 	    if(isset($params["name"])){
 
 		    $result = $conn -> query("
-		    	UPDATE `users` SET `name`='{$params['name']}' WHERE `id`={$params['id']}
+		    	UPDATE `users` SET `name`='{$params['name']}' WHERE `id`= {$params['id']}
 		    ");
 
 		    if ($result === TRUE) response("Recurso actualizado", 200); // 200 OK
