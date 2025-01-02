@@ -119,6 +119,12 @@ entonces el elemento no se encuentra en el 'array'. */
 arrNumbers.indexOf(3); // Da: 3.
 arrNumbers.indexOf(4); // Da: -1.
 
+// Busca y devuelve el indice del elemento coincidente.
+animals.findIndex(animal => animal === 'elephant'); // 10
+
+// Busca y devuelve el elemento coincidente.
+animals.find(animal => animal === 'elephant'); // "elephant"
+
 /* ##########=======================########## */
 /* ######===--- Concatenar arrays ---===###### */
 /* ##########=======================########## */
