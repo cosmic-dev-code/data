@@ -253,11 +253,22 @@ let nuevoArray = arrNumbers.filter((elemento, indice) => {
 // ------ metodo (reduce) ------ //
 // ----------------------------- //
 
-// El metodo (reduce) permite sumar todos los elementos de un array.
-let suma = arrNumbers.reduce((suma, elemento, indice) => {
-	/* La variable (suma) contendra la suma de todos los elementos. */
+/* El metodo (reduce) recibe dos parametros: 
+	--- El callback que recibira los iteradores.
+	--- El valor inicial para el (accumulador).'
+*/
+
+// Metodo (reduce).
+let suma = arrNumbers.reduce((suma, elemento, indice, arrayCompleto) => {
+	// La variable (suma) representa el (acumulador).
 	return (suma += elemento);
 });
+
+// Significa que el acumulador es un numero.
+arrNumbers.reduce((accumulador) => callback(), 10);
+
+// El (accumulador) es un (array).
+arrNumbers.reduce(accumulador => callback(), []);
 
 /* Da: 
 
@@ -274,12 +285,23 @@ let suma = arrNumbers.reduce((suma, elemento, indice) => {
 // ------ metodo (findIndex) ------ //
 // -------------------------------- //
 
-// (findIndex), mapea los datos y solo devuelve el elemento coincidente.
-const foundAnimal = animals.findIndex(animal => {
-  return animal === 'elephant';
+// (findIndex), mapea los datos y solo devuelve el (indice) del elemento coincidente.
+const indexAnimal = animals.findIndex(animal => {
+	return animal === 'elephant';
 });
 
-foundAnimal; // "elephant"
+indexAnimal; // 10
+
+// --------------------------- //
+// ------ metodo (find) ------ //
+// --------------------------- //
+
+// (find) devuelve el elemento coincidente.
+const foundAnimal = animals.find(animal => {
+	return animal === 'elephant';
+});
+
+foundAnimal; // 'elephant'
 
 // ------------------------------ //
 // ------ metodo (entries) ------ //
