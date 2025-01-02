@@ -123,7 +123,7 @@ Curso::where('edad', 20) -> get(); // Curso[]
 # Trae todos los registros que coincidan con la (condicion) bajo el (orden).
 Curso::where('edad', 20) -> orderBy('id', 'desc') -> get(); // Curso[]
 
-# Trae los registros que contengan en su campo (nombre) la palabra (Brandon).
+# Utilizando (LIKE) en una consulta SQL.
 Curso::where('nombre', 'like', '%Brandon%') -> get(); // Curso[]
 
 # Podemos concatenar mas (WHERE) utilizando (AND).
@@ -138,13 +138,13 @@ Curso::where('nombre', 'like', '%Brandon%')
     ->get();
 
 # Traemos los datos solo si el 'id' es: 
-$curso = Curso::where('id', '>', 9) -> get(); // --- Mayor que 9.
-$curso = Curso::where('id', '>=', 9) -> get(); // --- Mayor o igual a 9.
-$curso = Curso::where('id', '<', 9) -> get(); // --- Menor a 9.
-$curso = Curso::where('id', '<=', 9) -> get(); // --- Menor o igual a 9.
-$curso = Curso::where('id', '=', 9) -> get(); // --- igual a 9.
-$curso = Curso::where('id', '<>', 9) -> get(); // --- diferente a 9.
-$curso = Curso::where('id', '!=', 9) -> get(); // --- diferente a 9.
+Curso::where('id', '>', 9) -> get();   // Mayor > 9.
+Curso::where('id', '>=', 9) -> get();  // Mayor Igual >= 9.
+Curso::where('id', '<', 9) -> get();   // Menor < 9.
+Curso::where('id', '<=', 9) -> get();  // Menor Igual <= 9.
+Curso::where('id', '=', 9) -> get();   // Igual == 9.
+Curso::where('id', '<>', 9) -> get();  // Diferente != 9.
+Curso::where('id', '!=', 9) -> get();  // Diferente != 9.
 
 // (WHERE) y (AND), utilizando un arreglo.
 Curso::where([
