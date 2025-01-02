@@ -154,6 +154,21 @@ Curso::where([
     ['categoria', 'Matemáticas']
 ]) -> get();
 
+// --------------------------- //
+// ------ Comparaciones ------ //
+// --------------------------- //
+
+// Trae los registros concidentes con el array.
+Patient::whereIn('status', ['Unos', 'Dos', 'Tres'])->get();
+
+// Trae los registros que concidan con: 
+//   --- Fecha (mayor o igual).
+//   --- El nombre contenga.
+// Si la fecha es un string, conviértelo a Carbon
+Patient::where('start_date', '>=', Carbon::parse($date))
+    ->where('names', 'like', '%'.$names.'%')
+    ->get();
+
 // -------------------- //
 // ------ Select ------ //
 // -------------------- //
@@ -215,6 +230,15 @@ $cursos = Curso::where('correo', 'like', '%gmail%') -> paginate(3);
 
 // Proporciona los links de la paginacion.
 $cursos -> links();
+
+/* ##########================########## */
+/* ######===--- Relaciones ---===###### */
+/* ##########================########## */
+
+# La tabla (Account), tiene relacion con la tabla (Patient) y extraemos los (patients) si el nombre de la cuenta coincide.
+$patients = Patient::whereHas('account', function($query) use ($name) {
+    $query->where('name', $name);
+})->get();
 
 /* ##########=========================########## */
 /* ######===--- Convertir registros ---===###### */

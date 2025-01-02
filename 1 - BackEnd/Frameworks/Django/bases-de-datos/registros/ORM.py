@@ -138,6 +138,23 @@ Curso.objects.filter(id__lte=9)     # Menor Igual <= 9
 Curso.objects.filter(id=9)          # Igual == 9
 Curso.objects.filter(id__ne=9)      # Diferente != 9
 
+# --------------------------- #
+# ------ Comparaciones ------ #
+# --------------------------- #
+
+# Trae los registros concidentes con la lista.
+Patient.objects.filter(
+    status__in=["Unos", "Dos", "Tres"]
+)
+
+# Trae los registros que concidan con: 
+#   --- Fecha (mayor o igual).
+#   --- El nombre contenga.
+Patient.objects.filter(
+    start_date__gte=date, 
+    names__icontains=names
+)
+
 # -------------------- #
 # ------ Select ------ #
 # -------------------- #
@@ -204,6 +221,13 @@ cursos = Curso.objects.filter(correo__icontains='gmail').paginate(page=1, per_pa
 
 # Proporciona los links de la paginación.
 cursos.paginator.page_range
+
+# ##########================##########
+# ######===--- Relaciones ---===######
+# ##########================##########
+
+# La tabla (Account), tiene relacion con la tabla (Patient) y extraemos los (patients) si el nombre de la cuenta coincide.
+Patient.objects.filter(account__name=name)
 
 # ##########=========================##########
 # ######===--- Convertir registros ---===######
