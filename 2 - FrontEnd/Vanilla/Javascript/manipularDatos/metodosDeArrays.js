@@ -140,9 +140,9 @@ arrFrutas.concat("uva"); // ["Manzana", "Pera", "Fresa", "uva"]
 newArray = [...arrFrutas, ...arrVerduras]; // ["Manzana", "Pera", "Fresa", "Calabaza", "Pepino", "Lechuga"]
 newArray = [...arrFrutas, "uva"]; // ["Manzana", "Pera", "Fresa", "uva"]
 
-/* ##########========================########## */
-/* ######===--- Relleno de cadenas ---===###### */
-/* ##########========================########## */
+/* ##########=======================########## */
+/* ######===--- Relleno de arrays ---===###### */
+/* ##########=======================########## */
 
 // Devuelve un array vacio con (10) espacios declarados.
 let array = Array(3); // length 3

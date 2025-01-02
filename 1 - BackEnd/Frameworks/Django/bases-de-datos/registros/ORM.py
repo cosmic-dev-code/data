@@ -112,34 +112,41 @@ Curso.objects.filter(edad=20)
 # Trae todos los registros que coincidan con la (condición) bajo el (orden).
 Curso.objects.filter(edad=20).order_by('-id')
 
-# Trae los registros que contengan en su campo (nombre) la palabra (Brandon).
+# Utilizando (LIKE) en una consulta SQL.
 Curso.objects.filter(nombre__icontains="Brandon")
 
 # Podemos concatenar más (WHERE) utilizando (AND).
-Curso.objects.filter(nombre__icontains="Brandon", activo=1, categoria="Matemáticas")
+Curso.objects.filter(
+    nombre__icontains="Brandon", 
+    activo=1, 
+    categoria="Matemáticas"
+)
 
 # Podemos concatenar con un (OR).
 from django.db.models import Q
-Curso.objects.filter(Q(nombre__icontains="Brandon") | Q(categoria="Matemáticas"))
+Curso.objects.filter(
+        Q(nombre__icontains="Brandon") 
+    | 
+        Q(categoria="Matemáticas")
+)
 
 # Traemos los datos solo si el 'id' es:
-Curso.objects.filter(id__gt=9)  # Mayor que 9
-Curso.objects.filter(id__gte=9)  # Mayor o igual a 9
-Curso.objects.filter(id__lt=9)  # Menor a 9
-Curso.objects.filter(id__lte=9)  # Menor o igual a 9
-Curso.objects.filter(id=9)  # Igual a 9
-Curso.objects.filter(id__ne=9)  # Diferente a 9
-
-# (WHERE) y (AND), utilizando un diccionario.
-Curso.objects.filter(
-    nombre__icontains="Brandon",
-    activo=1,
-    categoria="Matemáticas"
-)
+Curso.objects.filter(id__gt=9)      # Mayor > 9
+Curso.objects.filter(id__gte=9)     # Mayor Igual >= 9
+Curso.objects.filter(id__lt=9)      # Menor < 9
+Curso.objects.filter(id__lte=9)     # Menor Igual <= 9
+Curso.objects.filter(id=9)          # Igual == 9
+Curso.objects.filter(id__ne=9)      # Diferente != 9
 
 # -------------------- #
 # ------ Select ------ #
 # -------------------- #
+
+'''
+    values(): 
+        Devuelve un queryset que al resolverse devuelve un diccionario: 
+            {'nombre': str, 'correo': str}
+'''
 
 # Trae todos los (nombres) y los (correos).
 Curso.objects.values('nombre', 'correo')
