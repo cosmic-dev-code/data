@@ -14,6 +14,9 @@ create-react-app proyecto
 : NOTA: El primer uso de este comando puede ser mas lento.
 npx create-react-app proyecto
 
+: Crealo por medio de (yarn) si lo prefieres.
+yarn create react-app nombre-del-proyecto
+
 : ------------------------------- :
 : ------ Ejecutar servidor ------ :
 : ------------------------------- :

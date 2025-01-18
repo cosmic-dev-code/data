@@ -177,12 +177,15 @@ string.trimEnd();
 string = "5";
 
 // Rellena al inicio de la cadena con '0' hasta haber 4 caracteres.
-"004".padStart(4, 0); // 0004
-"4".padStart(4, 0); // 0004
+"004".padStart(4, 0); // "0004"
+"4".padStart(4, 0); // "0004"
 
 // Rellena al final de la cadena con '0' hasta haber 4 caracteres.
-"4".padEnd(4, 0); // 4000
-"400".padEnd(4, 0); // 4000
+"4".padEnd(4, 0); // "4000"
+"400".padEnd(4, 0); // "4000"
+
+// (padStart), asegura que siempre hayan 2 digitos, de lo conmtrario rellena al (inicio) con "0".
+String(5).padStart(2, '0') // "05"
 
 /* ##########=======================================########## */
 /* ######===--- Extraer un caracter de una cadena ---===###### */

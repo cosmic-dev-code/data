@@ -44,6 +44,9 @@
 	</x-app-layout>
 ```
 
+# NOTA: El evento [](emit) emite a JS y a PHP, debes asegurarte que el evento que se emite y se recibe sean diferentes.
+# NOTA: No nombres [](emit) y [](on) con el mismo nombre.
+
 ### =========================================== ###
 ###### ===--- JavaScript a Componente ---=== ######
 ### =========================================== ###

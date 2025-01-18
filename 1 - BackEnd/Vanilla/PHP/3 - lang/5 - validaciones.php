@@ -4,6 +4,29 @@
 # ######===--- Validaciones ---===######
 # ##########==================##########
 
+# Verificar tipo de dato
+
+# Un entero.
+is_int(10);  // true
+
+# Un flotante.
+is_float(10.5);  // true
+
+# Una cadena de texto.
+is_string("texto");  // true
+
+# Valor null (nulo).
+is_null(null);  // true
+
+# Numérico (int o float).
+is_numeric(123);  // true
+is_numeric(10.5);  // true
+
+# Una lista (equivalente a un arreglo).
+is_array([1, 2, 3]);  // true
+
+# Verificar si un valor es NaN (Not a Number).
+is_nan("dsgshg"); // false
 
 // Verifica si existe un campo en un (array).
 isset($my_arreglo["campo"]) # bool
@@ -12,19 +35,20 @@ isset($my_arreglo["campo"]) # bool
 # ------ callable ------ #
 # ---------------------- #
 
-def my_function():
-    return "Hello"
+/**
+ * Verifica si algo se puede llamar, (invocar).
+ */
 
-class MyClass:
-    def __call__(self):
-        return "Hello from MyClass"
+// Verificar una funcion.
+//      --- function(){}
+is_callable('miFuncion');
 
-obj = MyClass()
+// Verificar una funcion anonima.
+//      --- $fun = function(){}
+is_callable($fun);
 
-# Verifica si algo se puede llamar, (invocar).
-
-callable(my_function) # True
-callable(obj) # True
+// Verificar un metodo.
+is_callable([$objeto, 'miMetodo']);
 
 /* ##########================########## */
 /* ######===--- Ver tipado ---===###### */

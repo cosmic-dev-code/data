@@ -21,7 +21,7 @@ class User extends Model
     /* (Accesores): Cuando el registro sea traido, el atributo (names) convertira las letras de cada palabra 
     en mayuscula, trayendo asi el registro, mas no lo guarda en la base de datos de esa manera. */
 
-    public function getNameAttribute($value)
+    public function getNamesAttribute($value)
     {
         return ucwords($value)
     }
@@ -35,6 +35,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+// Importamos el casting.
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
 class User extends Model
 {
     use HasFactory;
@@ -43,7 +46,7 @@ class User extends Model
 
     // Mayusculas.
 
-    protected function name():attribute
+    protected function name():Attribute
     {
         return new Attribute(
             // Podemos definir una funcion (normal).
@@ -57,7 +60,7 @@ class User extends Model
 
     // Minusculas.
 
-    protected function name():attribute
+    protected function name():Attribute
     {
         return new Attribute(
             // Podemos definir una funcion (normal).
@@ -75,7 +78,7 @@ class User extends Model
 
     // Funciones normales.
 
-    protected function name():attribute
+    protected function name():Attribute
     {
         return new Attribute(
             set: function($value){
@@ -89,7 +92,7 @@ class User extends Model
 
     // Funciones flecha.
 
-    protected function name():attribute
+    protected function name():Attribute
     {
         return new Attribute(
             set: fn($value) => strtolower($value),

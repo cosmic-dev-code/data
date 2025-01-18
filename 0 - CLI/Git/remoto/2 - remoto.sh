@@ -1,73 +1,9 @@
-# ##########=====================########## #
-# ######===--- Conexion remota ---===###### #
-# ##########=====================########## #
-
-# Para poder conectar con un repositorio remoto, primero debemos generar un (token) en: 
-	# Profile > 
-		# Settings > 
-			# Developer settings > 
-				# Personal access tokens > 
-					# Generate new token > 
-						# Ingresamos un nombre para nuestro token, (Note).
-						# Marcamos la casilla, (repo); podemos marcar mas casillas si queremos.
-						# Luego damos 'click' en (Generate token).
-
-# Esto generara un token que vamos a utilizar para conectarnos a nuestro repositorio remoto.
-
-# ##########============================########## #
-# ######===--- Subir a un repositorio ---===###### #
-# ##########============================########## #
-
-# Primero creas un repositorio con GitHub.
-
-# 1. Click en (Profile) > (Your repositories).
-# 2. Click en el boton (New).
-
-# ------------------------------ #
-# ------ Guardar en local ------ #
-# ------------------------------ #
-
-# Inicias git.
-git init
-
-# Agregas tus archivos al (stage).
-git add .
-
-# Haces tus commits, tambien puedes crear tus ramas y demas.
-git commit -m "Primer cambio"
-
-# ----------------------------------------------- #
-# ------ Conectar con repositorio (remoto) ------ #
-# ----------------------------------------------- #
-
-# Exsiten dos formas de hacerlo.
-
-# 1. ASOCIAR EL DIRECTORIO LOCAL A UN REPOSITORIO REMOTO.
-
-# Le indicamos a git la (url) a la cual subir los archivos
-# Pedira el (token) que debimos haber generado, debemos ingresarlo y continuar.
-git remote add origin https://github.com/{usuario}/{nombre del repositorio}.git
-git remote add origin https://github.com/BrandonAnthony/Web.git
-
-# 1. CLONAR EL REPOSITORIO REMOTO.
-
-# Clona un repositorio (remoto) al repositorio (local) y al directorio de trabajo.
-# Deja la zona (stage) lista para ser utilizada.
-git clone https://github.com/BrandonAnthony/Web.git
-# Clonar en un (directio) especifico o en (mas) de uno.
-git clone https://github.com/BrandonAnthony/Web.git /ruta/a/directorio1
-git clone https://github.com/BrandonAnthony/Web.git /ruta/a/directorio2
-
-# --------------------------------------- #
-# ------ Guardar cambios (remotos) ------ #
-# --------------------------------------- #
+# ##########===============================########## #
+# ######===--- Guardar cambios (remotos) ---===###### #
+# ##########===============================########## #
 
 # Guardas la rama especifica que desees, (en este caso la master).
-# Al repositorio (https://github.com/BrandonAnthony/Web.git) a la rama (master).
 git push -u origin master
-
-# NOTA: Ya debes haber creado tus claves (SSH) en tu ordenador y aberlas dado de alta en tu GitHub.
-# NOTA: Recuerda que el .gitignore ignora todos los archivos y directorios especificados.
 
 # --------------------------------------- #
 # ------ Actualizacion de una rama ------ #
@@ -168,8 +104,9 @@ git show-branch -r
 # NOTA: Si hay conflictos, git pide que los resuelvas manualmente.
 git merge origin/mi-rama-2
 
-# Descarga los cambios actuales de la rama main : (git fetch main)
-# Y los fusiona a tu rama local actual (git merge origin/mi-rama-2)
+# Descarga los cambios actuales de la rama (main) y los fusiona a tu rama (local actual): 
+#	--- git fetch main
+#	--- git merge origin/mi-rama-2
 git pull origin main
 
 # Una forma acortada.
@@ -177,9 +114,8 @@ git pull origin main
 # 	--- pull origin {rama-actual}
 git pull
 
-# Crea una rama local y se mueve a ella.
+# Crea una rama local llamada (mi-nueva-dos) basada en (mi-rama-2) y se mueve a ella.
 #	--- git checkout -b mi-nueva-dos
-# Especifica la rama local (mi-nueva-dos) se basara en la remota (mi-rama-2).
 #	--- git origin/mi-rama-2
 git checkout -b mi-nueva-dos origin/mi-rama-2
 
@@ -197,3 +133,54 @@ git branch -D mi/rama-remota
 
 # (Opcionalmente) puedes borrar tambien la (local).
 git branch --delete features/nueva_rama
+
+# ##########====================########## #
+# ######===--- Hacer (rebase) ---===###### #
+# ##########====================########## #
+
+# ------------------------------ #
+# ------ Cambiar de ramas ------ #
+# ------------------------------ #
+
+# Vemos ramas remotas, digamos que estamos en (mi-rama-2).
+git branch
+
+# Digamos que (release_review) es la rama remota principal, (cambiamos a esa rama).
+git checkout release_review
+
+# Actualizamos la rama trayendo todos los cambios remotos.
+# 	--- git pull
+git pull origin release_review
+
+# Regresamos a nuestra rama.
+git checkout mi-rama-2
+
+# (mi-rama-2) rebasara a (release_review).
+# Si hay cambios git pedira resolverlos manualmente.
+git rebase release_review
+
+# --------------------------------- #
+# ------ Utilizar (--rebase) ------ #
+# --------------------------------- #
+
+# Tu rama local digamos que es (mi-rama-2).
+git branch
+
+# Traer los cambios de la rama remota y hacer rebase sobre ella.
+git pull --rebase origin release_review
+
+# Aborta el (rebase).
+git rebase --abort
+
+# ---------------------------------- #
+# ------ Rebase (interactivo) ------ #
+# ---------------------------------- #
+
+# (mi-rama-2) rebasara a (release_review).
+
+# Este comando abrirá un editor donde podrás seleccionar qué hacer con cada commit, puedes elegir: 
+#	--- "pick" (mantener).
+#	--- "squash" (combinarlos).
+#	--- "edit" (editar).
+#	--- "drop" (eliminar).
+git rebase -i release_review
