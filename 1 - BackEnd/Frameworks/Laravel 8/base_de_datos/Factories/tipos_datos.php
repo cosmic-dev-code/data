@@ -18,35 +18,36 @@ class CursoFactory extends Factory
     public function definition()
     {
         return [
-            "nombre" => $this -> faker -> name(),
+            # Crea un número entero entre 18 y 65.
+            "numero" => $this -> faker -> numberBetween(18, 65), 
             # Crea un nombre por defecto.
-            "mail" => $this -> faker -> unique() -> safeEmail(),
+            "nombre" => $this -> faker -> name(),
             # Crea un correo electronico unico para cada registro.
-            "oracion" => $this -> faker -> sentence(),
+            "mail" => $this -> faker -> unique() -> safeEmail(), 
             # Genera una oracion un poco larga.
-            "texto" => $this -> faker -> text(),
+            "oracion" => $this -> faker -> sentence(),
             # Genera un texto un poco largo.
-            "numero_de_telefono" => $this -> faker -> cellphone(),
+            "texto" => $this -> faker -> text(),
             # Genera un numero de telefono.
-            "edad" => $this -> faker -> randomElement(array(19, 20, 21, 22, 23,24)),
+            "numero_de_telefono" => $this -> faker -> cellphone(),
             # Genera un numero aleatorio flotante.
-            "precio" => $this -> faker -> randomFloat(1, 2, 100), 
+            "edad" => $this -> faker -> randomElement(array(19, 20, 21, 22, 23,24)),
             # Alterna los datos en cada registro.
-            "descripcion" => $this -> faker -> paragraph(),
+            "precio" => $this -> faker -> randomFloat(1, 2, 100), 
             /* El metodo (date) crea una fecha al azar y recibe por parametro: 
                 --- "d", dia.
                 --- "m", mes.
                 --- "Y", year.*/
-            "fecha" => $this -> faker -> date("d_m_Y"), 
+            "descripcion" => $this -> faker -> paragraph(),
             /* El metodo (time) crea una hora al azar y recibe por parametro: 
                 --- "s", segundos.
                 --- "i", minutos.
                 --- "H", horas.*/
-            "fecha" => $this -> faker -> time("H_i_s"), 
+            "fecha" => $this -> faker -> date("d_m_Y"), 
             # Crea un parrafo de texto largo.
-            "estado" => $this -> faker -> state(),
+            "fecha" => $this -> faker -> time("H_i_s"), 
             # Crea un estado ficticio en donde vive el usuario.
-            "id_nacional" => $this -> faker -> nationalId(),
+            "estado" => $this -> faker -> state(),
             /*  --- De la propiedad (faker) mandamos a llmar su metodo (image) el cual 
                 recibe los siguientes parametros: 
                     --- La ruta donde la imagen se va a guardar, en este caso la carpeta 
@@ -56,8 +57,9 @@ class CursoFactory extends Factory
                     --- Define el alto de la imagen.
                     --- Equipos, pero (faker) ya no trabaja con equipos, asi que es null.
                     --- Define en (true) la ruta completa como nombre de la imagen. */
-            "imagen" => $this -> faker -> image('public/images', 640, 480, null, true)
+            "id_nacional" => $this -> faker -> nationalId(),
             # Genera una imagen de (640 x 480) pixeles.
+            "imagen" => $this -> faker -> image('public/images', 640, 480, null, true)
         ];
     }
 }
