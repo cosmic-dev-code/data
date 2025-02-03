@@ -4,9 +4,9 @@
 /* ######===--- ¿Qué es (DataTransfer)? ---===###### */
 /* ##########=============================########## */
 
-/* El objeto DataTransfer se utiliza para contener los datos que se arrastran durante una 
-operación de arrastrar y soltar. Puede contener uno o más elementos de datos, 
-cada uno de uno o más tipos de datos. */
+/**
+ * (DataTransfer) guarda los datos durante una operación de (arrastrar) y (soltar).
+ */
 
 /* ##########=================########## */
 /* ######===--- Propiedades ---===###### */
@@ -31,10 +31,10 @@ dataTransfer.effectAllowed;
  * NOTA: Cuando se refiere a (link) se refiere a (vincular).
  */
 
-/* Contiene una lista de todos los archivos locales de la transferencia de datos. */
+// Contiene una lista de todos los archivos locales de la transferencia de datos.
 const files = dataTransfer.files;
 
-/* Manipula la lista de archivos (files). */
+// Manipula la lista de archivos (File[]).
 const items = dataTransfer.items;
 
 /**
@@ -105,15 +105,14 @@ dataTransfer.clearData();
 // ------ Obtener datos ------ //
 // --------------------------- //
 
-// Retorna el 'string almacenado', si no existe la (key), entonces retorna una cadena vacia.
-dataTransfer.getData("text/plain");
+// Retorna el dato especificado.
+dataTransfer.getData("text/plain"); // string
 
 // Devuelve los tipos o (keys) de los (datos).
-let arrTipos = dataTransfer.types;
+let arrTipos = dataTransfer.types; // string[]
 
 // Obtenemos todos los datos.
 let array = new Array();
-
 for(let i in dataTransfer.types){
 	array.push([
 		dataTransfer.types[i],
@@ -215,7 +214,6 @@ let arrTipos = dataTransfer.types;
 
 // Obtenemos todos los datos.
 let array = new Array();
-
 for(let i = 0; i < dataTransfer.items.length; i++){
 	array.push([
 		dataTransfer.items[i].type,

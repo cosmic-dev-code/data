@@ -270,12 +270,6 @@ let suma = arrNumbers.reduce((suma, elemento, indice, arrayCompleto) => {
 	return (suma += elemento);
 });
 
-// Significa que el acumulador es un numero.
-arrNumbers.reduce((accumulador) => callback(), 10);
-
-// El (accumulador) es un (array).
-arrNumbers.reduce(accumulador => callback(), []);
-
 /* Da: 
 
 	Array(1) =>  [10] => 5
@@ -286,6 +280,12 @@ arrNumbers.reduce(accumulador => callback(), []);
 
 	Resultado retornado: (105).
 */
+
+// Significa que el acumulador es un numero.
+arrNumbers.reduce((accumulador) => {}, 10);
+
+// El (accumulador) es un (array).
+arrNumbers.reduce(accumulador => {}, []);
 
 // -------------------------------- //
 // ------ metodo (findIndex) ------ //

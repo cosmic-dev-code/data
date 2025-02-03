@@ -6,6 +6,8 @@ textarea::-webkit-scrollbar{
 	background-color: blue;
 	/* Modo horizontal. */
 	width: 10px;
+	/* Modo vertical. */
+	height: 10px;
 	/* Borde. */
 	border: 1px solid black;
 }
