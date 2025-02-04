@@ -37,6 +37,18 @@
 			$this -> identificador = round();
 		}
 
+		// -------------------------------------- //
+		// ------ Propiedades de la imagen ------ //
+		// -------------------------------------- //
+
+		public function propiedades_de_imagen()
+		{
+			# Muestra la (url) de donde se esta subiendo la imagen.
+			#
+			# NOTA: Por razones de seguridad (temporaryUrl) solo se admite para cargar imagenes.
+			$this -> image -> temporaryUrl();
+		}
+
 		// ------------------------------ //
 		// ------ Subir una imagen ------ //
 		// ------------------------------ //
@@ -83,18 +95,6 @@
 			}
 
 			$this -> reiniciar();
-		}
-
-		// -------------------------------------- //
-		// ------ Propiedades de la imagen ------ //
-		// -------------------------------------- //
-
-		public function propiedades_de_imagen()
-		{
-			# Muestra la (url) de donde se esta subiendo la imagen.
-			#
-			# NOTA: Por razones de seguridad (temporaryUrl) solo se admite para cargar imagenes.
-			$this -> image -> temporaryUrl();
 		}
 
 	    public function render()
