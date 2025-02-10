@@ -27,7 +27,12 @@ class UserController extends Controller {
 		# Muestra la verdadera ruta del archivo.
 		$file -> getRealPath();
 
-		# Muestra la dimension del archivo.
+		/*  Muestra la dimension del archivo en (Bytes).
+				--- Bytes: Valor inicial.
+				--- Bytes / 1024: KB.
+				--- KB / 1024: MB.
+				--- MB / 1024: GB.
+		*/
 		$file -> getSize();
 
 		# Muestra tipo de (mime) del archivo.

@@ -72,7 +72,12 @@ file.lastModifiedDate; // "Tue Mar 22 2022 22:10:43 GMT-0700".
 file.name; // imagen.jpeg
 // Ruta alternativa, (si el archivo se elegio desde dentro de una carpeta).
 file.webkitRelativePath;
-// Devuelve el peso del archivo en (KB).
+/* Devuelve el peso del archivo en (Bytes).
+		--- Bytes: Valor inicial.
+		--- Bytes / 1024: KB.
+		--- KB / 1024: MB.
+		--- MB / 1024: GB.
+*/
 file.size;
 
 /**
