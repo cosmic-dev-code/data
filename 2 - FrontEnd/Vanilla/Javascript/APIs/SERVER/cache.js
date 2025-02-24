@@ -130,6 +130,7 @@ if(window.caches){
 
 	// Extraemos todos los caches que hay, en este caso solo tenemos uno, (version-1).
 	caches.keys().then(response => {
-		console.log("Los keys: "+response); // Imprimimos los caches devueltos.
+		// Imprimimos los caches devueltos.
+		console.log("Los keys: "+response);
 	});
 }
