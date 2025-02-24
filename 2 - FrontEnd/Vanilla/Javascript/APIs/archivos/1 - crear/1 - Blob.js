@@ -198,3 +198,7 @@ function archivoPDF(){
 
 	descarga(url, "document.pdf");
 }
+
+/**
+ * NOTA: Dado que un PDF son datos binarios, no puedes crearlo a mano.
+ */
