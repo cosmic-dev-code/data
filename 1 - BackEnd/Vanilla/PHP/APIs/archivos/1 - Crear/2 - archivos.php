@@ -195,7 +195,6 @@ file_put_contents(
 
 $contenido = file("js/indice.js");
 
-
 // Leer el arreglo, (cada salto de linea es un elemento del arreglo).
 print_r($contenido);
 /*

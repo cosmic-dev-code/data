@@ -14,7 +14,10 @@ echo $response;
 /* ##########=====================########## */
 
 // Datos a enviar.
-$data = array('name' => 'Harrison Ford', 'email' => 'harrisonford@example.com');
+$data = array(
+	'name' => 'Harrison Ford', 
+	'email' => 'harrisonford@example.com'
+);
 
 // Ajustes de la peticion.
 $options = array(
