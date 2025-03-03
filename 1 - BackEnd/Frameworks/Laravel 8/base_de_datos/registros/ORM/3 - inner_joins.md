@@ -24,13 +24,13 @@
 # ----------------- #
 
 ```sql
-    # Selecciona todo de (patients) y le suma (groups).
+    -- Selecciona todo de (patients) y le suma (groups).
     SELECT DISTINCT * FROM `patients` JOIN `groups` 
 
-    # Compara la llave foranea de (patients) con el (id) 1.
+    -- Compara la llave foranea de (patients) con el (id) 1.
     ON `patients`.`group_id` = `groups`.`id`
 
-    # Solo el primer grupo y pacientes activos.
+    -- Solo el primer grupo y pacientes activos.
     WHERE `groups`.`id` = 1 AND `patients`.`active` = true;
 ```
 
@@ -71,11 +71,11 @@
 # ------------------------------- #
 
 ```sql
-    # Traer comentarios relacionados al Post.
+    -- Traer comentarios relacionados al Post.
     SELECT DISTINCT * FROM `posts` JOIN `comments` 
     ON `comments`.`post_id` = `posts`.`id`
 
-    # Solo comentarios con mas de (10 palabras).
+    -- Solo comentarios con mas de (10 palabras).
     WHERE (
         LENGTH(`comments`.`comment`) - 
         # Excluyendo los espacios para validar solo palabras.
