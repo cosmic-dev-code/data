@@ -1,94 +1,122 @@
-<?php
 
-/* ##########================================########## */
-/* ######===--- Relacion 1:1 (Polimorfica) ---===###### */
-/* ##########================================########## */
+### ============================================== ###
+###### ===--- Relacion 1:1 (Polimorfica) ---=== ######
+### ============================================== ###
 
-namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+```php
+    namespace App\Models;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-/* Este es el modelo que tiene una (polimorfica). */
+    class Image extends Model
+    {
+        protected $guarded = [];
+        use HasFactory;
 
-class Image extends Model
-{
-    protected $guarded = [];
-    use HasFactory;
-
-    # Creamos un metodo dentro del modelo de la tabla (polimorfica).
-    public function imageable(){
-        /* Devolvemos el metodo polimorfico, (la relacion depende de 
-        los otros modelos). */
-        return $this -> morphTo();
+        /**
+         * Relacion polimorfica: La imagen puede pertenecer a varios modelos (User, Post, etc.)
+         */
+        public function imageable(){
+            // Relación polimórfica, (depende de otros modelos).
+            return $this -> morphTo();
+        }
     }
-}
+```
 
-# --------------------------------------------------------------- #
-# ------ Relacion (1:1) polimorfica desde el modelo (User) ------ #
-# --------------------------------------------------------------- #
+# --------------------------------------- #
+# ------ A la inversa desde (User) ------ #
+# --------------------------------------- #
 
-namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+```php
+    namespace App\Models;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
-{
-    use HasFactory;
+    class User extends Model
+    {
+        use HasFactory;
 
-    protected $table = "users";
+        protected $table = "users";
 
-    # Relacion (1:1) polimorfica.
-    public function image(){
-        /* Debemos especificar no solo elmodelo al cual queremos enlazar la 
-        la relacion (polimorfica), sino tambien el metodo dentro dentro 
-        de ese modelo que hara el enlace polimorfico, en este caso 
-        de eso se encarga el metodo (imageable) en el modelo 
-        (Image). */
-        return $this -> morphOne('App\Models\Image', 'imageable');
+        /**
+         * Relacion (1:1) polimorfica.
+         * Un usuario puede tener una imagen asociada.
+         */
+        public function image(){
+            // Relación polimórfica (uno a uno).
+            return $this -> morphOne('App\Models\Image', 'imageable');
+        }
+
     }
+```
 
-}
+# --------------------------------------- #
+# ------ A la inversa desde (Post) ------ #
+# --------------------------------------- #
 
-# --------------------------------------------------------------- #
-# ------ Relacion (1:1) polimorfica desde el modelo (Post) ------ #
-# --------------------------------------------------------------- #
+```php
+    namespace App\Models;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-namespace App\Models;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    class Post extends Model
+    {
+        use HasFactory;
 
-/* Esta es nuestro otro modelo que enlaza su tabla a la tabla 
-del modelo (polimorfico Image). */
-
-class Post extends Model
-{
-    use HasFactory;
-
-    // Relacion (1:1) polimorfica.
-    public function image(){
-        /* Hacemos el enlace polimorfico especificando por sus dos parametros 
-        la ruta del modelo con la tabla (polimorfica) y el metodo 
-        perteneciente a ese modelo encargado de hacer 
-        la conexion polimorfica. */
-        return $this -> morphOne('App\Models\Image', 'imageable');
+        /**
+         * Relacion (1:1) polimorfica.
+         * Un post puede tener una imagen asociada.
+         */
+        public function image(){
+            // Relación polimórfica (uno a uno).
+            return $this -> morphOne('App\Models\Image', 'imageable');
+        }
     }
-}
+```
 
-# ---------------------------------- #
-# ------ Utilizar los metodos ------ #
-# ---------------------------------- #
+# ----------------------- #
+# ------ Consultas ------ #
+# ----------------------- #
 
-    /* Los metodos pueden ser utilizados de la siguiente manera. */
+```php
 
-    use App\Models\Image;
+    /**
+     * Relacionar.
+     */
 
-    Image::create([
-        'url' => 'Url 1',
-        'imageable_id' => 1,
-        'imageable_type' => 'App\Models\User'
+    // Crear una imagen asociada a un usuario.
+    $image = Image::create([
+        'url' => 'https://example.com/image.jpg',
+        'imageable_id' => 1,                        // ID del usuario
+        'imageable_type' => 'App\Models\User',      // Tipo de modelo
     ]);
 
-    $user -> image() -> create(['url' => 'Url 1']);
+    // Crear una imagen asociada a un post.
+    $image = Image::create([
+        'url' => 'https://example.com/image.jpg',
+        'imageable_id' => 1,                        // ID del post
+        'imageable_type' => 'App\Models\Post',      // Tipo de modelo
+    ]);
+
+    // Alternativamente, si ya tienes una instancia de usuario o post, puedes usar el método polimórfico directamente:
+    $user->image()->create(['url' => 'https://example.com/image.jpg']);
+    $post->image()->create(['url' => 'https://example.com/image.jpg']);
+
+    /**
+     * Consultas.
+     */
+
+    $post = Post::find(1);
+    $user = User::find(1);
+
+    // Obtiene la imagen asociada.
+    $user -> image;
+    $post -> image;
+
+    // Traer registros con la relacion en cada registro.
+    User::with('image') -> get();
+    Post::with('image') -> get();
+```
 
 /* ##########================================########## */
 /* ######===--- Relacion 1:N (Polimorfica) ---===###### */
