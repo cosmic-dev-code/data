@@ -56,6 +56,10 @@ foreach($array as $valor){
     // ...
 }
 
+foreach($array as $indice => $valor){
+    // ...
+}
+
 // Iterando un array asosiativo.
 
 $assoc = array(

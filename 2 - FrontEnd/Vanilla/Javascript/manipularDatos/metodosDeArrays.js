@@ -264,7 +264,20 @@ let nuevoArray = arrNumbers.filter((elemento, indice) => {
 	--- El valor inicial para el (accumulador).'
 */
 
-// Metodo (reduce).
+// Significa que el acumulador es un numero.
+arrNumbers.reduce((accumulador) => {
+	return accumulador;
+}, 10);
+
+// El (accumulador) es un (array).
+arrNumbers.reduce(accumulador => {
+	return accumulador;
+}, []);
+
+/**
+ * Ejemplo Basico.
+ */
+
 let suma = arrNumbers.reduce((suma, elemento, indice, arrayCompleto) => {
 	// La variable (suma) representa el (acumulador).
 	return (suma += elemento);
@@ -280,12 +293,6 @@ let suma = arrNumbers.reduce((suma, elemento, indice, arrayCompleto) => {
 
 	Resultado retornado: (105).
 */
-
-// Significa que el acumulador es un numero.
-arrNumbers.reduce((accumulador) => {}, 10);
-
-// El (accumulador) es un (array).
-arrNumbers.reduce(accumulador => {}, []);
 
 // -------------------------------- //
 // ------ metodo (findIndex) ------ //

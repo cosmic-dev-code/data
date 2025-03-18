@@ -158,10 +158,10 @@ $string = ".  Esta es una cadena   ";
 # Remueve el exceso de espacios.
 trim($string);
 
-# Renueve solo el espacio del lado izquierdo del texto.
+# Remueve solo el espacio del lado izquierdo del texto.
 ltrim($string);
 
-# Renueve solo el espacio del lado derecho del texto.
+# Remueve solo el espacio del lado derecho del texto.
 rtrim($string);
 
 # Elimina las etiquetas 'html'.
@@ -182,11 +182,10 @@ $code = 39;
  * Detro de la variable 'code' se guarda el nuevo texto con los 
  * elementos agregados:
  * 
- *  --- El primer parametro es el valor al cual se le desea agregar elementos.
- *  --- El segundo parametro define hasta que longitud se va a agregar 
- *      el nuevo elemento.
- *  --- El tercer parametro es el elemento que se va a agregar.
- *  --- El cuarto parametro define a donde se van a agregar el elemento: 
+ *  --- Valor al cual se le desea agregar elementos.
+ *  --- Define hasta que longitud se va a agregar el nuevo elemento.
+ *  --- Elemento que se va a agregar.
+ *  --- Define a donde se van a agregar el elemento: 
  *         --- (STR_PAD_BOTH), define a ambos lados del valor.
  *         --- (STR_PAD_LEFT), define a la izquierda del valor.
  *         --- (STR_PAD_RIGHT), define a la derecha del valor.
