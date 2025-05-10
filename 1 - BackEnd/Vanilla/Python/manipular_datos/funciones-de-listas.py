@@ -253,6 +253,7 @@ def mapeado(x):
 		--- La lista.
 '''
 list(map(mapeado, lista)) # [1, 4, 9, 16, 25]
+
 list(filter(lambda x: x**2, lista))
 
 # ------------------------------ #
@@ -269,6 +270,7 @@ def filtrar(x):
 		--- La lista.
 '''
 list(filter(filtrar, lista)) # [3, 4, 5]
+
 list(filter(lambda x: x > 2, lista))
 
 # --------------------------- #

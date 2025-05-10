@@ -81,6 +81,7 @@ La convencion en Laravel es:
 
         /**
          * Este metodo trae el registro relacionado a este modelo (1:1).
+         *      --- ENTIDAD FUERTE.
          */
         public function profile(){
 
@@ -121,6 +122,7 @@ La convencion en Laravel es:
 
         /**
          * Este metodo trae el registro relacionado a este modelo (1:1).
+         *      --- ENTIDAD DEBIL.
          */
         public function user(){
 
@@ -138,6 +140,16 @@ La convencion en Laravel es:
             return $user
         }
     }
+```
+
+```php
+    
+    // Ejecuta directamente el query.
+    $user -> profile -> description;
+
+    // Devuelve el query builder.
+    $user -> profile();
+
 ```
 
 # NOTA: Por convencion el metodo a la relacion debe ser (user) en singular.

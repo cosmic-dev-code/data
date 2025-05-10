@@ -86,9 +86,9 @@ str_contains($mensaje, "Hello"); //
 /* ##########=======================########## */
 
 /*
-  --- El primer parametro es la variable o cadena.
-  --- El segundo parametro indica desde que posicion se va a substraer la cadena.
-  --- El tercer parametro indica cuantos caracteres se van a substraer. */
+  --- Variable o cadena.
+  --- Desde que posicion se va a substraer la cadena.
+  --- Cuantos caracteres se van a substraer. */
 substr("Hello world!", 12, 6);
 
 # Extrar el resto de la cadena desde el indice indicado.
